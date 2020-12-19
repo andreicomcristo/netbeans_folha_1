@@ -9,7 +9,6 @@ import java.sql.SQLException;
 
 public class ConnectionFactory {
 
-
     
     // Conexao com postgres
     
