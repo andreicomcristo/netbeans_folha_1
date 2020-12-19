@@ -22,7 +22,7 @@ public class DaoCH_SEMANAL {
 
      Connection con = null;
 
-    public boolean inserirCH(CH_SEMANAL ch_semanal){
+    public boolean inserir_CH_SEMANAL(CH_SEMANAL ch_semanal){
                 boolean executou = false;
 		try {
 			con = ConnectionFactory.getConnection();
@@ -115,7 +115,7 @@ public class DaoCH_SEMANAL {
     return executou;    
     }
          
-    public List<CH_SEMANAL> selectCH() {
+    public List<CH_SEMANAL> selecionar_CH_SEMANAL() {
 
         List<CH_SEMANAL> listaConsulta = new ArrayList<CH_SEMANAL>();
 

@@ -17,11 +17,9 @@ import java.awt.AWTKeyStroke;
 import java.awt.KeyboardFocusManager;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.KeyStroke;
 import javax.swing.table.DefaultTableModel;
@@ -34,6 +32,7 @@ public class CadastroCH_SEMANAL extends javax.swing.JFrame {
 
 
     CadastroCH_SEMANAL CADASTRODECH;
+    acoesCadastroCH_SEMANAL acoesCadastroCH_SEMANAL;
     String USUARIO;
     String PROVILEGIO;
     String SETOR;
@@ -70,6 +69,8 @@ this.setFocusTraversalKeys(KeyboardFocusManager.FORWARD_TRAVERSAL_KEYS, forwardK
         jTable1 = new javax.swing.JTable();
         jButton5 = new javax.swing.JButton();
         jButton12 = new javax.swing.JButton();
+        jTextField2 = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Cadastro de Carga Horária");
@@ -77,14 +78,14 @@ this.setFocusTraversalKeys(KeyboardFocusManager.FORWARD_TRAVERSAL_KEYS, forwardK
 
         jLabel1.setFont(new java.awt.Font("Bookman Old Style", 0, 18)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Cadastro de Carga Horária");
+        jLabel1.setText("Cadastro de Carga Horária Semanal");
         getContentPane().add(jLabel1);
         jLabel1.setBounds(200, 20, 320, 20);
 
         jLabel2.setFont(new java.awt.Font("Bookman Old Style", 0, 11)); // NOI18N
-        jLabel2.setText("Carga Horária");
+        jLabel2.setText("Descrição Carga Horária");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(20, 60, 210, 14);
+        jLabel2.setBounds(290, 60, 210, 14);
 
         jTextField1.addKeyListener(new KeyAdapter() {   
             public void keyTyped(KeyEvent e) { // <- alteração   
@@ -135,13 +136,13 @@ this.setFocusTraversalKeys(KeyboardFocusManager.FORWARD_TRAVERSAL_KEYS, forwardK
                 if(e.getKeyChar()=='z'){e.setKeyChar('Z');}
 
                 char c = e.getKeyChar();
-                if ('A' <= c && c <= 'Z' || 'a' <= c && c <= 'z' || '0' <= c && c <= '9' || (c == KeyEvent.VK_BACK_SPACE)|| (c == KeyEvent.VK_SPACE)){}else   
+                if (/*'A' <= c && c <= 'Z' || 'a' <= c && c <= 'z' ||*/ '0' <= c && c <= '9' || (c == KeyEvent.VK_BACK_SPACE) /*|| (c == KeyEvent.VK_SPACE)*/){}else   
                 {e.setKeyChar('\0');}   
             }   
         });  
         jTextField1.setFont(new java.awt.Font("Bookman Old Style", 0, 10)); // NOI18N
         getContentPane().add(jTextField1);
-        jTextField1.setBounds(230, 60, 480, 19);
+        jTextField1.setBounds(120, 60, 150, 20);
 
         jButton1.setFont(new java.awt.Font("Bookman Old Style", 0, 11)); // NOI18N
         jButton1.setText("Cadastrar");
@@ -171,7 +172,7 @@ this.setFocusTraversalKeys(KeyboardFocusManager.FORWARD_TRAVERSAL_KEYS, forwardK
 
             },
             new String [] {
-                "Carga Horária"
+                "SEQ","CH","DESCRICAO"
             }
         ));
         jTable1.setRowHeight(14);
@@ -199,8 +200,15 @@ this.setFocusTraversalKeys(KeyboardFocusManager.FORWARD_TRAVERSAL_KEYS, forwardK
         });
         getContentPane().add(jButton12);
         jButton12.setBounds(380, 130, 330, 21);
+        getContentPane().add(jTextField2);
+        jTextField2.setBounds(450, 60, 260, 20);
 
-        setSize(new java.awt.Dimension(729, 379));
+        jLabel3.setFont(new java.awt.Font("Bookman Old Style", 0, 11)); // NOI18N
+        jLabel3.setText("Carga Horária");
+        getContentPane().add(jLabel3);
+        jLabel3.setBounds(20, 60, 210, 14);
+
+        setSize(new java.awt.Dimension(745, 408));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -212,46 +220,34 @@ this.setFocusTraversalKeys(KeyboardFocusManager.FORWARD_TRAVERSAL_KEYS, forwardK
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
 
-       String ch = jTextField1.getText().toString().toUpperCase();
-      
-
-       DaoCh daoCh = new DaoCh();
-
-       List<CH> listaJaCadastrado = new ArrayList<CH>();
-       listaJaCadastrado = daoCh.selectCH(ch);
+        int SEQ_CH_SEMANAL  = 0;
+        int CH  = 0;
+        if(!jTextField1.getText().toString().equals("")){
+            CH = Integer.parseInt(jTextField1.getText().toString());
+        }
+        String DESCRICAO_CH  = jTextField2.getText().toString().toUpperCase();
+        CH_SEMANAL ch_semanal = new CH_SEMANAL(SEQ_CH_SEMANAL, CH, DESCRICAO_CH);
+        acoesCadastroCH_SEMANAL.cadastrar(ch_semanal);
        
-       if(listaJaCadastrado.isEmpty()){
-       daoCh.inserirCH(ch);
-       }else{JOptionPane.showMessageDialog(null, "Carga Horária "+ch+" já está cadastrado.");}
-       
-       preencherJtable1d();
-       
-       jTextField1.setText("");
-       jTextField1.requestFocus();
-
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
-       DaoCh daoCh = new DaoCh();
        
-       String ch = "";
-       
-       if(jTable1.getSelectedRowCount()==1){
-       
-       ch = jTable1.getValueAt(jTable1.getSelectedRow(), 0).toString();
-       
-       }
-       
-       daoCh.excluirCH(ch);
-       jButton12.doClick();
+        int SEQ_CH_SEMANAL  = Integer.parseInt(jTable1.getValueAt(jTable1.getSelectedRow(), 0).toString());
+        int CH  = 0;
+        String DESCRICAO_CH  = "";
+        CH_SEMANAL ch_semanal = new CH_SEMANAL(SEQ_CH_SEMANAL, CH, DESCRICAO_CH);
+        acoesCadastroCH_SEMANAL.excluir(ch_semanal);
+        
+        
 
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
         // TODO add your handling code here:
 
-        preencherJtable1d();
+        preencherJtable1d(acoesCadastroCH_SEMANAL.selecionar());
 }//GEN-LAST:event_jButton12ActionPerformed
 
     /**
@@ -270,38 +266,26 @@ this.setFocusTraversalKeys(KeyboardFocusManager.FORWARD_TRAVERSAL_KEYS, forwardK
 
    
 
-    public void preencherJtable1d(  ){
+    public void preencherJtable1d(List<CH_SEMANAL> dados  ){
 
-        DaoCh daoCh = new DaoCh();
-
-        jTable1.getColumnModel().getColumn(0).setPreferredWidth(680);
-        
+        jTable1.getColumnModel().getColumn(0).setPreferredWidth(200);
+        jTable1.getColumnModel().getColumn(1).setPreferredWidth(200);
+        jTable1.getColumnModel().getColumn(2).setPreferredWidth(280);
        
-
         jTable1.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
 
         DefaultTableModel modelo = (DefaultTableModel)jTable1.getModel();
         modelo.setNumRows(0);
+ 
+        for ( CH_SEMANAL pessoa : dados) {
 
-        List <CH> dados = daoCh.selectCH();
-        
-        for ( CH pessoa : dados) {
-
-            Object[] linha = new Object[] { pessoa.getCh()};
+            Object[] linha = new Object[] { pessoa.getSEQ_CH_SEMANAL(), pessoa.getCH(), pessoa.getDESCRICAO_CH()};
             modelo.addRow(linha);
 
         }
  }
 
    
-
-
-
-
-
-
-
-
 
 
 
@@ -312,10 +296,12 @@ this.setFocusTraversalKeys(KeyboardFocusManager.FORWARD_TRAVERSAL_KEYS, forwardK
     private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
     // End of variables declaration//GEN-END:variables
 
 }
