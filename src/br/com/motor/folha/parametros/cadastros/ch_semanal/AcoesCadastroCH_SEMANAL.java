@@ -3,8 +3,11 @@
  * and open the template in the editor.
  */
 
-package br.com.folha.parametros.cadastros.ch_semanal;
+package br.com.motor.folha.parametros.cadastros.ch_semanal;
 
+import br.com.dao.folha.parametros.cadastros.ch_semanal.DaoCH_SEMANAL;
+import br.com.bean.folha.parametros.cadastros.ch_semanal.CH_SEMANAL;
+import br.com.view.folha.parametros.cadastros.ch_semanal.CadastroCH_SEMANAL;
 import java.util.List;
 
 /**

@@ -1,6 +1,6 @@
 
 
-package br.com.conexao.banco;
+package br.com.aconexao.banco.postgres;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

@@ -3,9 +3,10 @@
  * and open the template in the editor.
  */
 
-package br.com.folha.parametros.cadastros.ch_semanal;
+package br.com.dao.folha.parametros.cadastros.ch_semanal;
 
-import br.com.conexao.banco.ConnectionFactory;
+import br.com.bean.folha.parametros.cadastros.ch_semanal.CH_SEMANAL;
+import br.com.aconexao.banco.postgres.ConnectionFactory;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

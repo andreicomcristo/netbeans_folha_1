@@ -9,10 +9,12 @@
  * Created on 08/12/2009, 08:35:08
  */
 
-package br.com.folha.parametros.cadastros.ch_semanal;
+package br.com.view.folha.parametros.cadastros.ch_semanal;
 
 
 
+import br.com.motor.folha.parametros.cadastros.ch_semanal.AcoesCadastroCH_SEMANAL;
+import br.com.bean.folha.parametros.cadastros.ch_semanal.CH_SEMANAL;
 import java.awt.AWTKeyStroke;
 import java.awt.KeyboardFocusManager;
 import java.awt.event.KeyAdapter;

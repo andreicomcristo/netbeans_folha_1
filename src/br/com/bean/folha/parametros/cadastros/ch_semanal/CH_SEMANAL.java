@@ -3,7 +3,7 @@
  * and open the template in the editor.
  */
 
-package br.com.folha.parametros.cadastros.ch_semanal;
+package br.com.bean.folha.parametros.cadastros.ch_semanal;
 
 
 

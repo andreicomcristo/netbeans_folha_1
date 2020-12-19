@@ -5,7 +5,7 @@
  */
 package folha;
 
-import br.com.folha.parametros.cadastros.ch_semanal.AcoesCadastroCH_SEMANAL;
+import br.com.motor.folha.parametros.cadastros.ch_semanal.AcoesCadastroCH_SEMANAL;
 
 /**
  *
