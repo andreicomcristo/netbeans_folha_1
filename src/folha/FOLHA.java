@@ -5,6 +5,8 @@
  */
 package folha;
 
+import br.com.folha.parametros.cadastros.ch_semanal.AcoesCadastroCH_SEMANAL;
+
 /**
  *
  * @author ANDREI
@@ -16,6 +18,10 @@ public class FOLHA {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+    
+        AcoesCadastroCH_SEMANAL acoesCadastroCH_SEMANAL = new AcoesCadastroCH_SEMANAL();
+        acoesCadastroCH_SEMANAL.abrirFrame();
+    
     }
     
 }

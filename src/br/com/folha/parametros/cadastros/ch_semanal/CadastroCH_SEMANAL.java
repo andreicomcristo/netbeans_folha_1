@@ -9,7 +9,7 @@
  * Created on 08/12/2009, 08:35:08
  */
 
-package folha.parametros.cadastros.classe;
+package br.com.folha.parametros.cadastros.ch_semanal;
 
 
 
@@ -31,21 +31,20 @@ import javax.swing.table.DefaultTableModel;
 public class CadastroCH_SEMANAL extends javax.swing.JFrame {
 
 
-    CadastroCH_SEMANAL CADASTRODECH;
-    acoesCadastroCH_SEMANAL acoesCadastroCH_SEMANAL;
-    String USUARIO;
-    String PROVILEGIO;
-    String SETOR;
-
-
-    public void setDadosiniciais(){}
+    CadastroCH_SEMANAL cadastroCH_SEMANAL;
+    AcoesCadastroCH_SEMANAL acoesCadastroCH_SEMANAL;
+    
+    public void setDadosIniciais(CadastroCH_SEMANAL cadastroCH_SEMANAL, AcoesCadastroCH_SEMANAL acoesCadastroCH_SEMANAL){
+        this.cadastroCH_SEMANAL = cadastroCH_SEMANAL;
+        this.acoesCadastroCH_SEMANAL = acoesCadastroCH_SEMANAL;  
+    }   
     
     /** Creates new form CadastroDeUsuarios */
     public CadastroCH_SEMANAL() {
        
-         Set<AWTKeyStroke> forwardKeys = new HashSet<AWTKeyStroke>(this.getFocusTraversalKeys(KeyboardFocusManager.FORWARD_TRAVERSAL_KEYS));
-forwardKeys.add(KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, 0));
-this.setFocusTraversalKeys(KeyboardFocusManager.FORWARD_TRAVERSAL_KEYS, forwardKeys);
+        Set<AWTKeyStroke> forwardKeys = new HashSet<AWTKeyStroke>(this.getFocusTraversalKeys(KeyboardFocusManager.FORWARD_TRAVERSAL_KEYS));
+        forwardKeys.add(KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, 0));
+        this.setFocusTraversalKeys(KeyboardFocusManager.FORWARD_TRAVERSAL_KEYS, forwardKeys);
 
         initComponents();
     }
@@ -222,11 +221,12 @@ this.setFocusTraversalKeys(KeyboardFocusManager.FORWARD_TRAVERSAL_KEYS, forwardK
 
         int SEQ_CH_SEMANAL  = 0;
         int CH  = 0;
-        if(!jTextField1.getText().toString().equals("")){
-            CH = Integer.parseInt(jTextField1.getText().toString());
+        if(!jTextField1.getText().equals("")){
+            CH = Integer.parseInt(jTextField1.getText());
         }
-        String DESCRICAO_CH  = jTextField2.getText().toString().toUpperCase();
+        String DESCRICAO_CH  = jTextField2.getText().toUpperCase();
         CH_SEMANAL ch_semanal = new CH_SEMANAL(SEQ_CH_SEMANAL, CH, DESCRICAO_CH);
+
         acoesCadastroCH_SEMANAL.cadastrar(ch_semanal);
        
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -261,11 +261,7 @@ this.setFocusTraversalKeys(KeyboardFocusManager.FORWARD_TRAVERSAL_KEYS, forwardK
         });
     }
 
-
-
-
-   
-
+    
     public void preencherJtable1d(List<CH_SEMANAL> dados  ){
 
         jTable1.getColumnModel().getColumn(0).setPreferredWidth(200);

@@ -3,7 +3,7 @@
  * and open the template in the editor.
  */
 
-package folha.parametros.cadastros.classe;
+package br.com.folha.parametros.cadastros.ch_semanal;
 
 
 

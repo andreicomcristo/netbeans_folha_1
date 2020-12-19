@@ -1,6 +1,6 @@
 
 
-package conexao.banco;
+package br.com.conexao.banco;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

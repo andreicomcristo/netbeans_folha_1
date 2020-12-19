@@ -3,7 +3,7 @@
  * and open the template in the editor.
  */
 
-package folha.parametros.cadastros.classe;
+package br.com.folha.parametros.cadastros.ch_semanal;
 
 import java.util.List;
 
@@ -11,18 +11,24 @@ import java.util.List;
  *
  * @author andrei
  */
-public class acoesCadastroCH_SEMANAL {
-
-    CadastroCH_SEMANAL CADASTRODECH;
+public class AcoesCadastroCH_SEMANAL {
+    
     int SEQ_OPERADOR;
     int SEQ_PRIVILEGIO;
-    
-    
-    acoesCadastroCH_SEMANAL acoesCadastroCH_SEMANAL;
+        
+    AcoesCadastroCH_SEMANAL acoesCadastroCH_SEMANAL;
     CadastroCH_SEMANAL cadastroCH_SEMANAL;
     CH_SEMANAL ch_semanal = new CH_SEMANAL();
     DaoCH_SEMANAL daoCH_SEMANAL = new DaoCH_SEMANAL();
     
+    
+    public void abrirFrame(){
+        acoesCadastroCH_SEMANAL = this;
+        CadastroCH_SEMANAL c = new CadastroCH_SEMANAL();
+        cadastroCH_SEMANAL = c;
+        c.setDadosIniciais(cadastroCH_SEMANAL, this);
+        c.setVisible(true);
+    }
     
     public boolean cadastrar(CH_SEMANAL ch_semanal){
         boolean executou = false;

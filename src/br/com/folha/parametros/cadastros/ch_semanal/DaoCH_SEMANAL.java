@@ -3,9 +3,9 @@
  * and open the template in the editor.
  */
 
-package folha.parametros.cadastros.classe;
+package br.com.folha.parametros.cadastros.ch_semanal;
 
-import conexao.banco.ConnectionFactory;
+import br.com.conexao.banco.ConnectionFactory;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
