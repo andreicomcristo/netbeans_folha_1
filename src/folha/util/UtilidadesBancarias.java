@@ -13,7 +13,7 @@ public class UtilidadesBancarias {
 
     
     //UTILIDADES DE BANCARIAS
-    public String retornaDigitoVerificadorDaAgencia(String agenciaSemDigito, String COD_BANCO){
+    public String retornaDigitoVerificadorDaAgencia(String agenciaSemDigito, String codigoDoBanco){
     
     String resposta = "";
     boolean acaoValida = true;
@@ -23,7 +23,7 @@ public class UtilidadesBancarias {
     if(acaoValida == true){
     
                 // para banco do brasil
-                if(COD_BANCO.equalsIgnoreCase("001")){
+                if(codigoDoBanco.equalsIgnoreCase("001")){
                     int D1 = Integer.parseInt(agenciaSemDigito.substring(0, 1));
                     int D2 = Integer.parseInt(agenciaSemDigito.substring(1, 2));
                     int D3 = Integer.parseInt(agenciaSemDigito.substring(2, 3));
@@ -57,7 +57,7 @@ public class UtilidadesBancarias {
                 
                 
                 // para banco BRADESCO
-                if(COD_BANCO.equalsIgnoreCase("237")){
+                if(codigoDoBanco.equalsIgnoreCase("237")){
                     int D1 = Integer.parseInt(agenciaSemDigito.substring(0, 1));
                     int D2 = Integer.parseInt(agenciaSemDigito.substring(1, 2));
                     int D3 = Integer.parseInt(agenciaSemDigito.substring(2, 3));

@@ -103,12 +103,12 @@ public class UtilidadesDeCalendarioEEscala {
         
     }
     
-    public int quantidadeDeDiasNoMes(String MES_DA_ESCALA){
+    public int quantidadeDeDiasNoMes(String mesDaEscala){
     
         int resposta = 0;
 
-            boolean bisexto = anoBisexto(Integer.parseInt(MES_DA_ESCALA.substring(0, 4)));
-            int mes = Integer.parseInt(MES_DA_ESCALA.substring(4, 6));
+            boolean bisexto = anoBisexto(Integer.parseInt(mesDaEscala.substring(0, 4)));
+            int mes = Integer.parseInt(mesDaEscala.substring(4, 6));
 
             if(bisexto==true && mes == 2){resposta = 29;}
             if(bisexto==false && mes == 2){resposta = 28;}
@@ -128,12 +128,12 @@ public class UtilidadesDeCalendarioEEscala {
     
     }
     
-    public int quantidadeDeDiasNoMesAnterior(String MES_DA_ESCALA){
+    public int quantidadeDeDiasNoMesAnterior(String mesDaEscala){
     
         int resposta = 0;
 
-        int anoAtual = Integer.parseInt(MES_DA_ESCALA.substring(0, 4));
-        int mesAtual = Integer.parseInt(MES_DA_ESCALA.substring(4, 6));
+        int anoAtual = Integer.parseInt(mesDaEscala.substring(0, 4));
+        int mesAtual = Integer.parseInt(mesDaEscala.substring(4, 6));
         
         if(mesAtual==1){anoAtual = anoAtual-1; mesAtual = 12;}else{mesAtual = mesAtual-1;}
         
@@ -142,10 +142,10 @@ public class UtilidadesDeCalendarioEEscala {
         
         if(mesAnterior.length()==1){mesAnterior = "0"+mesAnterior;}
         
-        MES_DA_ESCALA = anoAnterior+""+mesAnterior;
+        mesDaEscala = anoAnterior+""+mesAnterior;
         
-            boolean bisexto = anoBisexto(Integer.parseInt(MES_DA_ESCALA.substring(0, 4)));
-            int mes = Integer.parseInt(MES_DA_ESCALA.substring(4, 6));
+            boolean bisexto = anoBisexto(Integer.parseInt(mesDaEscala.substring(0, 4)));
+            int mes = Integer.parseInt(mesDaEscala.substring(4, 6));
 
             if(bisexto==true && mes == 2){resposta = 29;}
             if(bisexto==false && mes == 2){resposta = 28;}
@@ -165,12 +165,12 @@ public class UtilidadesDeCalendarioEEscala {
     
     }
     
-    public int quantidadeDeDiasDeSemanaNoMes(String MES_DA_ESCALA, int QUANTIDADE_DIAS_NO_MES){
+    public int quantidadeDeDiasDeSemanaNoMes(String mesDaEscala, int quantidadeDeDiasNoMes){
         int resposta = 0;
-        for(int i=0;i<QUANTIDADE_DIAS_NO_MES;i++){
+        for(int i=0;i<quantidadeDeDiasNoMes;i++){
             int dia = (i+1);
-            int mes = Integer.parseInt(MES_DA_ESCALA.substring(4, 6))-1;
-            int ano = Integer.parseInt(MES_DA_ESCALA.substring(0, 4))-1900;
+            int mes = Integer.parseInt(mesDaEscala.substring(4, 6))-1;
+            int ano = Integer.parseInt(mesDaEscala.substring(0, 4))-1900;
             java.sql.Date data = new java.sql.Date(ano, mes, dia);
             int DIA = data.getDay();
             if(DIA!=0 && DIA!=6 ){resposta = resposta+1;}

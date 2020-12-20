@@ -62,65 +62,57 @@ public class UtilidadesDeTexto {
     return resposta;
     }
     
-    public boolean validaTexto(String TEXTO){
+    public boolean validaTexto(String texto){
 
     boolean resposta = true;
 
-if (TEXTO.length()>0) {
+if (texto.length()>0) {
 
+    if(texto.length()>=1 && texto.substring(0, 1).equalsIgnoreCase(" ")){resposta = false;}
 
-    if(TEXTO.length()>=1 && TEXTO.substring(0, 1).equalsIgnoreCase(" ")){resposta = false;}
+    if(texto.length()>=1 && texto.substring(texto.length()-1, texto.length()).equalsIgnoreCase(" ")){resposta = false;}
 
-    if(TEXTO.length()>=1 && TEXTO.substring(TEXTO.length()-1, TEXTO.length()).equalsIgnoreCase(" ")){resposta = false;}
-
-    if(TEXTO.length()>=2){
+    if(texto.length()>=2){
           String subTexto = "";
           int j = 0;
-        for(int i=0; i< TEXTO.length()-1; i++){
-            subTexto = TEXTO.substring(TEXTO.length() -j -2, TEXTO.length()-j);
+        for(int i=0; i< texto.length()-1; i++){
+            subTexto = texto.substring(texto.length() -j -2, texto.length()-j);
             
             if(subTexto.equalsIgnoreCase("  ")){resposta = false;}
             j++;
         }
         }
-
-
-
-
    }
-
-
-
     return resposta;
 
     }
     
-    public boolean textoLocalizado(String TEXTO, String TEXTO_PROCURADO){
+    public boolean textoLocalizado(String texto, String textoProcurado){
 
     boolean resposta = false;
 
-if (TEXTO.length()>0) {
+if (texto.length()>0) {
 
 
-    if(TEXTO.length()>=TEXTO_PROCURADO.length()){
+    if(texto.length()>=textoProcurado.length()){
     
-    if(TEXTO.length()>=2){
+    if(texto.length()>=2){
           String subTexto = "";
           int j = 0;
-        for(int i=0; i< TEXTO.length()-TEXTO_PROCURADO.length(); i++){
+        for(int i=0; i< texto.length()-textoProcurado.length(); i++){
             
-            subTexto = TEXTO.substring(j , TEXTO_PROCURADO.length()+j);
+            subTexto = texto.substring(j , textoProcurado.length()+j);
            
             
-            if(subTexto.equalsIgnoreCase(TEXTO_PROCURADO)){resposta = true;}
+            if(subTexto.equalsIgnoreCase(textoProcurado)){resposta = true;}
             j++;
         }
         }
 
-    String subTexto = TEXTO.substring(TEXTO.length() - TEXTO_PROCURADO.length() ,TEXTO.length() );
-    if(subTexto.equalsIgnoreCase(TEXTO_PROCURADO)){resposta = true;}
-    if(TEXTO_PROCURADO.equalsIgnoreCase("") && !TEXTO.equalsIgnoreCase("")){resposta = false;}
-    if(!TEXTO_PROCURADO.equalsIgnoreCase("") && TEXTO.equalsIgnoreCase("")){resposta = false;}
+    String subTexto = texto.substring(texto.length() - textoProcurado.length() ,texto.length() );
+    if(subTexto.equalsIgnoreCase(textoProcurado)){resposta = true;}
+    if(textoProcurado.equalsIgnoreCase("") && !texto.equalsIgnoreCase("")){resposta = false;}
+    if(!textoProcurado.equalsIgnoreCase("") && texto.equalsIgnoreCase("")){resposta = false;}
 
 
    }
@@ -131,27 +123,18 @@ if (TEXTO.length()>0) {
 
     }
     
-    public void escreverTexto(String Texto){
-
-   
-
+    public void escreverTexto(String texto){
         Robot robo;
 
         try{
 
-       
-
             robo = new Robot();
 
-           
+        if(texto.length()>0){
 
-            
+            for (int i=0;i<texto.length();i++){
 
-        if(Texto.length()>0){
-
-            for (int i=0;i<Texto.length();i++){
-
-                String caracter = Texto.substring(i, i+1);
+                String caracter = texto.substring(i, i+1);
 
                
 
@@ -313,27 +296,10 @@ if (TEXTO.length()>0) {
 
                 
 
-                
-
-                
-
-                
-
-                
-
- 
-
- 
-
- 
-
             }
 
         }
 
-       
-
-        
 
         }catch(Exception e){JOptionPane.showMessageDialog(null, e.getMessage());}
 
