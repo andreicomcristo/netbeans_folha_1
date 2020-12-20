@@ -13,7 +13,7 @@ package folha.view.br.com.parametros.cadastros.ch_semanal;
 
 
 
-import folha.control.br.com.parametros.cadastros.ch_semanal.AcoesCadastroCH_SEMANAL;
+import folha.control.br.com.parametros.cadastros.ch_semanal.AcoesCadastroCargaHorariaSemanal;
 import folha.model.br.com.parametros.cadastros.ch_semanal.CargaHorariaSemanal;
 import java.awt.AWTKeyStroke;
 import java.awt.KeyboardFocusManager;
@@ -31,19 +31,19 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author aom
  */
-public class CadastroCH_SEMANAL extends javax.swing.JFrame {
+public class CadastroCargaHorariaSemanal extends javax.swing.JFrame {
 
 
-    CadastroCH_SEMANAL cadastroCH_SEMANAL;
-    AcoesCadastroCH_SEMANAL acoesCadastroCH_SEMANAL;
+    CadastroCargaHorariaSemanal cadastroCH_SEMANAL;
+    AcoesCadastroCargaHorariaSemanal acoesCadastroCH_SEMANAL;
     
-    public void setDadosIniciais(CadastroCH_SEMANAL cadastroCH_SEMANAL, AcoesCadastroCH_SEMANAL acoesCadastroCH_SEMANAL){
+    public void setDadosIniciais(CadastroCargaHorariaSemanal cadastroCH_SEMANAL, AcoesCadastroCargaHorariaSemanal acoesCadastroCH_SEMANAL){
         this.cadastroCH_SEMANAL = cadastroCH_SEMANAL;
         this.acoesCadastroCH_SEMANAL = acoesCadastroCH_SEMANAL;  
     }   
     
     /** Creates new form CadastroDeUsuarios */
-    public CadastroCH_SEMANAL() {
+    public CadastroCargaHorariaSemanal() {
        
         Set<AWTKeyStroke> forwardKeys = new HashSet<AWTKeyStroke>(this.getFocusTraversalKeys(KeyboardFocusManager.FORWARD_TRAVERSAL_KEYS));
         forwardKeys.add(KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, 0));
@@ -272,7 +272,7 @@ public class CadastroCH_SEMANAL extends javax.swing.JFrame {
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new CadastroCH_SEMANAL().setVisible(true);
+                new CadastroCargaHorariaSemanal().setVisible(true);
             }
         });
     }

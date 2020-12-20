@@ -9,7 +9,7 @@ package folha.control.br.com.parametros.cadastros.ch_semanal;
 import folha.dao.br.com.parametros.cadastros.ch_semanal.DaoCargaHorariaSemanal;
 import folha.model.br.com.parametros.cadastros.ch_semanal.CargaHorariaSemanal;
 import folha.util.UtilidadesDeTexto;
-import folha.view.br.com.parametros.cadastros.ch_semanal.CadastroCH_SEMANAL;
+import folha.view.br.com.parametros.cadastros.ch_semanal.CadastroCargaHorariaSemanal;
 import java.util.List;
 import javax.swing.JOptionPane;
 
@@ -17,13 +17,13 @@ import javax.swing.JOptionPane;
  *
  * @author andrei
  */
-public class AcoesCadastroCH_SEMANAL {
+public class AcoesCadastroCargaHorariaSemanal {
     
     int SEQ_OPERADOR;
     int SEQ_PRIVILEGIO;
         
-    AcoesCadastroCH_SEMANAL acoesCadastroCH_SEMANAL;
-    CadastroCH_SEMANAL cadastroCH_SEMANAL;
+    AcoesCadastroCargaHorariaSemanal acoesCadastroCH_SEMANAL;
+    CadastroCargaHorariaSemanal cadastroCH_SEMANAL;
     CargaHorariaSemanal ch_semanal = new CargaHorariaSemanal();
     DaoCargaHorariaSemanal daoCH_SEMANAL = new DaoCargaHorariaSemanal();
     UtilidadesDeTexto utilidadesDeTexto = new UtilidadesDeTexto();
@@ -31,7 +31,7 @@ public class AcoesCadastroCH_SEMANAL {
     
     public void abrirFrame(){
         acoesCadastroCH_SEMANAL = this;
-        CadastroCH_SEMANAL c = new CadastroCH_SEMANAL();
+        CadastroCargaHorariaSemanal c = new CadastroCargaHorariaSemanal();
         cadastroCH_SEMANAL = c;
         c.setDadosIniciais(cadastroCH_SEMANAL, this);
         c.setVisible(true);
