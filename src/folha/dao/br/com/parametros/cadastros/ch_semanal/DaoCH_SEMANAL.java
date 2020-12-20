@@ -1,0 +1,162 @@
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+package folha.dao.br.com.parametros.cadastros.ch_semanal;
+
+import folha.model.br.com.parametros.cadastros.ch_semanal.CH_SEMANAL;
+import folha.aconexao.br.com.banco.postgres.ConnectionFactory;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.JOptionPane;
+
+/**
+ *
+ * @author andrei
+ */
+public class DaoCH_SEMANAL {
+
+     Connection con = null;
+
+    public boolean inserir_CH_SEMANAL(CH_SEMANAL ch_semanal){
+                boolean executou = false;
+		try {
+			con = ConnectionFactory.getConnection();
+                                                                            // nome da tebela
+			PreparedStatement stmt = con.prepareStatement("insert into public.CH_SEMANAL (CH, DESCRICAO_CH ) values ( ?,? )");
+
+            stmt.setInt(1, ch_semanal.getCH());
+            stmt.setString(2, ch_semanal.getDESCRICAO_CH());
+
+			stmt.execute();
+			stmt.close();
+
+			con.close();
+                        executou = true;
+                        
+		} catch (Exception e) {
+                    executou = false;
+                    JOptionPane.showMessageDialog(null, e.getMessage());
+			e.printStackTrace();
+		} finally{
+
+			try{
+				con.close();
+
+			}catch (SQLException e){JOptionPane.showMessageDialog(null, e.getMessage());
+			}
+                }
+    return executou;    
+    }
+    
+    public boolean excluir_CH_SEMANAL(CH_SEMANAL ch_semanal){
+                boolean executou = false;
+		try {
+			con = ConnectionFactory.getConnection();
+                                                                            // nome da tebela
+			PreparedStatement stmt = con.prepareStatement("DELETE FROM public.CH_SEMANAL where public.CH_SEMANAL.CH = ? ");
+
+                        stmt.setInt(1, ch_semanal.getSEQ_CH_SEMANAL());
+
+			stmt.execute();
+			stmt.close();
+
+			con.close();
+                        executou = true;
+
+		} catch (SQLException e) {
+                    executou = false;
+                    JOptionPane.showMessageDialog(null, e.getMessage());
+			e.printStackTrace();
+		} finally{
+
+			try{
+				con.close();
+
+			}catch (SQLException e){JOptionPane.showMessageDialog(null, e.getMessage());
+			}
+                }
+    return executou;    
+    }
+
+    public boolean alterar_CH_SEMANAL(CH_SEMANAL ch_semanal){
+                boolean executou = false;
+		try {
+			con = ConnectionFactory.getConnection();
+                                                                            // nome da tebela
+			PreparedStatement stmt = con.prepareStatement("UPDATE public.CH_SEMANAL set CH = ?, DESCRICAO_CH = ?  where public.CH_SEMANAL.SEQ_CH_SEMANAL = ? ");
+
+                        stmt.setInt(1, ch_semanal.getCH());
+                        stmt.setString(2, ch_semanal.getDESCRICAO_CH());
+                        stmt.setInt(3, ch_semanal.getSEQ_CH_SEMANAL());
+
+			stmt.execute();
+			stmt.close();
+
+			con.close();
+                        executou = true;
+
+		} catch (SQLException e) {
+                    executou = false;
+                    JOptionPane.showMessageDialog(null, e.getMessage());
+			e.printStackTrace();
+		} finally{
+
+			try{
+				con.close();
+
+			}catch (SQLException e){JOptionPane.showMessageDialog(null, e.getMessage());
+			}
+                }
+    return executou;    
+    }
+         
+    public List<CH_SEMANAL> selecionar_CH_SEMANAL() {
+
+        List<CH_SEMANAL> listaConsulta = new ArrayList<CH_SEMANAL>();
+
+     try {
+
+
+       con = ConnectionFactory.getConnection();
+
+         try {
+
+             PreparedStatement stmt = con.prepareStatement("select SEQ_CH_SEMANAL, CH, DESCRICAO_CH from public.CH_SEMANAL order by CH");
+
+              
+
+             ResultSet rs = stmt.executeQuery();
+
+             while(rs.next()) {
+
+                   int SEQ_CH_SEMANAL = rs.getInt("SEQ_CH_SEMANAL");
+                   int CH = rs.getInt("CH");
+                   String DESCRICAO_CH = rs.getString("DESCRICAO_CH");
+
+                 listaConsulta.add(new CH_SEMANAL(SEQ_CH_SEMANAL, CH, DESCRICAO_CH));
+
+             }
+
+         } finally {
+             try {
+                 con.close();
+             } catch (SQLException e) {JOptionPane.showMessageDialog(null, e.getMessage());
+                 e.printStackTrace();
+             }
+         }
+     } catch (SQLException e) {JOptionPane.showMessageDialog(null, e.getMessage());
+         e.printStackTrace();
+     }
+
+     return listaConsulta;
+
+ }
+
+
+}
