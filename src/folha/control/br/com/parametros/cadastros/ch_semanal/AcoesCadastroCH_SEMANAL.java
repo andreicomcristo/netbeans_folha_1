@@ -5,8 +5,9 @@
 
 package folha.control.br.com.parametros.cadastros.ch_semanal;
 
-import folha.dao.br.com.parametros.cadastros.ch_semanal.DaoCH_SEMANAL;
-import folha.model.br.com.parametros.cadastros.ch_semanal.CH_SEMANAL;
+
+import folha.dao.br.com.parametros.cadastros.ch_semanal.DaoCargaHorariaSemanal;
+import folha.model.br.com.parametros.cadastros.ch_semanal.CargaHorariaSemanal;
 import folha.util.UtilidadesDeTexto;
 import folha.view.br.com.parametros.cadastros.ch_semanal.CadastroCH_SEMANAL;
 import java.util.List;
@@ -23,8 +24,8 @@ public class AcoesCadastroCH_SEMANAL {
         
     AcoesCadastroCH_SEMANAL acoesCadastroCH_SEMANAL;
     CadastroCH_SEMANAL cadastroCH_SEMANAL;
-    CH_SEMANAL ch_semanal = new CH_SEMANAL();
-    DaoCH_SEMANAL daoCH_SEMANAL = new DaoCH_SEMANAL();
+    CargaHorariaSemanal ch_semanal = new CargaHorariaSemanal();
+    DaoCargaHorariaSemanal daoCH_SEMANAL = new DaoCargaHorariaSemanal();
     UtilidadesDeTexto utilidadesDeTexto = new UtilidadesDeTexto();
     
     
@@ -93,7 +94,7 @@ public class AcoesCadastroCH_SEMANAL {
             return executou;
     }
     
-    public List<CH_SEMANAL> selecionar(){
+    public List<CargaHorariaSemanal> selecionar(){
         List dados =daoCH_SEMANAL.selecionar_CH_SEMANAL();
         return dados;
     }

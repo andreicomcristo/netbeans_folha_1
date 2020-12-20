@@ -11,7 +11,7 @@ import folha.control.br.com.parametros.cadastros.ch_semanal.AcoesCadastroCH_SEMA
  *
  * @author ANDREI
  */
-public class FOLHA {
+public class Folha {
 
     /**
      * @param args the command line arguments
@@ -19,9 +19,9 @@ public class FOLHA {
     public static void main(String[] args) {
         // TODO code application logic here
     
-        AcoesCadastroCH_SEMANAL acoesCadastroCH_SEMANAL = new AcoesCadastroCH_SEMANAL();
-        acoesCadastroCH_SEMANAL.abrirFrame();
-    
+        AcoesCadastroCH_SEMANAL acoesCadastroChSemanal = new AcoesCadastroCH_SEMANAL();
+        acoesCadastroChSemanal.abrirFrame();
+    //aa
     }
     
 }

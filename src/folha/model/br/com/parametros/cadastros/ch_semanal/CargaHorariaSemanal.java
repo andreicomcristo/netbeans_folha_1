@@ -11,17 +11,17 @@ package folha.model.br.com.parametros.cadastros.ch_semanal;
  *
  * @author andrei
  */
-public class CH_SEMANAL {
+public class CargaHorariaSemanal {
 
 
    int SEQ_CH_SEMANAL;
    int CH;
    String DESCRICAO_CH;
 
-    public CH_SEMANAL() {
+    public CargaHorariaSemanal() {
     }
 
-    public CH_SEMANAL(int SEQ_CH_SEMANAL, int CH, String DESCRICAO_CH) {
+    public CargaHorariaSemanal(int SEQ_CH_SEMANAL, int CH, String DESCRICAO_CH) {
         this.SEQ_CH_SEMANAL = SEQ_CH_SEMANAL;
         this.CH = CH;
         this.DESCRICAO_CH = DESCRICAO_CH;

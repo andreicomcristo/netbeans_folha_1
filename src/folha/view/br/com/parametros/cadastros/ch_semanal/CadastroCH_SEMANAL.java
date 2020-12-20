@@ -14,7 +14,7 @@ package folha.view.br.com.parametros.cadastros.ch_semanal;
 
 
 import folha.control.br.com.parametros.cadastros.ch_semanal.AcoesCadastroCH_SEMANAL;
-import folha.model.br.com.parametros.cadastros.ch_semanal.CH_SEMANAL;
+import folha.model.br.com.parametros.cadastros.ch_semanal.CargaHorariaSemanal;
 import java.awt.AWTKeyStroke;
 import java.awt.KeyboardFocusManager;
 import java.awt.event.KeyAdapter;
@@ -278,7 +278,7 @@ public class CadastroCH_SEMANAL extends javax.swing.JFrame {
     }
 
     
-    public void preencherJtable1d(List<CH_SEMANAL> dados  ){
+    public void preencherJtable1d(List<CargaHorariaSemanal> dados  ){
 
         jTable1.getColumnModel().getColumn(0).setPreferredWidth(200);
         jTable1.getColumnModel().getColumn(1).setPreferredWidth(200);
@@ -289,7 +289,7 @@ public class CadastroCH_SEMANAL extends javax.swing.JFrame {
         DefaultTableModel modelo = (DefaultTableModel)jTable1.getModel();
         modelo.setNumRows(0);
  
-        for ( CH_SEMANAL pessoa : dados) {
+        for ( CargaHorariaSemanal pessoa : dados) {
 
             Object[] linha = new Object[] { pessoa.getSEQ_CH_SEMANAL(), pessoa.getCH(), pessoa.getDESCRICAO_CH()};
             modelo.addRow(linha);
