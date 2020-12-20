@@ -5,7 +5,7 @@
 
 package folha.dao.br.com.parametros.cadastros.ch_semanal;
 
-import folha.model.br.com.parametros.cadastros.ch_semanal.CH_SEMANAL;
+import folha.model.br.com.parametros.cadastros.ch_semanal.CargaHorariaSemanal;
 import folha.aconexao.br.com.banco.postgres.ConnectionFactory;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -19,11 +19,11 @@ import javax.swing.JOptionPane;
  *
  * @author andrei
  */
-public class DaoCH_SEMANAL {
+public class DaoCargaHorariaSemanal {
 
      Connection con = null;
 
-    public boolean inserir_CH_SEMANAL(CH_SEMANAL ch_semanal){
+    public boolean inserir_CH_SEMANAL(CargaHorariaSemanal ch_semanal){
                 boolean executou = false;
 		try {
 			con = ConnectionFactory.getConnection();
@@ -54,7 +54,7 @@ public class DaoCH_SEMANAL {
     return executou;    
     }
     
-    public boolean excluir_CH_SEMANAL(CH_SEMANAL ch_semanal){
+    public boolean excluir_CH_SEMANAL(CargaHorariaSemanal ch_semanal){
                 boolean executou = false;
 		try {
 			con = ConnectionFactory.getConnection();
@@ -84,7 +84,7 @@ public class DaoCH_SEMANAL {
     return executou;    
     }
 
-    public boolean alterar_CH_SEMANAL(CH_SEMANAL ch_semanal){
+    public boolean alterar_CH_SEMANAL(CargaHorariaSemanal ch_semanal){
                 boolean executou = false;
 		try {
 			con = ConnectionFactory.getConnection();
@@ -116,9 +116,9 @@ public class DaoCH_SEMANAL {
     return executou;    
     }
          
-    public List<CH_SEMANAL> selecionar_CH_SEMANAL() {
+    public List<CargaHorariaSemanal> selecionar_CH_SEMANAL() {
 
-        List<CH_SEMANAL> listaConsulta = new ArrayList<CH_SEMANAL>();
+        List<CargaHorariaSemanal> listaConsulta = new ArrayList<CargaHorariaSemanal>();
 
      try {
 
@@ -139,7 +139,7 @@ public class DaoCH_SEMANAL {
                    int CH = rs.getInt("CH");
                    String DESCRICAO_CH = rs.getString("DESCRICAO_CH");
 
-                 listaConsulta.add(new CH_SEMANAL(SEQ_CH_SEMANAL, CH, DESCRICAO_CH));
+                 listaConsulta.add(new CargaHorariaSemanal(SEQ_CH_SEMANAL, CH, DESCRICAO_CH));
 
              }
 

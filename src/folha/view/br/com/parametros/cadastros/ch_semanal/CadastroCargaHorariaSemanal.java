@@ -13,8 +13,8 @@ package folha.view.br.com.parametros.cadastros.ch_semanal;
 
 
 
-import folha.control.br.com.parametros.cadastros.ch_semanal.AcoesCadastroCH_SEMANAL;
-import folha.model.br.com.parametros.cadastros.ch_semanal.CH_SEMANAL;
+import folha.control.br.com.parametros.cadastros.ch_semanal.AcoesCadastroCargaHorariaSemanal;
+import folha.model.br.com.parametros.cadastros.ch_semanal.CargaHorariaSemanal;
 import java.awt.AWTKeyStroke;
 import java.awt.KeyboardFocusManager;
 import java.awt.event.KeyAdapter;
@@ -30,19 +30,19 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author aom
  */
-public class CadastroCH_SEMANAL extends javax.swing.JFrame {
+public class CadastroCargaHorariaSemanal extends javax.swing.JFrame {
 
 
-    CadastroCH_SEMANAL cadastroCH_SEMANAL;
-    AcoesCadastroCH_SEMANAL acoesCadastroCH_SEMANAL;
+    CadastroCargaHorariaSemanal cadastroCH_SEMANAL;
+    AcoesCadastroCargaHorariaSemanal acoesCadastroCH_SEMANAL;
     
-    public void setDadosIniciais(CadastroCH_SEMANAL cadastroCH_SEMANAL, AcoesCadastroCH_SEMANAL acoesCadastroCH_SEMANAL){
+    public void setDadosIniciais(CadastroCargaHorariaSemanal cadastroCH_SEMANAL, AcoesCadastroCargaHorariaSemanal acoesCadastroCH_SEMANAL){
         this.cadastroCH_SEMANAL = cadastroCH_SEMANAL;
         this.acoesCadastroCH_SEMANAL = acoesCadastroCH_SEMANAL;  
     }   
     
     /** Creates new form CadastroDeUsuarios */
-    public CadastroCH_SEMANAL() {
+    public CadastroCargaHorariaSemanal() {
        
         Set<AWTKeyStroke> forwardKeys = new HashSet<AWTKeyStroke>(this.getFocusTraversalKeys(KeyboardFocusManager.FORWARD_TRAVERSAL_KEYS));
         forwardKeys.add(KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, 0));
@@ -153,7 +153,7 @@ public class CadastroCH_SEMANAL extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton1);
-        jButton1.setBounds(20, 90, 690, 23);
+        jButton1.setBounds(20, 90, 690, 26);
 
         jButton4.setFont(new java.awt.Font("Bookman Old Style", 0, 11)); // NOI18N
         jButton4.setText("Sair");
@@ -163,7 +163,7 @@ public class CadastroCH_SEMANAL extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton4);
-        jButton4.setBounds(20, 310, 690, 23);
+        jButton4.setBounds(20, 310, 690, 26);
         getContentPane().add(jSeparator1);
         jSeparator1.setBounds(20, 40, 690, 10);
 
@@ -190,7 +190,7 @@ public class CadastroCH_SEMANAL extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton5);
-        jButton5.setBounds(20, 130, 330, 21);
+        jButton5.setBounds(20, 130, 330, 25);
 
         jButton12.setFont(new java.awt.Font("Bookman Old Style", 0, 10)); // NOI18N
         jButton12.setText("Busca");
@@ -200,7 +200,7 @@ public class CadastroCH_SEMANAL extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton12);
-        jButton12.setBounds(380, 130, 330, 21);
+        jButton12.setBounds(380, 130, 330, 25);
         getContentPane().add(jTextField2);
         jTextField2.setBounds(450, 60, 260, 20);
 
@@ -227,7 +227,7 @@ public class CadastroCH_SEMANAL extends javax.swing.JFrame {
             CH = Integer.parseInt(jTextField1.getText());
         }
         String DESCRICAO_CH  = jTextField2.getText().toUpperCase();
-        CH_SEMANAL ch_semanal = new CH_SEMANAL(SEQ_CH_SEMANAL, CH, DESCRICAO_CH);
+        CargaHorariaSemanal ch_semanal = new CargaHorariaSemanal(SEQ_CH_SEMANAL, CH, DESCRICAO_CH);
 
         acoesCadastroCH_SEMANAL.cadastrar(ch_semanal);
        
@@ -239,7 +239,7 @@ public class CadastroCH_SEMANAL extends javax.swing.JFrame {
         int SEQ_CH_SEMANAL  = Integer.parseInt(jTable1.getValueAt(jTable1.getSelectedRow(), 0).toString());
         int CH  = 0;
         String DESCRICAO_CH  = "";
-        CH_SEMANAL ch_semanal = new CH_SEMANAL(SEQ_CH_SEMANAL, CH, DESCRICAO_CH);
+        CargaHorariaSemanal ch_semanal = new CargaHorariaSemanal(SEQ_CH_SEMANAL, CH, DESCRICAO_CH);
         acoesCadastroCH_SEMANAL.excluir(ch_semanal);
         
         
@@ -258,13 +258,13 @@ public class CadastroCH_SEMANAL extends javax.swing.JFrame {
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new CadastroCH_SEMANAL().setVisible(true);
+                new CadastroCargaHorariaSemanal().setVisible(true);
             }
         });
     }
 
     
-    public void preencherJtable1d(List<CH_SEMANAL> dados  ){
+    public void preencherJtable1d(List<CargaHorariaSemanal> dados  ){
 
         jTable1.getColumnModel().getColumn(0).setPreferredWidth(200);
         jTable1.getColumnModel().getColumn(1).setPreferredWidth(200);
@@ -275,7 +275,7 @@ public class CadastroCH_SEMANAL extends javax.swing.JFrame {
         DefaultTableModel modelo = (DefaultTableModel)jTable1.getModel();
         modelo.setNumRows(0);
  
-        for ( CH_SEMANAL pessoa : dados) {
+        for ( CargaHorariaSemanal pessoa : dados) {
 
             Object[] linha = new Object[] { pessoa.getSEQ_CH_SEMANAL(), pessoa.getCH(), pessoa.getDESCRICAO_CH()};
             modelo.addRow(linha);
