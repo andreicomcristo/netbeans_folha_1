@@ -17,15 +17,15 @@ import javax.swing.JOptionPane;
  *
  * @author andrei
  */
-public class AcoesCadastroCargaHorariaSemanal {
+public class ControleCadastroCargaHorariaSemanal {
     
     int SEQ_OPERADOR;
     int SEQ_PRIVILEGIO;
         
-    AcoesCadastroCargaHorariaSemanal acoesCadastroCH_SEMANAL;
+    ControleCadastroCargaHorariaSemanal acoesCadastroCH_SEMANAL;
     CadastroCargaHorariaSemanal cadastroCH_SEMANAL;
-    CargaHorariaSemanal ch_semanal = new CargaHorariaSemanal();
-    DaoCargaHorariaSemanal daoCH_SEMANAL = new DaoCargaHorariaSemanal();
+    CargaHorariaSemanal cargaHorariaSemanal = new CargaHorariaSemanal();
+    DaoCargaHorariaSemanal daoCargaHorariaSemanal = new DaoCargaHorariaSemanal();
     UtilidadesDeTexto utilidadesDeTexto = new UtilidadesDeTexto();
     
     
@@ -47,10 +47,10 @@ public class AcoesCadastroCargaHorariaSemanal {
         if(cH.length()==0){acaoValida = false; JOptionPane.showMessageDialog(null, "Você deve escrever uma carga horária válida.");}
         
         if(acaoValida==true){
-            ch_semanal.setSEQ_CH_SEMANAL(0);
-            ch_semanal.setCH(Integer.parseInt(cH));
-            ch_semanal.setDESCRICAO_CH(dESCRICAO_CH);
-            executou =daoCH_SEMANAL.inserir_CH_SEMANAL(ch_semanal);
+            cargaHorariaSemanal.setSEQ_CH_SEMANAL(0);
+            cargaHorariaSemanal.setCH(Integer.parseInt(cH));
+            cargaHorariaSemanal.setDESCRICAO_CH(dESCRICAO_CH);
+            executou =daoCargaHorariaSemanal.inserirCargaHorariaSemanal(cargaHorariaSemanal);
         }
         return executou;
     }
@@ -65,10 +65,10 @@ public class AcoesCadastroCargaHorariaSemanal {
             if(sEQ_CH_SEMANAL.length()==0){JOptionPane.showMessageDialog(null, "Você deve escolher uma linha para ser excluiída.");}
         }
         if(acaoValida==true){
-            ch_semanal.setSEQ_CH_SEMANAL(Integer.parseInt(sEQ_CH_SEMANAL));
-            ch_semanal.setCH(0);
-            ch_semanal.setDESCRICAO_CH("");
-            executou =daoCH_SEMANAL.excluir_CH_SEMANAL(ch_semanal);
+            cargaHorariaSemanal.setSEQ_CH_SEMANAL(Integer.parseInt(sEQ_CH_SEMANAL));
+            cargaHorariaSemanal.setCH(0);
+            cargaHorariaSemanal.setDESCRICAO_CH("");
+            executou =daoCargaHorariaSemanal.excluirCargaHorariaSemanal(cargaHorariaSemanal);
         }
         return executou;
     }
@@ -89,13 +89,13 @@ public class AcoesCadastroCargaHorariaSemanal {
         if(cH.length()==0){acaoValida = false; JOptionPane.showMessageDialog(null, "Você deve escrever uma carga horária válida.");}
         
         if(acaoValida==true){
-            executou =daoCH_SEMANAL.alterar_CH_SEMANAL(ch_semanal);
+            executou =daoCargaHorariaSemanal.alterarCargaHorariaSemanal(cargaHorariaSemanal);
         }
             return executou;
     }
     
     public List<CargaHorariaSemanal> selecionar(){
-        List dados =daoCH_SEMANAL.selecionar_CH_SEMANAL();
+        List dados =daoCargaHorariaSemanal.selecionarCargaHorariaSemanal();
         return dados;
     }
  

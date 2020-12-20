@@ -13,7 +13,7 @@ package folha.view.br.com.parametros.cadastros.ch_semanal;
 
 
 
-import folha.control.br.com.parametros.cadastros.ch_semanal.AcoesCadastroCargaHorariaSemanal;
+import folha.control.br.com.parametros.cadastros.ch_semanal.ControleCadastroCargaHorariaSemanal;
 import folha.model.br.com.parametros.cadastros.ch_semanal.CargaHorariaSemanal;
 import java.awt.AWTKeyStroke;
 import java.awt.KeyboardFocusManager;
@@ -34,12 +34,12 @@ import javax.swing.table.DefaultTableModel;
 public class CadastroCargaHorariaSemanal extends javax.swing.JFrame {
 
 
-    CadastroCargaHorariaSemanal cadastroCH_SEMANAL;
-    AcoesCadastroCargaHorariaSemanal acoesCadastroCH_SEMANAL;
+    CadastroCargaHorariaSemanal cadastroCargaHorariaSemanal;
+    ControleCadastroCargaHorariaSemanal controleCadastroCargaHorariaSemanal;
     
-    public void setDadosIniciais(CadastroCargaHorariaSemanal cadastroCH_SEMANAL, AcoesCadastroCargaHorariaSemanal acoesCadastroCH_SEMANAL){
-        this.cadastroCH_SEMANAL = cadastroCH_SEMANAL;
-        this.acoesCadastroCH_SEMANAL = acoesCadastroCH_SEMANAL;  
+    public void setDadosIniciais(CadastroCargaHorariaSemanal cadastroCargaHorariaSemanal, ControleCadastroCargaHorariaSemanal controleCadastroCargaHorariaSemanal){
+        this.cadastroCargaHorariaSemanal = cadastroCargaHorariaSemanal;
+        this.controleCadastroCargaHorariaSemanal = controleCadastroCargaHorariaSemanal;  
     }   
     
     /** Creates new form CadastroDeUsuarios */
@@ -235,7 +235,7 @@ public class CadastroCargaHorariaSemanal extends javax.swing.JFrame {
 
         String CH  = jTextField1.getText().toUpperCase();
         String DESCRICAO_CH = jTextField2.getText().toUpperCase();
-        acoesCadastroCH_SEMANAL.cadastrar(CH, DESCRICAO_CH);
+        controleCadastroCargaHorariaSemanal.cadastrar(CH, DESCRICAO_CH);
        
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -244,7 +244,7 @@ public class CadastroCargaHorariaSemanal extends javax.swing.JFrame {
         
         if(jTable1.getSelectedRowCount()==1){
             String SEQ_CH_SEMANAL  = jTable1.getValueAt(jTable1.getSelectedRow(), 0).toString();
-            acoesCadastroCH_SEMANAL.excluir(SEQ_CH_SEMANAL);
+            controleCadastroCargaHorariaSemanal.excluir(SEQ_CH_SEMANAL);
         }else{JOptionPane.showMessageDialog(null, "Você deve selecionar uma linha na tabela.");}
 
     }//GEN-LAST:event_jButton5ActionPerformed
@@ -252,7 +252,7 @@ public class CadastroCargaHorariaSemanal extends javax.swing.JFrame {
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
         // TODO add your handling code here:
 
-        preencherJtable1d(acoesCadastroCH_SEMANAL.selecionar());
+        preencherJtable1d(controleCadastroCargaHorariaSemanal.selecionar());
 }//GEN-LAST:event_jButton12ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -261,7 +261,7 @@ public class CadastroCargaHorariaSemanal extends javax.swing.JFrame {
             String SEQ_CH_SEMANAL  = jTable1.getValueAt(jTable1.getSelectedRow(), 0).toString();
             String CH = jTextField1.getText();
             String DESCRICAO_CH = jTextField2.getText();
-            acoesCadastroCH_SEMANAL.excluir(SEQ_CH_SEMANAL);
+            controleCadastroCargaHorariaSemanal.alterar(SEQ_CH_SEMANAL, CH, DESCRICAO_CH);
         }else{JOptionPane.showMessageDialog(null, "Você deve selecionar uma linha na tabela.");}
         
     }//GEN-LAST:event_jButton2ActionPerformed

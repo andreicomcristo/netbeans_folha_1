@@ -23,15 +23,15 @@ public class DaoCargaHorariaSemanal {
 
      Connection con = null;
 
-    public boolean inserir_CH_SEMANAL(CargaHorariaSemanal ch_semanal){
+    public boolean inserirCargaHorariaSemanal(CargaHorariaSemanal cargaHorariaSemanal){
                 boolean executou = false;
 		try {
 			con = ConnectionFactory.getConnection();
                                                                             // nome da tebela
 			PreparedStatement stmt = con.prepareStatement("insert into public.CH_SEMANAL (CH, DESCRICAO_CH ) values ( ?,? )");
 
-            stmt.setInt(1, ch_semanal.getCH());
-            stmt.setString(2, ch_semanal.getDESCRICAO_CH());
+            stmt.setInt(1, cargaHorariaSemanal.getCH());
+            stmt.setString(2, cargaHorariaSemanal.getDESCRICAO_CH());
 
 			stmt.execute();
 			stmt.close();
@@ -54,14 +54,14 @@ public class DaoCargaHorariaSemanal {
     return executou;    
     }
     
-    public boolean excluir_CH_SEMANAL(CargaHorariaSemanal ch_semanal){
+    public boolean excluirCargaHorariaSemanal(CargaHorariaSemanal cargaHorariaSemanal){
                 boolean executou = false;
 		try {
 			con = ConnectionFactory.getConnection();
                                                                             // nome da tebela
 			PreparedStatement stmt = con.prepareStatement("DELETE FROM public.CH_SEMANAL where public.CH_SEMANAL.CH = ? ");
 
-                        stmt.setInt(1, ch_semanal.getSEQ_CH_SEMANAL());
+                        stmt.setInt(1, cargaHorariaSemanal.getSEQ_CH_SEMANAL());
 
 			stmt.execute();
 			stmt.close();
@@ -69,7 +69,7 @@ public class DaoCargaHorariaSemanal {
 			con.close();
                         executou = true;
 
-		} catch (SQLException e) {
+		} catch (Exception e) {
                     executou = false;
                     JOptionPane.showMessageDialog(null, e.getMessage());
 			e.printStackTrace();
@@ -84,16 +84,16 @@ public class DaoCargaHorariaSemanal {
     return executou;    
     }
 
-    public boolean alterar_CH_SEMANAL(CargaHorariaSemanal ch_semanal){
+    public boolean alterarCargaHorariaSemanal(CargaHorariaSemanal cargaHorariaSemanal){
                 boolean executou = false;
 		try {
 			con = ConnectionFactory.getConnection();
                                                                             // nome da tebela
 			PreparedStatement stmt = con.prepareStatement("UPDATE public.CH_SEMANAL set CH = ?, DESCRICAO_CH = ?  where public.CH_SEMANAL.SEQ_CH_SEMANAL = ? ");
 
-                        stmt.setInt(1, ch_semanal.getCH());
-                        stmt.setString(2, ch_semanal.getDESCRICAO_CH());
-                        stmt.setInt(3, ch_semanal.getSEQ_CH_SEMANAL());
+                        stmt.setInt(1, cargaHorariaSemanal.getCH());
+                        stmt.setString(2, cargaHorariaSemanal.getDESCRICAO_CH());
+                        stmt.setInt(3, cargaHorariaSemanal.getSEQ_CH_SEMANAL());
 
 			stmt.execute();
 			stmt.close();
@@ -101,7 +101,7 @@ public class DaoCargaHorariaSemanal {
 			con.close();
                         executou = true;
 
-		} catch (SQLException e) {
+		} catch (Exception e) {
                     executou = false;
                     JOptionPane.showMessageDialog(null, e.getMessage());
 			e.printStackTrace();
@@ -116,7 +116,7 @@ public class DaoCargaHorariaSemanal {
     return executou;    
     }
          
-    public List<CargaHorariaSemanal> selecionar_CH_SEMANAL() {
+    public List<CargaHorariaSemanal> selecionarCargaHorariaSemanal() {
 
         List<CargaHorariaSemanal> listaConsulta = new ArrayList<CargaHorariaSemanal>();
 
