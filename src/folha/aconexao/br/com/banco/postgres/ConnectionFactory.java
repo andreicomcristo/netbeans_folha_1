@@ -15,7 +15,7 @@ public class ConnectionFactory {
     public static Connection getConnection() throws SQLException {
     
     try {
-        Class.forName ("org.postgresql.Driver");               // caminho / nome do banco / usuario / senha
+        Class.forName ("org.postgresql.Driver");                 // caminho / nome do banco / usuario / senha
         return DriverManager.getConnection ("jdbc:postgresql://localhost:5432/folha",
                   "postgres",
                   "191");
