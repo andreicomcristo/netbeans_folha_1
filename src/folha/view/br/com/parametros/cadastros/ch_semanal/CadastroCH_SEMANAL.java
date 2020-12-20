@@ -22,6 +22,7 @@ import java.awt.event.KeyEvent;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.KeyStroke;
 import javax.swing.table.DefaultTableModel;
@@ -72,6 +73,7 @@ public class CadastroCH_SEMANAL extends javax.swing.JFrame {
         jButton12 = new javax.swing.JButton();
         jTextField2 = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Cadastro de Carga Horária");
@@ -81,7 +83,7 @@ public class CadastroCH_SEMANAL extends javax.swing.JFrame {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Cadastro de Carga Horária Semanal");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(200, 20, 320, 20);
+        jLabel1.setBounds(170, 20, 390, 20);
 
         jLabel2.setFont(new java.awt.Font("Bookman Old Style", 0, 11)); // NOI18N
         jLabel2.setText("Descrição Carga Horária");
@@ -190,7 +192,7 @@ public class CadastroCH_SEMANAL extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton5);
-        jButton5.setBounds(20, 130, 330, 21);
+        jButton5.setBounds(260, 130, 215, 21);
 
         jButton12.setFont(new java.awt.Font("Bookman Old Style", 0, 10)); // NOI18N
         jButton12.setText("Busca");
@@ -200,7 +202,7 @@ public class CadastroCH_SEMANAL extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton12);
-        jButton12.setBounds(380, 130, 330, 21);
+        jButton12.setBounds(490, 130, 215, 21);
         getContentPane().add(jTextField2);
         jTextField2.setBounds(450, 60, 260, 20);
 
@@ -208,6 +210,16 @@ public class CadastroCH_SEMANAL extends javax.swing.JFrame {
         jLabel3.setText("Carga Horária");
         getContentPane().add(jLabel3);
         jLabel3.setBounds(20, 60, 210, 14);
+
+        jButton2.setFont(new java.awt.Font("Bookman Old Style", 0, 10)); // NOI18N
+        jButton2.setText("Alterar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton2);
+        jButton2.setBounds(20, 130, 215, 21);
 
         setSize(new java.awt.Dimension(745, 408));
         setLocationRelativeTo(null);
@@ -221,28 +233,19 @@ public class CadastroCH_SEMANAL extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
 
-        int SEQ_CH_SEMANAL  = 0;
-        int CH  = 0;
-        if(!jTextField1.getText().equals("")){
-            CH = Integer.parseInt(jTextField1.getText());
-        }
-        String DESCRICAO_CH  = jTextField2.getText().toUpperCase();
-        CH_SEMANAL ch_semanal = new CH_SEMANAL(SEQ_CH_SEMANAL, CH, DESCRICAO_CH);
-
-        acoesCadastroCH_SEMANAL.cadastrar(ch_semanal);
+        String CH  = jTextField1.getText().toUpperCase();
+        String DESCRICAO_CH = jTextField2.getText().toUpperCase();
+        acoesCadastroCH_SEMANAL.cadastrar(CH, DESCRICAO_CH);
        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
-       
-        int SEQ_CH_SEMANAL  = Integer.parseInt(jTable1.getValueAt(jTable1.getSelectedRow(), 0).toString());
-        int CH  = 0;
-        String DESCRICAO_CH  = "";
-        CH_SEMANAL ch_semanal = new CH_SEMANAL(SEQ_CH_SEMANAL, CH, DESCRICAO_CH);
-        acoesCadastroCH_SEMANAL.excluir(ch_semanal);
         
-        
+        if(jTable1.getSelectedRowCount()==1){
+            String SEQ_CH_SEMANAL  = jTable1.getValueAt(jTable1.getSelectedRow(), 0).toString();
+            acoesCadastroCH_SEMANAL.excluir(SEQ_CH_SEMANAL);
+        }else{JOptionPane.showMessageDialog(null, "Você deve selecionar uma linha na tabela.");}
 
     }//GEN-LAST:event_jButton5ActionPerformed
 
@@ -251,6 +254,17 @@ public class CadastroCH_SEMANAL extends javax.swing.JFrame {
 
         preencherJtable1d(acoesCadastroCH_SEMANAL.selecionar());
 }//GEN-LAST:event_jButton12ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        if(jTable1.getSelectedRowCount()==1){
+            String SEQ_CH_SEMANAL  = jTable1.getValueAt(jTable1.getSelectedRow(), 0).toString();
+            String CH = jTextField1.getText();
+            String DESCRICAO_CH = jTextField2.getText();
+            acoesCadastroCH_SEMANAL.excluir(SEQ_CH_SEMANAL);
+        }else{JOptionPane.showMessageDialog(null, "Você deve selecionar uma linha na tabela.");}
+        
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
     * @param args the command line arguments
@@ -290,6 +304,7 @@ public class CadastroCH_SEMANAL extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton12;
+    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
