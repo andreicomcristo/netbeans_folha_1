@@ -18,7 +18,7 @@ public class ConnectionFactory {
         Class.forName ("org.postgresql.Driver");                 // caminho / nome do banco / usuario / senha
         return DriverManager.getConnection ("jdbc:postgresql://localhost:5432/folha",
                   "postgres",
-                  "caio");
+                  "191");
             } catch (ClassNotFoundException e){
                
                 throw new SQLException (e.getMessage());
