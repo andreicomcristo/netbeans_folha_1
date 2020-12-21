@@ -8,7 +8,7 @@ package br.com.folha.control.parametros.cadastros.ch_semanal;
 
 import br.com.folha.dao.parametros.cadastros.cargaHorariaSemanal.DaoCargaHorariaSemanal;
 import br.com.folha.model.parametros.cadastros.cargaHorariaSemanal.CargaHorariaSemanal;
-import br.com.folha.folha.util.UtilidadesDeTexto;
+import br.com.folha.util.UtilidadesDeTexto;
 import br.com.folha.view.parametros.cadastros.cargaHorariaSemanal.CadastroCargaHorariaSemanal;
 import java.util.List;
 import javax.swing.JOptionPane;

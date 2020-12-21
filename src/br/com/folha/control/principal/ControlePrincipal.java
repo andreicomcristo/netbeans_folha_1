@@ -9,7 +9,7 @@ package br.com.folha.control.principal;
 import br.com.folha.control.parametros.cadastros.ch_semanal.ControleCadastroCargaHorariaSemanal;
 import br.com.folha.dao.parametros.cadastros.cargaHorariaSemanal.DaoCargaHorariaSemanal;
 import br.com.folha.model.parametros.cadastros.cargaHorariaSemanal.CargaHorariaSemanal;
-import br.com.folha.folha.util.UtilidadesDeTexto;
+import br.com.folha.util.UtilidadesDeTexto;
 import br.com.folha.view.principal.Principal;
 import java.awt.Dimension;
 import java.awt.GridLayout;
