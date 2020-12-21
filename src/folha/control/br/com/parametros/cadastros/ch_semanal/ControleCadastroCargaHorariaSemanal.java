@@ -6,10 +6,10 @@
 package folha.control.br.com.parametros.cadastros.ch_semanal;
 
 
-import folha.dao.br.com.parametros.cadastros.ch_semanal.DaoCargaHorariaSemanal;
-import folha.model.br.com.parametros.cadastros.ch_semanal.CargaHorariaSemanal;
+import folha.dao.br.com.parametros.cadastros.cargaHorariaSemanal.DaoCargaHorariaSemanal;
+import folha.model.br.com.parametros.cadastros.cargaHorariaSemanal.CargaHorariaSemanal;
 import folha.util.UtilidadesDeTexto;
-import folha.view.br.com.parametros.cadastros.ch_semanal.CadastroCargaHorariaSemanal;
+import folha.view.br.com.parametros.cadastros.cargaHorariaSemanal.CadastroCargaHorariaSemanal;
 import java.util.List;
 import javax.swing.JOptionPane;
 
@@ -19,77 +19,88 @@ import javax.swing.JOptionPane;
  */
 public class ControleCadastroCargaHorariaSemanal {
     
-    int SEQ_OPERADOR;
-    int SEQ_PRIVILEGIO;
+    int seq_operador;
+    int seq_privilegio;
         
-    ControleCadastroCargaHorariaSemanal acoesCadastroCH_SEMANAL;
-    CadastroCargaHorariaSemanal cadastroCH_SEMANAL;
+    ControleCadastroCargaHorariaSemanal controleCadastroCargaHorariaSemanal;
+    CadastroCargaHorariaSemanal cadastroCargaHorariaSemanal;
     CargaHorariaSemanal cargaHorariaSemanal = new CargaHorariaSemanal();
     DaoCargaHorariaSemanal daoCargaHorariaSemanal = new DaoCargaHorariaSemanal();
     UtilidadesDeTexto utilidadesDeTexto = new UtilidadesDeTexto();
     
     
     public void abrirFrame(){
-        acoesCadastroCH_SEMANAL = this;
+        controleCadastroCargaHorariaSemanal = this;
         CadastroCargaHorariaSemanal c = new CadastroCargaHorariaSemanal();
-        cadastroCH_SEMANAL = c;
-        c.setDadosIniciais(cadastroCH_SEMANAL, this);
+        cadastroCargaHorariaSemanal = c;
+        c.setDadosIniciais(this);
+        c.clicaBotaoBuscar();
         c.setVisible(true);
     }
     
-    public boolean cadastrar(String cH, String dESCRICAO_CH){
+    public boolean cadastrar(String cargaHoraria, String descricaoCargaHoraria){
         boolean executou = false;
         boolean acaoValida = true;
         // ARRUMANDO OS TEXTOS
-        cH = utilidadesDeTexto.retiraEspacosDuplosAcentosEConverteEmMaiusculo(cH);
-        dESCRICAO_CH = utilidadesDeTexto.retiraEspacosDuplosAcentosEConverteEmMaiusculo(dESCRICAO_CH);
+        cargaHoraria = utilidadesDeTexto.retiraEspacosDuplosAcentosEConverteEmMaiusculo(cargaHoraria);
+        descricaoCargaHoraria = utilidadesDeTexto.retiraEspacosDuplosAcentosEConverteEmMaiusculo(descricaoCargaHoraria);
         
-        if(cH.length()==0){acaoValida = false; JOptionPane.showMessageDialog(null, "Você deve escrever uma carga horária válida.");}
+        if(cargaHoraria.length()==0){acaoValida = false; JOptionPane.showMessageDialog(null, "Você deve escrever uma carga horária válida.");}
         
         if(acaoValida==true){
-            cargaHorariaSemanal.setSEQ_CH_SEMANAL(0);
-            cargaHorariaSemanal.setCH(Integer.parseInt(cH));
-            cargaHorariaSemanal.setDESCRICAO_CH(dESCRICAO_CH);
+            cargaHorariaSemanal.setSeq_carga_horaria_sem(0);
+            cargaHorariaSemanal.setCarga_horaria(Integer.parseInt(cargaHoraria));
+            cargaHorariaSemanal.setDescricao_carga_horaria(descricaoCargaHoraria);
             executou =daoCargaHorariaSemanal.inserirCargaHorariaSemanal(cargaHorariaSemanal);
+            
+            cadastroCargaHorariaSemanal.clicaBotaoBuscar();
         }
         return executou;
     }
     
-    public boolean excluir(String sEQ_CH_SEMANAL){
+    public boolean excluir(String seqCargaHorariaSemanal){
         boolean executou = false;
         boolean acaoValida = true;
         // ARRUMANDO OS TEXTOS
-        sEQ_CH_SEMANAL = utilidadesDeTexto.retiraEspacosDuplosAcentosEConverteEmMaiusculo(sEQ_CH_SEMANAL);
+        seqCargaHorariaSemanal = utilidadesDeTexto.retiraEspacosDuplosAcentosEConverteEmMaiusculo(seqCargaHorariaSemanal);
         
-        if(sEQ_CH_SEMANAL==null){acaoValida = false; JOptionPane.showMessageDialog(null, "Você deve escolher uma linha para ser excluiída.");}else{
-            if(sEQ_CH_SEMANAL.length()==0){JOptionPane.showMessageDialog(null, "Você deve escolher uma linha para ser excluiída.");}
+        if(seqCargaHorariaSemanal==null){acaoValida = false; JOptionPane.showMessageDialog(null, "Você deve escolher uma linha para ser excluiída.");}else{
+            if(seqCargaHorariaSemanal.length()==0){JOptionPane.showMessageDialog(null, "Você deve escolher uma linha para ser excluiída.");}
         }
         if(acaoValida==true){
-            cargaHorariaSemanal.setSEQ_CH_SEMANAL(Integer.parseInt(sEQ_CH_SEMANAL));
-            cargaHorariaSemanal.setCH(0);
-            cargaHorariaSemanal.setDESCRICAO_CH("");
+            cargaHorariaSemanal.setSeq_carga_horaria_sem(Integer.parseInt(seqCargaHorariaSemanal));
+            cargaHorariaSemanal.setCarga_horaria(0);
+            cargaHorariaSemanal.setDescricao_carga_horaria("");
             executou =daoCargaHorariaSemanal.excluirCargaHorariaSemanal(cargaHorariaSemanal);
+            
+            cadastroCargaHorariaSemanal.clicaBotaoBuscar();
         }
         return executou;
     }
     
-    public boolean alterar(String sEQ_CH_SEMANAL, String cH, String dESCRICAO_CH){
+    public boolean alterar(String seqCargaHorariaSemanal, String cargaHoraria, String descricaoCargaHoraria){
         boolean executou = false;
         boolean acaoValida = true;
         // ARRUMANDO OS TEXTOS
-        sEQ_CH_SEMANAL = utilidadesDeTexto.retiraEspacosDuplosAcentosEConverteEmMaiusculo(sEQ_CH_SEMANAL);
-        cH = utilidadesDeTexto.retiraEspacosDuplosAcentosEConverteEmMaiusculo(cH);
-        dESCRICAO_CH = utilidadesDeTexto.retiraEspacosDuplosAcentosEConverteEmMaiusculo(dESCRICAO_CH);
+        seqCargaHorariaSemanal = utilidadesDeTexto.retiraEspacosDuplosAcentosEConverteEmMaiusculo(seqCargaHorariaSemanal);
+        cargaHoraria = utilidadesDeTexto.retiraEspacosDuplosAcentosEConverteEmMaiusculo(cargaHoraria);
+        descricaoCargaHoraria = utilidadesDeTexto.retiraEspacosDuplosAcentosEConverteEmMaiusculo(descricaoCargaHoraria);
                 
         // conferindo se a linha foi escolhida
-        if(sEQ_CH_SEMANAL==null){acaoValida = false; JOptionPane.showMessageDialog(null, "Você deve escolher uma linha para ser excluiída.");}else{
-            if(sEQ_CH_SEMANAL.length()==0){JOptionPane.showMessageDialog(null, "Você deve escolher uma linha para ser excluiída.");}
+        if(seqCargaHorariaSemanal==null){acaoValida = false; JOptionPane.showMessageDialog(null, "Você deve escolher uma linha para ser excluiída.");}else{
+            if(seqCargaHorariaSemanal.length()==0){JOptionPane.showMessageDialog(null, "Você deve escolher uma linha para ser excluiída.");}
         }
         //conferindo se os campos obrigatórios foram preenchidos
-        if(cH.length()==0){acaoValida = false; JOptionPane.showMessageDialog(null, "Você deve escrever uma carga horária válida.");}
+        if(cargaHoraria.length()==0){acaoValida = false; JOptionPane.showMessageDialog(null, "Você deve escrever uma carga horária válida.");}
         
         if(acaoValida==true){
+            cargaHorariaSemanal.setSeq_carga_horaria_sem(Integer.parseInt(seqCargaHorariaSemanal));
+            cargaHorariaSemanal.setCarga_horaria(Integer.parseInt(cargaHoraria));
+            cargaHorariaSemanal.setDescricao_carga_horaria(descricaoCargaHoraria);
+            
             executou =daoCargaHorariaSemanal.alterarCargaHorariaSemanal(cargaHorariaSemanal);
+            
+            cadastroCargaHorariaSemanal.clicaBotaoBuscar();
         }
             return executou;
     }

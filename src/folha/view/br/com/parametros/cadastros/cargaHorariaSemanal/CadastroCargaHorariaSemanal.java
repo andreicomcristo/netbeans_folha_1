@@ -9,12 +9,12 @@
  * Created on 08/12/2009, 08:35:08
  */
 
-package folha.view.br.com.parametros.cadastros.ch_semanal;
+package folha.view.br.com.parametros.cadastros.cargaHorariaSemanal;
 
 
 
 import folha.control.br.com.parametros.cadastros.ch_semanal.ControleCadastroCargaHorariaSemanal;
-import folha.model.br.com.parametros.cadastros.ch_semanal.CargaHorariaSemanal;
+import folha.model.br.com.parametros.cadastros.cargaHorariaSemanal.CargaHorariaSemanal;
 import java.awt.AWTKeyStroke;
 import java.awt.KeyboardFocusManager;
 import java.awt.event.KeyAdapter;
@@ -33,12 +33,9 @@ import javax.swing.table.DefaultTableModel;
  */
 public class CadastroCargaHorariaSemanal extends javax.swing.JFrame {
 
-
-    CadastroCargaHorariaSemanal cadastroCargaHorariaSemanal;
     ControleCadastroCargaHorariaSemanal controleCadastroCargaHorariaSemanal;
     
-    public void setDadosIniciais(CadastroCargaHorariaSemanal cadastroCargaHorariaSemanal, ControleCadastroCargaHorariaSemanal controleCadastroCargaHorariaSemanal){
-        this.cadastroCargaHorariaSemanal = cadastroCargaHorariaSemanal;
+    public void setDadosIniciais(ControleCadastroCargaHorariaSemanal controleCadastroCargaHorariaSemanal){
         this.controleCadastroCargaHorariaSemanal = controleCadastroCargaHorariaSemanal;  
     }   
     
@@ -74,6 +71,7 @@ public class CadastroCargaHorariaSemanal extends javax.swing.JFrame {
         jTextField2 = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Cadastro de Carga Horária");
@@ -85,10 +83,10 @@ public class CadastroCargaHorariaSemanal extends javax.swing.JFrame {
         getContentPane().add(jLabel1);
         jLabel1.setBounds(170, 20, 390, 20);
 
-        jLabel2.setFont(new java.awt.Font("Bookman Old Style", 0, 11)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Bookman Old Style", 1, 11)); // NOI18N
         jLabel2.setText("Descrição Carga Horária");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(290, 60, 210, 14);
+        jLabel2.setBounds(290, 60, 160, 14);
 
         jTextField1.addKeyListener(new KeyAdapter() {   
             public void keyTyped(KeyEvent e) { // <- alteração   
@@ -145,7 +143,7 @@ public class CadastroCargaHorariaSemanal extends javax.swing.JFrame {
         });  
         jTextField1.setFont(new java.awt.Font("Bookman Old Style", 0, 10)); // NOI18N
         getContentPane().add(jTextField1);
-        jTextField1.setBounds(120, 60, 150, 20);
+        jTextField1.setBounds(120, 60, 150, 25);
 
         jButton1.setFont(new java.awt.Font("Bookman Old Style", 0, 11)); // NOI18N
         jButton1.setText("Cadastrar");
@@ -165,7 +163,7 @@ public class CadastroCargaHorariaSemanal extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton4);
-        jButton4.setBounds(20, 310, 690, 23);
+        jButton4.setBounds(390, 310, 320, 23);
         getContentPane().add(jSeparator1);
         jSeparator1.setBounds(20, 40, 690, 10);
 
@@ -175,7 +173,7 @@ public class CadastroCargaHorariaSemanal extends javax.swing.JFrame {
 
             },
             new String [] {
-                "SEQ","CH","DESCRICAO"
+                "SEQ","CARGA HORARIA SEMANAL","DESCRICAO"
             }
         ));
         jTable1.setRowHeight(14);
@@ -204,12 +202,12 @@ public class CadastroCargaHorariaSemanal extends javax.swing.JFrame {
         getContentPane().add(jButton12);
         jButton12.setBounds(490, 130, 215, 21);
         getContentPane().add(jTextField2);
-        jTextField2.setBounds(450, 60, 260, 20);
+        jTextField2.setBounds(450, 60, 260, 25);
 
-        jLabel3.setFont(new java.awt.Font("Bookman Old Style", 0, 11)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Bookman Old Style", 1, 11)); // NOI18N
         jLabel3.setText("Carga Horária");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(20, 60, 210, 14);
+        jLabel3.setBounds(20, 60, 90, 14);
 
         jButton2.setFont(new java.awt.Font("Bookman Old Style", 0, 10)); // NOI18N
         jButton2.setText("Alterar");
@@ -220,6 +218,16 @@ public class CadastroCargaHorariaSemanal extends javax.swing.JFrame {
         });
         getContentPane().add(jButton2);
         jButton2.setBounds(20, 130, 215, 21);
+
+        jButton3.setFont(new java.awt.Font("Bookman Old Style", 0, 10)); // NOI18N
+        jButton3.setText("Limpar");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton3);
+        jButton3.setBounds(20, 310, 350, 21);
 
         setSize(new java.awt.Dimension(745, 408));
         setLocationRelativeTo(null);
@@ -233,9 +241,9 @@ public class CadastroCargaHorariaSemanal extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
 
-        String CH  = jTextField1.getText().toUpperCase();
-        String DESCRICAO_CH = jTextField2.getText().toUpperCase();
-        controleCadastroCargaHorariaSemanal.cadastrar(CH, DESCRICAO_CH);
+        String cargaHoraria  = jTextField1.getText().toUpperCase();
+        String descricaoCargaHoraria = jTextField2.getText().toUpperCase();
+        controleCadastroCargaHorariaSemanal.cadastrar(cargaHoraria, descricaoCargaHoraria);
        
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -243,8 +251,8 @@ public class CadastroCargaHorariaSemanal extends javax.swing.JFrame {
         // TODO add your handling code here:
         
         if(jTable1.getSelectedRowCount()==1){
-            String SEQ_CH_SEMANAL  = jTable1.getValueAt(jTable1.getSelectedRow(), 0).toString();
-            controleCadastroCargaHorariaSemanal.excluir(SEQ_CH_SEMANAL);
+            String seq_carga_horaria_sem  = jTable1.getValueAt(jTable1.getSelectedRow(), 0).toString();
+            controleCadastroCargaHorariaSemanal.excluir(seq_carga_horaria_sem);
         }else{JOptionPane.showMessageDialog(null, "Você deve selecionar uma linha na tabela.");}
 
     }//GEN-LAST:event_jButton5ActionPerformed
@@ -258,13 +266,18 @@ public class CadastroCargaHorariaSemanal extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         if(jTable1.getSelectedRowCount()==1){
-            String SEQ_CH_SEMANAL  = jTable1.getValueAt(jTable1.getSelectedRow(), 0).toString();
-            String CH = jTextField1.getText();
-            String DESCRICAO_CH = jTextField2.getText();
-            controleCadastroCargaHorariaSemanal.alterar(SEQ_CH_SEMANAL, CH, DESCRICAO_CH);
+            String seq_carga_horaria_sem  = jTable1.getValueAt(jTable1.getSelectedRow(), 0).toString();
+            String cargaHoraria = jTextField1.getText();
+            String descricaoCargaHoraria = jTextField2.getText();
+            controleCadastroCargaHorariaSemanal.alterar(seq_carga_horaria_sem, cargaHoraria, descricaoCargaHoraria);
         }else{JOptionPane.showMessageDialog(null, "Você deve selecionar uma linha na tabela.");}
         
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        limparCampos();
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
     * @param args the command line arguments
@@ -277,6 +290,15 @@ public class CadastroCargaHorariaSemanal extends javax.swing.JFrame {
         });
     }
 
+    
+    public void clicaBotaoBuscar(){
+        jButton12.doClick();
+    }
+    
+    public void limparCampos(){
+        jTextField1.setText("");
+        jTextField2.setText("");
+    }
     
     public void preencherJtable1d(List<CargaHorariaSemanal> dados  ){
 
@@ -291,7 +313,7 @@ public class CadastroCargaHorariaSemanal extends javax.swing.JFrame {
  
         for ( CargaHorariaSemanal pessoa : dados) {
 
-            Object[] linha = new Object[] { pessoa.getSEQ_CH_SEMANAL(), pessoa.getCH(), pessoa.getDESCRICAO_CH()};
+            Object[] linha = new Object[] { pessoa.getSeq_carga_horaria_sem(), pessoa.getCarga_horaria(), pessoa.getDescricao_carga_horaria()};
             modelo.addRow(linha);
 
         }
@@ -305,6 +327,7 @@ public class CadastroCargaHorariaSemanal extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;

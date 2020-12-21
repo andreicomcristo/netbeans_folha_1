@@ -3,9 +3,9 @@
  * and open the template in the editor.
  */
 
-package folha.dao.br.com.parametros.cadastros.ch_semanal;
+package folha.dao.br.com.parametros.cadastros.cargaHorariaSemanal;
 
-import folha.model.br.com.parametros.cadastros.ch_semanal.CargaHorariaSemanal;
+import folha.model.br.com.parametros.cadastros.cargaHorariaSemanal.CargaHorariaSemanal;
 import folha.aconexao.br.com.banco.postgres.ConnectionFactory;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -28,10 +28,10 @@ public class DaoCargaHorariaSemanal {
 		try {
 			con = ConnectionFactory.getConnection();
                                                                             // nome da tebela
-			PreparedStatement stmt = con.prepareStatement("insert into public.CH_SEMANAL (CH, DESCRICAO_CH ) values ( ?,? )");
+			PreparedStatement stmt = con.prepareStatement("insert into public.carga_horaria_semanal (carga_horaria, descricao_carga_horaria ) values ( ?,? )");
 
-            stmt.setInt(1, cargaHorariaSemanal.getCH());
-            stmt.setString(2, cargaHorariaSemanal.getDESCRICAO_CH());
+            stmt.setInt(1, cargaHorariaSemanal.getCarga_horaria());
+            stmt.setString(2, cargaHorariaSemanal.getDescricao_carga_horaria());
 
 			stmt.execute();
 			stmt.close();
@@ -59,9 +59,9 @@ public class DaoCargaHorariaSemanal {
 		try {
 			con = ConnectionFactory.getConnection();
                                                                             // nome da tebela
-			PreparedStatement stmt = con.prepareStatement("DELETE FROM public.CH_SEMANAL where public.CH_SEMANAL.CH = ? ");
+			PreparedStatement stmt = con.prepareStatement("DELETE FROM public.carga_horaria_semanal where public.carga_horaria_semanal.seq_carga_horaria_sem = ? ");
 
-                        stmt.setInt(1, cargaHorariaSemanal.getSEQ_CH_SEMANAL());
+                        stmt.setInt(1, cargaHorariaSemanal.getSeq_carga_horaria_sem());
 
 			stmt.execute();
 			stmt.close();
@@ -89,11 +89,11 @@ public class DaoCargaHorariaSemanal {
 		try {
 			con = ConnectionFactory.getConnection();
                                                                             // nome da tebela
-			PreparedStatement stmt = con.prepareStatement("UPDATE public.CH_SEMANAL set CH = ?, DESCRICAO_CH = ?  where public.CH_SEMANAL.SEQ_CH_SEMANAL = ? ");
+			PreparedStatement stmt = con.prepareStatement("UPDATE public.carga_horaria_semanal set carga_horaria = ?, descricao_carga_horaria = ?  where public.carga_horaria_semanal.seq_carga_horaria_sem = ? ");
 
-                        stmt.setInt(1, cargaHorariaSemanal.getCH());
-                        stmt.setString(2, cargaHorariaSemanal.getDESCRICAO_CH());
-                        stmt.setInt(3, cargaHorariaSemanal.getSEQ_CH_SEMANAL());
+                        stmt.setInt(1, cargaHorariaSemanal.getCarga_horaria());
+                        stmt.setString(2, cargaHorariaSemanal.getDescricao_carga_horaria());
+                        stmt.setInt(3, cargaHorariaSemanal.getSeq_carga_horaria_sem());
 
 			stmt.execute();
 			stmt.close();
@@ -127,7 +127,7 @@ public class DaoCargaHorariaSemanal {
 
          try {
 
-             PreparedStatement stmt = con.prepareStatement("select SEQ_CH_SEMANAL, CH, DESCRICAO_CH from public.CH_SEMANAL order by CH");
+             PreparedStatement stmt = con.prepareStatement("select seq_carga_horaria_sem, carga_horaria, descricao_carga_horaria from public.carga_horaria_semanal order by carga_horaria");
 
               
 
@@ -135,11 +135,11 @@ public class DaoCargaHorariaSemanal {
 
              while(rs.next()) {
 
-                   int SEQ_CH_SEMANAL = rs.getInt("SEQ_CH_SEMANAL");
-                   int CH = rs.getInt("CH");
-                   String DESCRICAO_CH = rs.getString("DESCRICAO_CH");
+                   int seq_carga_horaria_sem = rs.getInt("seq_carga_horaria_sem");
+                   int carga_horaria = rs.getInt("carga_horaria");
+                   String descricao_carga_horaria = rs.getString("descricao_carga_horaria");
 
-                 listaConsulta.add(new CargaHorariaSemanal(SEQ_CH_SEMANAL, CH, DESCRICAO_CH));
+                 listaConsulta.add(new CargaHorariaSemanal(seq_carga_horaria_sem, carga_horaria, descricao_carga_horaria));
 
              }
 
