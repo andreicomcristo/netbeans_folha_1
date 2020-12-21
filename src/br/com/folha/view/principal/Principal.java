@@ -5,9 +5,13 @@
  */
 package br.com.folha.view.principal;
 
-import br.com.folha.control.parametros.cadastros.ch_semanal.ControleCadastroCargaHorariaSemanal;
 import br.com.folha.control.principal.ControlePrincipal;
-import br.com.folha.view.parametros.cadastros.cargaHorariaSemanal.CadastroCargaHorariaSemanal;
+import java.awt.AWTKeyStroke;
+import java.awt.KeyboardFocusManager;
+import java.awt.event.KeyEvent;
+import java.util.HashSet;
+import java.util.Set;
+import javax.swing.KeyStroke;
 
 /**
  *
@@ -17,10 +21,6 @@ public class Principal extends javax.swing.JFrame {
 
     ControlePrincipal controlePrincipal;
     
-    public void setDadosIniciais(ControlePrincipal controlePrincipal){
-        this.controlePrincipal = controlePrincipal;  
-    }  
-    
     /**
      * Creates new form Inicio
      */
@@ -28,6 +28,17 @@ public class Principal extends javax.swing.JFrame {
         initComponents();
     }
 
+    public Principal(ControlePrincipal controlePrincipal) {
+        this.controlePrincipal = controlePrincipal;  
+        
+        Set<AWTKeyStroke> forwardKeys = new HashSet<AWTKeyStroke>(this.getFocusTraversalKeys(KeyboardFocusManager.FORWARD_TRAVERSAL_KEYS));
+        forwardKeys.add(KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, 0));
+        this.setFocusTraversalKeys(KeyboardFocusManager.FORWARD_TRAVERSAL_KEYS, forwardKeys);
+        
+        initComponents();
+        
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -111,8 +122,6 @@ public class Principal extends javax.swing.JFrame {
 
     private void formMouseWheelMoved(java.awt.event.MouseWheelEvent evt) {//GEN-FIRST:event_formMouseWheelMoved
         // TODO add your handling code here:
-        
-        
         
     }//GEN-LAST:event_formMouseWheelMoved
 

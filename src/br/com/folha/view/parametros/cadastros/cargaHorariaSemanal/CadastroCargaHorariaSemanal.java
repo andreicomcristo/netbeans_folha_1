@@ -14,7 +14,7 @@ package br.com.folha.view.parametros.cadastros.cargaHorariaSemanal;
 
 
 import br.com.folha.control.parametros.cadastros.ch_semanal.ControleCadastroCargaHorariaSemanal;
-import br.com.folha.model.parametros.cadastros.cargaHorariaSemanal.CargaHorariaSemanal;
+import br.com.folha.model.parametros.cadastros.cargaHorariaSemanal.BeanCargaHorariaSemanal;
 import java.awt.AWTKeyStroke;
 import java.awt.KeyboardFocusManager;
 import java.awt.event.KeyAdapter;
@@ -35,10 +35,6 @@ public class CadastroCargaHorariaSemanal extends javax.swing.JFrame {
 
     ControleCadastroCargaHorariaSemanal controleCadastroCargaHorariaSemanal;
     
-    public void setDadosIniciais(ControleCadastroCargaHorariaSemanal controleCadastroCargaHorariaSemanal){
-        this.controleCadastroCargaHorariaSemanal = controleCadastroCargaHorariaSemanal;  
-    }   
-    
     /** Creates new form CadastroDeUsuarios */
     public CadastroCargaHorariaSemanal() {
        
@@ -47,6 +43,19 @@ public class CadastroCargaHorariaSemanal extends javax.swing.JFrame {
         this.setFocusTraversalKeys(KeyboardFocusManager.FORWARD_TRAVERSAL_KEYS, forwardKeys);
 
         initComponents();
+    }
+    
+    public CadastroCargaHorariaSemanal(ControleCadastroCargaHorariaSemanal controleCadastroCargaHorariaSemanal) {
+        this.controleCadastroCargaHorariaSemanal = controleCadastroCargaHorariaSemanal;  
+       
+        Set<AWTKeyStroke> forwardKeys = new HashSet<AWTKeyStroke>(this.getFocusTraversalKeys(KeyboardFocusManager.FORWARD_TRAVERSAL_KEYS));
+        forwardKeys.add(KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, 0));
+        this.setFocusTraversalKeys(KeyboardFocusManager.FORWARD_TRAVERSAL_KEYS, forwardKeys);
+
+        initComponents();
+        
+        preencherJtable1d(controleCadastroCargaHorariaSemanal.selecionar());
+        
     }
 
     /** This method is called from within the constructor to
@@ -291,16 +300,13 @@ public class CadastroCargaHorariaSemanal extends javax.swing.JFrame {
     }
 
     
-    public void clicaBotaoBuscar(){
-        jButton12.doClick();
-    }
     
     public void limparCampos(){
         jTextField1.setText("");
         jTextField2.setText("");
     }
     
-    public void preencherJtable1d(List<CargaHorariaSemanal> dados  ){
+    public void preencherJtable1d(List<BeanCargaHorariaSemanal> dados  ){
 
         jTable1.getColumnModel().getColumn(0).setPreferredWidth(200);
         jTable1.getColumnModel().getColumn(1).setPreferredWidth(200);
@@ -311,7 +317,7 @@ public class CadastroCargaHorariaSemanal extends javax.swing.JFrame {
         DefaultTableModel modelo = (DefaultTableModel)jTable1.getModel();
         modelo.setNumRows(0);
  
-        for ( CargaHorariaSemanal pessoa : dados) {
+        for ( BeanCargaHorariaSemanal pessoa : dados) {
 
             Object[] linha = new Object[] { pessoa.getSeq_carga_horaria_sem(), pessoa.getCarga_horaria(), pessoa.getDescricao_carga_horaria()};
             modelo.addRow(linha);

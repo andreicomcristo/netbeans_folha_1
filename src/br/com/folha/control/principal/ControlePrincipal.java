@@ -7,9 +7,7 @@ package br.com.folha.control.principal;
 
 
 import br.com.folha.control.parametros.cadastros.ch_semanal.ControleCadastroCargaHorariaSemanal;
-import br.com.folha.dao.parametros.cadastros.cargaHorariaSemanal.DaoCargaHorariaSemanal;
-import br.com.folha.model.parametros.cadastros.cargaHorariaSemanal.CargaHorariaSemanal;
-import br.com.folha.util.UtilidadesDeTexto;
+import br.com.folha.model.parametros.cadastros.cargaHorariaSemanal.BeanPrincipal;
 import br.com.folha.view.principal.Principal;
 import java.awt.Dimension;
 import java.awt.GridLayout;
@@ -30,25 +28,17 @@ class VerticalMenuBar extends JMenuBar {
 }
 
 
-
-public class ControlePrincipal {
+public class ControlePrincipal extends BeanPrincipal {
     
-    int seq_operador;
-    int seq_privilegio;
+    
+    public void abrirFrame(String operador, String privilegio, int seq_operador, int seq_privilegio){
         
-    ControlePrincipal ControlePrincipal;
-    Principal principal;
-    ControleCadastroCargaHorariaSemanal controleCadastroCargaHorariaSemanal = new ControleCadastroCargaHorariaSemanal();
-    CargaHorariaSemanal cargaHorariaSemanal = new CargaHorariaSemanal();
-    DaoCargaHorariaSemanal daoCargaHorariaSemanal = new DaoCargaHorariaSemanal();
-    UtilidadesDeTexto utilidadesDeTexto = new UtilidadesDeTexto();
-    
-    
-    public void abrirFrame(){
-        ControlePrincipal = this;
-        Principal principal = new Principal();
-        this.principal = principal;
-        principal.setDadosIniciais(ControlePrincipal);
+        this.setOperador(operador);
+        this.setPrivilegio(privilegio);
+        this.setSeq_operador(seq_operador);
+        this.setSeq_privilegio(seq_privilegio);
+        
+        this.setPrincipal(new Principal(this));
         principal.setDefaultCloseOperation(principal.EXIT_ON_CLOSE);
         
         // dimensionamento
@@ -65,7 +55,7 @@ public class ControlePrincipal {
     
     public void abrirCadastroCargaHorariaSemanal(){
         ControleCadastroCargaHorariaSemanal c = new ControleCadastroCargaHorariaSemanal();
-        c.abrirFrame();
+        c.abrirFrame(this);
     }
  
     

@@ -5,7 +5,7 @@
 
 package br.com.folha.dao.parametros.cadastros.cargaHorariaSemanal;
 
-import br.com.folha.model.parametros.cadastros.cargaHorariaSemanal.CargaHorariaSemanal;
+import br.com.folha.model.parametros.cadastros.cargaHorariaSemanal.BeanCargaHorariaSemanal;
 import br.com.folha.banco.postgres.ConnectionFactory;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -23,7 +23,7 @@ public class DaoCargaHorariaSemanal {
 
      Connection con = null;
 
-    public boolean inserirCargaHorariaSemanal(CargaHorariaSemanal cargaHorariaSemanal){
+    public boolean inserirCargaHorariaSemanal(BeanCargaHorariaSemanal cargaHorariaSemanal){
                 boolean executou = false;
 		try {
 			con = ConnectionFactory.getConnection();
@@ -54,7 +54,7 @@ public class DaoCargaHorariaSemanal {
     return executou;    
     }
     
-    public boolean excluirCargaHorariaSemanal(CargaHorariaSemanal cargaHorariaSemanal){
+    public boolean excluirCargaHorariaSemanal(BeanCargaHorariaSemanal cargaHorariaSemanal){
                 boolean executou = false;
 		try {
 			con = ConnectionFactory.getConnection();
@@ -84,7 +84,7 @@ public class DaoCargaHorariaSemanal {
     return executou;    
     }
 
-    public boolean alterarCargaHorariaSemanal(CargaHorariaSemanal cargaHorariaSemanal){
+    public boolean alterarCargaHorariaSemanal(BeanCargaHorariaSemanal cargaHorariaSemanal){
                 boolean executou = false;
 		try {
 			con = ConnectionFactory.getConnection();
@@ -116,9 +116,9 @@ public class DaoCargaHorariaSemanal {
     return executou;    
     }
          
-    public List<CargaHorariaSemanal> selecionarCargaHorariaSemanal() {
+    public List<BeanCargaHorariaSemanal> selecionarCargaHorariaSemanal() {
 
-        List<CargaHorariaSemanal> listaConsulta = new ArrayList<CargaHorariaSemanal>();
+        List<BeanCargaHorariaSemanal> listaConsulta = new ArrayList<BeanCargaHorariaSemanal>();
 
      try {
 
@@ -139,7 +139,7 @@ public class DaoCargaHorariaSemanal {
                    int carga_horaria = rs.getInt("carga_horaria");
                    String descricao_carga_horaria = rs.getString("descricao_carga_horaria");
 
-                 listaConsulta.add(new CargaHorariaSemanal(seq_carga_horaria_sem, carga_horaria, descricao_carga_horaria));
+                 listaConsulta.add(new BeanCargaHorariaSemanal(seq_carga_horaria_sem, carga_horaria, descricao_carga_horaria));
 
              }
 

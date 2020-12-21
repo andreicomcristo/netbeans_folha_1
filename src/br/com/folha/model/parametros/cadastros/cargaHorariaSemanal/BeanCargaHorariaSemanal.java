@@ -5,28 +5,38 @@
 
 package br.com.folha.model.parametros.cadastros.cargaHorariaSemanal;
 
-
+import br.com.folha.control.principal.ControlePrincipal;
 
 /**
  *
  * @author andrei
  */
-public class CargaHorariaSemanal {
+public class BeanCargaHorariaSemanal {
 
+    public ControlePrincipal controlePrincipal;
+    int seq_carga_horaria_sem;
+    int carga_horaria;
+    String descricao_carga_horaria;
 
-   int seq_carga_horaria_sem;
-   int carga_horaria;
-   String descricao_carga_horaria;
-
-    public CargaHorariaSemanal() {
+    public BeanCargaHorariaSemanal() {
     }
 
-    public CargaHorariaSemanal(int seq_carga_horaria_sem, int carga_horaria, String descricao_carga_horaria) {
+    public BeanCargaHorariaSemanal(int seq_carga_horaria_sem, int carga_horaria, String descricao_carga_horaria) {
         this.seq_carga_horaria_sem = seq_carga_horaria_sem;
         this.carga_horaria = carga_horaria;
         this.descricao_carga_horaria = descricao_carga_horaria;
     }
 
+    public ControlePrincipal getControlePrincipal() {
+        return controlePrincipal;
+    }
+
+    public void setControlePrincipal(ControlePrincipal controlePrincipal) {
+        this.controlePrincipal = controlePrincipal;
+    }
+
+    
+    
     public int getSeq_carga_horaria_sem() {
         return seq_carga_horaria_sem;
     }

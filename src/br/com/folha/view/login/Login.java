@@ -57,7 +57,7 @@ public class Login extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         ControlePrincipal c = new ControlePrincipal();
-        c.abrirFrame();
+        c.abrirFrame("andrei", "master", 1, 1);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     
