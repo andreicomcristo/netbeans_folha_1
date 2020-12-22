@@ -11,7 +11,7 @@ import br.com.folha.view.login.Login;
  *
  * @author andrei
  */
-public class BeanLogin {
+public class BeanLogin { /*Todas a variáveis devem ter o operador de acesso private*/
     
     public Login login;
     String operador;
