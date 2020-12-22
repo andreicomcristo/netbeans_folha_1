@@ -30,8 +30,8 @@ public class DaoCargaHorariaSemanal {
                                                                             // nome da tebela
 			PreparedStatement stmt = con.prepareStatement("insert into public.carga_horaria_semanal (carga_horaria, descricao_carga_horaria ) values ( ?,? )");
 
-            stmt.setInt(1, cargaHorariaSemanal.getCarga_horaria());
-            stmt.setString(2, cargaHorariaSemanal.getDescricao_carga_horaria());
+            stmt.setInt(1, cargaHorariaSemanal.getCargaHoraria());
+            stmt.setString(2, cargaHorariaSemanal.getDescricaoCargaHoraria());
 
 			stmt.execute();
 			stmt.close();
@@ -61,7 +61,7 @@ public class DaoCargaHorariaSemanal {
                                                                             // nome da tebela
 			PreparedStatement stmt = con.prepareStatement("DELETE FROM public.carga_horaria_semanal where public.carga_horaria_semanal.seq_carga_horaria_sem = ? ");
 
-                        stmt.setInt(1, cargaHorariaSemanal.getSeq_carga_horaria_sem());
+                        stmt.setInt(1, cargaHorariaSemanal.getSeqCargaHorariaSemanal());
 
 			stmt.execute();
 			stmt.close();
@@ -91,9 +91,9 @@ public class DaoCargaHorariaSemanal {
                                                                             // nome da tebela
 			PreparedStatement stmt = con.prepareStatement("UPDATE public.carga_horaria_semanal set carga_horaria = ?, descricao_carga_horaria = ?  where public.carga_horaria_semanal.seq_carga_horaria_sem = ? ");
 
-                        stmt.setInt(1, cargaHorariaSemanal.getCarga_horaria());
-                        stmt.setString(2, cargaHorariaSemanal.getDescricao_carga_horaria());
-                        stmt.setInt(3, cargaHorariaSemanal.getSeq_carga_horaria_sem());
+                        stmt.setInt(1, cargaHorariaSemanal.getCargaHoraria());
+                        stmt.setString(2, cargaHorariaSemanal.getDescricaoCargaHoraria());
+                        stmt.setInt(3, cargaHorariaSemanal.getSeqCargaHorariaSemanal());
 
 			stmt.execute();
 			stmt.close();

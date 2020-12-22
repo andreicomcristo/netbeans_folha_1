@@ -75,8 +75,6 @@ public class Login extends javax.swing.JFrame {
         jLabel1.setText("Login");
         getContentPane().add(jLabel1);
         jLabel1.setBounds(80, 10, 160, 20);
-
-        jTextField1.setText("jTextField1");
         getContentPane().add(jTextField1);
         jTextField1.setBounds(170, 50, 110, 20);
 
@@ -89,6 +87,11 @@ public class Login extends javax.swing.JFrame {
         jLabel3.setBounds(40, 80, 60, 14);
 
         jButton2.setText("Sair");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton2);
         jButton2.setBounds(40, 150, 240, 23);
         getContentPane().add(jPasswordField1);
@@ -103,10 +106,16 @@ public class Login extends javax.swing.JFrame {
         /*Aqui deve ser criado o objeto ControleLogin que irá receber os valores
         dos campos de texto e valida-los retornando true ou false*/
         
-        ControlePrincipal c = new ControlePrincipal();
-        c.abrirFrame("ANDREI", "MASTER", 1, 1); /* Aqui dever ser passado o 
+        controleLogin.validacaoOperadorLogin(jTextField1.getText(), jPasswordField1.getText());
+        
+        /* Aqui dever ser passado o 
         retorno do objeto ControleLogin */
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        dispose();
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     
     /**

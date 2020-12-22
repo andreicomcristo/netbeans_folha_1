@@ -250,9 +250,7 @@ public class CadastroCargaHorariaSemanal extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
 
-        String cargaHoraria  = jTextField1.getText().toUpperCase();
-        String descricaoCargaHoraria = jTextField2.getText().toUpperCase();
-        controleCadastroCargaHorariaSemanal.cadastrar(cargaHoraria, descricaoCargaHoraria);
+        controleCadastroCargaHorariaSemanal.cadastrar(jTextField1.getText().toUpperCase(), jTextField2.getText().toUpperCase());
        
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -319,7 +317,7 @@ public class CadastroCargaHorariaSemanal extends javax.swing.JFrame {
  
         for ( BeanCargaHorariaSemanal pessoa : dados) {
 
-            Object[] linha = new Object[] { pessoa.getSeq_carga_horaria_sem(), pessoa.getCarga_horaria(), pessoa.getDescricao_carga_horaria()};
+            Object[] linha = new Object[] { pessoa.getSeqCargaHorariaSemanal(), pessoa.getCargaHoraria(), pessoa.getDescricaoCargaHoraria()};
             modelo.addRow(linha);
 
         }
