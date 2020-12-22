@@ -38,6 +38,11 @@ public class ControlePrincipal extends BeanPrincipal {
         this.setSeq_operador(seq_operador);
         this.setSeq_privilegio(seq_privilegio);
         
+        /*  Os atributos acima devem ser referenciados na validação da classe
+            login da camada controler e o método abrirFrame deve receber o valor 
+            boolen retornado do objeto ControleLogin para abrir a tela principal.
+        */       
+        
         this.setPrincipal(new Principal(this));
         principal.setDefaultCloseOperation(principal.EXIT_ON_CLOSE);
         

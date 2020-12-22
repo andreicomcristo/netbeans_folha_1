@@ -99,9 +99,13 @@ public class Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        
+        /*Aqui deve ser criado o objeto ControleLogin que irá receber os valores
+        dos campos de texto e valida-los retornando true ou false*/
+        
         ControlePrincipal c = new ControlePrincipal();
-        c.abrirFrame("ANDREI", "MASTER", 1, 1);
+        c.abrirFrame("ANDREI", "MASTER", 1, 1); /* Aqui dever ser passado o 
+        retorno do objeto ControleLogin */
     }//GEN-LAST:event_jButton1ActionPerformed
 
     
