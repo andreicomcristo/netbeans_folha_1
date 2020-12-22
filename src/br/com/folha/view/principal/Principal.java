@@ -21,6 +21,7 @@ public class Principal extends javax.swing.JFrame {
 
     ControlePrincipal controlePrincipal;
     
+    
     /**
      * Creates new form Inicio
      */
