@@ -5,7 +5,14 @@
  */
 package br.com.folha.view.login;
 
+import br.com.folha.control.login.ControleLogin;
 import br.com.folha.control.principal.ControlePrincipal;
+import java.awt.AWTKeyStroke;
+import java.awt.KeyboardFocusManager;
+import java.awt.event.KeyEvent;
+import java.util.HashSet;
+import java.util.Set;
+import javax.swing.KeyStroke;
 
 /**
  *
@@ -13,6 +20,9 @@ import br.com.folha.control.principal.ControlePrincipal;
  */
 public class Login extends javax.swing.JFrame {
 
+    
+    ControleLogin controleLogin;
+    
     /**
      * Creates new form Login
      */
@@ -20,6 +30,17 @@ public class Login extends javax.swing.JFrame {
         initComponents();
     }
 
+    
+    public Login(ControleLogin controleLogin) {
+        this.controleLogin = controleLogin;
+        
+        Set<AWTKeyStroke> forwardKeys = new HashSet<AWTKeyStroke>(this.getFocusTraversalKeys(KeyboardFocusManager.FORWARD_TRAVERSAL_KEYS));
+        forwardKeys.add(KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, 0));
+        this.setFocusTraversalKeys(KeyboardFocusManager.FORWARD_TRAVERSAL_KEYS, forwardKeys);
+        
+        initComponents();
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -31,6 +52,11 @@ public class Login extends javax.swing.JFrame {
 
         jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
+        jPasswordField1 = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
@@ -42,22 +68,40 @@ public class Login extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton1);
-        jButton1.setBounds(160, 170, 90, 28);
+        jButton1.setBounds(40, 110, 240, 23);
 
         jLabel1.setFont(new java.awt.Font("Bookman Old Style", 1, 14)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Login");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(110, 30, 160, 20);
+        jLabel1.setBounds(80, 10, 160, 20);
 
-        setSize(new java.awt.Dimension(414, 337));
+        jTextField1.setText("jTextField1");
+        getContentPane().add(jTextField1);
+        jTextField1.setBounds(170, 50, 110, 20);
+
+        jLabel2.setText("CPF");
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(40, 50, 40, 14);
+
+        jLabel3.setText("Senha");
+        getContentPane().add(jLabel3);
+        jLabel3.setBounds(40, 80, 60, 14);
+
+        jButton2.setText("Sair");
+        getContentPane().add(jButton2);
+        jButton2.setBounds(40, 150, 240, 23);
+        getContentPane().add(jPasswordField1);
+        jPasswordField1.setBounds(172, 80, 110, 20);
+
+        setSize(new java.awt.Dimension(328, 233));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         ControlePrincipal c = new ControlePrincipal();
-        c.abrirFrame("andrei", "master", 1, 1);
+        c.abrirFrame("ANDREI", "MASTER", 1, 1);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     
@@ -98,6 +142,11 @@ public class Login extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JPasswordField jPasswordField1;
+    private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }

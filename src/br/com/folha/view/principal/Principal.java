@@ -50,9 +50,9 @@ public class Principal extends javax.swing.JFrame {
 
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
+        jMenu3 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
-        jMenu3 = new javax.swing.JMenu();
         jMenu4 = new javax.swing.JMenu();
         jMenu5 = new javax.swing.JMenu();
         jMenu6 = new javax.swing.JMenu();
@@ -74,7 +74,9 @@ public class Principal extends javax.swing.JFrame {
         });
         getContentPane().setLayout(null);
 
-        jMenu1.setText("File");
+        jMenu1.setText("Menu");
+
+        jMenu3.setText("Configurações");
 
         jMenu2.setText("Parâmetros");
 
@@ -86,9 +88,8 @@ public class Principal extends javax.swing.JFrame {
         });
         jMenu2.add(jMenuItem2);
 
-        jMenu1.add(jMenu2);
+        jMenu3.add(jMenu2);
 
-        jMenu3.setText("jMenu3");
         jMenu1.add(jMenu3);
 
         jMenu4.setText("jMenu4");

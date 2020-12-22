@@ -48,6 +48,8 @@ public class ControlePrincipal extends BeanPrincipal {
         principal.setSize(width-20, height-100);
         principal.setLocationRelativeTo(null);
     
+        principal.setTitle(operador+" ["+privilegio+"]");
+        
         principal.setVisible(true);
         
     }
