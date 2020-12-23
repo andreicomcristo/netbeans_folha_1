@@ -36,7 +36,9 @@ public class ControleLogin extends BeanOperadorLogado{
         if(operadorValido == true){
             beanOperadorLogado = obterOperadorLogado(cpf1);
             login.dispose();
-            abrirContolePrincipal();
+            ControlePrincipal telaPrincipal = new ControlePrincipal(beanOperadorLogado);
+            telaPrincipal.abrirFrame();
+           // abrirContolePrincipal();
         }else{JOptionPane.showMessageDialog(null, "Acesso negado. Confira CPF e Senha.");}
     }
     
@@ -49,11 +51,10 @@ public class ControleLogin extends BeanOperadorLogado{
         BeanOperadorLogado operadorLogado =  daoLogin.selecionarOperadorLogado(cpf1);
     return operadorLogado;
     }
-    
-    
-    public void abrirContolePrincipal(){
-        ControlePrincipal c = new ControlePrincipal(beanOperadorLogado);
-        c.abrirFrame();
-    }
+     
+    /*public void abrirContolePrincipal(){
+        ControlePrincipal telaPrincipal = new ControlePrincipal(beanOperadorLogado);
+        telaPrincipal.abrirFrame();
+    }*/
     
 }
