@@ -23,24 +23,27 @@ public class ControleLogin extends BeanOperadorLogado{
     Login login;
     
     public void abrirFrameLogin(ControleLogin controleLogin){
-        login =(new Login(this));
+        login = (new Login(this));
         login.setVisible(true);
     }
     
     
-    public void validacaoOperadorLogin(String cpf1, String senha){
-        boolean operadorValido = operadorValido(cpf1, senha);
-        if(operadorValido==true){
+    public void validacaoOperadorLogin(String cpf1, String senha){ 
+        
+        boolean operadorValido = daoLogin.selecionarOperadorValido(cpf1, senha);
+        
+        //boolean operadorValido = operadorValido(cpf1, senha);
+        if(operadorValido == true){
             beanOperadorLogado = obterOperadorLogado(cpf1);
             login.dispose();
             abrirContolePrincipal();
         }else{JOptionPane.showMessageDialog(null, "Acesso negado. Confira CPF e Senha.");}
     }
     
-    public boolean operadorValido(String cpf, String senha){
+   /* public boolean operadorValido(String cpf, String senha){
         boolean resposta = daoLogin.selecionarOperadorValido(cpf, senha);
     return resposta;
-    }
+    }*/
     
     public BeanOperadorLogado obterOperadorLogado(String cpf1){
         BeanOperadorLogado operadorLogado =  daoLogin.selecionarOperadorLogado(cpf1);

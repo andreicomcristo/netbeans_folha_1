@@ -108,6 +108,7 @@ public class Login extends javax.swing.JFrame {
         
         controleLogin.validacaoOperadorLogin(jTextField1.getText(), jPasswordField1.getText());
         
+        
         /* Aqui dever ser passado o 
         retorno do objeto ControleLogin */
     }//GEN-LAST:event_jButton1ActionPerformed
