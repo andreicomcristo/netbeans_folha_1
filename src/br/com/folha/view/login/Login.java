@@ -12,6 +12,7 @@ import java.awt.KeyboardFocusManager;
 import java.awt.event.KeyEvent;
 import java.util.HashSet;
 import java.util.Set;
+import javax.swing.JOptionPane;
 import javax.swing.KeyStroke;
 
 /**
@@ -106,7 +107,18 @@ public class Login extends javax.swing.JFrame {
         /*Aqui deve ser criado o objeto ControleLogin que irá receber os valores
         dos campos de texto e valida-los retornando true ou false*/
         
-        controleLogin.validacaoOperadorLogin(jTextField1.getText(), jPasswordField1.getText());
+        boolean validacao = controleLogin.validacaoOperadorLogin(jTextField1.getText(), jPasswordField1.getText());
+        
+        if (validacao){
+             
+            dispose();
+            
+        } else {
+                       
+            JOptionPane.showMessageDialog(null, "Acesso negado. Confira CPF e Senha.");
+            dispose();
+             
+        } 
         
         
         /* Aqui dever ser passado o 

@@ -28,18 +28,19 @@ public class ControleLogin extends BeanOperadorLogado{
     }
     
     
-    public void validacaoOperadorLogin(String cpf1, String senha){ 
+    public boolean validacaoOperadorLogin(String cpf1, String senha){ 
         
         boolean operadorValido = daoLogin.selecionarOperadorValido(cpf1, senha);
         
         //boolean operadorValido = operadorValido(cpf1, senha);
-        if(operadorValido == true){
+        if (operadorValido == true) {
             beanOperadorLogado = obterOperadorLogado(cpf1);
-            login.dispose();
+            //login.dispose(); coloquei ese comando no botão
             ControlePrincipal telaPrincipal = new ControlePrincipal(beanOperadorLogado);
             telaPrincipal.abrirFrame();
+            return true;
            // abrirContolePrincipal();
-        }else{JOptionPane.showMessageDialog(null, "Acesso negado. Confira CPF e Senha.");}
+        } else return false;
     }
     
    /* public boolean operadorValido(String cpf, String senha){
