@@ -87,7 +87,7 @@ public class ControleCadastroCargaHorariaSemanal extends BeanCargaHorariaSemanal
         //conferindo se os campos obrigatórios foram preenchidos
         if(cargaHoraria.length()==0){acaoValida = false; JOptionPane.showMessageDialog(null, "Você deve escrever uma carga horária válida.");}
         
-        if(acaoValida==true){
+        if (acaoValida){
             cargaHorariaSemanal.setSeqCargaHorariaSemanal(Integer.parseInt(seqCargaHorariaSemanal));
             cargaHorariaSemanal.setCargaHoraria(Integer.parseInt(cargaHoraria));
             cargaHorariaSemanal.setDescricaoCargaHoraria(descricaoCargaHoraria);

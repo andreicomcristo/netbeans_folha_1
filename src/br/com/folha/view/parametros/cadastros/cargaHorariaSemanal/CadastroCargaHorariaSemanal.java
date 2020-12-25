@@ -311,7 +311,7 @@ public class CadastroCargaHorariaSemanal extends javax.swing.JFrame {
         // TODO add your handling code here:
 
         boolean cadastrou = controleCadastroCargaHorariaSemanal.cadastrar(jTextField1.getText().toUpperCase(), jTextField2.getText().toUpperCase());
-        if(cadastrou == true){
+        if(cadastrou){
             limparCampos();
             jTextField1.requestFocus();
         }
@@ -336,11 +336,11 @@ public class CadastroCargaHorariaSemanal extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        if(jTable1.getSelectedRowCount()==1){
-            String seq_carga_horaria_sem  = jTable1.getValueAt(jTable1.getSelectedRow(), 0).toString();
+        if(jTable1.getSelectedRowCount() == 1){
+            String seqCargaHorariaSem  = jTable1.getValueAt(jTable1.getSelectedRow(), 0).toString();
             String cargaHoraria = jTextField1.getText();
             String descricaoCargaHoraria = jTextField2.getText();
-            controleCadastroCargaHorariaSemanal.alterar(seq_carga_horaria_sem, cargaHoraria, descricaoCargaHoraria);
+            controleCadastroCargaHorariaSemanal.alterar(seqCargaHorariaSem, cargaHoraria, descricaoCargaHoraria);
         }else{JOptionPane.showMessageDialog(null, "Você deve selecionar uma linha na tabela.");}
         
     }//GEN-LAST:event_jButton2ActionPerformed
