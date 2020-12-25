@@ -23,6 +23,7 @@ public class Login extends javax.swing.JFrame {
 
     
     ControleLogin controleLogin;
+    int tentativas = 0;
     
     /**
      * Creates new form Login
@@ -177,20 +178,17 @@ public class Login extends javax.swing.JFrame {
             dispose();
             
         } else {
-            tentativas = tentativas+1;            
+            
+            tentativas++;            
             JOptionPane.showMessageDialog(null, "Acesso negado. Confira CPF e Senha.");
-            if(tentativas>5){
-                dispose();}
-             
-        } 
-        
-        
-        /* Aqui dever ser passado o 
-        retorno do objeto ControleLogin */
+            if (tentativas > 5){
+                dispose();
+            }   
+        }         
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+
         dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -199,7 +197,7 @@ public class Login extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
+        /* Set the Nimbus int tentativas = 0;look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
@@ -231,7 +229,7 @@ public class Login extends javax.swing.JFrame {
     }
 
     
-    int tentativas = 0;
+    
     
     
     
