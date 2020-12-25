@@ -6,9 +6,9 @@
 package br.com.folha.view.login;
 
 import br.com.folha.control.login.ControleLogin;
-import br.com.folha.control.principal.ControlePrincipal;
 import java.awt.AWTKeyStroke;
 import java.awt.KeyboardFocusManager;
+import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.util.HashSet;
 import java.util.Set;
@@ -58,10 +58,12 @@ public class Login extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
         jPasswordField1 = new javax.swing.JPasswordField();
+        jSeparator1 = new javax.swing.JSeparator();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
 
+        jButton1.setFont(new java.awt.Font("Bookman Old Style", 1, 10)); // NOI18N
         jButton1.setText("Login");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -69,24 +71,84 @@ public class Login extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton1);
-        jButton1.setBounds(40, 110, 240, 23);
+        jButton1.setBounds(20, 120, 280, 23);
 
         jLabel1.setFont(new java.awt.Font("Bookman Old Style", 1, 14)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Login");
         getContentPane().add(jLabel1);
         jLabel1.setBounds(80, 10, 160, 20);
-        getContentPane().add(jTextField1);
-        jTextField1.setBounds(170, 50, 110, 20);
 
+        jTextField1.addKeyListener(new KeyAdapter() {   
+            public void keyTyped(KeyEvent e) { // <- alteração   
+
+                if(e.getKeyChar()=='a'){e.setKeyChar('A');}
+                if(e.getKeyChar()=='á'){e.setKeyChar('A');}
+                if(e.getKeyChar()=='à'){e.setKeyChar('A');}
+                if(e.getKeyChar()=='ã'){e.setKeyChar('A');}
+                if(e.getKeyChar()=='â'){e.setKeyChar('A');}
+                if(e.getKeyChar()=='b'){e.setKeyChar('B');}
+                if(e.getKeyChar()=='c'){e.setKeyChar('C');}
+                if(e.getKeyChar()=='ç'){e.setKeyChar('C');}
+                if(e.getKeyChar()=='d'){e.setKeyChar('D');}
+                if(e.getKeyChar()=='e'){e.setKeyChar('E');}
+                if(e.getKeyChar()=='é'){e.setKeyChar('E');}
+                if(e.getKeyChar()=='è'){e.setKeyChar('E');}
+                if(e.getKeyChar()=='ê'){e.setKeyChar('E');}
+                if(e.getKeyChar()=='f'){e.setKeyChar('F');}
+                if(e.getKeyChar()=='g'){e.setKeyChar('G');}
+                if(e.getKeyChar()=='h'){e.setKeyChar('H');}
+                if(e.getKeyChar()=='i'){e.setKeyChar('I');}
+                if(e.getKeyChar()=='í'){e.setKeyChar('I');}
+                if(e.getKeyChar()=='ì'){e.setKeyChar('I');}
+                if(e.getKeyChar()=='î'){e.setKeyChar('I');}
+                if(e.getKeyChar()=='j'){e.setKeyChar('J');}
+                if(e.getKeyChar()=='k'){e.setKeyChar('K');}
+                if(e.getKeyChar()=='l'){e.setKeyChar('L');}
+                if(e.getKeyChar()=='m'){e.setKeyChar('M');}
+                if(e.getKeyChar()=='n'){e.setKeyChar('N');}
+                if(e.getKeyChar()=='o'){e.setKeyChar('O');}
+                if(e.getKeyChar()=='ó'){e.setKeyChar('O');}
+                if(e.getKeyChar()=='ò'){e.setKeyChar('O');}
+                if(e.getKeyChar()=='õ'){e.setKeyChar('O');}
+                if(e.getKeyChar()=='ô'){e.setKeyChar('O');}
+                if(e.getKeyChar()=='p'){e.setKeyChar('P');}
+                if(e.getKeyChar()=='q'){e.setKeyChar('Q');}
+                if(e.getKeyChar()=='r'){e.setKeyChar('R');}
+                if(e.getKeyChar()=='s'){e.setKeyChar('S');}
+                if(e.getKeyChar()=='t'){e.setKeyChar('T');}
+                if(e.getKeyChar()=='u'){e.setKeyChar('U');}
+                if(e.getKeyChar()=='ú'){e.setKeyChar('U');}
+                if(e.getKeyChar()=='ù'){e.setKeyChar('U');}
+                if(e.getKeyChar()=='û'){e.setKeyChar('U');}
+                if(e.getKeyChar()=='v'){e.setKeyChar('V');}
+                if(e.getKeyChar()=='w'){e.setKeyChar('W');}
+                if(e.getKeyChar()=='x'){e.setKeyChar('X');}
+                if(e.getKeyChar()=='y'){e.setKeyChar('Y');}
+                if(e.getKeyChar()=='z'){e.setKeyChar('Z');}
+
+                if(jTextField1.getText().length()>=11){e.setKeyChar('\0');}
+
+                char c = e.getKeyChar();
+                if ( '0' <= c && c <= '9' || (c == KeyEvent.VK_BACK_SPACE) ){}else   
+                {e.setKeyChar('\0');}   
+            }   
+
+        });
+        getContentPane().add(jTextField1);
+        jTextField1.setBounds(160, 50, 140, 20);
+
+        jLabel2.setFont(new java.awt.Font("Bookman Old Style", 1, 10)); // NOI18N
         jLabel2.setText("CPF");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(40, 50, 40, 14);
+        jLabel2.setBounds(20, 50, 40, 13);
 
+        jLabel3.setFont(new java.awt.Font("Bookman Old Style", 1, 10)); // NOI18N
         jLabel3.setText("Senha");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(40, 80, 60, 14);
+        jLabel3.setBounds(20, 80, 60, 13);
 
+        jButton2.setFont(new java.awt.Font("Bookman Old Style", 1, 10)); // NOI18N
         jButton2.setText("Sair");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -94,18 +156,19 @@ public class Login extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton2);
-        jButton2.setBounds(40, 150, 240, 23);
+        jButton2.setBounds(20, 150, 280, 21);
         getContentPane().add(jPasswordField1);
-        jPasswordField1.setBounds(172, 80, 110, 20);
+        jPasswordField1.setBounds(160, 80, 140, 20);
+        getContentPane().add(jSeparator1);
+        jSeparator1.setBounds(20, 30, 280, 10);
 
-        setSize(new java.awt.Dimension(328, 233));
+        setSize(new java.awt.Dimension(329, 235));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         
-        /*Aqui deve ser criado o objeto ControleLogin que irá receber os valores
-        dos campos de texto e valida-los retornando true ou false*/
+        
         
         boolean validacao = controleLogin.validacaoOperadorLogin(jTextField1.getText(), jPasswordField1.getText());
         
@@ -114,9 +177,10 @@ public class Login extends javax.swing.JFrame {
             dispose();
             
         } else {
-                       
+            tentativas = tentativas+1;            
             JOptionPane.showMessageDialog(null, "Acesso negado. Confira CPF e Senha.");
-            dispose();
+            if(tentativas>5){
+                dispose();}
              
         } 
         
@@ -166,6 +230,11 @@ public class Login extends javax.swing.JFrame {
         });
     }
 
+    
+    int tentativas = 0;
+    
+    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
@@ -173,6 +242,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPasswordField jPasswordField1;
+    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }

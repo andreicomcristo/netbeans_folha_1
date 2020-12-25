@@ -12,6 +12,7 @@ import br.com.folha.model.principal.BeanPrincipal;
 import br.com.folha.view.principal.Principal;
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import java.util.Date;
 
 /**
  *
@@ -32,10 +33,7 @@ public class ControlePrincipal extends BeanPrincipal {
     
     public void abrirFrame(){
         
-        /*  Os atributos acima devem ser referenciados na validação da classe
-            login da camada controler e o método abrirFrame deve receber o valor 
-            boolen retornado do objeto ControleLogin para abrir a tela principal.
-        */       
+       
         
         this.setPrincipal(new Principal(this));
         getPrincipal().setDefaultCloseOperation(getPrincipal().EXIT_ON_CLOSE);
@@ -47,7 +45,34 @@ public class ControlePrincipal extends BeanPrincipal {
         getPrincipal().setSize(width-20, height-100);
         getPrincipal().setLocationRelativeTo(null);
     
-        getPrincipal().setTitle("["+getCpf()+"]"+" ["+getOperador()+"]"+" ["+getPrivilegio()+"]");
+        Date hoje = new Date();
+        String dia = String.valueOf(hoje.getDate());
+        if(dia.length()<2){dia = "0"+dia;}
+        String mes = String.valueOf(hoje.getMonth()+1);
+        if(mes.length()<2){mes = "0"+mes;}
+        String ano = String.valueOf(hoje.getYear()+1900);
+        String nomeDia = "";
+        
+        switch(hoje.getDay()){
+            case 0 :
+                nomeDia = "Domingo"; break;
+            case 1 :
+                nomeDia = "Segunda-feira"; break;
+            case 2 :
+                nomeDia = "Terça-feira"; break;
+            case 3 :
+                nomeDia = "Quarta-feira"; break;
+            case 4 :
+                nomeDia = "Quinta-feira"; break;
+            case 5 :
+                nomeDia = "Sexta-feira"; break;
+            case 6 :
+                nomeDia = "Sábado"; break;
+        }
+                
+        
+        
+        getPrincipal().setTitle("["+getCpf()+"]"+" ["+getOperador()+"]"+" ["+getPrivilegio()+"] "+nomeDia +", "+dia+"-"+mes+"-"+ano+".");
         
         getPrincipal().setVisible(true);
         

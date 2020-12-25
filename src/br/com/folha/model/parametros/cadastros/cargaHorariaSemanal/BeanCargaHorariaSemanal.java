@@ -14,14 +14,14 @@ import br.com.folha.control.principal.ControlePrincipal;
 public class BeanCargaHorariaSemanal {
 
     private ControlePrincipal controlePrincipal;
-    private int seqCargaHorariaSemanal;
+    private long seqCargaHorariaSemanal;
     private int cargaHoraria;
     private String descricaoCargaHoraria;
 
     public BeanCargaHorariaSemanal() {
     }
 
-    public BeanCargaHorariaSemanal(int seqCargaHorariaSemanal, int cargaHoraria, String descricaoCargaHoraria) {
+    public BeanCargaHorariaSemanal(long seqCargaHorariaSemanal, int cargaHoraria, String descricaoCargaHoraria) {
         this.seqCargaHorariaSemanal = seqCargaHorariaSemanal;
         this.cargaHoraria = cargaHoraria;
         this.descricaoCargaHoraria = descricaoCargaHoraria;
@@ -35,11 +35,11 @@ public class BeanCargaHorariaSemanal {
         this.controlePrincipal = controlePrincipal;
     }
 
-    public int getSeqCargaHorariaSemanal() {
+    public long getSeqCargaHorariaSemanal() {
         return seqCargaHorariaSemanal;
     }
 
-    public void setSeqCargaHorariaSemanal(int seqCargaHorariaSemanal) {
+    public void setSeqCargaHorariaSemanal(long seqCargaHorariaSemanal) {
         this.seqCargaHorariaSemanal = seqCargaHorariaSemanal;
     }
 

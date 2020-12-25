@@ -30,16 +30,31 @@ public class DaoLogin {
         try {
             con = ConnectionFactory.getConnection();
             try {
-                PreparedStatement stmt = con.prepareStatement("select distinct ");
-                //stmt.setString(1, cpf1);
+                PreparedStatement stmt = con.prepareStatement(""+
+                    "select distinct \n" +
+                    "pessoas.nome as OPERADOR,\n" +
+                    "pessoas.cpf as CPF, \n" +
+                    "privilegios.nome_privilegio as PRIVILEGIO,\n" +
+                    "operadores.seq_operador as SEQ_OPERADOR,\n" +
+                    "privilegios.seq_privilegio as SEQ_PRIVILEGIO\n" +
+                    "from public.operadores\n" +
+                    "inner join public.pessoas on public.operadores.seq_pessoa = public.pessoas.seq_pessoa\n" +
+                    "inner join public.privilegios on public.operadores.seq_privilegio = public.operadores.seq_privilegio\n" +
+                    "where \n" +
+                    "pessoas.cpf = ? and operadores.senha = ?\n" +
+                    "and operadores.dt_cancelamento is null\n" +
+                    "order by pessoas.cpf"
+                );
+                stmt.setString(1, cpf1);
+                stmt.setString(2, senha);
                 ResultSet rs = stmt.executeQuery();
 
                 while(rs.next()) {
                     String nome = rs.getString("operador");
-                    String cpf = rs.getString("operador");
-                    String privilegio = rs.getString("operador");
-                    int seqOperador = rs.getInt("operador");
-                    int seqPrivilegio = rs.getInt("operador");
+                    String cpf = rs.getString("cpf");
+                    String privilegio = rs.getString("privilegio");
+                    long seqOperador = rs.getInt("seq_operador");
+                    long seqPrivilegio = rs.getInt("seq_privilegio");
                     
                     listaConsulta.add( new BeanOperadorLogado(nome, cpf, privilegio, seqOperador, seqPrivilegio));
                 }
@@ -57,7 +72,7 @@ public class DaoLogin {
             e.printStackTrace();
         }
         
-        resposta = true;
+        
             return resposta;
     }
      
@@ -69,16 +84,30 @@ public class DaoLogin {
         try {
             con = ConnectionFactory.getConnection();
             try {
-                PreparedStatement stmt = con.prepareStatement("select distinct ");
-                //stmt.setString(1, cpf1);
+                PreparedStatement stmt = con.prepareStatement(""+
+                    "select distinct \n" +
+                    "pessoas.nome as OPERADOR,\n" +
+                    "pessoas.cpf as CPF, \n" +
+                    "privilegios.nome_privilegio as PRIVILEGIO,\n" +
+                    "operadores.seq_operador as SEQ_OPERADOR,\n" +
+                    "privilegios.seq_privilegio as SEQ_PRIVILEGIO\n" +
+                    "from public.operadores\n" +
+                    "inner join public.pessoas on public.operadores.seq_pessoa = public.pessoas.seq_pessoa\n" +
+                    "inner join public.privilegios on public.operadores.seq_privilegio = public.operadores.seq_privilegio\n" +
+                    "where \n" +
+                    "pessoas.cpf = ?\n" +
+                    "and operadores.dt_cancelamento is null\n" +
+                    "order by pessoas.cpf"
+                    );
+                stmt.setString(1, cpf1);
                 ResultSet rs = stmt.executeQuery();
 
                 while(rs.next()) {
                     String nome = rs.getString("operador");
-                    String cpf = rs.getString("operador");
-                    String privilegio = rs.getString("operador");
-                    int seqOperador = rs.getInt("operador");
-                    int seqPrivilegio = rs.getInt("operador");
+                    String cpf = rs.getString("cpf");
+                    String privilegio = rs.getString("privilegio");
+                    long seqOperador = rs.getInt("seq_operador");
+                    long seqPrivilegio = rs.getInt("seq_privilegio");
                     
                     
                     listaConsulta.add( new BeanOperadorLogado(nome, cpf, privilegio, seqOperador, seqPrivilegio));
@@ -96,7 +125,7 @@ public class DaoLogin {
         } catch (Exception e) {JOptionPane.showMessageDialog(null, e.getMessage());
             e.printStackTrace();
         }
-        resposta = new BeanOperadorLogado("ANDREI MAGALHAES", "12345678910", "MASTER", 1, 1);
+        
             return resposta;
     }
     

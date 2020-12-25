@@ -17,13 +17,13 @@ public class BeanPrincipal {
     private String operador;
     private String cpf;
     private String privilegio;
-    private int seqOperador;
-    private int seqPrivilegio;
+    private long seqOperador;
+    private long seqPrivilegio;
 
     public BeanPrincipal() {
     }
 
-    public BeanPrincipal(String operador, String cpf, String privilegio, int seqOperador, int seqPrivilegio) {
+    public BeanPrincipal(String operador, String cpf, String privilegio, long seqOperador, long seqPrivilegio) {
         this.operador = operador;
         this.cpf = cpf;
         this.privilegio = privilegio;
@@ -63,19 +63,19 @@ public class BeanPrincipal {
         this.privilegio = privilegio;
     }
 
-    public int getSeqOperador() {
+    public long getSeqOperador() {
         return seqOperador;
     }
 
-    public void setSeqOperador(int seqOperador) {
+    public void setSeqOperador(long seqOperador) {
         this.seqOperador = seqOperador;
     }
 
-    public int getSeqPrivilegio() {
+    public long getSeqPrivilegio() {
         return seqPrivilegio;
     }
 
-    public void setSeqPrivilegio(int seqPrivilegio) {
+    public void setSeqPrivilegio(long seqPrivilegio) {
         this.seqPrivilegio = seqPrivilegio;
     }
 

@@ -61,7 +61,7 @@ public class DaoCargaHorariaSemanal {
                                                                             // nome da tebela
 			PreparedStatement stmt = con.prepareStatement("DELETE FROM public.carga_horaria_semanal where public.carga_horaria_semanal.seq_carga_horaria_sem = ? ");
 
-                        stmt.setInt(1, cargaHorariaSemanal.getSeqCargaHorariaSemanal());
+                        stmt.setLong(1, cargaHorariaSemanal.getSeqCargaHorariaSemanal());
 
 			stmt.execute();
 			stmt.close();
@@ -93,7 +93,7 @@ public class DaoCargaHorariaSemanal {
 
                         stmt.setInt(1, cargaHorariaSemanal.getCargaHoraria());
                         stmt.setString(2, cargaHorariaSemanal.getDescricaoCargaHoraria());
-                        stmt.setInt(3, cargaHorariaSemanal.getSeqCargaHorariaSemanal());
+                        stmt.setLong(3, cargaHorariaSemanal.getSeqCargaHorariaSemanal());
 
 			stmt.execute();
 			stmt.close();
@@ -135,7 +135,7 @@ public class DaoCargaHorariaSemanal {
 
              while(rs.next()) {
 
-                   int seq_carga_horaria_sem = rs.getInt("seq_carga_horaria_sem");
+                   long seq_carga_horaria_sem = rs.getLong("seq_carga_horaria_sem");
                    int carga_horaria = rs.getInt("carga_horaria");
                    String descricao_carga_horaria = rs.getString("descricao_carga_horaria");
 
