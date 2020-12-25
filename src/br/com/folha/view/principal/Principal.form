@@ -19,13 +19,158 @@
                     <Property name="text" type="java.lang.String" value="Par&#xe2;metros"/>
                   </Properties>
                   <SubComponents>
-                    <MenuItem class="javax.swing.JMenuItem" name="jMenuItem2">
+                    <Menu class="javax.swing.JMenu" name="jMenu11">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Cadastro de Carga Horaria Semanal"/>
+                        <Property name="text" type="java.lang.String" value="Carreiras"/>
                       </Properties>
-                      <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem2ActionPerformed"/>
-                      </Events>
+                      <SubComponents>
+                        <MenuItem class="javax.swing.JMenuItem" name="jMenuItem7">
+                          <Properties>
+                            <Property name="text" type="java.lang.String" value="Cadastro de Carreiras"/>
+                          </Properties>
+                        </MenuItem>
+                        <MenuItem class="javax.swing.JMenuItem" name="jMenuItem9">
+                          <Properties>
+                            <Property name="text" type="java.lang.String" value="Cadastro de N&#xed;veis Carreira"/>
+                          </Properties>
+                        </MenuItem>
+                        <MenuItem class="javax.swing.JMenuItem" name="jMenuItem8">
+                          <Properties>
+                            <Property name="text" type="java.lang.String" value="Cadastro de Classes"/>
+                          </Properties>
+                        </MenuItem>
+                      </SubComponents>
+                    </Menu>
+                    <Menu class="javax.swing.JMenu" name="jMenu12">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Cargos"/>
+                      </Properties>
+                      <SubComponents>
+                        <MenuItem class="javax.swing.JMenuItem" name="jMenuItem5">
+                          <Properties>
+                            <Property name="text" type="java.lang.String" value="Cadastro de Cargos"/>
+                          </Properties>
+                        </MenuItem>
+                        <MenuItem class="javax.swing.JMenuItem" name="jMenuItem6">
+                          <Properties>
+                            <Property name="text" type="java.lang.String" value="Cadastro de Especialidades"/>
+                          </Properties>
+                        </MenuItem>
+                        <MenuItem class="javax.swing.JMenuItem" name="jMenuItem13">
+                          <Properties>
+                            <Property name="text" type="java.lang.String" value="Cadastro de N&#xed;veis Do Cargo"/>
+                          </Properties>
+                        </MenuItem>
+                      </SubComponents>
+                    </Menu>
+                    <Menu class="javax.swing.JMenu" name="jMenu13">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Pessoais"/>
+                      </Properties>
+                      <SubComponents>
+                        <MenuItem class="javax.swing.JMenuItem" name="jMenuItem10">
+                          <Properties>
+                            <Property name="text" type="java.lang.String" value="Cadastro de Escolaridade"/>
+                          </Properties>
+                        </MenuItem>
+                        <MenuItem class="javax.swing.JMenuItem" name="jMenuItem11">
+                          <Properties>
+                            <Property name="text" type="java.lang.String" value="Cadastro de Estados Civis"/>
+                          </Properties>
+                        </MenuItem>
+                        <MenuItem class="javax.swing.JMenuItem" name="jMenuItem18">
+                          <Properties>
+                            <Property name="text" type="java.lang.String" value="Cadastro de Sexo"/>
+                          </Properties>
+                        </MenuItem>
+                        <MenuItem class="javax.swing.JMenuItem" name="jMenuItem12">
+                          <Properties>
+                            <Property name="text" type="java.lang.String" value="Cadastro de Categorias de Habilita&#xe7;&#xe3;o Tr&#xe2;nsito"/>
+                          </Properties>
+                        </MenuItem>
+                        <MenuItem class="javax.swing.JMenuItem" name="jMenuItem1">
+                          <Properties>
+                            <Property name="text" type="java.lang.String" value="Cadastro de Tipos de Logradouro"/>
+                          </Properties>
+                        </MenuItem>
+                        <MenuItem class="javax.swing.JMenuItem" name="jMenuItem21">
+                          <Properties>
+                            <Property name="text" type="java.lang.String" value="Cadastro de Tipos de Filia&#xe7;&#xe3;o"/>
+                          </Properties>
+                        </MenuItem>
+                      </SubComponents>
+                    </Menu>
+                    <Menu class="javax.swing.JMenu" name="jMenu14">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Profissionais"/>
+                      </Properties>
+                      <SubComponents>
+                        <MenuItem class="javax.swing.JMenuItem" name="jMenuItem2">
+                          <Properties>
+                            <Property name="text" type="java.lang.String" value="Cadastro de Carga Horaria Semanal"/>
+                          </Properties>
+                          <Events>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem2ActionPerformed"/>
+                          </Events>
+                        </MenuItem>
+                        <MenuItem class="javax.swing.JMenuItem" name="jMenuItem4">
+                          <Properties>
+                            <Property name="text" type="java.lang.String" value="Cadastro de Tipos de Folha"/>
+                          </Properties>
+                        </MenuItem>
+                        <MenuItem class="javax.swing.JMenuItem" name="jMenuItem3">
+                          <Properties>
+                            <Property name="text" type="java.lang.String" value="Cadastro de Bancos"/>
+                          </Properties>
+                        </MenuItem>
+                        <MenuItem class="javax.swing.JMenuItem" name="jMenuItem19">
+                          <Properties>
+                            <Property name="text" type="java.lang.String" value="Cadastro de Situa&#xe7;&#xf5;es"/>
+                          </Properties>
+                        </MenuItem>
+                        <MenuItem class="javax.swing.JMenuItem" name="jMenuItem20">
+                          <Properties>
+                            <Property name="text" type="java.lang.String" value="Cadastro de V&#xed;nculos"/>
+                          </Properties>
+                        </MenuItem>
+                      </SubComponents>
+                    </Menu>
+                    <Menu class="javax.swing.JMenu" name="jMenu16">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Estabelecimentos de Sa&#xfa;de"/>
+                      </Properties>
+                      <SubComponents>
+                        <MenuItem class="javax.swing.JMenuItem" name="jMenuItem16">
+                          <Properties>
+                            <Property name="text" type="java.lang.String" value="Cadastro de Unidade de Sa&#xfa;de"/>
+                          </Properties>
+                        </MenuItem>
+                        <MenuItem class="javax.swing.JMenuItem" name="jMenuItem17">
+                          <Properties>
+                            <Property name="text" type="java.lang.String" value="Cadastro de Regime de Unidade de Lota&#xe7;&#xe3;o"/>
+                          </Properties>
+                          <Events>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem17ActionPerformed"/>
+                          </Events>
+                        </MenuItem>
+                      </SubComponents>
+                    </Menu>
+                  </SubComponents>
+                </Menu>
+                <Menu class="javax.swing.JMenu" name="jMenu15">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Operadores"/>
+                  </Properties>
+                  <SubComponents>
+                    <MenuItem class="javax.swing.JMenuItem" name="jMenuItem14">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Cadastro de Operadores"/>
+                      </Properties>
+                    </MenuItem>
+                    <MenuItem class="javax.swing.JMenuItem" name="jMenuItem15">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Cadastro do Privil&#xe9;gios"/>
+                      </Properties>
                     </MenuItem>
                   </SubComponents>
                 </Menu>
@@ -33,13 +178,20 @@
             </Menu>
             <Menu class="javax.swing.JMenu" name="jMenu4">
               <Properties>
-                <Property name="text" type="java.lang.String" value="jMenu4"/>
+                <Property name="text" type="java.lang.String" value="Recursos Humanos"/>
               </Properties>
-            </Menu>
-            <Menu class="javax.swing.JMenu" name="jMenu5">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="jMenu5"/>
-              </Properties>
+              <SubComponents>
+                <MenuItem class="javax.swing.JMenuItem" name="jMenuItem22">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Cadastro de Pessoas"/>
+                  </Properties>
+                </MenuItem>
+                <MenuItem class="javax.swing.JMenuItem" name="jMenuItem23">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Cadastro de Autoriza&#xe7;&#xf5;es"/>
+                  </Properties>
+                </MenuItem>
+              </SubComponents>
             </Menu>
             <Menu class="javax.swing.JMenu" name="jMenu6">
               <Properties>

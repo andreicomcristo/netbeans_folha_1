@@ -60,12 +60,18 @@ public class Login extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jPasswordField1 = new javax.swing.JPasswordField();
         jSeparator1 = new javax.swing.JSeparator();
+        jSeparator2 = new javax.swing.JSeparator();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
 
         jButton1.setFont(new java.awt.Font("Bookman Old Style", 1, 10)); // NOI18N
         jButton1.setText("Login");
+        jButton1.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jButton1FocusGained(evt);
+            }
+        });
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -137,17 +143,17 @@ public class Login extends javax.swing.JFrame {
 
         });
         getContentPane().add(jTextField1);
-        jTextField1.setBounds(160, 50, 140, 20);
+        jTextField1.setBounds(160, 45, 140, 20);
 
         jLabel2.setFont(new java.awt.Font("Bookman Old Style", 1, 10)); // NOI18N
         jLabel2.setText("CPF");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(20, 50, 40, 13);
+        jLabel2.setBounds(20, 45, 40, 13);
 
         jLabel3.setFont(new java.awt.Font("Bookman Old Style", 1, 10)); // NOI18N
         jLabel3.setText("Senha");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(20, 80, 60, 13);
+        jLabel3.setBounds(20, 70, 60, 13);
 
         jButton2.setFont(new java.awt.Font("Bookman Old Style", 1, 10)); // NOI18N
         jButton2.setText("Sair");
@@ -159,9 +165,11 @@ public class Login extends javax.swing.JFrame {
         getContentPane().add(jButton2);
         jButton2.setBounds(20, 150, 280, 21);
         getContentPane().add(jPasswordField1);
-        jPasswordField1.setBounds(160, 80, 140, 20);
+        jPasswordField1.setBounds(160, 70, 140, 20);
         getContentPane().add(jSeparator1);
         jSeparator1.setBounds(20, 30, 280, 10);
+        getContentPane().add(jSeparator2);
+        jSeparator2.setBounds(20, 102, 280, 10);
 
         setSize(new java.awt.Dimension(329, 235));
         setLocationRelativeTo(null);
@@ -179,7 +187,8 @@ public class Login extends javax.swing.JFrame {
             
         } else {
             
-            tentativas++;            
+            tentativas++; 
+            jTextField1.requestFocus();
             JOptionPane.showMessageDialog(null, "Acesso negado. Confira CPF e Senha.");
             if (tentativas > 5){
                 dispose();
@@ -191,6 +200,11 @@ public class Login extends javax.swing.JFrame {
 
         dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jButton1FocusGained
+        // TODO add your handling code here:
+        jButton1.doClick();
+    }//GEN-LAST:event_jButton1FocusGained
 
     
     /**
@@ -241,6 +255,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
     private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }

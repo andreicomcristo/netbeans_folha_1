@@ -53,9 +53,36 @@ public class Principal extends javax.swing.JFrame {
         jMenu1 = new javax.swing.JMenu();
         jMenu3 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
+        jMenu11 = new javax.swing.JMenu();
+        jMenuItem7 = new javax.swing.JMenuItem();
+        jMenuItem9 = new javax.swing.JMenuItem();
+        jMenuItem8 = new javax.swing.JMenuItem();
+        jMenu12 = new javax.swing.JMenu();
+        jMenuItem5 = new javax.swing.JMenuItem();
+        jMenuItem6 = new javax.swing.JMenuItem();
+        jMenuItem13 = new javax.swing.JMenuItem();
+        jMenu13 = new javax.swing.JMenu();
+        jMenuItem10 = new javax.swing.JMenuItem();
+        jMenuItem11 = new javax.swing.JMenuItem();
+        jMenuItem18 = new javax.swing.JMenuItem();
+        jMenuItem12 = new javax.swing.JMenuItem();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem21 = new javax.swing.JMenuItem();
+        jMenu14 = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuItem4 = new javax.swing.JMenuItem();
+        jMenuItem3 = new javax.swing.JMenuItem();
+        jMenuItem19 = new javax.swing.JMenuItem();
+        jMenuItem20 = new javax.swing.JMenuItem();
+        jMenu16 = new javax.swing.JMenu();
+        jMenuItem16 = new javax.swing.JMenuItem();
+        jMenuItem17 = new javax.swing.JMenuItem();
+        jMenu15 = new javax.swing.JMenu();
+        jMenuItem14 = new javax.swing.JMenuItem();
+        jMenuItem15 = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
-        jMenu5 = new javax.swing.JMenu();
+        jMenuItem22 = new javax.swing.JMenuItem();
+        jMenuItem23 = new javax.swing.JMenuItem();
         jMenu6 = new javax.swing.JMenu();
         jMenu7 = new javax.swing.JMenu();
         jMenu8 = new javax.swing.JMenu();
@@ -81,23 +108,116 @@ public class Principal extends javax.swing.JFrame {
 
         jMenu2.setText("Parâmetros");
 
+        jMenu11.setText("Carreiras");
+
+        jMenuItem7.setText("Cadastro de Carreiras");
+        jMenu11.add(jMenuItem7);
+
+        jMenuItem9.setText("Cadastro de Níveis Carreira");
+        jMenu11.add(jMenuItem9);
+
+        jMenuItem8.setText("Cadastro de Classes");
+        jMenu11.add(jMenuItem8);
+
+        jMenu2.add(jMenu11);
+
+        jMenu12.setText("Cargos");
+
+        jMenuItem5.setText("Cadastro de Cargos");
+        jMenu12.add(jMenuItem5);
+
+        jMenuItem6.setText("Cadastro de Especialidades");
+        jMenu12.add(jMenuItem6);
+
+        jMenuItem13.setText("Cadastro de Níveis Do Cargo");
+        jMenu12.add(jMenuItem13);
+
+        jMenu2.add(jMenu12);
+
+        jMenu13.setText("Pessoais");
+
+        jMenuItem10.setText("Cadastro de Escolaridade");
+        jMenu13.add(jMenuItem10);
+
+        jMenuItem11.setText("Cadastro de Estados Civis");
+        jMenu13.add(jMenuItem11);
+
+        jMenuItem18.setText("Cadastro de Sexo");
+        jMenu13.add(jMenuItem18);
+
+        jMenuItem12.setText("Cadastro de Categorias de Habilitação Trânsito");
+        jMenu13.add(jMenuItem12);
+
+        jMenuItem1.setText("Cadastro de Tipos de Logradouro");
+        jMenu13.add(jMenuItem1);
+
+        jMenuItem21.setText("Cadastro de Tipos de Filiação");
+        jMenu13.add(jMenuItem21);
+
+        jMenu2.add(jMenu13);
+
+        jMenu14.setText("Profissionais");
+
         jMenuItem2.setText("Cadastro de Carga Horaria Semanal");
         jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem2ActionPerformed(evt);
             }
         });
-        jMenu2.add(jMenuItem2);
+        jMenu14.add(jMenuItem2);
+
+        jMenuItem4.setText("Cadastro de Tipos de Folha");
+        jMenu14.add(jMenuItem4);
+
+        jMenuItem3.setText("Cadastro de Bancos");
+        jMenu14.add(jMenuItem3);
+
+        jMenuItem19.setText("Cadastro de Situações");
+        jMenu14.add(jMenuItem19);
+
+        jMenuItem20.setText("Cadastro de Vínculos");
+        jMenu14.add(jMenuItem20);
+
+        jMenu2.add(jMenu14);
+
+        jMenu16.setText("Estabelecimentos de Saúde");
+
+        jMenuItem16.setText("Cadastro de Unidade de Saúde");
+        jMenu16.add(jMenuItem16);
+
+        jMenuItem17.setText("Cadastro de Regime de Unidade de Lotação");
+        jMenuItem17.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem17ActionPerformed(evt);
+            }
+        });
+        jMenu16.add(jMenuItem17);
+
+        jMenu2.add(jMenu16);
 
         jMenu3.add(jMenu2);
 
+        jMenu15.setText("Operadores");
+
+        jMenuItem14.setText("Cadastro de Operadores");
+        jMenu15.add(jMenuItem14);
+
+        jMenuItem15.setText("Cadastro do Privilégios");
+        jMenu15.add(jMenuItem15);
+
+        jMenu3.add(jMenu15);
+
         jMenu1.add(jMenu3);
 
-        jMenu4.setText("jMenu4");
-        jMenu1.add(jMenu4);
+        jMenu4.setText("Recursos Humanos");
 
-        jMenu5.setText("jMenu5");
-        jMenu1.add(jMenu5);
+        jMenuItem22.setText("Cadastro de Pessoas");
+        jMenu4.add(jMenuItem22);
+
+        jMenuItem23.setText("Cadastro de Autorizações");
+        jMenu4.add(jMenuItem23);
+
+        jMenu1.add(jMenu4);
 
         jMenu6.setText("jMenu6");
         jMenu1.add(jMenu6);
@@ -138,6 +258,10 @@ public class Principal extends javax.swing.JFrame {
         controlePrincipal.abrirCadastroCargaHorariaSemanal();
         
     }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void jMenuItem17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem17ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem17ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -180,15 +304,42 @@ public class Principal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu10;
+    private javax.swing.JMenu jMenu11;
+    private javax.swing.JMenu jMenu12;
+    private javax.swing.JMenu jMenu13;
+    private javax.swing.JMenu jMenu14;
+    private javax.swing.JMenu jMenu15;
+    private javax.swing.JMenu jMenu16;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
-    private javax.swing.JMenu jMenu5;
     private javax.swing.JMenu jMenu6;
     private javax.swing.JMenu jMenu7;
     private javax.swing.JMenu jMenu8;
     private javax.swing.JMenu jMenu9;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem10;
+    private javax.swing.JMenuItem jMenuItem11;
+    private javax.swing.JMenuItem jMenuItem12;
+    private javax.swing.JMenuItem jMenuItem13;
+    private javax.swing.JMenuItem jMenuItem14;
+    private javax.swing.JMenuItem jMenuItem15;
+    private javax.swing.JMenuItem jMenuItem16;
+    private javax.swing.JMenuItem jMenuItem17;
+    private javax.swing.JMenuItem jMenuItem18;
+    private javax.swing.JMenuItem jMenuItem19;
     private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem20;
+    private javax.swing.JMenuItem jMenuItem21;
+    private javax.swing.JMenuItem jMenuItem22;
+    private javax.swing.JMenuItem jMenuItem23;
+    private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenuItem jMenuItem5;
+    private javax.swing.JMenuItem jMenuItem6;
+    private javax.swing.JMenuItem jMenuItem7;
+    private javax.swing.JMenuItem jMenuItem8;
+    private javax.swing.JMenuItem jMenuItem9;
     // End of variables declaration//GEN-END:variables
 }

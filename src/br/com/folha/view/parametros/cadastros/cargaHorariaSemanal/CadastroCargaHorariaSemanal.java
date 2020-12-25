@@ -145,11 +145,14 @@ public class CadastroCargaHorariaSemanal extends javax.swing.JFrame {
                 if(e.getKeyChar()=='y'){e.setKeyChar('Y');}
                 if(e.getKeyChar()=='z'){e.setKeyChar('Z');}
 
+                if(jTextField1.getText().length()>=2){e.setKeyChar('\0');}
+
                 char c = e.getKeyChar();
-                if (/*'A' <= c && c <= 'Z' || 'a' <= c && c <= 'z' ||*/ '0' <= c && c <= '9' || (c == KeyEvent.VK_BACK_SPACE) /*|| (c == KeyEvent.VK_SPACE)*/){}else   
+                if ( '0' <= c && c <= '9' || (c == KeyEvent.VK_BACK_SPACE) ){}else   
                 {e.setKeyChar('\0');}   
             }   
-        });  
+
+        });
         jTextField1.setFont(new java.awt.Font("Bookman Old Style", 0, 10)); // NOI18N
         getContentPane().add(jTextField1);
         jTextField1.setBounds(120, 60, 150, 25);
@@ -162,7 +165,7 @@ public class CadastroCargaHorariaSemanal extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton1);
-        jButton1.setBounds(20, 90, 690, 26);
+        jButton1.setBounds(20, 90, 690, 23);
 
         jButton4.setFont(new java.awt.Font("Bookman Old Style", 0, 11)); // NOI18N
         jButton4.setText("Sair");
@@ -172,7 +175,7 @@ public class CadastroCargaHorariaSemanal extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton4);
-        jButton4.setBounds(390, 310, 320, 26);
+        jButton4.setBounds(390, 310, 320, 23);
         getContentPane().add(jSeparator1);
         jSeparator1.setBounds(20, 40, 690, 10);
 
@@ -199,7 +202,7 @@ public class CadastroCargaHorariaSemanal extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton5);
-        jButton5.setBounds(260, 130, 215, 25);
+        jButton5.setBounds(260, 130, 215, 21);
 
         jButton12.setFont(new java.awt.Font("Bookman Old Style", 0, 10)); // NOI18N
         jButton12.setText("Busca");
@@ -209,7 +212,64 @@ public class CadastroCargaHorariaSemanal extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton12);
-        jButton12.setBounds(490, 130, 215, 25);
+        jButton12.setBounds(490, 130, 215, 21);
+
+        jTextField2.addKeyListener(new KeyAdapter() {   
+            public void keyTyped(KeyEvent e) { // <- alteração   
+
+                if(e.getKeyChar()=='a'){e.setKeyChar('A');}
+                if(e.getKeyChar()=='á'){e.setKeyChar('A');}
+                if(e.getKeyChar()=='à'){e.setKeyChar('A');}
+                if(e.getKeyChar()=='ã'){e.setKeyChar('A');}
+                if(e.getKeyChar()=='â'){e.setKeyChar('A');}
+                if(e.getKeyChar()=='b'){e.setKeyChar('B');}
+                if(e.getKeyChar()=='c'){e.setKeyChar('C');}
+                if(e.getKeyChar()=='ç'){e.setKeyChar('C');}
+                if(e.getKeyChar()=='d'){e.setKeyChar('D');}
+                if(e.getKeyChar()=='e'){e.setKeyChar('E');}
+                if(e.getKeyChar()=='é'){e.setKeyChar('E');}
+                if(e.getKeyChar()=='è'){e.setKeyChar('E');}
+                if(e.getKeyChar()=='ê'){e.setKeyChar('E');}
+                if(e.getKeyChar()=='f'){e.setKeyChar('F');}
+                if(e.getKeyChar()=='g'){e.setKeyChar('G');}
+                if(e.getKeyChar()=='h'){e.setKeyChar('H');}
+                if(e.getKeyChar()=='i'){e.setKeyChar('I');}
+                if(e.getKeyChar()=='í'){e.setKeyChar('I');}
+                if(e.getKeyChar()=='ì'){e.setKeyChar('I');}
+                if(e.getKeyChar()=='î'){e.setKeyChar('I');}
+                if(e.getKeyChar()=='j'){e.setKeyChar('J');}
+                if(e.getKeyChar()=='k'){e.setKeyChar('K');}
+                if(e.getKeyChar()=='l'){e.setKeyChar('L');}
+                if(e.getKeyChar()=='m'){e.setKeyChar('M');}
+                if(e.getKeyChar()=='n'){e.setKeyChar('N');}
+                if(e.getKeyChar()=='o'){e.setKeyChar('O');}
+                if(e.getKeyChar()=='ó'){e.setKeyChar('O');}
+                if(e.getKeyChar()=='ò'){e.setKeyChar('O');}
+                if(e.getKeyChar()=='õ'){e.setKeyChar('O');}
+                if(e.getKeyChar()=='ô'){e.setKeyChar('O');}
+                if(e.getKeyChar()=='p'){e.setKeyChar('P');}
+                if(e.getKeyChar()=='q'){e.setKeyChar('Q');}
+                if(e.getKeyChar()=='r'){e.setKeyChar('R');}
+                if(e.getKeyChar()=='s'){e.setKeyChar('S');}
+                if(e.getKeyChar()=='t'){e.setKeyChar('T');}
+                if(e.getKeyChar()=='u'){e.setKeyChar('U');}
+                if(e.getKeyChar()=='ú'){e.setKeyChar('U');}
+                if(e.getKeyChar()=='ù'){e.setKeyChar('U');}
+                if(e.getKeyChar()=='û'){e.setKeyChar('U');}
+                if(e.getKeyChar()=='v'){e.setKeyChar('V');}
+                if(e.getKeyChar()=='w'){e.setKeyChar('W');}
+                if(e.getKeyChar()=='x'){e.setKeyChar('X');}
+                if(e.getKeyChar()=='y'){e.setKeyChar('Y');}
+                if(e.getKeyChar()=='z'){e.setKeyChar('Z');}
+
+                if(jTextField2.getText().length()>=300){e.setKeyChar('\0');}
+
+                char c = e.getKeyChar();
+                if ( '0' <= c && c <= '9' ||  'a' <= c && c <= 'z' || 'A' <= c && c <= 'Z' || (c == KeyEvent.VK_BACK_SPACE) || (c == KeyEvent.VK_SPACE) ){}else   
+                {e.setKeyChar('\0');}   
+            }   
+
+        });
         getContentPane().add(jTextField2);
         jTextField2.setBounds(450, 60, 260, 25);
 
@@ -226,7 +286,7 @@ public class CadastroCargaHorariaSemanal extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton2);
-        jButton2.setBounds(20, 130, 215, 25);
+        jButton2.setBounds(20, 130, 215, 21);
 
         jButton3.setFont(new java.awt.Font("Bookman Old Style", 0, 10)); // NOI18N
         jButton3.setText("Limpar");
@@ -236,7 +296,7 @@ public class CadastroCargaHorariaSemanal extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton3);
-        jButton3.setBounds(20, 310, 350, 25);
+        jButton3.setBounds(20, 310, 350, 21);
 
         setSize(new java.awt.Dimension(745, 408));
         setLocationRelativeTo(null);
@@ -250,7 +310,11 @@ public class CadastroCargaHorariaSemanal extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
 
-        controleCadastroCargaHorariaSemanal.cadastrar(jTextField1.getText().toUpperCase(), jTextField2.getText().toUpperCase());
+        boolean cadastrou = controleCadastroCargaHorariaSemanal.cadastrar(jTextField1.getText().toUpperCase(), jTextField2.getText().toUpperCase());
+        if(cadastrou == true){
+            limparCampos();
+            jTextField1.requestFocus();
+        }
        
     }//GEN-LAST:event_jButton1ActionPerformed
 
