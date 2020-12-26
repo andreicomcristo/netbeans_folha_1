@@ -71,9 +71,4 @@ public class BeanOperadorLogado {
         this.seqPrivilegio = seqPrivilegio;
     }
 
-    
-
-    
-
-
 }
