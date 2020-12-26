@@ -3,48 +3,40 @@
  * and open the template in the editor.
  */
 
-package br.com.folha.model.principal;
+package br.com.folha.model.bean.login;
 
-import br.com.folha.view.principal.Principal;
+import br.com.folha.view.login.Login;
 
 /**
  *
  * @author andrei
  */
-public class BeanPrincipal {
-    
-    private Principal principal;
-    private String operador;
+public class BeanOperadorLogado { 
+    private Login login;
+    private String nome;
     private String cpf;
     private String privilegio;
     private long seqOperador;
     private long seqPrivilegio;
+    
 
-    public BeanPrincipal() {
+    public BeanOperadorLogado() {
     }
 
-    public BeanPrincipal(String operador, String cpf, String privilegio, long seqOperador, long seqPrivilegio) {
-        this.operador = operador;
+    public BeanOperadorLogado(String nome, String cpf, String privilegio, long seqOperador, long seqPrivilegio) {
+        this.nome = nome;
         this.cpf = cpf;
         this.privilegio = privilegio;
         this.seqOperador = seqOperador;
         this.seqPrivilegio = seqPrivilegio;
     }
 
-    public Principal getPrincipal() {
-        return principal;
+    public String getNome() {
+        return nome;
     }
 
-    public void setPrincipal(Principal principal) {
-        this.principal = principal;
-    }
-
-    public String getOperador() {
-        return operador;
-    }
-
-    public void setOperador(String operador) {
-        this.operador = operador;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
     public String getCpf() {
@@ -79,7 +71,6 @@ public class BeanPrincipal {
         this.seqPrivilegio = seqPrivilegio;
     }
 
-    
     
 
     

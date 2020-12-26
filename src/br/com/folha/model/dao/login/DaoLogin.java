@@ -6,7 +6,7 @@
 package br.com.folha.model.dao.login;
 
 import br.com.folha.model.banco.postgres.ConnectionFactory;
-import br.com.folha.model.login.BeanOperadorLogado;
+import br.com.folha.model.bean.login.BeanOperadorLogado;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

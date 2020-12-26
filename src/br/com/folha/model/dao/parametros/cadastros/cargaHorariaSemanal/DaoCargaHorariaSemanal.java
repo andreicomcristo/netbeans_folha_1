@@ -5,7 +5,7 @@
 
 package br.com.folha.model.dao.parametros.cadastros.cargaHorariaSemanal;
 
-import br.com.folha.model.parametros.cadastros.cargaHorariaSemanal.BeanCargaHorariaSemanal;
+import br.com.folha.model.bean.parametros.cadastros.cargaHorariaSemanal.BeanCargaHorariaSemanal;
 import br.com.folha.model.banco.postgres.ConnectionFactory;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
