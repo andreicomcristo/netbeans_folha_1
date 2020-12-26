@@ -1,6 +1,6 @@
 
 
-package br.com.folha.banco.postgres;
+package br.com.folha.model.banco.postgres;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

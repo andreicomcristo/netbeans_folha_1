@@ -7,7 +7,7 @@ package br.com.folha.control.login;
 
 
 import br.com.folha.control.principal.ControlePrincipal;
-import br.com.folha.dao.login.DaoLogin;
+import br.com.folha.model.dao.login.DaoLogin;
 import br.com.folha.model.login.BeanOperadorLogado;
 import br.com.folha.view.login.Login;
 
