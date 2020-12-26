@@ -9,7 +9,7 @@
  * Created on 08/12/2009, 08:35:08
  */
 
-package br.com.folha.view.parametros.cadastros.cargaHorariaSemanal;
+package br.com.folha.view.cadastro.parametros;
 
 
 
@@ -165,7 +165,7 @@ public class CadastroCargaHorariaSemanal extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton1);
-        jButton1.setBounds(20, 90, 690, 23);
+        jButton1.setBounds(20, 90, 690, 26);
 
         jButton4.setFont(new java.awt.Font("Bookman Old Style", 0, 11)); // NOI18N
         jButton4.setText("Sair");
@@ -175,7 +175,7 @@ public class CadastroCargaHorariaSemanal extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton4);
-        jButton4.setBounds(390, 310, 320, 23);
+        jButton4.setBounds(390, 310, 320, 26);
         getContentPane().add(jSeparator1);
         jSeparator1.setBounds(20, 40, 690, 10);
 
@@ -202,7 +202,7 @@ public class CadastroCargaHorariaSemanal extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton5);
-        jButton5.setBounds(260, 130, 215, 21);
+        jButton5.setBounds(260, 130, 215, 25);
 
         jButton12.setFont(new java.awt.Font("Bookman Old Style", 0, 10)); // NOI18N
         jButton12.setText("Busca");
@@ -212,7 +212,7 @@ public class CadastroCargaHorariaSemanal extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton12);
-        jButton12.setBounds(490, 130, 215, 21);
+        jButton12.setBounds(490, 130, 215, 25);
 
         jTextField2.addKeyListener(new KeyAdapter() {   
             public void keyTyped(KeyEvent e) { // <- alteração   
@@ -286,7 +286,7 @@ public class CadastroCargaHorariaSemanal extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton2);
-        jButton2.setBounds(20, 130, 215, 21);
+        jButton2.setBounds(20, 130, 215, 25);
 
         jButton3.setFont(new java.awt.Font("Bookman Old Style", 0, 10)); // NOI18N
         jButton3.setText("Limpar");
@@ -296,7 +296,7 @@ public class CadastroCargaHorariaSemanal extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton3);
-        jButton3.setBounds(20, 310, 350, 21);
+        jButton3.setBounds(20, 310, 350, 25);
 
         setSize(new java.awt.Dimension(745, 408));
         setLocationRelativeTo(null);

@@ -10,7 +10,7 @@ import br.com.folha.control.principal.ControlePrincipal;
 import br.com.folha.model.dao.parametros.cadastros.cargaHorariaSemanal.DaoCargaHorariaSemanal;
 import br.com.folha.model.bean.parametros.cadastros.cargaHorariaSemanal.BeanCargaHorariaSemanal;
 import br.com.folha.model.util.UtilidadesDeTexto;
-import br.com.folha.view.parametros.cadastros.cargaHorariaSemanal.CadastroCargaHorariaSemanal;
+import br.com.folha.view.cadastro.parametros.CadastroCargaHorariaSemanal;
 import java.util.List;
 import javax.swing.JOptionPane;
 

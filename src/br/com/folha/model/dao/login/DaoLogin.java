@@ -32,18 +32,18 @@ public class DaoLogin {
             try {
                 PreparedStatement stmt = con.prepareStatement(""+
                     "select distinct \n" +
-                    "pessoas.nome as OPERADOR,\n" +
-                    "pessoas.cpf as CPF, \n" +
+                    "pessoa.nome as OPERADOR,\n" +
+                    "pessoa.cpf as CPF, \n" +
                     "privilegios.nome_privilegio as PRIVILEGIO,\n" +
                     "operadores.seq_operador as SEQ_OPERADOR,\n" +
                     "privilegios.seq_privilegio as SEQ_PRIVILEGIO\n" +
                     "from public.operadores\n" +
-                    "inner join public.pessoas on public.operadores.seq_pessoa = public.pessoas.seq_pessoa\n" +
+                    "inner join public.pessoa on public.operadores.seq_pessoa = public.pessoa.seq_pessoa\n" +
                     "inner join public.privilegios on public.operadores.seq_privilegio = public.operadores.seq_privilegio\n" +
                     "where \n" +
-                    "pessoas.cpf = ? and operadores.senha = ?\n" +
+                    "pessoa.cpf = ? and operadores.senha = ?\n" +
                     "and operadores.dt_cancelamento is null\n" +
-                    "order by pessoas.cpf"
+                    "order by pessoa.cpf"
                 );
                 stmt.setString(1, cpf1);
                 stmt.setString(2, senha);
@@ -86,18 +86,18 @@ public class DaoLogin {
             try {
                 PreparedStatement stmt = con.prepareStatement(""+
                     "select distinct \n" +
-                    "pessoas.nome as OPERADOR,\n" +
-                    "pessoas.cpf as CPF, \n" +
+                    "pessoa.nome as OPERADOR,\n" +
+                    "pessoa.cpf as CPF, \n" +
                     "privilegios.nome_privilegio as PRIVILEGIO,\n" +
                     "operadores.seq_operador as SEQ_OPERADOR,\n" +
                     "privilegios.seq_privilegio as SEQ_PRIVILEGIO\n" +
                     "from public.operadores\n" +
-                    "inner join public.pessoas on public.operadores.seq_pessoa = public.pessoas.seq_pessoa\n" +
+                    "inner join public.pessoa on public.operadores.seq_pessoa = public.pessoa.seq_pessoa\n" +
                     "inner join public.privilegios on public.operadores.seq_privilegio = public.operadores.seq_privilegio\n" +
                     "where \n" +
-                    "pessoas.cpf = ?\n" +
+                    "pessoa.cpf = ?\n" +
                     "and operadores.dt_cancelamento is null\n" +
-                    "order by pessoas.cpf"
+                    "order by pessoa.cpf"
                     );
                 stmt.setString(1, cpf1);
                 ResultSet rs = stmt.executeQuery();
