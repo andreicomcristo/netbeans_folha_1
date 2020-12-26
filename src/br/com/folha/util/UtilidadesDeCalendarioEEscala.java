@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.folha.model.util;
+package br.com.folha.util;
 
 import java.text.DateFormat;
 import java.text.ParseException;

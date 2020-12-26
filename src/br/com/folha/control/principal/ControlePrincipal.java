@@ -6,9 +6,9 @@
 package br.com.folha.control.principal;
 
 
-import br.com.folha.control.parametros.cadastros.ch_semanal.ControleCadastroCargaHorariaSemanal;
-import br.com.folha.model.bean.login.BeanOperadorLogado;
-import br.com.folha.model.bean.principal.BeanPrincipal;
+import br.com.folha.control.cadastro.parametros.ControleCadastroCargaHorariaSemanal;
+import br.com.folha.model.login.bean.BeanOperadorLogado;
+import br.com.folha.model.principal.bean.BeanPrincipal;
 import br.com.folha.view.principal.Principal;
 import java.awt.Dimension;
 import java.awt.Toolkit;

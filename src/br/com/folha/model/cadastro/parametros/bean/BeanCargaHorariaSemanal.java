@@ -3,7 +3,7 @@
  * and open the template in the editor.
  */
 
-package br.com.folha.model.bean.parametros.cadastros.cargaHorariaSemanal;
+package br.com.folha.model.cadastro.parametros.bean;
 
 import br.com.folha.control.principal.ControlePrincipal;
 

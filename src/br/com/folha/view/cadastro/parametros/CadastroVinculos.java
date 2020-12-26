@@ -13,8 +13,8 @@ package br.com.folha.view.cadastro.parametros;
 
 
 
-import br.com.folha.control.parametros.cadastros.ch_semanal.ControleCadastroCargaHorariaSemanal;
-import br.com.folha.model.bean.parametros.cadastros.cargaHorariaSemanal.BeanCargaHorariaSemanal;
+import br.com.folha.control.cadastro.parametros.ControleCadastroCargaHorariaSemanal;
+import br.com.folha.model.cadastro.parametros.bean.BeanCargaHorariaSemanal;
 import java.awt.AWTKeyStroke;
 import java.awt.KeyboardFocusManager;
 import java.awt.event.KeyAdapter;

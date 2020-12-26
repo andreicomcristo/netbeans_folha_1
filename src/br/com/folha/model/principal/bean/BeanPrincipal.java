@@ -3,7 +3,7 @@
  * and open the template in the editor.
  */
 
-package br.com.folha.model.bean.principal;
+package br.com.folha.model.principal.bean;
 
 import br.com.folha.view.principal.Principal;
 

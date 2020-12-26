@@ -3,13 +3,13 @@
  * and open the template in the editor.
  */
 
-package br.com.folha.control.parametros.cadastros.ch_semanal;
+package br.com.folha.control.cadastro.parametros;
 
 
 import br.com.folha.control.principal.ControlePrincipal;
-import br.com.folha.model.dao.parametros.cadastros.cargaHorariaSemanal.DaoCargaHorariaSemanal;
-import br.com.folha.model.bean.parametros.cadastros.cargaHorariaSemanal.BeanCargaHorariaSemanal;
-import br.com.folha.model.util.UtilidadesDeTexto;
+import br.com.folha.model.cadastro.parametros.dao.DaoCargaHorariaSemanal;
+import br.com.folha.model.cadastro.parametros.bean.BeanCargaHorariaSemanal;
+import br.com.folha.util.UtilidadesDeTexto;
 import br.com.folha.view.cadastro.parametros.CadastroCargaHorariaSemanal;
 import java.util.List;
 import javax.swing.JOptionPane;
