@@ -9,8 +9,9 @@ package br.com.folha.control.cadastro.parametros;
 import br.com.folha.control.principal.ControlePrincipal;
 import br.com.folha.model.cadastro.parametros.dao.DaoCargaHorariaSemanal;
 import br.com.folha.model.cadastro.parametros.bean.BeanCargaHorariaSemanal;
+import br.com.folha.model.principal.bean.BeanPrincipal;
 import br.com.folha.util.UtilidadesDeTexto;
-import br.com.folha.view.cadastro.parametros.CadastroCargaHorariaSemanal;
+import br.com.folha.view.cadastro.parametros.TelaCadastroCargaHorariaSemanal;
 import java.util.List;
 import javax.swing.JOptionPane;
 
@@ -18,17 +19,21 @@ import javax.swing.JOptionPane;
  *
  * @author andrei
  */
-public class ControleCadastroCargaHorariaSemanal extends BeanCargaHorariaSemanal{
+public class ControleCadastroCargaHorariaSemanal {
     
-        
-    CadastroCargaHorariaSemanal cadastroCargaHorariaSemanal;
-    BeanCargaHorariaSemanal cargaHorariaSemanal = new BeanCargaHorariaSemanal();
+    ControlePrincipal controlePrincipal;    
+    BeanPrincipal beanPrincipal;
+    
+    TelaCadastroCargaHorariaSemanal cadastroCargaHorariaSemanal;
+    BeanCargaHorariaSemanal beanCargaHorariaSemanal = new BeanCargaHorariaSemanal();
+    
     DaoCargaHorariaSemanal daoCargaHorariaSemanal = new DaoCargaHorariaSemanal();
     UtilidadesDeTexto utilidadesDeTexto = new UtilidadesDeTexto();
     
-    public void abrirFrame(ControlePrincipal controlePrincipal){
-        this.setControlePrincipal(controlePrincipal);
-        cadastroCargaHorariaSemanal  = new CadastroCargaHorariaSemanal(this);
+    public void abrirFrame(ControlePrincipal controlePrincipal, BeanPrincipal beanPrincipal){
+        this.controlePrincipal = controlePrincipal;
+        this.beanPrincipal = beanPrincipal;
+        cadastroCargaHorariaSemanal  = new TelaCadastroCargaHorariaSemanal(this, beanCargaHorariaSemanal);
         cadastroCargaHorariaSemanal.setVisible(true);
     }
     
@@ -42,10 +47,10 @@ public class ControleCadastroCargaHorariaSemanal extends BeanCargaHorariaSemanal
         if(cargaHoraria.length()==0){acaoValida = false; JOptionPane.showMessageDialog(null, "Você deve escrever uma carga horária válida.");}
         
         if(acaoValida==true){
-            cargaHorariaSemanal.setSeqCargaHorariaSemanal(0);
-            cargaHorariaSemanal.setCargaHoraria(Integer.parseInt(cargaHoraria));
-            cargaHorariaSemanal.setDescricaoCargaHoraria(descricaoCargaHoraria);
-            executou =daoCargaHorariaSemanal.inserirCargaHorariaSemanal(cargaHorariaSemanal);
+            beanCargaHorariaSemanal.setSeqCargaHorariaSemanal(0);
+            beanCargaHorariaSemanal.setCargaHoraria(Integer.parseInt(cargaHoraria));
+            beanCargaHorariaSemanal.setDescricaoCargaHoraria(descricaoCargaHoraria);
+            executou = daoCargaHorariaSemanal.inserirCargaHorariaSemanal(beanCargaHorariaSemanal);
             
             cadastroCargaHorariaSemanal.preencherJtable1d(this.selecionar());
         }
@@ -62,10 +67,10 @@ public class ControleCadastroCargaHorariaSemanal extends BeanCargaHorariaSemanal
             if(seqCargaHorariaSemanal.length()==0){JOptionPane.showMessageDialog(null, "Você deve escolher uma linha para ser excluiída.");}
         }
         if(acaoValida==true){
-            cargaHorariaSemanal.setSeqCargaHorariaSemanal(Integer.parseInt(seqCargaHorariaSemanal));
-            cargaHorariaSemanal.setCargaHoraria(0);
-            cargaHorariaSemanal.setDescricaoCargaHoraria("");
-            executou =daoCargaHorariaSemanal.excluirCargaHorariaSemanal(cargaHorariaSemanal);
+            beanCargaHorariaSemanal.setSeqCargaHorariaSemanal(Integer.parseInt(seqCargaHorariaSemanal));
+            beanCargaHorariaSemanal.setCargaHoraria(0);
+            beanCargaHorariaSemanal.setDescricaoCargaHoraria("");
+            executou =daoCargaHorariaSemanal.excluirCargaHorariaSemanal(beanCargaHorariaSemanal);
             
             cadastroCargaHorariaSemanal.preencherJtable1d(this.selecionar());
         }
@@ -88,11 +93,11 @@ public class ControleCadastroCargaHorariaSemanal extends BeanCargaHorariaSemanal
         if(cargaHoraria.length()==0){acaoValida = false; JOptionPane.showMessageDialog(null, "Você deve escrever uma carga horária válida.");}
         
         if (acaoValida){
-            cargaHorariaSemanal.setSeqCargaHorariaSemanal(Integer.parseInt(seqCargaHorariaSemanal));
-            cargaHorariaSemanal.setCargaHoraria(Integer.parseInt(cargaHoraria));
-            cargaHorariaSemanal.setDescricaoCargaHoraria(descricaoCargaHoraria);
+            beanCargaHorariaSemanal.setSeqCargaHorariaSemanal(Integer.parseInt(seqCargaHorariaSemanal));
+            beanCargaHorariaSemanal.setCargaHoraria(Integer.parseInt(cargaHoraria));
+            beanCargaHorariaSemanal.setDescricaoCargaHoraria(descricaoCargaHoraria);
             
-            executou =daoCargaHorariaSemanal.alterarCargaHorariaSemanal(cargaHorariaSemanal);
+            executou =daoCargaHorariaSemanal.alterarCargaHorariaSemanal(beanCargaHorariaSemanal);
             
             cadastroCargaHorariaSemanal.preencherJtable1d(this.selecionar());
         }

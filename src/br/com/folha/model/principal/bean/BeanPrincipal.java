@@ -5,7 +5,7 @@
 
 package br.com.folha.model.principal.bean;
 
-import br.com.folha.view.principal.Principal;
+import br.com.folha.view.principal.TelaPrincipal;
 
 /**
  *
@@ -13,7 +13,7 @@ import br.com.folha.view.principal.Principal;
  */
 public class BeanPrincipal {
     
-    private Principal principal;
+    
     private String operador;
     private String cpf;
     private String privilegio;
@@ -31,13 +31,7 @@ public class BeanPrincipal {
         this.seqPrivilegio = seqPrivilegio;
     }
 
-    public Principal getPrincipal() {
-        return principal;
-    }
-
-    public void setPrincipal(Principal principal) {
-        this.principal = principal;
-    }
+    
 
     public String getOperador() {
         return operador;

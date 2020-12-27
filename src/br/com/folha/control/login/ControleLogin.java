@@ -9,23 +9,23 @@ package br.com.folha.control.login;
 import br.com.folha.control.principal.ControlePrincipal;
 import br.com.folha.model.login.dao.DaoLogin;
 import br.com.folha.model.login.bean.BeanOperadorLogado;
-import br.com.folha.view.login.Login;
+import br.com.folha.view.login.TelaLogin;
 
 /**
  *
  * @author andrei
  */
-public class ControleLogin extends BeanOperadorLogado{
+public class ControleLogin {
     
     BeanOperadorLogado beanOperadorLogado = new BeanOperadorLogado();
     DaoLogin daoLogin = new DaoLogin();
-    Login login;
+    TelaLogin telaLogin;
     
     
     public void abrirFrameLogin(ControleLogin controleLogin){
-        login = (new Login(this));
-        login.setTitle("SISTEMA FOLHA SESAU");
-        login.setVisible(true);
+        telaLogin = (new TelaLogin(this, beanOperadorLogado));
+        telaLogin.setTitle("SISTEMA FOLHA SESAU");
+        telaLogin.setVisible(true);
     }
     
     

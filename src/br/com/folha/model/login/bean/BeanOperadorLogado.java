@@ -5,14 +5,12 @@
 
 package br.com.folha.model.login.bean;
 
-import br.com.folha.view.login.Login;
-
 /**
  *
  * @author andrei
  */
 public class BeanOperadorLogado { 
-    private Login login;
+    
     private String nome;
     private String cpf;
     private String privilegio;

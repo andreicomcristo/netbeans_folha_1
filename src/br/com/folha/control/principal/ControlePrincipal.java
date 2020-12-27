@@ -9,7 +9,7 @@ package br.com.folha.control.principal;
 import br.com.folha.control.cadastro.parametros.ControleCadastroCargaHorariaSemanal;
 import br.com.folha.model.login.bean.BeanOperadorLogado;
 import br.com.folha.model.principal.bean.BeanPrincipal;
-import br.com.folha.view.principal.Principal;
+import br.com.folha.view.principal.TelaPrincipal;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.util.Date;
@@ -21,29 +21,32 @@ import java.util.Date;
 
 
 
-public class ControlePrincipal extends BeanPrincipal {
+public class ControlePrincipal {
+    
+    BeanPrincipal beanPrincipal = new BeanPrincipal();
+    TelaPrincipal telaPrincipal = new TelaPrincipal();
     
     public ControlePrincipal(BeanOperadorLogado beanOperadorLogado){
-        this.setOperador(beanOperadorLogado.getNome());
-        this.setCpf(beanOperadorLogado.getCpf());
-        this.setPrivilegio(beanOperadorLogado.getPrivilegio());
-        this.setSeqOperador(beanOperadorLogado.getSeqOperador());
-        this.setSeqPrivilegio(beanOperadorLogado.getSeqPrivilegio());
+        beanPrincipal.setOperador(beanOperadorLogado.getNome());
+        beanPrincipal.setCpf(beanOperadorLogado.getCpf());
+        beanPrincipal.setPrivilegio(beanOperadorLogado.getPrivilegio());
+        beanPrincipal.setSeqOperador(beanOperadorLogado.getSeqOperador());
+        beanPrincipal.setSeqPrivilegio(beanOperadorLogado.getSeqPrivilegio());
     } 
     
     public void abrirFrame(){
         
        
         
-        this.setPrincipal(new Principal(this));
-        getPrincipal().setDefaultCloseOperation(getPrincipal().EXIT_ON_CLOSE);
+        telaPrincipal = (new TelaPrincipal(this, beanPrincipal));
+        telaPrincipal.setDefaultCloseOperation(telaPrincipal.EXIT_ON_CLOSE);
         
         // dimensionamento
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         int width = (int) screenSize.getWidth();
         int height = (int) screenSize.getHeight();
-        getPrincipal().setSize(width-20, height-100);
-        getPrincipal().setLocationRelativeTo(null);
+        telaPrincipal.setSize(width-20, height-100);
+        telaPrincipal.setLocationRelativeTo(null);
     
         Date hoje = new Date();
         String dia = String.valueOf(hoje.getDate());
@@ -72,9 +75,9 @@ public class ControlePrincipal extends BeanPrincipal {
                 
         
         
-        getPrincipal().setTitle("["+getCpf()+"]"+" ["+getOperador()+"]"+" ["+getPrivilegio()+"] "+nomeDia +", "+dia+"-"+mes+"-"+ano+".");
+        telaPrincipal.setTitle("Operador logado: "+" ["+beanPrincipal.getOperador()+"]"+" ["+beanPrincipal.getPrivilegio()+"] "+nomeDia +", "+dia+"-"+mes+"-"+ano+".");
         
-        getPrincipal().setVisible(true);
+        telaPrincipal.setVisible(true);
         
     }
     
@@ -95,7 +98,7 @@ public class ControlePrincipal extends BeanPrincipal {
     
     public void abrirCadastroCargaHorariaSemanal(){
         ControleCadastroCargaHorariaSemanal c = new ControleCadastroCargaHorariaSemanal();
-        c.abrirFrame(this);
+        c.abrirFrame(this, beanPrincipal);
     }
  
     

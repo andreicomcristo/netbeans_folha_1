@@ -5,15 +5,13 @@
 
 package br.com.folha.model.cadastro.parametros.bean;
 
-import br.com.folha.control.principal.ControlePrincipal;
-
 /**
  *
  * @author andrei
  */
 public class BeanCargaHorariaSemanal {
 
-    private ControlePrincipal controlePrincipal;
+    
     private long seqCargaHorariaSemanal;
     private int cargaHoraria;
     private String descricaoCargaHoraria;
@@ -27,14 +25,7 @@ public class BeanCargaHorariaSemanal {
         this.descricaoCargaHoraria = descricaoCargaHoraria;
     }
 
-    public ControlePrincipal getControlePrincipal() {
-        return controlePrincipal;
-    }
-
-    public void setControlePrincipal(ControlePrincipal controlePrincipal) {
-        this.controlePrincipal = controlePrincipal;
-    }
-
+    
     public long getSeqCargaHorariaSemanal() {
         return seqCargaHorariaSemanal;
     }

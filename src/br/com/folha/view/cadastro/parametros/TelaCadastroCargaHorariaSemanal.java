@@ -14,6 +14,7 @@ package br.com.folha.view.cadastro.parametros;
 
 
 import br.com.folha.control.cadastro.parametros.ControleCadastroCargaHorariaSemanal;
+import br.com.folha.control.principal.ControlePrincipal;
 import br.com.folha.model.cadastro.parametros.bean.BeanCargaHorariaSemanal;
 import java.awt.AWTKeyStroke;
 import java.awt.KeyboardFocusManager;
@@ -31,12 +32,14 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author aom
  */
-public class CadastroCargaHorariaSemanal extends javax.swing.JFrame {
+public class TelaCadastroCargaHorariaSemanal extends javax.swing.JFrame {
 
+    
     ControleCadastroCargaHorariaSemanal controleCadastroCargaHorariaSemanal;
+    BeanCargaHorariaSemanal beanCargaHorariaSemanal = new BeanCargaHorariaSemanal();
     
     /** Creates new form CadastroDeUsuarios */
-    public CadastroCargaHorariaSemanal() {
+    public TelaCadastroCargaHorariaSemanal() {
        
         Set<AWTKeyStroke> forwardKeys = new HashSet<AWTKeyStroke>(this.getFocusTraversalKeys(KeyboardFocusManager.FORWARD_TRAVERSAL_KEYS));
         forwardKeys.add(KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, 0));
@@ -45,8 +48,10 @@ public class CadastroCargaHorariaSemanal extends javax.swing.JFrame {
         initComponents();
     }
     
-    public CadastroCargaHorariaSemanal(ControleCadastroCargaHorariaSemanal controleCadastroCargaHorariaSemanal) {
+    public TelaCadastroCargaHorariaSemanal(ControleCadastroCargaHorariaSemanal controleCadastroCargaHorariaSemanal, BeanCargaHorariaSemanal beanCargaHorariaSemanal) {
+        
         this.controleCadastroCargaHorariaSemanal = controleCadastroCargaHorariaSemanal;  
+        this.beanCargaHorariaSemanal = beanCargaHorariaSemanal;  
        
         Set<AWTKeyStroke> forwardKeys = new HashSet<AWTKeyStroke>(this.getFocusTraversalKeys(KeyboardFocusManager.FORWARD_TRAVERSAL_KEYS));
         forwardKeys.add(KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, 0));
@@ -165,7 +170,7 @@ public class CadastroCargaHorariaSemanal extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton1);
-        jButton1.setBounds(20, 90, 690, 26);
+        jButton1.setBounds(20, 90, 690, 23);
 
         jButton4.setFont(new java.awt.Font("Bookman Old Style", 0, 11)); // NOI18N
         jButton4.setText("Sair");
@@ -175,7 +180,7 @@ public class CadastroCargaHorariaSemanal extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton4);
-        jButton4.setBounds(390, 310, 320, 26);
+        jButton4.setBounds(390, 310, 320, 23);
         getContentPane().add(jSeparator1);
         jSeparator1.setBounds(20, 40, 690, 10);
 
@@ -202,7 +207,7 @@ public class CadastroCargaHorariaSemanal extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton5);
-        jButton5.setBounds(260, 130, 215, 25);
+        jButton5.setBounds(260, 130, 215, 21);
 
         jButton12.setFont(new java.awt.Font("Bookman Old Style", 0, 10)); // NOI18N
         jButton12.setText("Busca");
@@ -212,7 +217,7 @@ public class CadastroCargaHorariaSemanal extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton12);
-        jButton12.setBounds(490, 130, 215, 25);
+        jButton12.setBounds(490, 130, 215, 21);
 
         jTextField2.addKeyListener(new KeyAdapter() {   
             public void keyTyped(KeyEvent e) { // <- alteração   
@@ -286,7 +291,7 @@ public class CadastroCargaHorariaSemanal extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton2);
-        jButton2.setBounds(20, 130, 215, 25);
+        jButton2.setBounds(20, 130, 215, 21);
 
         jButton3.setFont(new java.awt.Font("Bookman Old Style", 0, 10)); // NOI18N
         jButton3.setText("Limpar");
@@ -296,7 +301,7 @@ public class CadastroCargaHorariaSemanal extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton3);
-        jButton3.setBounds(20, 310, 350, 25);
+        jButton3.setBounds(20, 310, 350, 21);
 
         setSize(new java.awt.Dimension(745, 408));
         setLocationRelativeTo(null);
@@ -316,6 +321,10 @@ public class CadastroCargaHorariaSemanal extends javax.swing.JFrame {
             jTextField1.requestFocus();
         }
        
+        System.out.println("Seq       : "+beanCargaHorariaSemanal.getSeqCargaHorariaSemanal());
+        System.out.println("Ch        : "+beanCargaHorariaSemanal.getCargaHoraria());
+        System.out.println("Descricao : "+beanCargaHorariaSemanal.getDescricaoCargaHoraria());
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
@@ -356,7 +365,7 @@ public class CadastroCargaHorariaSemanal extends javax.swing.JFrame {
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new CadastroCargaHorariaSemanal().setVisible(true);
+                new TelaCadastroCargaHorariaSemanal().setVisible(true);
             }
         });
     }
