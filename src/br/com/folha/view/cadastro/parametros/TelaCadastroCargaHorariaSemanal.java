@@ -15,7 +15,7 @@ package br.com.folha.view.cadastro.parametros;
 
 import br.com.folha.control.cadastro.parametros.ControleCadastroCargaHorariaSemanal;
 import br.com.folha.control.principal.ControlePrincipal;
-import br.com.folha.model.cadastro.parametros.bean.BeanCargaHorariaSemanal;
+import br.com.folha.model.bean.parametros.beanSwing.BeanCargaHorariaSemanal;
 import java.awt.AWTKeyStroke;
 import java.awt.KeyboardFocusManager;
 import java.awt.event.KeyAdapter;
@@ -36,7 +36,7 @@ public class TelaCadastroCargaHorariaSemanal extends javax.swing.JFrame {
 
     
     ControleCadastroCargaHorariaSemanal controleCadastroCargaHorariaSemanal;
-    BeanCargaHorariaSemanal beanCargaHorariaSemanal = new BeanCargaHorariaSemanal();
+    BeanCargaHorariaSemanal beanCargaHorariaSemanal;
     
     /** Creates new form CadastroDeUsuarios */
     public TelaCadastroCargaHorariaSemanal() {
@@ -315,6 +315,7 @@ public class TelaCadastroCargaHorariaSemanal extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
 
+        
         boolean cadastrou = controleCadastroCargaHorariaSemanal.cadastrar(jTextField1.getText().toUpperCase(), jTextField2.getText().toUpperCase());
         if(cadastrou){
             limparCampos();

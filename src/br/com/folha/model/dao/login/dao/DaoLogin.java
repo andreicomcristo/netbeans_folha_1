@@ -3,10 +3,10 @@
  * and open the template in the editor.
  */
 
-package br.com.folha.model.login.dao;
+package br.com.folha.model.dao.login.dao;
 
 import br.com.folha.util.ConnectionFactory;
-import br.com.folha.model.login.bean.BeanOperadorLogado;
+import br.com.folha.model.bean.principal.beanSwing.BeanPrincipal;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -25,7 +25,7 @@ public class DaoLogin {
 
      // MÉTODO AINDA POR SER IMPLEMENTADO parte do SQL
      public boolean selecionarOperadorValido(String cpf1, String senha) {
-            List<BeanOperadorLogado> listaConsulta = new ArrayList<BeanOperadorLogado>();
+            List<BeanPrincipal> listaConsulta = new ArrayList<BeanPrincipal>();
             boolean resposta = false;
         try {
             con = ConnectionFactory.getConnection();
@@ -56,7 +56,7 @@ public class DaoLogin {
                     long seqOperador = rs.getInt("seq_operador");
                     long seqPrivilegio = rs.getInt("seq_privilegio");
                     
-                    listaConsulta.add( new BeanOperadorLogado(nome, cpf, privilegio, seqOperador, seqPrivilegio));
+                    listaConsulta.add( new BeanPrincipal(nome, cpf, privilegio, seqOperador, seqPrivilegio));
                 }
 
                 if(!listaConsulta.isEmpty()){resposta = true;}
@@ -78,9 +78,9 @@ public class DaoLogin {
      
      
     // MÉTODO AINDA POR SER IMPLEMENTADO parte do SQL
-    public BeanOperadorLogado selecionarOperadorLogado(String cpf1) {
-            List<BeanOperadorLogado> listaConsulta = new ArrayList<BeanOperadorLogado>();
-            BeanOperadorLogado resposta = null;
+    public BeanPrincipal selecionarOperadorLogado(String cpf1) {
+            List<BeanPrincipal> listaConsulta = new ArrayList<BeanPrincipal>();
+            BeanPrincipal resposta = null;
         try {
             con = ConnectionFactory.getConnection();
             try {
@@ -110,7 +110,7 @@ public class DaoLogin {
                     long seqPrivilegio = rs.getInt("seq_privilegio");
                     
                     
-                    listaConsulta.add( new BeanOperadorLogado(nome, cpf, privilegio, seqOperador, seqPrivilegio));
+                    listaConsulta.add( new BeanPrincipal(nome, cpf, privilegio, seqOperador, seqPrivilegio));
                 }
 
                 if(!listaConsulta.isEmpty()){resposta = listaConsulta.get(0);}

@@ -3,38 +3,42 @@
  * and open the template in the editor.
  */
 
-package br.com.folha.model.login.bean;
+package br.com.folha.model.bean.principal.beanSwing;
+
+import br.com.folha.view.principal.TelaPrincipal;
 
 /**
  *
  * @author andrei
  */
-public class BeanOperadorLogado { 
+public class BeanPrincipal {
     
-    private String nome;
+    
+    private String operador;
     private String cpf;
     private String privilegio;
     private long seqOperador;
     private long seqPrivilegio;
-    
 
-    public BeanOperadorLogado() {
+    public BeanPrincipal() {
     }
 
-    public BeanOperadorLogado(String nome, String cpf, String privilegio, long seqOperador, long seqPrivilegio) {
-        this.nome = nome;
+    public BeanPrincipal(String operador, String cpf, String privilegio, long seqOperador, long seqPrivilegio) {
+        this.operador = operador;
         this.cpf = cpf;
         this.privilegio = privilegio;
         this.seqOperador = seqOperador;
         this.seqPrivilegio = seqPrivilegio;
     }
 
-    public String getNome() {
-        return nome;
+    
+
+    public String getOperador() {
+        return operador;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setOperador(String operador) {
+        this.operador = operador;
     }
 
     public String getCpf() {
@@ -68,5 +72,11 @@ public class BeanOperadorLogado {
     public void setSeqPrivilegio(long seqPrivilegio) {
         this.seqPrivilegio = seqPrivilegio;
     }
+
+    
+    
+
+    
+
 
 }

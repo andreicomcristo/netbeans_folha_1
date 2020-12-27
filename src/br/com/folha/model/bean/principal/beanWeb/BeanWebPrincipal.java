@@ -3,7 +3,7 @@
  * and open the template in the editor.
  */
 
-package br.com.folha.model.principal.bean;
+package br.com.folha.model.bean.principal.beanWeb;
 
 import br.com.folha.view.principal.TelaPrincipal;
 
@@ -11,27 +11,25 @@ import br.com.folha.view.principal.TelaPrincipal;
  *
  * @author andrei
  */
-public class BeanPrincipal {
+public class BeanWebPrincipal {
     
     
     private String operador;
     private String cpf;
     private String privilegio;
-    private long seqOperador;
-    private long seqPrivilegio;
+    private String seqOperador;
+    private String seqPrivilegio;
 
-    public BeanPrincipal() {
+    public BeanWebPrincipal() {
     }
 
-    public BeanPrincipal(String operador, String cpf, String privilegio, long seqOperador, long seqPrivilegio) {
+    public BeanWebPrincipal(String operador, String cpf, String privilegio, String seqOperador, String seqPrivilegio) {
         this.operador = operador;
         this.cpf = cpf;
         this.privilegio = privilegio;
         this.seqOperador = seqOperador;
         this.seqPrivilegio = seqPrivilegio;
     }
-
-    
 
     public String getOperador() {
         return operador;
@@ -57,25 +55,23 @@ public class BeanPrincipal {
         this.privilegio = privilegio;
     }
 
-    public long getSeqOperador() {
+    public String getSeqOperador() {
         return seqOperador;
     }
 
-    public void setSeqOperador(long seqOperador) {
+    public void setSeqOperador(String seqOperador) {
         this.seqOperador = seqOperador;
     }
 
-    public long getSeqPrivilegio() {
+    public String getSeqPrivilegio() {
         return seqPrivilegio;
     }
 
-    public void setSeqPrivilegio(long seqPrivilegio) {
+    public void setSeqPrivilegio(String seqPrivilegio) {
         this.seqPrivilegio = seqPrivilegio;
     }
 
     
-    
-
     
 
 

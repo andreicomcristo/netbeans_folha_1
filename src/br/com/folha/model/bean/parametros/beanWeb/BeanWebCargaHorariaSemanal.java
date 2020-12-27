@@ -3,42 +3,41 @@
  * and open the template in the editor.
  */
 
-package br.com.folha.model.cadastro.parametros.bean;
+package br.com.folha.model.bean.parametros.beanWeb;
 
 /**
  *
  * @author andrei
  */
-public class BeanCargaHorariaSemanal {
+public class BeanWebCargaHorariaSemanal {
 
     
-    private long seqCargaHorariaSemanal;
-    private int cargaHoraria;
+    private String seqCargaHorariaSemanal;
+    private String cargaHoraria;
     private String descricaoCargaHoraria;
 
-    public BeanCargaHorariaSemanal() {
+    public BeanWebCargaHorariaSemanal() {
     }
 
-    public BeanCargaHorariaSemanal(long seqCargaHorariaSemanal, int cargaHoraria, String descricaoCargaHoraria) {
+    public BeanWebCargaHorariaSemanal(String seqCargaHorariaSemanal, String cargaHoraria, String descricaoCargaHoraria) {
         this.seqCargaHorariaSemanal = seqCargaHorariaSemanal;
         this.cargaHoraria = cargaHoraria;
         this.descricaoCargaHoraria = descricaoCargaHoraria;
     }
 
-    
-    public long getSeqCargaHorariaSemanal() {
+    public String getSeqCargaHorariaSemanal() {
         return seqCargaHorariaSemanal;
     }
 
-    public void setSeqCargaHorariaSemanal(long seqCargaHorariaSemanal) {
+    public void setSeqCargaHorariaSemanal(String seqCargaHorariaSemanal) {
         this.seqCargaHorariaSemanal = seqCargaHorariaSemanal;
     }
 
-    public int getCargaHoraria() {
+    public String getCargaHoraria() {
         return cargaHoraria;
     }
 
-    public void setCargaHoraria(int cargaHoraria) {
+    public void setCargaHoraria(String cargaHoraria) {
         this.cargaHoraria = cargaHoraria;
     }
 
@@ -50,8 +49,7 @@ public class BeanCargaHorariaSemanal {
         this.descricaoCargaHoraria = descricaoCargaHoraria;
     }
 
-    
-    
+        
 
     
 

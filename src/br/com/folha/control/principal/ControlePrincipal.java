@@ -7,8 +7,7 @@ package br.com.folha.control.principal;
 
 
 import br.com.folha.control.cadastro.parametros.ControleCadastroCargaHorariaSemanal;
-import br.com.folha.model.login.bean.BeanOperadorLogado;
-import br.com.folha.model.principal.bean.BeanPrincipal;
+import br.com.folha.model.bean.principal.beanSwing.BeanPrincipal;
 import br.com.folha.view.principal.TelaPrincipal;
 import java.awt.Dimension;
 import java.awt.Toolkit;
@@ -23,15 +22,14 @@ import java.util.Date;
 
 public class ControlePrincipal {
     
-    BeanPrincipal beanPrincipal = new BeanPrincipal();
-    TelaPrincipal telaPrincipal = new TelaPrincipal();
+    BeanPrincipal beanPrincipal;
+    TelaPrincipal telaPrincipal;
     
-    public ControlePrincipal(BeanOperadorLogado beanOperadorLogado){
-        beanPrincipal.setOperador(beanOperadorLogado.getNome());
-        beanPrincipal.setCpf(beanOperadorLogado.getCpf());
-        beanPrincipal.setPrivilegio(beanOperadorLogado.getPrivilegio());
-        beanPrincipal.setSeqOperador(beanOperadorLogado.getSeqOperador());
-        beanPrincipal.setSeqPrivilegio(beanOperadorLogado.getSeqPrivilegio());
+    public ControlePrincipal( BeanPrincipal beanPrincipal, TelaPrincipal telaPrincipal){
+        
+        this.beanPrincipal = beanPrincipal;
+        this.telaPrincipal = telaPrincipal;
+        
     } 
     
     public void abrirFrame(){

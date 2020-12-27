@@ -7,9 +7,9 @@ package br.com.folha.control.cadastro.parametros;
 
 
 import br.com.folha.control.principal.ControlePrincipal;
-import br.com.folha.model.cadastro.parametros.dao.DaoCargaHorariaSemanal;
-import br.com.folha.model.cadastro.parametros.bean.BeanCargaHorariaSemanal;
-import br.com.folha.model.principal.bean.BeanPrincipal;
+import br.com.folha.model.dao.cadastro.parametros.dao.DaoCargaHorariaSemanal;
+import br.com.folha.model.bean.parametros.beanSwing.BeanCargaHorariaSemanal;
+import br.com.folha.model.bean.principal.beanSwing.BeanPrincipal;
 import br.com.folha.util.UtilidadesDeTexto;
 import br.com.folha.view.cadastro.parametros.TelaCadastroCargaHorariaSemanal;
 import java.util.List;

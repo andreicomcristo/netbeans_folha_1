@@ -6,6 +6,10 @@
 package br.com.folha.control.inicio;
 
 import br.com.folha.control.login.ControleLogin;
+import br.com.folha.model.dao.login.dao.DaoLogin;
+import br.com.folha.model.bean.principal.beanSwing.BeanPrincipal;
+import br.com.folha.view.login.TelaLogin;
+import br.com.folha.view.principal.TelaPrincipal;
 
 /**
  *
@@ -19,8 +23,17 @@ public class Inicio {
     public static void main(String[] args) {
         // TODO code application logic here
         
-        ControleLogin c = new ControleLogin();
-        c.abrirFrameLogin(c);
+        BeanPrincipal beanPrincipal = new BeanPrincipal();
+        TelaPrincipal telaPrincipal = new TelaPrincipal();
+        
+        DaoLogin daoLogin = new DaoLogin();
+        ControleLogin controleLogin = new ControleLogin();
+        TelaLogin telaLogin = new TelaLogin(controleLogin, beanPrincipal);
+        
+        
+        
+        
+        controleLogin.abrirFrameLogin(controleLogin, daoLogin, telaLogin, beanPrincipal, telaPrincipal);
     }
     
 }

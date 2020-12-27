@@ -6,7 +6,7 @@
 package br.com.folha.view.login;
 
 import br.com.folha.control.login.ControleLogin;
-import br.com.folha.model.login.bean.BeanOperadorLogado;
+import br.com.folha.model.bean.principal.beanSwing.BeanPrincipal;
 import java.awt.AWTKeyStroke;
 import java.awt.KeyboardFocusManager;
 import java.awt.event.KeyAdapter;
@@ -24,7 +24,7 @@ public class TelaLogin extends javax.swing.JFrame {
 
     
     ControleLogin controleLogin;
-    BeanOperadorLogado beanOperadorLogado; 
+    BeanPrincipal beanPrincipal; 
             
     int tentativas = 0;
     
@@ -37,9 +37,9 @@ public class TelaLogin extends javax.swing.JFrame {
     }
 
     
-    public TelaLogin(ControleLogin controleLogin, BeanOperadorLogado beanOperadorLogado) {
+    public TelaLogin(ControleLogin controleLogin, BeanPrincipal beanPrincipal) {
         this.controleLogin = controleLogin;
-        this.beanOperadorLogado = beanOperadorLogado;
+        this.beanPrincipal = beanPrincipal;
         
         Set<AWTKeyStroke> forwardKeys = new HashSet<AWTKeyStroke>(this.getFocusTraversalKeys(KeyboardFocusManager.FORWARD_TRAVERSAL_KEYS));
         forwardKeys.add(KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, 0));
