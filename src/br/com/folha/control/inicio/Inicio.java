@@ -18,6 +18,7 @@ public class Inicio {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        
         ControleLogin c = new ControleLogin();
         c.abrirFrameLogin(c);
     }

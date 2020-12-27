@@ -11,8 +11,6 @@
 
 package br.com.folha.view.cadastro.parametros;
 
-
-
 import br.com.folha.control.cadastro.parametros.ControleCadastroCargaHorariaSemanal;
 import br.com.folha.model.cadastro.parametros.bean.BeanCargaHorariaSemanal;
 import java.awt.AWTKeyStroke;
@@ -33,6 +31,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class CadastroVinculos extends javax.swing.JFrame {
 
+    
     ControleCadastroCargaHorariaSemanal controleCadastroCargaHorariaSemanal;
     
     /** Creates new form CadastroDeUsuarios */
