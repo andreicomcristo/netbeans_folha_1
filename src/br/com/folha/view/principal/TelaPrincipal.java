@@ -179,6 +179,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jMenu14.add(jMenuItem19);
 
         jMenuItem20.setText("Cadastro de Vínculos");
+        jMenuItem20.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem20ActionPerformed(evt);
+            }
+        });
         jMenu14.add(jMenuItem20);
 
         jMenu2.add(jMenu14);
@@ -265,6 +270,13 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private void jMenuItem17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem17ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem17ActionPerformed
+
+    private void jMenuItem20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem20ActionPerformed
+        
+        controlePrincipal.abrirCadastroVinculos();
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem20ActionPerformed
 
     /**
      * @param args the command line arguments

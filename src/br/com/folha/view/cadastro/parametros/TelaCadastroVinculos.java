@@ -12,7 +12,9 @@
 package br.com.folha.view.cadastro.parametros;
 
 import br.com.folha.control.cadastro.parametros.ControleCadastroCargaHorariaSemanal;
+import br.com.folha.control.cadastro.parametros.ControleCadastroVinculos;
 import br.com.folha.model.cadastro.parametros.bean.BeanCargaHorariaSemanal;
+import br.com.folha.model.cadastro.parametros.bean.BeanVinculos;
 import java.awt.AWTKeyStroke;
 import java.awt.KeyboardFocusManager;
 import java.awt.event.KeyAdapter;
@@ -32,7 +34,8 @@ import javax.swing.table.DefaultTableModel;
 public class TelaCadastroVinculos extends javax.swing.JFrame {
 
     
-    ControleCadastroCargaHorariaSemanal controleCadastroCargaHorariaSemanal;
+    ControleCadastroVinculos controleCadastroVinculos;
+    BeanVinculos beanVinculos;
     
     /** Creates new form CadastroDeUsuarios */
     public TelaCadastroVinculos() {
@@ -44,8 +47,24 @@ public class TelaCadastroVinculos extends javax.swing.JFrame {
         initComponents();
     }
     
-    public TelaCadastroVinculos(ControleCadastroCargaHorariaSemanal controleCadastroCargaHorariaSemanal) {
+    public TelaCadastroVinculos (ControleCadastroVinculos controleCadastroVinculos, BeanVinculos beanVinculos) {
+        this.controleCadastroVinculos = controleCadastroVinculos;  
+        this.beanVinculos = beanVinculos;
+        
+        Set<AWTKeyStroke> forwardKeys = new HashSet<AWTKeyStroke>(this.getFocusTraversalKeys(KeyboardFocusManager.FORWARD_TRAVERSAL_KEYS));
+        forwardKeys.add(KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, 0));
+        this.setFocusTraversalKeys(KeyboardFocusManager.FORWARD_TRAVERSAL_KEYS, forwardKeys);
+
+        initComponents();
+        
+        preencherJtable1d(controleCadastroVinculos.selecionar());
+        
+    }
+    
+    /*public TelaCadastroCargaHorariaSemanal(ControleCadastroCargaHorariaSemanal controleCadastroCargaHorariaSemanal, BeanCargaHorariaSemanal beanCargaHorariaSemanal) {
+        
         this.controleCadastroCargaHorariaSemanal = controleCadastroCargaHorariaSemanal;  
+        this.beanCargaHorariaSemanal = beanCargaHorariaSemanal;  
        
         Set<AWTKeyStroke> forwardKeys = new HashSet<AWTKeyStroke>(this.getFocusTraversalKeys(KeyboardFocusManager.FORWARD_TRAVERSAL_KEYS));
         forwardKeys.add(KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, 0));
@@ -55,7 +74,11 @@ public class TelaCadastroVinculos extends javax.swing.JFrame {
         
         preencherJtable1d(controleCadastroCargaHorariaSemanal.selecionar());
         
-    }
+    }*/
+
+    /*public TelaCadastroVinculos(ControleCadastroVinculos aThis, BeanVinculos beanVinculos) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }*/
 
     /** This method is called from within the constructor to
      * initialize the form.
@@ -314,7 +337,7 @@ public class TelaCadastroVinculos extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
 
-        boolean cadastrou = controleCadastroCargaHorariaSemanal.cadastrar(jTextField1.getText().toUpperCase(), jTextField2.getText().toUpperCase());
+        boolean cadastrou = controleCadastroVinculos.cadastrar(jTextField1.getText().toUpperCase(), jTextField2.getText().toUpperCase());
         if(cadastrou){
             limparCampos();
             jTextField1.requestFocus();
@@ -327,7 +350,7 @@ public class TelaCadastroVinculos extends javax.swing.JFrame {
         
         if(jTable1.getSelectedRowCount()==1){
             String seq_carga_horaria_sem  = jTable1.getValueAt(jTable1.getSelectedRow(), 0).toString();
-            controleCadastroCargaHorariaSemanal.excluir(seq_carga_horaria_sem);
+            controleCadastroVinculos.excluir(seq_carga_horaria_sem);
         }else{JOptionPane.showMessageDialog(null, "Você deve selecionar uma linha na tabela.");}
 
     }//GEN-LAST:event_jButton5ActionPerformed
@@ -335,7 +358,7 @@ public class TelaCadastroVinculos extends javax.swing.JFrame {
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
         // TODO add your handling code here:
 
-        preencherJtable1d(controleCadastroCargaHorariaSemanal.selecionar());
+        preencherJtable1d(controleCadastroVinculos.selecionar());
 }//GEN-LAST:event_jButton12ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -344,7 +367,7 @@ public class TelaCadastroVinculos extends javax.swing.JFrame {
             String seqCargaHorariaSem  = jTable1.getValueAt(jTable1.getSelectedRow(), 0).toString();
             String cargaHoraria = jTextField1.getText();
             String descricaoCargaHoraria = jTextField2.getText();
-            controleCadastroCargaHorariaSemanal.alterar(seqCargaHorariaSem, cargaHoraria, descricaoCargaHoraria);
+            controleCadastroVinculos.alterar(seqCargaHorariaSem, cargaHoraria, descricaoCargaHoraria);
         }else{JOptionPane.showMessageDialog(null, "Você deve selecionar uma linha na tabela.");}
         
     }//GEN-LAST:event_jButton2ActionPerformed
@@ -376,7 +399,7 @@ public class TelaCadastroVinculos extends javax.swing.JFrame {
         jTextField2.setText("");
     }
     
-    public void preencherJtable1d(List<BeanCargaHorariaSemanal> dados  ){
+    public void preencherJtable1d(List<BeanVinculos> dados  ){
 
         jTable1.getColumnModel().getColumn(0).setPreferredWidth(200);
         jTable1.getColumnModel().getColumn(1).setPreferredWidth(200);
@@ -387,9 +410,9 @@ public class TelaCadastroVinculos extends javax.swing.JFrame {
         DefaultTableModel modelo = (DefaultTableModel)jTable1.getModel();
         modelo.setNumRows(0);
  
-        for ( BeanCargaHorariaSemanal pessoa : dados) {
+        for ( BeanVinculos vinculo : dados) {
 
-            Object[] linha = new Object[] { pessoa.getSeqCargaHorariaSemanal(), pessoa.getCargaHoraria(), pessoa.getDescricaoCargaHoraria()};
+            Object[] linha = new Object[] { vinculo.getSeqVinculo(), vinculo.getNomeVinculo(), vinculo.getDescricaoVinculo()};
             modelo.addRow(linha);
 
         }
