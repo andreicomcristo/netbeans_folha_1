@@ -6,6 +6,7 @@
 package br.com.folha.model.cadastro.parametros.dao;
 
 import br.com.folha.model.cadastro.parametros.bean.BeanCargaHorariaSemanal;
+import br.com.folha.model.cadastro.parametros.bean.BeanVinculos;
 import br.com.folha.util.ConnectionFactory;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -22,16 +23,17 @@ import javax.swing.JOptionPane;
 public class DaoVinculos { 
 
      Connection con = null;
-
-    public boolean inserirCargaHorariaSemanal(BeanCargaHorariaSemanal cargaHorariaSemanal){
+//Metodo já alterados para vinculos
+    public boolean inserirVinculo(BeanVinculos vinculo){
                 boolean executou = false;
 		try {
 			con = ConnectionFactory.getConnection();
                                                                             // nome da tebela
-			PreparedStatement stmt = con.prepareStatement("insert into public.carga_horaria_semanal (carga_horaria, descricao_carga_horaria ) values ( ?,? )");
+			PreparedStatement stmt = con.prepareStatement("insert into public.vinculos (nome_vinculo, descricao_vinculo) values ( ?,? )");
 
-            stmt.setInt(1, cargaHorariaSemanal.getCargaHoraria());
-            stmt.setString(2, cargaHorariaSemanal.getDescricaoCargaHoraria());
+                        
+            stmt.setString(1, vinculo.getNomeVinculo());
+            stmt.setString(2, vinculo.getDescricaoVinculo());
 
 			stmt.execute();
 			stmt.close();
@@ -53,16 +55,16 @@ public class DaoVinculos {
                 }
     return executou;    
     }
-    
-    public boolean excluirCargaHorariaSemanal(BeanCargaHorariaSemanal cargaHorariaSemanal){
+ //Metodo já alterados para vinculos   
+    public boolean excluirVinculo(BeanVinculos vinculo){
                 boolean executou = false;
 		try {
 			con = ConnectionFactory.getConnection();
                                                                             // nome da tebela
 			PreparedStatement stmt = con.prepareStatement("DELETE FROM public.carga_horaria_semanal where public.carga_horaria_semanal.seq_carga_horaria_sem = ? ");
 
-                        stmt.setLong(1, cargaHorariaSemanal.getSeqCargaHorariaSemanal());
-
+                        //stmt.setLong(1, cargaHorariaSemanal.getSeqCargaHorariaSemanal());
+                        stmt.setLong(1, vinculo.getSeqVinculo());
 			stmt.execute();
 			stmt.close();
 
@@ -83,7 +85,7 @@ public class DaoVinculos {
                 }
     return executou;    
     }
-
+//Anterar 
     public boolean alterarCargaHorariaSemanal(BeanCargaHorariaSemanal cargaHorariaSemanal){
                 boolean executou = false;
 		try {
