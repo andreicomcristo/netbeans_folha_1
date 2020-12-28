@@ -20,7 +20,7 @@ import javax.swing.JOptionPane;
  *
  * @author andrei
  */
-public class DaoVinculos { 
+public class DaoVinculos {
 
      Connection con = null;
     public boolean inserirVinculo(BeanVinculos vinculo){
@@ -60,7 +60,7 @@ public class DaoVinculos {
 		try {
 			con = ConnectionFactory.getConnection();
                                                                             // nome da tebela
-			PreparedStatement stmt = con.prepareStatement("DELETE FROM public.carga_horaria_semanal where public.carga_horaria_semanal.seq_carga_horaria_sem = ? ");
+			PreparedStatement stmt = con.prepareStatement("DELETE FROM public.vinculos where public.vinculos.seq_vinculo = ? ");
 
                         //stmt.setLong(1, cargaHorariaSemanal.getSeqCargaHorariaSemanal());
                         stmt.setLong(1, vinculo.getSeqVinculo());
@@ -139,7 +139,7 @@ public class DaoVinculos {
 
              while(rs.next()) {
 
-                   long seqVinculo = rs.getLong("seq_veinculo");
+                   long seqVinculo = rs.getLong("seq_vinculo");
                    String nomeVinculo = rs.getString("nome_vinculo");
                    String descricaoVinculo = rs.getString("descricao_vinculo");
 
