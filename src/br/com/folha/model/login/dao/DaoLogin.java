@@ -3,10 +3,10 @@
  * and open the template in the editor.
  */
 
-package br.com.folha.model.dao.login.dao;
+package br.com.folha.model.login.dao;
 
 import br.com.folha.util.ConnectionFactory;
-import br.com.folha.model.bean.principal.beanSwing.BeanPrincipal;
+import br.com.folha.model.principal.bean.BeanPrincipal;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

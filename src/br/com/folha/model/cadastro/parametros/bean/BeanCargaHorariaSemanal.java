@@ -3,7 +3,7 @@
  * and open the template in the editor.
  */
 
-package br.com.folha.model.bean.parametros.beanSwing;
+package br.com.folha.model.cadastro.parametros.bean;
 
 /**
  *

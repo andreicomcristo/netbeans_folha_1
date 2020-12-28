@@ -7,8 +7,8 @@ package br.com.folha.control.login;
 
 
 import br.com.folha.control.principal.ControlePrincipal;
-import br.com.folha.model.dao.login.dao.DaoLogin;
-import br.com.folha.model.bean.principal.beanSwing.BeanPrincipal;
+import br.com.folha.model.login.dao.DaoLogin;
+import br.com.folha.model.principal.bean.BeanPrincipal;
 import br.com.folha.view.login.TelaLogin;
 import br.com.folha.view.principal.TelaPrincipal;
 

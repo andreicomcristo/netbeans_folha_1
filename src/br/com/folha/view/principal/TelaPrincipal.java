@@ -6,7 +6,7 @@
 package br.com.folha.view.principal;
 
 import br.com.folha.control.principal.ControlePrincipal;
-import br.com.folha.model.bean.principal.beanSwing.BeanPrincipal;
+import br.com.folha.model.principal.bean.BeanPrincipal;
 import java.awt.AWTKeyStroke;
 import java.awt.KeyboardFocusManager;
 import java.awt.event.KeyEvent;

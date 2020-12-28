@@ -3,9 +3,9 @@
  * and open the template in the editor.
  */
 
-package br.com.folha.model.dao.cadastro.parametros.dao;
+package br.com.folha.model.cadastro.parametros.dao;
 
-import br.com.folha.model.bean.parametros.beanSwing.BeanCargaHorariaSemanal;
+import br.com.folha.model.cadastro.parametros.bean.BeanCargaHorariaSemanal;
 import br.com.folha.util.ConnectionFactory;
 import java.sql.Connection;
 import java.sql.PreparedStatement;

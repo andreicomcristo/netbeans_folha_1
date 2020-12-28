@@ -7,7 +7,7 @@ package br.com.folha.control.principal;
 
 
 import br.com.folha.control.cadastro.parametros.ControleCadastroCargaHorariaSemanal;
-import br.com.folha.model.bean.principal.beanSwing.BeanPrincipal;
+import br.com.folha.model.principal.bean.BeanPrincipal;
 import br.com.folha.view.principal.TelaPrincipal;
 import java.awt.Dimension;
 import java.awt.Toolkit;
