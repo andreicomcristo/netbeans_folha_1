@@ -23,7 +23,6 @@ import javax.swing.JOptionPane;
 public class DaoVinculos { 
 
      Connection con = null;
-//Metodo já alterados para vinculos
     public boolean inserirVinculo(BeanVinculos vinculo){
                 boolean executou = false;
 		try {
@@ -55,7 +54,7 @@ public class DaoVinculos {
                 }
     return executou;    
     }
- //Metodo já alterados para vinculos   
+
     public boolean excluirVinculo(BeanVinculos vinculo){
                 boolean executou = false;
 		try {
@@ -85,7 +84,7 @@ public class DaoVinculos {
                 }
     return executou;    
     }
- //Metodo já alterados para vinculos   
+
     public boolean alterarVinculo(BeanVinculos vinculo) {
                 boolean executou = false;
 		try {
@@ -121,7 +120,7 @@ public class DaoVinculos {
     return executou;    
     }
          
-    //public List<BeanVinculos> selecionarCargaHorariaSemanal() {
+
      public List<BeanVinculos> selecionarVinculo() {
         List<BeanVinculos> listaConsulta = new ArrayList<BeanVinculos>();
 
