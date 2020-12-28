@@ -85,17 +85,20 @@ public class DaoVinculos {
                 }
     return executou;    
     }
-//Anterar 
-    public boolean alterarCargaHorariaSemanal(BeanCargaHorariaSemanal cargaHorariaSemanal){
+ //Metodo já alterados para vinculos   
+    public boolean alterarVinculo(BeanVinculos vinculo) {
                 boolean executou = false;
 		try {
 			con = ConnectionFactory.getConnection();
                                                                             // nome da tebela
-			PreparedStatement stmt = con.prepareStatement("UPDATE public.carga_horaria_semanal set carga_horaria = ?, descricao_carga_horaria = ?  where public.carga_horaria_semanal.seq_carga_horaria_sem = ? ");
+			PreparedStatement stmt = con.prepareStatement("UPDATE public.vinculos set nome_vinculo = ?, descricao_vinculo = ?  where public.vinculo.seq_vinculo = ? ");
 
-                        stmt.setInt(1, cargaHorariaSemanal.getCargaHoraria());
-                        stmt.setString(2, cargaHorariaSemanal.getDescricaoCargaHoraria());
-                        stmt.setLong(3, cargaHorariaSemanal.getSeqCargaHorariaSemanal());
+                        
+                        stmt.setString(1, vinculo.getNomeVinculo());
+                        stmt.setString(2, vinculo.getDescricaoVinculo());
+                        stmt.setLong(3, vinculo.getSeqVinculo());
+
+                        
 
 			stmt.execute();
 			stmt.close();
@@ -118,9 +121,9 @@ public class DaoVinculos {
     return executou;    
     }
          
-    public List<BeanCargaHorariaSemanal> selecionarCargaHorariaSemanal() {
-
-        List<BeanCargaHorariaSemanal> listaConsulta = new ArrayList<BeanCargaHorariaSemanal>();
+    //public List<BeanVinculos> selecionarCargaHorariaSemanal() {
+     public List<BeanVinculos> selecionarVinculo() {
+        List<BeanVinculos> listaConsulta = new ArrayList<BeanVinculos>();
 
      try {
 
@@ -129,7 +132,7 @@ public class DaoVinculos {
 
          try {
 
-             PreparedStatement stmt = con.prepareStatement("select seq_carga_horaria_sem, carga_horaria, descricao_carga_horaria from public.carga_horaria_semanal order by carga_horaria");
+             PreparedStatement stmt = con.prepareStatement("select seq_vinculo, nome_vinculo, descricao_vinculo from public.vinculos order by nome_vinculo");
 
               
 
@@ -137,11 +140,11 @@ public class DaoVinculos {
 
              while(rs.next()) {
 
-                   long seq_carga_horaria_sem = rs.getLong("seq_carga_horaria_sem");
-                   int carga_horaria = rs.getInt("carga_horaria");
-                   String descricao_carga_horaria = rs.getString("descricao_carga_horaria");
+                   long seqVinculo = rs.getLong("seq_veinculo");
+                   String nomeVinculo = rs.getString("nome_vinculo");
+                   String descricaoVinculo = rs.getString("descricao_vinculo");
 
-                 listaConsulta.add(new BeanCargaHorariaSemanal(seq_carga_horaria_sem, carga_horaria, descricao_carga_horaria));
+                 listaConsulta.add(new BeanVinculos(seqVinculo, nomeVinculo, descricaoVinculo));
 
              }
 
