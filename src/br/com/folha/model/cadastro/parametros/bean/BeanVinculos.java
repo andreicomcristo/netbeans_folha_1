@@ -11,4 +11,43 @@ package br.com.folha.model.cadastro.parametros.bean;
  */
 public class BeanVinculos {
     
+    private long seqVinculo;
+    private String nomeVinculo;
+    private String descricaoVinculo;
+
+    public BeanVinculos() {
+    }
+    
+    public BeanVinculos(long seqVinculo, String nomeVinculo, String descricaoVinculo) {
+        this.seqVinculo = seqVinculo;
+        this.nomeVinculo = nomeVinculo;
+        this.descricaoVinculo = descricaoVinculo;
+    }
+    
+    
+    public long getSeqVinculo() {
+        return seqVinculo;
+    }
+
+    public void setSeqVinculo(long seqVinculo) {
+        this.seqVinculo = seqVinculo;
+    }
+
+    public String getNomeVinculo() {
+        return nomeVinculo;
+    }
+
+    public void setNomeVinculo(String nomeVinculo) {
+        this.nomeVinculo = nomeVinculo;
+    }
+
+    public String getDescricaoVinculo() {
+        return descricaoVinculo;
+    }
+
+    public void setDescricaoVinculo(String descricaoVinculo) {
+        this.descricaoVinculo = descricaoVinculo;
+    }
+    
+    
 }
