@@ -29,13 +29,13 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author aom
  */
-public class CadastroVinculos extends javax.swing.JFrame {
+public class TelaCadastroVinculos extends javax.swing.JFrame {
 
     
     ControleCadastroCargaHorariaSemanal controleCadastroCargaHorariaSemanal;
     
     /** Creates new form CadastroDeUsuarios */
-    public CadastroVinculos() {
+    public TelaCadastroVinculos() {
        
         Set<AWTKeyStroke> forwardKeys = new HashSet<AWTKeyStroke>(this.getFocusTraversalKeys(KeyboardFocusManager.FORWARD_TRAVERSAL_KEYS));
         forwardKeys.add(KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, 0));
@@ -44,7 +44,7 @@ public class CadastroVinculos extends javax.swing.JFrame {
         initComponents();
     }
     
-    public CadastroVinculos(ControleCadastroCargaHorariaSemanal controleCadastroCargaHorariaSemanal) {
+    public TelaCadastroVinculos(ControleCadastroCargaHorariaSemanal controleCadastroCargaHorariaSemanal) {
         this.controleCadastroCargaHorariaSemanal = controleCadastroCargaHorariaSemanal;  
        
         Set<AWTKeyStroke> forwardKeys = new HashSet<AWTKeyStroke>(this.getFocusTraversalKeys(KeyboardFocusManager.FORWARD_TRAVERSAL_KEYS));
@@ -364,7 +364,7 @@ public class CadastroVinculos extends javax.swing.JFrame {
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new CadastroVinculos().setVisible(true);
+                new TelaCadastroVinculos().setVisible(true);
             }
         });
     }
