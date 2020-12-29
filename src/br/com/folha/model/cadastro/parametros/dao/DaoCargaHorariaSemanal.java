@@ -90,8 +90,7 @@ public class DaoCargaHorariaSemanal {
 			con = ConnectionFactory.getConnection();
                                                                             // nome da tebela
 			PreparedStatement stmt = con.prepareStatement("UPDATE public.carga_horaria_semanal set carga_horaria = ?, descricao_carga_horaria = ?  where public.carga_horaria_semanal.seq_carga_horaria_sem = ? ");
-
-                        stmt.setInt(1, cargaHorariaSemanal.getCargaHoraria());
+                        stmt.setInt(1, cargaHorariaSemanal.getCargaHoraria()); 
                         stmt.setString(2, cargaHorariaSemanal.getDescricaoCargaHoraria());
                         stmt.setLong(3, cargaHorariaSemanal.getSeqCargaHorariaSemanal());
 

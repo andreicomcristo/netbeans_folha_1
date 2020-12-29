@@ -103,9 +103,7 @@ public class ControleCadastroVinculos {
             beanVinculos.setSeqVinculo(Integer.parseInt(seqVinculo));
             beanVinculos.setNomeVinculo(nomeVinculo);
             beanVinculos.setDescricaoVinculo(descricaoVinculo);
-            
-            //executou =daoCargaHorariaSemanal.alterarCargaHorariaSemanal(beanCargaHorariaSemanal);
-             
+                        
             executou =daoVinculos.alterarVinculo(beanVinculos);
             
             //cadastroCargaHorariaSemanal.preencherJtable1d(this.selecionar());

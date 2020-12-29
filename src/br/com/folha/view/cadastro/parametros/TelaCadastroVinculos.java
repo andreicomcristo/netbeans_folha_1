@@ -364,10 +364,10 @@ public class TelaCadastroVinculos extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         if(jTable1.getSelectedRowCount() == 1){
-            String seqCargaHorariaSem  = jTable1.getValueAt(jTable1.getSelectedRow(), 0).toString();
-            String cargaHoraria = jTextField1.getText();
-            String descricaoCargaHoraria = jTextField2.getText();
-            controleCadastroVinculos.alterar(seqCargaHorariaSem, cargaHoraria, descricaoCargaHoraria);
+            String seqVinculo  = jTable1.getValueAt(jTable1.getSelectedRow(), 0).toString();              
+            String nomeVinculo = jTextField1.getText();
+            String descricaoVinculo = jTextField2.getText();
+            controleCadastroVinculos.alterar(seqVinculo, nomeVinculo, descricaoVinculo);
         }else{JOptionPane.showMessageDialog(null, "Você deve selecionar uma linha na tabela.");}
         
     }//GEN-LAST:event_jButton2ActionPerformed
