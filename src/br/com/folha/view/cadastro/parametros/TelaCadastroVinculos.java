@@ -194,7 +194,7 @@ public class TelaCadastroVinculos extends javax.swing.JFrame {
 
             },
             new String [] {
-                "SEQ","CARGA HORARIA SEMANAL","DESCRICAO"
+                "SEQ","VÍNCULO","DESCRICAO"
             }
         ));
         jTable1.setRowHeight(14);

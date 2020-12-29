@@ -95,9 +95,9 @@ public class TelaCadastroPrivilegios extends javax.swing.JFrame {
         jLabel1.setBounds(170, 20, 390, 20);
 
         jLabel2.setFont(new java.awt.Font("Bookman Old Style", 1, 11)); // NOI18N
-        jLabel2.setText("Descrição do vínculo");
+        jLabel2.setText("Descrição do Privilégio");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(290, 60, 160, 14);
+        jLabel2.setBounds(300, 60, 160, 14);
 
         jTextField1.addKeyListener(new KeyAdapter() {   
             public void keyTyped(KeyEvent e) { // <- alteração   
@@ -162,7 +162,7 @@ public class TelaCadastroPrivilegios extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jTextField1);
-        jTextField1.setBounds(130, 60, 150, 25);
+        jTextField1.setBounds(140, 60, 150, 25);
 
         jButtonCadastrar.setFont(new java.awt.Font("Bookman Old Style", 0, 11)); // NOI18N
         jButtonCadastrar.setText("Cadastrar");
@@ -192,7 +192,7 @@ public class TelaCadastroPrivilegios extends javax.swing.JFrame {
 
             },
             new String [] {
-                "SEQ","CARGA HORARIA SEMANAL","DESCRICAO"
+                "SEQ","PRIVILÉGIO","DESCRICAO"
             }
         ));
         jTable1.setRowHeight(14);
@@ -278,12 +278,12 @@ public class TelaCadastroPrivilegios extends javax.swing.JFrame {
 
         });
         getContentPane().add(jTextField2);
-        jTextField2.setBounds(450, 60, 260, 25);
+        jTextField2.setBounds(460, 60, 250, 25);
 
         jLabel3.setFont(new java.awt.Font("Bookman Old Style", 1, 11)); // NOI18N
-        jLabel3.setText("Tipo de vínculo");
+        jLabel3.setText("Tipo de Privilégio");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(20, 60, 110, 14);
+        jLabel3.setBounds(20, 60, 120, 14);
 
         jButtonAlterar.setFont(new java.awt.Font("Bookman Old Style", 0, 10)); // NOI18N
         jButtonAlterar.setText("Alterar");

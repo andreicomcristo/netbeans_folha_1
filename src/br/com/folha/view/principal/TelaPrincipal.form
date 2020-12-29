@@ -128,14 +128,6 @@
                             <Property name="text" type="java.lang.String" value="Cadastro de Situa&#xe7;&#xf5;es"/>
                           </Properties>
                         </MenuItem>
-                        <MenuItem class="javax.swing.JMenuItem" name="jMenuItemPrivilegios">
-                          <Properties>
-                            <Property name="text" type="java.lang.String" value="Cadastro de Privil&#xe9;gios"/>
-                          </Properties>
-                          <Events>
-                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItemPrivilegiosActionPerformed"/>
-                          </Events>
-                        </MenuItem>
                         <MenuItem class="javax.swing.JMenuItem" name="jMenuItem20">
                           <Properties>
                             <Property name="text" type="java.lang.String" value="Cadastro de V&#xed;nculos"/>
@@ -182,6 +174,9 @@
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Cadastro do Privil&#xe9;gios"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem15ActionPerformed"/>
+                      </Events>
                     </MenuItem>
                   </SubComponents>
                 </Menu>
