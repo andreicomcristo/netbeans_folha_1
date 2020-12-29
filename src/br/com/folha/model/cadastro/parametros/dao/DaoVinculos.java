@@ -62,7 +62,6 @@ public class DaoVinculos {
                                                                             // nome da tebela
 			PreparedStatement stmt = con.prepareStatement("DELETE FROM public.vinculos where public.vinculos.seq_vinculo = ? ");
 
-                        //stmt.setLong(1, cargaHorariaSemanal.getSeqCargaHorariaSemanal());
                         stmt.setLong(1, vinculo.getSeqVinculo());
 			stmt.execute();
 			stmt.close();
@@ -96,9 +95,11 @@ public class DaoVinculos {
                         stmt.setString(1, vinculo.getNomeVinculo());
                         stmt.setString(2, vinculo.getDescricaoVinculo());
                         stmt.setLong(3, vinculo.getSeqVinculo());
-
                         
-
+                        System.out.println(vinculo.getNomeVinculo());
+                        System.out.println(vinculo.getDescricaoVinculo());
+                        System.out.println(vinculo.getSeqVinculo());
+                        
 			stmt.execute();
 			stmt.close();
 
