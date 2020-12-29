@@ -90,7 +90,7 @@ public class DaoVinculos {
 		try {
 			con = ConnectionFactory.getConnection();
                                                                             // nome da tebela
-			PreparedStatement stmt = con.prepareStatement("UPDATE public.vinculos set nome_vinculo = ?, descricao_vinculo = ?  where public.vinculo.seq_vinculo = ? ");
+			PreparedStatement stmt = con.prepareStatement("UPDATE public.vinculos set nome_vinculo = ?, descricao_vinculo = ?  where public.vinculos.seq_vinculo = ? ");
 
                         
                         stmt.setString(1, vinculo.getNomeVinculo());

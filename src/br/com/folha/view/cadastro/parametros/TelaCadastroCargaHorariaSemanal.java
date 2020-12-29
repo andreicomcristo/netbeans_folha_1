@@ -323,9 +323,7 @@ public class TelaCadastroCargaHorariaSemanal extends javax.swing.JFrame {
         }
        
         
-        System.out.println("Seq       : "+beanCargaHorariaSemanal.getSeqCargaHorariaSemanal());
-        System.out.println("Ch        : "+beanCargaHorariaSemanal.getCargaHoraria());
-        System.out.println("Descricao : "+beanCargaHorariaSemanal.getDescricaoCargaHoraria());
+        
         
     }//GEN-LAST:event_jButton1ActionPerformed
 

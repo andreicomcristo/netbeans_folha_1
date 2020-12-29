@@ -167,10 +167,10 @@ public class TelaCadastroVinculos extends javax.swing.JFrame {
                 if(e.getKeyChar()=='y'){e.setKeyChar('Y');}
                 if(e.getKeyChar()=='z'){e.setKeyChar('Z');}
 
-                if(jTextField1.getText().length()>=2){e.setKeyChar('\0');}
+                if(jTextField1.getText().length()>=100){e.setKeyChar('\0');}
 
                 char c = e.getKeyChar();
-                if ( '0' <= c && c <= '9' || (c == KeyEvent.VK_BACK_SPACE) ){}else   
+                if ( 'a' <= c && c <= 'z' || 'A' <= c && c <= 'Z' || (c == KeyEvent.VK_SPACE)|| (c == KeyEvent.VK_BACK_SPACE) ){}else   
                 {e.setKeyChar('\0');}   
             }   
 
@@ -192,7 +192,7 @@ public class TelaCadastroVinculos extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton1);
-        jButton1.setBounds(20, 90, 690, 26);
+        jButton1.setBounds(20, 90, 690, 23);
 
         jButton4.setFont(new java.awt.Font("Bookman Old Style", 0, 11)); // NOI18N
         jButton4.setText("Sair");
@@ -202,7 +202,7 @@ public class TelaCadastroVinculos extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton4);
-        jButton4.setBounds(390, 310, 320, 26);
+        jButton4.setBounds(390, 310, 320, 23);
         getContentPane().add(jSeparator1);
         jSeparator1.setBounds(20, 40, 690, 10);
 
@@ -229,7 +229,7 @@ public class TelaCadastroVinculos extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton5);
-        jButton5.setBounds(260, 130, 215, 25);
+        jButton5.setBounds(260, 130, 215, 21);
 
         jButton12.setFont(new java.awt.Font("Bookman Old Style", 0, 10)); // NOI18N
         jButton12.setText("Busca");
@@ -239,7 +239,7 @@ public class TelaCadastroVinculos extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton12);
-        jButton12.setBounds(490, 130, 215, 25);
+        jButton12.setBounds(490, 130, 215, 21);
 
         jTextField2.addKeyListener(new KeyAdapter() {   
             public void keyTyped(KeyEvent e) { // <- alteração   
@@ -313,7 +313,7 @@ public class TelaCadastroVinculos extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton2);
-        jButton2.setBounds(20, 130, 215, 25);
+        jButton2.setBounds(20, 130, 215, 21);
 
         jButton3.setFont(new java.awt.Font("Bookman Old Style", 0, 10)); // NOI18N
         jButton3.setText("Limpar");
@@ -323,7 +323,7 @@ public class TelaCadastroVinculos extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton3);
-        jButton3.setBounds(20, 310, 350, 25);
+        jButton3.setBounds(20, 310, 350, 21);
 
         setSize(new java.awt.Dimension(745, 408));
         setLocationRelativeTo(null);

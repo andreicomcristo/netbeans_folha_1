@@ -7,13 +7,10 @@ package br.com.folha.control.cadastro.parametros;
 
 
 import br.com.folha.control.principal.ControlePrincipal;
-import br.com.folha.model.cadastro.parametros.dao.DaoCargaHorariaSemanal;
-import br.com.folha.model.cadastro.parametros.bean.BeanCargaHorariaSemanal;
 import br.com.folha.model.cadastro.parametros.bean.BeanVinculos;
 import br.com.folha.model.cadastro.parametros.dao.DaoVinculos;
 import br.com.folha.model.principal.bean.BeanPrincipal;
 import br.com.folha.util.UtilidadesDeTexto;
-import br.com.folha.view.cadastro.parametros.TelaCadastroCargaHorariaSemanal;
 import br.com.folha.view.cadastro.parametros.TelaCadastroVinculos;
 import java.util.List;
 import javax.swing.JOptionPane;
@@ -26,8 +23,7 @@ public class ControleCadastroVinculos {
     
     ControlePrincipal controlePrincipal; // Justificar variaveis
     BeanPrincipal beanPrincipal; //Justificar variaveis
-    
-    
+        
     
     TelaCadastroVinculos cadastroVinculos;
     BeanVinculos beanVinculos = new BeanVinculos();
