@@ -92,7 +92,7 @@ public class ControleCadastroVinculos {
             if(seqVinculo.length()==0){JOptionPane.showMessageDialog(null, "Você deve escolher uma linha para ser excluiída.");}
         }
         //conferindo se os campos obrigatórios foram preenchidos
-        if(nomeVinculo.length()==0){acaoValida = false; JOptionPane.showMessageDialog(null, "Você deve escrever uma vínculo válido.");}
+        if(nomeVinculo.length()==0){acaoValida = false; JOptionPane.showMessageDialog(null, "Você deve escrever um vínculo válido.");}
         
         if (acaoValida){
             beanVinculos.setSeqVinculo(Integer.parseInt(seqVinculo));
