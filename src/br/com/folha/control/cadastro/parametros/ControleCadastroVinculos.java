@@ -53,7 +53,6 @@ public class ControleCadastroVinculos {
             beanVinculos.setSeqVinculo(0);
             beanVinculos.setNomeVinculo(nomeVinculo);
             beanVinculos.setDescricaoVinculo(descricaoVinculo);
-            //executou = daoCargaHorariaSemanal.inserirCargaHorariaSemanal(beanCargaHorariaSemanal);
             executou = daoVinculos.inserirVinculo(beanVinculos);
             cadastroVinculos.preencherJtable1d(this.selecionar());
         }
@@ -93,7 +92,7 @@ public class ControleCadastroVinculos {
             if(seqVinculo.length()==0){JOptionPane.showMessageDialog(null, "Você deve escolher uma linha para ser excluiída.");}
         }
         //conferindo se os campos obrigatórios foram preenchidos
-        if(nomeVinculo.length()==0){acaoValida = false; JOptionPane.showMessageDialog(null, "Você deve escrever uma carga horária válida.");}
+        if(nomeVinculo.length()==0){acaoValida = false; JOptionPane.showMessageDialog(null, "Você deve escrever uma vínculo válido.");}
         
         if (acaoValida){
             beanVinculos.setSeqVinculo(Integer.parseInt(seqVinculo));

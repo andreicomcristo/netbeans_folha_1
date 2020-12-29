@@ -47,7 +47,7 @@ public class TelaCadastroVinculos extends javax.swing.JFrame {
         initComponents();
     }
     
-    public TelaCadastroVinculos (ControleCadastroVinculos controleCadastroVinculos, BeanVinculos beanVinculos) {
+    public TelaCadastroVinculos(ControleCadastroVinculos controleCadastroVinculos, BeanVinculos beanVinculos) {
         this.controleCadastroVinculos = controleCadastroVinculos;  
         this.beanVinculos = beanVinculos;
         
@@ -61,24 +61,6 @@ public class TelaCadastroVinculos extends javax.swing.JFrame {
         
     }
     
-    /*public TelaCadastroCargaHorariaSemanal(ControleCadastroCargaHorariaSemanal controleCadastroCargaHorariaSemanal, BeanCargaHorariaSemanal beanCargaHorariaSemanal) {
-        
-        this.controleCadastroCargaHorariaSemanal = controleCadastroCargaHorariaSemanal;  
-        this.beanCargaHorariaSemanal = beanCargaHorariaSemanal;  
-       
-        Set<AWTKeyStroke> forwardKeys = new HashSet<AWTKeyStroke>(this.getFocusTraversalKeys(KeyboardFocusManager.FORWARD_TRAVERSAL_KEYS));
-        forwardKeys.add(KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, 0));
-        this.setFocusTraversalKeys(KeyboardFocusManager.FORWARD_TRAVERSAL_KEYS, forwardKeys);
-
-        initComponents();
-        
-        preencherJtable1d(controleCadastroCargaHorariaSemanal.selecionar());
-        
-    }*/
-
-    /*public TelaCadastroVinculos(ControleCadastroVinculos aThis, BeanVinculos beanVinculos) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }*/
 
     /** This method is called from within the constructor to
      * initialize the form.
@@ -92,20 +74,20 @@ public class TelaCadastroVinculos extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        jButtonCadastrar = new javax.swing.JButton();
+        jButtonSair = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        jButton5 = new javax.swing.JButton();
-        jButton12 = new javax.swing.JButton();
+        jButtonExcluir = new javax.swing.JButton();
+        jButtonBuscar = new javax.swing.JButton();
         jTextField2 = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        jButtonAlterar = new javax.swing.JButton();
+        jButtonLimpar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Cadastro de Carga Horária");
+        setTitle("Cadastro de Vínculo");
         getContentPane().setLayout(null);
 
         jLabel1.setFont(new java.awt.Font("Bookman Old Style", 0, 18)); // NOI18N
@@ -184,25 +166,25 @@ public class TelaCadastroVinculos extends javax.swing.JFrame {
         getContentPane().add(jTextField1);
         jTextField1.setBounds(130, 60, 150, 25);
 
-        jButton1.setFont(new java.awt.Font("Bookman Old Style", 0, 11)); // NOI18N
-        jButton1.setText("Cadastrar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jButtonCadastrar.setFont(new java.awt.Font("Bookman Old Style", 0, 11)); // NOI18N
+        jButtonCadastrar.setText("Cadastrar");
+        jButtonCadastrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jButtonCadastrarActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1);
-        jButton1.setBounds(20, 90, 690, 23);
+        getContentPane().add(jButtonCadastrar);
+        jButtonCadastrar.setBounds(20, 90, 690, 26);
 
-        jButton4.setFont(new java.awt.Font("Bookman Old Style", 0, 11)); // NOI18N
-        jButton4.setText("Sair");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        jButtonSair.setFont(new java.awt.Font("Bookman Old Style", 0, 11)); // NOI18N
+        jButtonSair.setText("Sair");
+        jButtonSair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                jButtonSairActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton4);
-        jButton4.setBounds(390, 310, 320, 23);
+        getContentPane().add(jButtonSair);
+        jButtonSair.setBounds(390, 310, 320, 26);
         getContentPane().add(jSeparator1);
         jSeparator1.setBounds(20, 40, 690, 10);
 
@@ -221,25 +203,25 @@ public class TelaCadastroVinculos extends javax.swing.JFrame {
         getContentPane().add(jScrollPane1);
         jScrollPane1.setBounds(20, 170, 690, 130);
 
-        jButton5.setFont(new java.awt.Font("Bookman Old Style", 0, 10)); // NOI18N
-        jButton5.setText("Excluir");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        jButtonExcluir.setFont(new java.awt.Font("Bookman Old Style", 0, 10)); // NOI18N
+        jButtonExcluir.setText("Excluir");
+        jButtonExcluir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                jButtonExcluirActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton5);
-        jButton5.setBounds(260, 130, 215, 21);
+        getContentPane().add(jButtonExcluir);
+        jButtonExcluir.setBounds(260, 130, 215, 25);
 
-        jButton12.setFont(new java.awt.Font("Bookman Old Style", 0, 10)); // NOI18N
-        jButton12.setText("Busca");
-        jButton12.addActionListener(new java.awt.event.ActionListener() {
+        jButtonBuscar.setFont(new java.awt.Font("Bookman Old Style", 0, 10)); // NOI18N
+        jButtonBuscar.setText("Busca");
+        jButtonBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton12ActionPerformed(evt);
+                jButtonBuscarActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton12);
-        jButton12.setBounds(490, 130, 215, 21);
+        getContentPane().add(jButtonBuscar);
+        jButtonBuscar.setBounds(490, 130, 215, 25);
 
         jTextField2.addKeyListener(new KeyAdapter() {   
             public void keyTyped(KeyEvent e) { // <- alteração   
@@ -305,36 +287,36 @@ public class TelaCadastroVinculos extends javax.swing.JFrame {
         getContentPane().add(jLabel3);
         jLabel3.setBounds(20, 60, 110, 14);
 
-        jButton2.setFont(new java.awt.Font("Bookman Old Style", 0, 10)); // NOI18N
-        jButton2.setText("Alterar");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        jButtonAlterar.setFont(new java.awt.Font("Bookman Old Style", 0, 10)); // NOI18N
+        jButtonAlterar.setText("Alterar");
+        jButtonAlterar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                jButtonAlterarActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2);
-        jButton2.setBounds(20, 130, 215, 21);
+        getContentPane().add(jButtonAlterar);
+        jButtonAlterar.setBounds(20, 130, 215, 25);
 
-        jButton3.setFont(new java.awt.Font("Bookman Old Style", 0, 10)); // NOI18N
-        jButton3.setText("Limpar");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        jButtonLimpar.setFont(new java.awt.Font("Bookman Old Style", 0, 10)); // NOI18N
+        jButtonLimpar.setText("Limpar");
+        jButtonLimpar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                jButtonLimparActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton3);
-        jButton3.setBounds(20, 310, 350, 21);
+        getContentPane().add(jButtonLimpar);
+        jButtonLimpar.setBounds(20, 310, 350, 25);
 
         setSize(new java.awt.Dimension(745, 408));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void jButtonSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSairActionPerformed
         // TODO add your handling code here:
         dispose();
-}//GEN-LAST:event_jButton4ActionPerformed
+}//GEN-LAST:event_jButtonSairActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jButtonCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCadastrarActionPerformed
         // TODO add your handling code here:
 
         boolean cadastrou = controleCadastroVinculos.cadastrar(jTextField1.getText().toUpperCase(), jTextField2.getText().toUpperCase());
@@ -343,9 +325,9 @@ public class TelaCadastroVinculos extends javax.swing.JFrame {
             jTextField1.requestFocus();
         }
        
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_jButtonCadastrarActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+    private void jButtonExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExcluirActionPerformed
         // TODO add your handling code here:
         
         if(jTable1.getSelectedRowCount()==1){
@@ -353,15 +335,16 @@ public class TelaCadastroVinculos extends javax.swing.JFrame {
             controleCadastroVinculos.excluir(seq_carga_horaria_sem);
         }else{JOptionPane.showMessageDialog(null, "Você deve selecionar uma linha na tabela.");}
 
-    }//GEN-LAST:event_jButton5ActionPerformed
+    }//GEN-LAST:event_jButtonExcluirActionPerformed
 
-    private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
+    private void jButtonBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBuscarActionPerformed
         // TODO add your handling code here:
 
         preencherJtable1d(controleCadastroVinculos.selecionar());
-}//GEN-LAST:event_jButton12ActionPerformed
+        
+}//GEN-LAST:event_jButtonBuscarActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void jButtonAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAlterarActionPerformed
         // TODO add your handling code here:
         if(jTable1.getSelectedRowCount() == 1){
             String seqVinculo  = jTable1.getValueAt(jTable1.getSelectedRow(), 0).toString();              
@@ -370,12 +353,12 @@ public class TelaCadastroVinculos extends javax.swing.JFrame {
             controleCadastroVinculos.alterar(seqVinculo, nomeVinculo, descricaoVinculo);
         }else{JOptionPane.showMessageDialog(null, "Você deve selecionar uma linha na tabela.");}
         
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_jButtonAlterarActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void jButtonLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLimparActionPerformed
         // TODO add your handling code here:
         limparCampos();
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_jButtonLimparActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
@@ -423,12 +406,12 @@ public class TelaCadastroVinculos extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton12;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButtonAlterar;
+    private javax.swing.JButton jButtonBuscar;
+    private javax.swing.JButton jButtonCadastrar;
+    private javax.swing.JButton jButtonExcluir;
+    private javax.swing.JButton jButtonLimpar;
+    private javax.swing.JButton jButtonSair;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
