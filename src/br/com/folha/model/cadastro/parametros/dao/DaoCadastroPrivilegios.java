@@ -6,8 +6,8 @@
 package br.com.folha.model.cadastro.parametros.dao;
 
 import br.com.folha.model.cadastro.parametros.bean.BeanCargaHorariaSemanal;
-import br.com.folha.model.cadastro.parametros.bean.BeanPrivilegios;
-import br.com.folha.model.cadastro.parametros.bean.BeanVinculos;
+import br.com.folha.model.cadastro.parametros.bean.BeanCadastroPrivilegios;
+import br.com.folha.model.cadastro.parametros.bean.BeanCadastroVinculos;
 import br.com.folha.util.ConnectionFactory;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -21,11 +21,11 @@ import javax.swing.JOptionPane;
  *
  * @author andrei / André
  */
-public class DaoPrivilegios {
+public class DaoCadastroPrivilegios {
 
     Connection con = null;
     
-    public boolean inserirPrivilegios(BeanPrivilegios privilegio){
+    public boolean inserirPrivilegios(BeanCadastroPrivilegios privilegio){
                 boolean executou = false;
 		try {
 			con = ConnectionFactory.getConnection();
@@ -57,7 +57,7 @@ public class DaoPrivilegios {
     return executou;    
     }
 
-    public boolean excluirPrivilegio(BeanPrivilegios privilegio){
+    public boolean excluirPrivilegio(BeanCadastroPrivilegios privilegio){
                 boolean executou = false;
 		try {
 			con = ConnectionFactory.getConnection();
@@ -86,7 +86,7 @@ public class DaoPrivilegios {
     return executou;    
     }
 
-    public boolean alterarPrivilegio(BeanPrivilegios privilegio) {
+    public boolean alterarPrivilegio(BeanCadastroPrivilegios privilegio) {
                 boolean executou = false;
 		try {
 			con = ConnectionFactory.getConnection();
@@ -119,8 +119,8 @@ public class DaoPrivilegios {
     return executou;    
     }
          
-    public List<BeanPrivilegios> selecionarPrivilegio() {
-        List<BeanPrivilegios> listaConsulta = new ArrayList<BeanPrivilegios>();
+    public List<BeanCadastroPrivilegios> selecionarPrivilegio() {
+        List<BeanCadastroPrivilegios> listaConsulta = new ArrayList<BeanCadastroPrivilegios>();
 
      try {
 
@@ -141,7 +141,7 @@ public class DaoPrivilegios {
                    String nomePrivilegio = rs.getString("nome_privilegio");
                    String descricaoPrivilegio = rs.getString("descricao_privilegio");
 
-                 listaConsulta.add(new BeanPrivilegios(seqPrivilegio, nomePrivilegio, descricaoPrivilegio));
+                 listaConsulta.add(new BeanCadastroPrivilegios(seqPrivilegio, nomePrivilegio, descricaoPrivilegio));
 
              }
 

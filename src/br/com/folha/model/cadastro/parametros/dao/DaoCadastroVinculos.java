@@ -6,7 +6,7 @@
 package br.com.folha.model.cadastro.parametros.dao;
 
 import br.com.folha.model.cadastro.parametros.bean.BeanCargaHorariaSemanal;
-import br.com.folha.model.cadastro.parametros.bean.BeanVinculos;
+import br.com.folha.model.cadastro.parametros.bean.BeanCadastroVinculos;
 import br.com.folha.util.ConnectionFactory;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -20,10 +20,10 @@ import javax.swing.JOptionPane;
  *
  * @author andrei
  */
-public class DaoVinculos {
+public class DaoCadastroVinculos {
 
      Connection con = null;
-    public boolean inserirVinculo(BeanVinculos vinculo){
+    public boolean inserirVinculo(BeanCadastroVinculos vinculo){
                 boolean executou = false;
 		try {
 			con = ConnectionFactory.getConnection();
@@ -55,7 +55,7 @@ public class DaoVinculos {
     return executou;    
     }
 
-    public boolean excluirVinculo(BeanVinculos vinculo){
+    public boolean excluirVinculo(BeanCadastroVinculos vinculo){
                 boolean executou = false;
 		try {
 			con = ConnectionFactory.getConnection();
@@ -84,7 +84,7 @@ public class DaoVinculos {
     return executou;    
     }
 
-    public boolean alterarVinculo(BeanVinculos vinculo) {
+    public boolean alterarVinculo(BeanCadastroVinculos vinculo) {
                 boolean executou = false;
 		try {
 			con = ConnectionFactory.getConnection();
@@ -122,8 +122,8 @@ public class DaoVinculos {
     }
          
 
-     public List<BeanVinculos> selecionarVinculo() {
-        List<BeanVinculos> listaConsulta = new ArrayList<BeanVinculos>();
+     public List<BeanCadastroVinculos> selecionarVinculo() {
+        List<BeanCadastroVinculos> listaConsulta = new ArrayList<BeanCadastroVinculos>();
 
      try {
 
@@ -144,7 +144,7 @@ public class DaoVinculos {
                    String nomeVinculo = rs.getString("nome_vinculo");
                    String descricaoVinculo = rs.getString("descricao_vinculo");
 
-                 listaConsulta.add(new BeanVinculos(seqVinculo, nomeVinculo, descricaoVinculo));
+                 listaConsulta.add(new BeanCadastroVinculos(seqVinculo, nomeVinculo, descricaoVinculo));
 
              }
 

@@ -9,16 +9,16 @@ package br.com.folha.model.cadastro.parametros.bean;
  *
  * @author andre
  */
-public class BeanPrivilegios {
+public class BeanCadastroPrivilegios {
     
     private long seqPrivilegio;
     private String nomePrivilegio;
     private String descricaoPrivilegio;
 
-    public BeanPrivilegios() {
+    public BeanCadastroPrivilegios() {
     }
 
-    public BeanPrivilegios(long seqPrivilegio, String nomePrivilegio, String descricaoPrivilegio) {
+    public BeanCadastroPrivilegios(long seqPrivilegio, String nomePrivilegio, String descricaoPrivilegio) {
         this.seqPrivilegio = seqPrivilegio;
         this.nomePrivilegio = nomePrivilegio;
         this.descricaoPrivilegio = descricaoPrivilegio;

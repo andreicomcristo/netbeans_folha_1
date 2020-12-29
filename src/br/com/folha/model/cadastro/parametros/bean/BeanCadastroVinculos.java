@@ -9,16 +9,16 @@ package br.com.folha.model.cadastro.parametros.bean;
  *
  * @author andre
  */
-public class BeanVinculos {
+public class BeanCadastroVinculos {
     
     private long seqVinculo;
     private String nomeVinculo;
     private String descricaoVinculo;
 
-    public BeanVinculos() {
+    public BeanCadastroVinculos() {
     }
     
-    public BeanVinculos(long seqVinculo, String nomeVinculo, String descricaoVinculo) {
+    public BeanCadastroVinculos(long seqVinculo, String nomeVinculo, String descricaoVinculo) {
         this.seqVinculo = seqVinculo;
         this.nomeVinculo = nomeVinculo;
         this.descricaoVinculo = descricaoVinculo;

@@ -128,7 +128,7 @@ public class DaoCadastroCidades {
 
          try {
 
-             PreparedStatement stmt = con.prepareStatement("select seq_cidade, nome_cidade, sigla_cidade from public.cidades order by nome_cidade");
+             PreparedStatement stmt = con.prepareStatement("select seq_cidade, nome_cidade, sigla_estado from public.cidades order by nome_cidade");
 
               
 
@@ -138,7 +138,7 @@ public class DaoCadastroCidades {
 
                    long seqCidade = rs.getLong("seq_cidade");
                    String nomeCidada = rs.getString("nome_cidade");
-                   String siglaCidade = rs.getString("Sigla_cidade");
+                   String siglaCidade = rs.getString("Sigla_estado");
 
                  listaConsulta.add(new BeanCadastroCidades(seqCidade, nomeCidada, siglaCidade));
 

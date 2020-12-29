@@ -11,8 +11,8 @@
 
 package br.com.folha.view.cadastro.parametros;
 
-import br.com.folha.control.cadastro.parametros.ControleCadastroVinculos;
-import br.com.folha.model.cadastro.parametros.bean.BeanVinculos;
+import br.com.folha.control.cadastro.parametros.ControleCadastroCidades;
+import br.com.folha.model.cadastro.parametros.bean.BeanCadastroCidades;
 import java.awt.AWTKeyStroke;
 import java.awt.KeyboardFocusManager;
 import java.awt.event.KeyAdapter;
@@ -32,8 +32,8 @@ import javax.swing.table.DefaultTableModel;
 public class TelaCadastroCidades extends javax.swing.JFrame {
 
     
-    ControleCadastroVinculos controleCadastroVinculos;
-    BeanVinculos beanVinculos;
+    ControleCadastroCidades controleCadastroCidades;
+    BeanCadastroCidades beanCidades;
     
     /** Creates new form CadastroDeUsuarios */
     public TelaCadastroCidades() {
@@ -45,9 +45,9 @@ public class TelaCadastroCidades extends javax.swing.JFrame {
         initComponents();
     }
     
-    public TelaCadastroCidades(ControleCadastroVinculos controleCadastroVinculos, BeanVinculos beanVinculos) {
-        this.controleCadastroVinculos = controleCadastroVinculos;  
-        this.beanVinculos = beanVinculos;
+    public TelaCadastroCidades(ControleCadastroCidades controleCadastroCidade, BeanCadastroCidades beanCidade) {
+        this.controleCadastroCidades = controleCadastroCidade;  
+        this.beanCidades = beanCidade;
         
         Set<AWTKeyStroke> forwardKeys = new HashSet<AWTKeyStroke>(this.getFocusTraversalKeys(KeyboardFocusManager.FORWARD_TRAVERSAL_KEYS));
         forwardKeys.add(KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, 0));
@@ -55,8 +55,8 @@ public class TelaCadastroCidades extends javax.swing.JFrame {
 
         initComponents();
         
-        preencherJtable1d(controleCadastroVinculos.selecionar());
-        
+        //preencherJtable1d(ControleCadastroCidades.selecionar());
+        preencherJtable1d(controleCadastroCidades.selecionar());
     }
     
 
@@ -85,19 +85,19 @@ public class TelaCadastroCidades extends javax.swing.JFrame {
         jButtonLimpar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Cadastro de Vínculo");
+        setTitle("Cadastro de Cidades");
         getContentPane().setLayout(null);
 
         jLabel1.setFont(new java.awt.Font("Bookman Old Style", 0, 18)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Cadastro de Vínculo");
+        jLabel1.setText("Cadastro de Cidades");
         getContentPane().add(jLabel1);
         jLabel1.setBounds(170, 20, 390, 20);
 
         jLabel2.setFont(new java.awt.Font("Bookman Old Style", 1, 11)); // NOI18N
-        jLabel2.setText("Descrição do vínculo");
+        jLabel2.setText("Sigla Estado");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(290, 60, 160, 14);
+        jLabel2.setBounds(360, 60, 90, 14);
 
         jTextField1.addKeyListener(new KeyAdapter() {   
             public void keyTyped(KeyEvent e) { // <- alteração   
@@ -192,7 +192,7 @@ public class TelaCadastroCidades extends javax.swing.JFrame {
 
             },
             new String [] {
-                "SEQ","VÍNCULO","DESCRICAO"
+                "SEQ","CIDADE","SIGLA ESTADO"
             }
         ));
         jTable1.setRowHeight(14);
@@ -281,9 +281,9 @@ public class TelaCadastroCidades extends javax.swing.JFrame {
         jTextField2.setBounds(450, 60, 260, 25);
 
         jLabel3.setFont(new java.awt.Font("Bookman Old Style", 1, 11)); // NOI18N
-        jLabel3.setText("Tipo de vínculo");
+        jLabel3.setText("Cidade");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(20, 60, 110, 14);
+        jLabel3.setBounds(80, 60, 50, 14);
 
         jButtonAlterar.setFont(new java.awt.Font("Bookman Old Style", 0, 10)); // NOI18N
         jButtonAlterar.setText("Alterar");
@@ -317,7 +317,7 @@ public class TelaCadastroCidades extends javax.swing.JFrame {
     private void jButtonCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCadastrarActionPerformed
         // TODO add your handling code here:
 
-        boolean cadastrou = controleCadastroVinculos.cadastrar(jTextField1.getText().toUpperCase(), jTextField2.getText().toUpperCase());
+        boolean cadastrou = controleCadastroCidades.cadastrar(jTextField1.getText().toUpperCase(), jTextField2.getText().toUpperCase());
         if(cadastrou){
             limparCampos();
             jTextField1.requestFocus();
@@ -330,7 +330,7 @@ public class TelaCadastroCidades extends javax.swing.JFrame {
         
         if(jTable1.getSelectedRowCount()==1){
             String seq_carga_horaria_sem  = jTable1.getValueAt(jTable1.getSelectedRow(), 0).toString();
-            controleCadastroVinculos.excluir(seq_carga_horaria_sem);
+            controleCadastroCidades.excluir(seq_carga_horaria_sem);
         }else{JOptionPane.showMessageDialog(null, "Você deve selecionar uma linha na tabela.");}
 
     }//GEN-LAST:event_jButtonExcluirActionPerformed
@@ -338,7 +338,7 @@ public class TelaCadastroCidades extends javax.swing.JFrame {
     private void jButtonBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBuscarActionPerformed
         // TODO add your handling code here:
 
-        preencherJtable1d(controleCadastroVinculos.selecionar());
+        preencherJtable1d(controleCadastroCidades.selecionar());
         
 }//GEN-LAST:event_jButtonBuscarActionPerformed
 
@@ -348,7 +348,7 @@ public class TelaCadastroCidades extends javax.swing.JFrame {
             String seqVinculo  = jTable1.getValueAt(jTable1.getSelectedRow(), 0).toString();              
             String nomeVinculo = jTextField1.getText();
             String descricaoVinculo = jTextField2.getText();
-            controleCadastroVinculos.alterar(seqVinculo, nomeVinculo, descricaoVinculo);
+            controleCadastroCidades.alterar(seqVinculo, nomeVinculo, descricaoVinculo);
         }else{JOptionPane.showMessageDialog(null, "Você deve selecionar uma linha na tabela.");}
         
     }//GEN-LAST:event_jButtonAlterarActionPerformed
@@ -380,7 +380,7 @@ public class TelaCadastroCidades extends javax.swing.JFrame {
         jTextField2.setText("");
     }
     
-    public void preencherJtable1d(List<BeanVinculos> dados  ){
+    public void preencherJtable1d(List<BeanCadastroCidades> dados  ){
 
         jTable1.getColumnModel().getColumn(0).setPreferredWidth(200);
         jTable1.getColumnModel().getColumn(1).setPreferredWidth(200);
@@ -391,9 +391,9 @@ public class TelaCadastroCidades extends javax.swing.JFrame {
         DefaultTableModel modelo = (DefaultTableModel)jTable1.getModel();
         modelo.setNumRows(0);
  
-        for ( BeanVinculos vinculo : dados) {
+        for ( BeanCadastroCidades cidade : dados) {
 
-            Object[] linha = new Object[] { vinculo.getSeqVinculo(), vinculo.getNomeVinculo(), vinculo.getDescricaoVinculo()};
+            Object[] linha = new Object[] { cidade.getSeqCidade(), cidade.getNomeCidade(), cidade.getSiglaEstado()};
             modelo.addRow(linha);
 
         }

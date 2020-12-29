@@ -14,7 +14,7 @@ package br.com.folha.view.cadastro.parametros;
 import br.com.folha.control.cadastro.parametros.ControleCadastroCargaHorariaSemanal;
 import br.com.folha.control.cadastro.parametros.ControleCadastroVinculos;
 import br.com.folha.model.cadastro.parametros.bean.BeanCargaHorariaSemanal;
-import br.com.folha.model.cadastro.parametros.bean.BeanVinculos;
+import br.com.folha.model.cadastro.parametros.bean.BeanCadastroVinculos;
 import java.awt.AWTKeyStroke;
 import java.awt.KeyboardFocusManager;
 import java.awt.event.KeyAdapter;
@@ -35,7 +35,7 @@ public class TelaCadastroVinculos extends javax.swing.JFrame {
 
     
     ControleCadastroVinculos controleCadastroVinculos;
-    BeanVinculos beanVinculos;
+    BeanCadastroVinculos beanVinculos;
     
     /** Creates new form CadastroDeUsuarios */
     public TelaCadastroVinculos() {
@@ -47,7 +47,7 @@ public class TelaCadastroVinculos extends javax.swing.JFrame {
         initComponents();
     }
     
-    public TelaCadastroVinculos(ControleCadastroVinculos controleCadastroVinculos, BeanVinculos beanVinculos) {
+    public TelaCadastroVinculos(ControleCadastroVinculos controleCadastroVinculos, BeanCadastroVinculos beanVinculos) {
         this.controleCadastroVinculos = controleCadastroVinculos;  
         this.beanVinculos = beanVinculos;
         
@@ -382,7 +382,7 @@ public class TelaCadastroVinculos extends javax.swing.JFrame {
         jTextField2.setText("");
     }
     
-    public void preencherJtable1d(List<BeanVinculos> dados  ){
+    public void preencherJtable1d(List<BeanCadastroVinculos> dados  ){
 
         jTable1.getColumnModel().getColumn(0).setPreferredWidth(200);
         jTable1.getColumnModel().getColumn(1).setPreferredWidth(200);
@@ -393,7 +393,7 @@ public class TelaCadastroVinculos extends javax.swing.JFrame {
         DefaultTableModel modelo = (DefaultTableModel)jTable1.getModel();
         modelo.setNumRows(0);
  
-        for ( BeanVinculos vinculo : dados) {
+        for ( BeanCadastroVinculos vinculo : dados) {
 
             Object[] linha = new Object[] { vinculo.getSeqVinculo(), vinculo.getNomeVinculo(), vinculo.getDescricaoVinculo()};
             modelo.addRow(linha);

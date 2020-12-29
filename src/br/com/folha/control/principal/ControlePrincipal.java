@@ -7,6 +7,7 @@ package br.com.folha.control.principal;
 
 
 import br.com.folha.control.cadastro.parametros.ControleCadastroCargaHorariaSemanal;
+import br.com.folha.control.cadastro.parametros.ControleCadastroCidades;
 import br.com.folha.control.cadastro.parametros.ControleCadastroPrivilegio;
 import br.com.folha.control.cadastro.parametros.ControleCadastroVinculos;
 import br.com.folha.model.principal.bean.BeanPrincipal;
@@ -87,7 +88,10 @@ public class ControlePrincipal {
     
     
     
-    
+    public void abrirCadastroCidades(){
+        ControleCadastroCidades c = new ControleCadastroCidades();
+        c.abrirFrame(this, beanPrincipal);
+    }
     
      public void abrirCadastroPrivilegios(){
         ControleCadastroPrivilegio c = new ControleCadastroPrivilegio();
@@ -104,9 +108,6 @@ public class ControlePrincipal {
     public void abrirCadastroCargaHorariaSemanal(){
         ControleCadastroCargaHorariaSemanal c = new ControleCadastroCargaHorariaSemanal();
         c.abrirFrame(this, beanPrincipal);
-    }
- 
-    
-    
+    }  
     
 }

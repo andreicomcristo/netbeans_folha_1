@@ -12,7 +12,7 @@
 package br.com.folha.view.cadastro.parametros;
 
 import br.com.folha.control.cadastro.parametros.ControleCadastroPrivilegio;
-import br.com.folha.model.cadastro.parametros.bean.BeanPrivilegios;
+import br.com.folha.model.cadastro.parametros.bean.BeanCadastroPrivilegios;
 import java.awt.AWTKeyStroke;
 import java.awt.KeyboardFocusManager;
 import java.awt.event.KeyAdapter;
@@ -33,7 +33,7 @@ public class TelaCadastroPrivilegios extends javax.swing.JFrame {
 
     
     ControleCadastroPrivilegio controleCadastroPrivilegios;
-    BeanPrivilegios beanPrivilegios;
+    BeanCadastroPrivilegios beanPrivilegios;
     
     /** Creates new form CadastroDeUsuarios */
     public TelaCadastroPrivilegios() {
@@ -45,7 +45,7 @@ public class TelaCadastroPrivilegios extends javax.swing.JFrame {
         initComponents();
     }
     
-    public TelaCadastroPrivilegios(ControleCadastroPrivilegio controleCadastrorpivilegio, BeanPrivilegios beanPrivilegios) {
+    public TelaCadastroPrivilegios(ControleCadastroPrivilegio controleCadastrorpivilegio, BeanCadastroPrivilegios beanPrivilegios) {
         this.controleCadastroPrivilegios = controleCadastrorpivilegio;  
         this.beanPrivilegios = beanPrivilegios;
         
@@ -380,7 +380,7 @@ public class TelaCadastroPrivilegios extends javax.swing.JFrame {
         jTextField2.setText("");
     }
     
-    public void preencherJtable1d(List<BeanPrivilegios> dados  ){
+    public void preencherJtable1d(List<BeanCadastroPrivilegios> dados  ){
 
         jTable1.getColumnModel().getColumn(0).setPreferredWidth(200);
         jTable1.getColumnModel().getColumn(1).setPreferredWidth(200);
@@ -391,7 +391,7 @@ public class TelaCadastroPrivilegios extends javax.swing.JFrame {
         DefaultTableModel modelo = (DefaultTableModel)jTable1.getModel();
         modelo.setNumRows(0);
  
-        for ( BeanPrivilegios privilegio : dados) {
+        for ( BeanCadastroPrivilegios privilegio : dados) {
 
             Object[] linha = new Object[] { privilegio.getSeqPrivilegio(), privilegio.getNomePrivilegio(), privilegio.getDescricaoPrivilegio()};
             modelo.addRow(linha);

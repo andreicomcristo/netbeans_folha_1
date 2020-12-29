@@ -7,8 +7,8 @@ package br.com.folha.control.cadastro.parametros;
 
 
 import br.com.folha.control.principal.ControlePrincipal;
-import br.com.folha.model.cadastro.parametros.bean.BeanVinculos;
-import br.com.folha.model.cadastro.parametros.dao.DaoVinculos;
+import br.com.folha.model.cadastro.parametros.bean.BeanCadastroVinculos;
+import br.com.folha.model.cadastro.parametros.dao.DaoCadastroVinculos;
 import br.com.folha.model.principal.bean.BeanPrincipal;
 import br.com.folha.util.UtilidadesDeTexto;
 import br.com.folha.view.cadastro.parametros.TelaCadastroVinculos;
@@ -26,9 +26,9 @@ public class ControleCadastroVinculos {
         
     
     TelaCadastroVinculos cadastroVinculos;
-    BeanVinculos beanVinculos = new BeanVinculos();
+    BeanCadastroVinculos beanVinculos = new BeanCadastroVinculos();
     
-    DaoVinculos daoVinculos = new DaoVinculos();
+    DaoCadastroVinculos daoVinculos = new DaoCadastroVinculos();
     UtilidadesDeTexto utilidadesDeTexto = new UtilidadesDeTexto();
     
     //Justificar o uso dessas variaveis no argumento do método
@@ -107,7 +107,7 @@ public class ControleCadastroVinculos {
             return executou;
     }
     
-    public List<BeanVinculos> selecionar(){
+    public List<BeanCadastroVinculos> selecionar(){
         List dados =daoVinculos.selecionarVinculo();
         return dados;
     }

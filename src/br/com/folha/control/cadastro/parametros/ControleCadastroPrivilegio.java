@@ -7,8 +7,8 @@ package br.com.folha.control.cadastro.parametros;
 
 
 import br.com.folha.control.principal.ControlePrincipal;
-import br.com.folha.model.cadastro.parametros.bean.BeanPrivilegios;
-import br.com.folha.model.cadastro.parametros.dao.DaoPrivilegios;
+import br.com.folha.model.cadastro.parametros.bean.BeanCadastroPrivilegios;
+import br.com.folha.model.cadastro.parametros.dao.DaoCadastroPrivilegios;
 import br.com.folha.model.principal.bean.BeanPrincipal;
 import br.com.folha.util.UtilidadesDeTexto;
 import br.com.folha.view.cadastro.parametros.TelaCadastroPrivilegios;
@@ -26,9 +26,9 @@ public class ControleCadastroPrivilegio {
         
     
     TelaCadastroPrivilegios cadastroPrivilegios;
-    BeanPrivilegios beanPrivilegios = new BeanPrivilegios();
+    BeanCadastroPrivilegios beanPrivilegios = new BeanCadastroPrivilegios();
     
-    DaoPrivilegios daoPrivilegios = new DaoPrivilegios();
+    DaoCadastroPrivilegios daoPrivilegios = new DaoCadastroPrivilegios();
     
     UtilidadesDeTexto utilidadesDeTexto = new UtilidadesDeTexto();
     
@@ -107,7 +107,7 @@ public class ControleCadastroPrivilegio {
             return executou;
     }
     
-    public List<BeanPrivilegios> selecionar(){
+    public List<BeanCadastroPrivilegios> selecionar(){
         
         List dados =daoPrivilegios.selecionarPrivilegio();
         return dados;

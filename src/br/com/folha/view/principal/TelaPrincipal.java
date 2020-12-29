@@ -69,6 +69,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jMenuItem11 = new javax.swing.JMenuItem();
         jMenuItem18 = new javax.swing.JMenuItem();
         jMenuItem12 = new javax.swing.JMenuItem();
+        jMenuItemCadastroCidades = new javax.swing.JMenuItem();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem21 = new javax.swing.JMenuItem();
         jMenu14 = new javax.swing.JMenu();
@@ -150,6 +151,14 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jMenuItem12.setText("Cadastro de Categorias de Habilitação Trânsito");
         jMenu13.add(jMenuItem12);
+
+        jMenuItemCadastroCidades.setText("Cadastro de Cidades");
+        jMenuItemCadastroCidades.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemCadastroCidadesActionPerformed(evt);
+            }
+        });
+        jMenu13.add(jMenuItemCadastroCidades);
 
         jMenuItem1.setText("Cadastro de Tipos de Logradouro");
         jMenu13.add(jMenuItem1);
@@ -289,6 +298,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
         controlePrincipal.abrirCadastroPrivilegios();
     }//GEN-LAST:event_jMenuItem15ActionPerformed
 
+    private void jMenuItemCadastroCidadesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemCadastroCidadesActionPerformed
+        // TODO add your handling code here:
+        
+        controlePrincipal.abrirCadastroCidades();
+    }//GEN-LAST:event_jMenuItemCadastroCidadesActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -369,5 +384,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JMenuItem jMenuItem8;
     private javax.swing.JMenuItem jMenuItem9;
+    private javax.swing.JMenuItem jMenuItemCadastroCidades;
     // End of variables declaration//GEN-END:variables
 }
