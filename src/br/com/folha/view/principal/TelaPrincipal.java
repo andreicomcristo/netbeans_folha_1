@@ -76,6 +76,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jMenuItem4 = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenuItem19 = new javax.swing.JMenuItem();
+        jMenuItemPrivilegios = new javax.swing.JMenuItem();
         jMenuItem20 = new javax.swing.JMenuItem();
         jMenu16 = new javax.swing.JMenu();
         jMenuItem16 = new javax.swing.JMenuItem();
@@ -178,6 +179,14 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jMenuItem19.setText("Cadastro de Situações");
         jMenu14.add(jMenuItem19);
 
+        jMenuItemPrivilegios.setText("Cadastro de Privilégios");
+        jMenuItemPrivilegios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemPrivilegiosActionPerformed(evt);
+            }
+        });
+        jMenu14.add(jMenuItemPrivilegios);
+
         jMenuItem20.setText("Cadastro de Vínculos");
         jMenuItem20.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -278,6 +287,15 @@ public class TelaPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem20ActionPerformed
 
+    private void jMenuItemPrivilegiosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemPrivilegiosActionPerformed
+
+        
+        // TODO add your handling code here:
+ 
+        controlePrincipal.abrirCadastroPrivilegios();
+        
+    }//GEN-LAST:event_jMenuItemPrivilegiosActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -358,5 +376,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JMenuItem jMenuItem8;
     private javax.swing.JMenuItem jMenuItem9;
+    private javax.swing.JMenuItem jMenuItemPrivilegios;
     // End of variables declaration//GEN-END:variables
 }

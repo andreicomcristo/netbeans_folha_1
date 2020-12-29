@@ -11,10 +11,8 @@
 
 package br.com.folha.view.cadastro.parametros;
 
-import br.com.folha.control.cadastro.parametros.ControleCadastroCargaHorariaSemanal;
-import br.com.folha.control.cadastro.parametros.ControleCadastroVinculos;
-import br.com.folha.model.cadastro.parametros.bean.BeanCargaHorariaSemanal;
-import br.com.folha.model.cadastro.parametros.bean.BeanVinculos;
+import br.com.folha.control.cadastro.parametros.ControleCadastroPrivilegio;
+import br.com.folha.model.cadastro.parametros.bean.BeanPrivilegios;
 import java.awt.AWTKeyStroke;
 import java.awt.KeyboardFocusManager;
 import java.awt.event.KeyAdapter;
@@ -34,8 +32,8 @@ import javax.swing.table.DefaultTableModel;
 public class TelaCadastroPrivilegios extends javax.swing.JFrame {
 
     
-    ControleCadastroVinculos controleCadastroVinculos;
-    BeanVinculos beanVinculos;
+    ControleCadastroPrivilegio controleCadastroPrivilegios;
+    BeanPrivilegios beanPrivilegios;
     
     /** Creates new form CadastroDeUsuarios */
     public TelaCadastroPrivilegios() {
@@ -47,9 +45,9 @@ public class TelaCadastroPrivilegios extends javax.swing.JFrame {
         initComponents();
     }
     
-    public TelaCadastroPrivilegios(ControleCadastroVinculos controleCadastroVinculos, BeanVinculos beanVinculos) {
-        this.controleCadastroVinculos = controleCadastroVinculos;  
-        this.beanVinculos = beanVinculos;
+    public TelaCadastroPrivilegios(ControleCadastroPrivilegio controleCadastrorpivilegio, BeanPrivilegios beanPrivilegios) {
+        this.controleCadastroPrivilegios = controleCadastrorpivilegio;  
+        this.beanPrivilegios = beanPrivilegios;
         
         Set<AWTKeyStroke> forwardKeys = new HashSet<AWTKeyStroke>(this.getFocusTraversalKeys(KeyboardFocusManager.FORWARD_TRAVERSAL_KEYS));
         forwardKeys.add(KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, 0));
@@ -57,7 +55,7 @@ public class TelaCadastroPrivilegios extends javax.swing.JFrame {
 
         initComponents();
         
-        preencherJtable1d(controleCadastroVinculos.selecionar());
+        preencherJtable1d(controleCadastroPrivilegios.selecionar());
         
     }
     
@@ -87,12 +85,12 @@ public class TelaCadastroPrivilegios extends javax.swing.JFrame {
         jButtonLimpar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Cadastro de Vínculo");
+        setTitle("Cadastro de Privilégio");
         getContentPane().setLayout(null);
 
         jLabel1.setFont(new java.awt.Font("Bookman Old Style", 0, 18)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Cadastro de Vínculo");
+        jLabel1.setText("Cadastro de Privilégios");
         getContentPane().add(jLabel1);
         jLabel1.setBounds(170, 20, 390, 20);
 
@@ -319,7 +317,7 @@ public class TelaCadastroPrivilegios extends javax.swing.JFrame {
     private void jButtonCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCadastrarActionPerformed
         // TODO add your handling code here:
 
-        boolean cadastrou = controleCadastroVinculos.cadastrar(jTextField1.getText().toUpperCase(), jTextField2.getText().toUpperCase());
+        boolean cadastrou = controleCadastroPrivilegios.cadastrar(jTextField1.getText().toUpperCase(), jTextField2.getText().toUpperCase());
         if(cadastrou){
             limparCampos();
             jTextField1.requestFocus();
@@ -332,7 +330,7 @@ public class TelaCadastroPrivilegios extends javax.swing.JFrame {
         
         if(jTable1.getSelectedRowCount()==1){
             String seq_carga_horaria_sem  = jTable1.getValueAt(jTable1.getSelectedRow(), 0).toString();
-            controleCadastroVinculos.excluir(seq_carga_horaria_sem);
+            controleCadastroPrivilegios.excluir(seq_carga_horaria_sem);
         }else{JOptionPane.showMessageDialog(null, "Você deve selecionar uma linha na tabela.");}
 
     }//GEN-LAST:event_jButtonExcluirActionPerformed
@@ -340,7 +338,7 @@ public class TelaCadastroPrivilegios extends javax.swing.JFrame {
     private void jButtonBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBuscarActionPerformed
         // TODO add your handling code here:
 
-        preencherJtable1d(controleCadastroVinculos.selecionar());
+        preencherJtable1d(controleCadastroPrivilegios.selecionar());
         
 }//GEN-LAST:event_jButtonBuscarActionPerformed
 
@@ -350,7 +348,7 @@ public class TelaCadastroPrivilegios extends javax.swing.JFrame {
             String seqVinculo  = jTable1.getValueAt(jTable1.getSelectedRow(), 0).toString();              
             String nomeVinculo = jTextField1.getText();
             String descricaoVinculo = jTextField2.getText();
-            controleCadastroVinculos.alterar(seqVinculo, nomeVinculo, descricaoVinculo);
+            controleCadastroPrivilegios.alterar(seqVinculo, nomeVinculo, descricaoVinculo);
         }else{JOptionPane.showMessageDialog(null, "Você deve selecionar uma linha na tabela.");}
         
     }//GEN-LAST:event_jButtonAlterarActionPerformed
@@ -382,7 +380,7 @@ public class TelaCadastroPrivilegios extends javax.swing.JFrame {
         jTextField2.setText("");
     }
     
-    public void preencherJtable1d(List<BeanVinculos> dados  ){
+    public void preencherJtable1d(List<BeanPrivilegios> dados  ){
 
         jTable1.getColumnModel().getColumn(0).setPreferredWidth(200);
         jTable1.getColumnModel().getColumn(1).setPreferredWidth(200);
@@ -393,9 +391,9 @@ public class TelaCadastroPrivilegios extends javax.swing.JFrame {
         DefaultTableModel modelo = (DefaultTableModel)jTable1.getModel();
         modelo.setNumRows(0);
  
-        for ( BeanVinculos vinculo : dados) {
+        for ( BeanPrivilegios privilegio : dados) {
 
-            Object[] linha = new Object[] { vinculo.getSeqVinculo(), vinculo.getNomeVinculo(), vinculo.getDescricaoVinculo()};
+            Object[] linha = new Object[] { privilegio.getSeqPrivilegio(), privilegio.getNomePrivilegio(), privilegio.getDescricaoPrivilegio()};
             modelo.addRow(linha);
 
         }
