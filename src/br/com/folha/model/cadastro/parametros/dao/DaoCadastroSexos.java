@@ -87,7 +87,7 @@ public class DaoCadastroSexos {
 		try {
 			con = ConnectionFactory.getConnection();
                                                                             // nome da tebela
-			PreparedStatement stmt = con.prepareStatement("UPDATE public.sexos set nome_sexo = ?, descricao_sexo = ?  where public.sexo.seq_sexo = ? ");
+			PreparedStatement stmt = con.prepareStatement("UPDATE public.sexos set nome_sexo = ?, descricao_sexo = ?  where public.sexo.seq_sexos = ? ");
 
                         
                         stmt.setString(1, sexo.getNomeSexo());

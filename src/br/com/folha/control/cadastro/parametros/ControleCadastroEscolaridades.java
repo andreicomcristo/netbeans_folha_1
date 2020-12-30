@@ -12,6 +12,7 @@ import br.com.folha.model.cadastro.parametros.dao.DaoCadastroEscolaridades;
 import br.com.folha.model.principal.bean.BeanPrincipal;
 import br.com.folha.util.UtilidadesDeTexto;
 import br.com.folha.view.cadastro.parametros.TelaCadastroEscolaridades;
+import br.com.folha.view.cadastro.parametros.TelaCadastroSexos;
 import java.util.List;
 import javax.swing.JOptionPane;
 

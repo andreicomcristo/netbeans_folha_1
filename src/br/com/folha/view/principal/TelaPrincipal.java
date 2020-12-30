@@ -157,6 +157,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jMenu13.add(jMenuItem11);
 
         jMenuItem18.setText("Cadastro de Sexo");
+        jMenuItem18.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem18ActionPerformed(evt);
+            }
+        });
         jMenu13.add(jMenuItem18);
 
         jMenuItem12.setText("Cadastro de Categorias de Habilitação Trânsito");
@@ -303,30 +308,31 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem20ActionPerformed
 
     private void jMenuItem15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem15ActionPerformed
-    
+
         // TODO add your handling code here:
         controlePrincipal.abrirCadastroPrivilegios();
     }//GEN-LAST:event_jMenuItem15ActionPerformed
 
     private void jMenuItemCadastroCidadesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemCadastroCidadesActionPerformed
-        // TODO add your handling code here:
-        
+        // TODO add your handling code here:   
         controlePrincipal.abrirCadastroCidades();
     }//GEN-LAST:event_jMenuItemCadastroCidadesActionPerformed
 
     private void jMenuItem10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem10ActionPerformed
-        // TODO add your handling code here:
-        
-        controlePrincipal.abrirCadastroEscolaridades();
-        
+        // TODO add your handling code here:     
+        controlePrincipal.abrirCadastroEscolaridades();       
     }//GEN-LAST:event_jMenuItem10ActionPerformed
 
     private void jMenuItem11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem11ActionPerformed
         // TODO add your handling code here:
         
-        controlePrincipal.abrirCadastroEstadoCivil();
-        
+        controlePrincipal.abrirCadastroEstadoCivil(); 
     }//GEN-LAST:event_jMenuItem11ActionPerformed
+
+    private void jMenuItem18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem18ActionPerformed
+        // TODO add your handling code here:
+        controlePrincipal.abrirCadastroSexos();
+    }//GEN-LAST:event_jMenuItem18ActionPerformed
 
     /**
      * @param args the command line arguments

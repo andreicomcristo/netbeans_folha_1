@@ -12,7 +12,9 @@
 package br.com.folha.view.cadastro.parametros;
 
 import br.com.folha.control.cadastro.parametros.ControleCadastroEscolaridades;
+import br.com.folha.control.cadastro.parametros.ControleCadastroSexos;
 import br.com.folha.model.cadastro.parametros.bean.BeanCadastroEscolaridades;
+import br.com.folha.model.cadastro.parametros.bean.BeanCadastroSexos;
 import java.awt.AWTKeyStroke;
 import java.awt.KeyboardFocusManager;
 import java.awt.event.KeyAdapter;
@@ -29,14 +31,14 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author André
  */
-public class TelaCadastroEscolaridades extends javax.swing.JFrame {
+public class TelaCadastroSexos extends javax.swing.JFrame {
 
     
-    ControleCadastroEscolaridades controleCadastroEscolaridades;
-    BeanCadastroEscolaridades beanCadastroEscolaridades;
+    ControleCadastroSexos controleCadastroSexos;
+    BeanCadastroSexos beanCadastroSexos;
     
     /** Creates new form CadastroDeUsuarios */
-    public TelaCadastroEscolaridades() {
+    public TelaCadastroSexos() {
        
         Set<AWTKeyStroke> forwardKeys = new HashSet<AWTKeyStroke>(this.getFocusTraversalKeys(KeyboardFocusManager.FORWARD_TRAVERSAL_KEYS));
         forwardKeys.add(KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, 0));
@@ -45,9 +47,9 @@ public class TelaCadastroEscolaridades extends javax.swing.JFrame {
         initComponents();
     }
     
-    public TelaCadastroEscolaridades(ControleCadastroEscolaridades controleCadastroEscolaridade, BeanCadastroEscolaridades beanCadastroEscolaridade) {
-        this.controleCadastroEscolaridades = controleCadastroEscolaridade;  
-        this.beanCadastroEscolaridades = beanCadastroEscolaridade;
+    public TelaCadastroSexos(ControleCadastroSexos controleCadastroSexo, BeanCadastroSexos beanCadastroSexo) {
+        this.controleCadastroSexos = controleCadastroSexo;  
+        this.beanCadastroSexos = beanCadastroSexo;
         
         Set<AWTKeyStroke> forwardKeys = new HashSet<AWTKeyStroke>(this.getFocusTraversalKeys(KeyboardFocusManager.FORWARD_TRAVERSAL_KEYS));
         forwardKeys.add(KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, 0));
@@ -56,7 +58,7 @@ public class TelaCadastroEscolaridades extends javax.swing.JFrame {
         initComponents();
         
         //preencherJtable1d(ControleCadastroCidades.selecionar());
-        preencherJtable1d(controleCadastroEscolaridades.selecionar());
+        preencherJtable1d(controleCadastroSexos.selecionar());
     }
     
 
@@ -85,19 +87,19 @@ public class TelaCadastroEscolaridades extends javax.swing.JFrame {
         jButtonLimpar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Cadastro de Escolaridade");
+        setTitle("Cadastro de Sexos");
         getContentPane().setLayout(null);
 
         jLabel1.setFont(new java.awt.Font("Bookman Old Style", 0, 18)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Cadastro de Escolaridade");
+        jLabel1.setText("Cadastro de Sexos");
         getContentPane().add(jLabel1);
         jLabel1.setBounds(170, 20, 390, 20);
 
         jLabel2.setFont(new java.awt.Font("Bookman Old Style", 1, 11)); // NOI18N
-        jLabel2.setText("Descrição da Escolaridade");
+        jLabel2.setText("Descrição do Sexo");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(280, 60, 190, 14);
+        jLabel2.setBounds(340, 60, 120, 20);
 
         jTextField1.addKeyListener(new KeyAdapter() {   
             public void keyTyped(KeyEvent e) { // <- alteração   
@@ -162,7 +164,7 @@ public class TelaCadastroEscolaridades extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jTextField1);
-        jTextField1.setBounds(120, 60, 150, 25);
+        jTextField1.setBounds(70, 60, 150, 25);
 
         jButtonCadastrar.setFont(new java.awt.Font("Bookman Old Style", 0, 11)); // NOI18N
         jButtonCadastrar.setText("Cadastrar");
@@ -192,7 +194,7 @@ public class TelaCadastroEscolaridades extends javax.swing.JFrame {
 
             },
             new String [] {
-                "SEQ","ESCOLARIDADE","DESCRIÇÃO DA ESCOLARIDADE"
+                "SEQ","SEXO","DESCRIÇÃO DO SEXO"
             }
         ));
         jTable1.setRowHeight(14);
@@ -278,12 +280,12 @@ public class TelaCadastroEscolaridades extends javax.swing.JFrame {
 
         });
         getContentPane().add(jTextField2);
-        jTextField2.setBounds(460, 60, 240, 25);
+        jTextField2.setBounds(470, 60, 240, 25);
 
         jLabel3.setFont(new java.awt.Font("Bookman Old Style", 1, 11)); // NOI18N
-        jLabel3.setText("Escolaridade");
+        jLabel3.setText("Sexo");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(30, 60, 90, 14);
+        jLabel3.setBounds(30, 60, 40, 14);
 
         jButtonAlterar.setFont(new java.awt.Font("Bookman Old Style", 0, 10)); // NOI18N
         jButtonAlterar.setText("Alterar");
@@ -317,7 +319,7 @@ public class TelaCadastroEscolaridades extends javax.swing.JFrame {
     private void jButtonCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCadastrarActionPerformed
         // TODO add your handling code here:
 
-        boolean cadastrou = controleCadastroEscolaridades.cadastrar(jTextField1.getText().toUpperCase(), jTextField2.getText().toUpperCase());
+        boolean cadastrou = controleCadastroSexos.cadastrar(jTextField1.getText().toUpperCase(), jTextField2.getText().toUpperCase());
         if(cadastrou){
             limparCampos();
             jTextField1.requestFocus();
@@ -329,8 +331,8 @@ public class TelaCadastroEscolaridades extends javax.swing.JFrame {
         // TODO add your handling code here:
         
         if(jTable1.getSelectedRowCount()==1){
-            String seqEscolaridade  = jTable1.getValueAt(jTable1.getSelectedRow(), 0).toString();
-            controleCadastroEscolaridades.excluir(seqEscolaridade);
+            String seq_carga_horaria_sem  = jTable1.getValueAt(jTable1.getSelectedRow(), 0).toString();
+            controleCadastroSexos.excluir(seq_carga_horaria_sem);
         }else{JOptionPane.showMessageDialog(null, "Você deve selecionar uma linha na tabela.");}
 
     }//GEN-LAST:event_jButtonExcluirActionPerformed
@@ -338,17 +340,17 @@ public class TelaCadastroEscolaridades extends javax.swing.JFrame {
     private void jButtonBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBuscarActionPerformed
         // TODO add your handling code here:
 
-        preencherJtable1d(controleCadastroEscolaridades.selecionar());
+        preencherJtable1d(controleCadastroSexos.selecionar());
         
 }//GEN-LAST:event_jButtonBuscarActionPerformed
 
     private void jButtonAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAlterarActionPerformed
         // TODO add your handling code here:
         if(jTable1.getSelectedRowCount() == 1){
-            String seqEscolaridade  = jTable1.getValueAt(jTable1.getSelectedRow(), 0).toString();              
-            String nomeEscolaridade = jTextField1.getText();
-            String descricaoEscolaridade = jTextField2.getText();
-            controleCadastroEscolaridades.alterar(seqEscolaridade, nomeEscolaridade, descricaoEscolaridade);
+            String seqVinculo  = jTable1.getValueAt(jTable1.getSelectedRow(), 0).toString();              
+            String nomeVinculo = jTextField1.getText();
+            String descricaoVinculo = jTextField2.getText();
+            controleCadastroSexos.alterar(seqVinculo, nomeVinculo, descricaoVinculo);
         }else{JOptionPane.showMessageDialog(null, "Você deve selecionar uma linha na tabela.");}
         
     }//GEN-LAST:event_jButtonAlterarActionPerformed
@@ -380,7 +382,7 @@ public class TelaCadastroEscolaridades extends javax.swing.JFrame {
         jTextField2.setText("");
     }
     
-    public void preencherJtable1d(List<BeanCadastroEscolaridades> dados  ){
+    public void preencherJtable1d(List<BeanCadastroSexos> dados  ){
 
         jTable1.getColumnModel().getColumn(0).setPreferredWidth(200);
         jTable1.getColumnModel().getColumn(1).setPreferredWidth(200);
@@ -391,9 +393,9 @@ public class TelaCadastroEscolaridades extends javax.swing.JFrame {
         DefaultTableModel modelo = (DefaultTableModel)jTable1.getModel();
         modelo.setNumRows(0);
  
-        for ( BeanCadastroEscolaridades escolaridade : dados) {
+        for ( BeanCadastroSexos sexo : dados) {
 
-            Object[] linha = new Object[] { escolaridade.getSeqEscolaridade(), escolaridade.getNomeEscolaridade(), escolaridade.getDescricaoEscolaridade()};
+            Object[] linha = new Object[] { sexo.getSeqSexo(), sexo.getNomeSexo(), sexo.getDescricaoSexo()};
             modelo.addRow(linha);
         }
  }
