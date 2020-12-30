@@ -8,6 +8,7 @@ package br.com.folha.control.principal;
 
 import br.com.folha.control.cadastro.parametros.ControleCadastroCargaHorariaSemanal;
 import br.com.folha.control.cadastro.parametros.ControleCadastroCidades;
+import br.com.folha.control.cadastro.parametros.ControleCadastroEscolaridades;
 import br.com.folha.control.cadastro.parametros.ControleCadastroPrivilegio;
 import br.com.folha.control.cadastro.parametros.ControleCadastroVinculos;
 import br.com.folha.model.principal.bean.BeanPrincipal;
@@ -87,6 +88,10 @@ public class ControlePrincipal {
     
     
     
+    public void abrirCadastroEscolaridades(){
+        ControleCadastroEscolaridades e = new ControleCadastroEscolaridades();
+        e.abrirFrame(this, beanPrincipal);
+    }
     
     public void abrirCadastroCidades(){
         ControleCadastroCidades c = new ControleCadastroCidades();
@@ -94,20 +99,20 @@ public class ControlePrincipal {
     }
     
      public void abrirCadastroPrivilegios(){
-        ControleCadastroPrivilegio c = new ControleCadastroPrivilegio();
-        c.abrirFrame(this, beanPrincipal);
+        ControleCadastroPrivilegio p = new ControleCadastroPrivilegio();
+        p.abrirFrame(this, beanPrincipal);
     }
    
     
     public void abrirCadastroVinculos(){
-        ControleCadastroVinculos c = new ControleCadastroVinculos();
-        c.abrirFrame(this, beanPrincipal);
+        ControleCadastroVinculos v = new ControleCadastroVinculos();
+        v.abrirFrame(this, beanPrincipal);
     }
     
-    
+  
     public void abrirCadastroCargaHorariaSemanal(){
-        ControleCadastroCargaHorariaSemanal c = new ControleCadastroCargaHorariaSemanal();
-        c.abrirFrame(this, beanPrincipal);
+        ControleCadastroCargaHorariaSemanal ch = new ControleCadastroCargaHorariaSemanal();
+        ch.abrirFrame(this, beanPrincipal);
     }  
     
 }
