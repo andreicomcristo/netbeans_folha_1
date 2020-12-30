@@ -10,6 +10,7 @@ import br.com.folha.control.cadastro.parametros.ControleCadastroCargaHorariaSema
 import br.com.folha.control.cadastro.parametros.ControleCadastroCidades;
 import br.com.folha.control.cadastro.parametros.ControleCadastroEscolaridades;
 import br.com.folha.control.cadastro.parametros.ControleCadastroEstadoCivil;
+import br.com.folha.control.cadastro.parametros.ControleCadastroHabilitacaoCategorias;
 import br.com.folha.control.cadastro.parametros.ControleCadastroPrivilegio;
 import br.com.folha.control.cadastro.parametros.ControleCadastroSexos;
 import br.com.folha.control.cadastro.parametros.ControleCadastroVinculos;
@@ -92,6 +93,10 @@ public class ControlePrincipal {
     
     
     
+     public void abrirCadastroHabilitacaoCategorias(){
+        ControleCadastroHabilitacaoCategorias h = new ControleCadastroHabilitacaoCategorias();
+        h.abrirFrame(this, beanPrincipal);
+    }
      public void abrirCadastroSexos(){
         ControleCadastroSexos sx = new ControleCadastroSexos();
         sx.abrirFrame(this, beanPrincipal);

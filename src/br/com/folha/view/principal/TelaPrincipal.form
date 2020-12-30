@@ -96,6 +96,9 @@
                           <Properties>
                             <Property name="text" type="java.lang.String" value="Cadastro de Categorias de Habilita&#xe7;&#xe3;o Tr&#xe2;nsito"/>
                           </Properties>
+                          <Events>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem12ActionPerformed"/>
+                          </Events>
                         </MenuItem>
                         <MenuItem class="javax.swing.JMenuItem" name="jMenuItemCadastroCidades">
                           <Properties>
