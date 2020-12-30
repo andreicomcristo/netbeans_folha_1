@@ -9,6 +9,7 @@ package br.com.folha.control.principal;
 import br.com.folha.control.cadastro.parametros.ControleCadastroCargaHorariaSemanal;
 import br.com.folha.control.cadastro.parametros.ControleCadastroCidades;
 import br.com.folha.control.cadastro.parametros.ControleCadastroEscolaridades;
+import br.com.folha.control.cadastro.parametros.ControleCadastroEstadoCivil;
 import br.com.folha.control.cadastro.parametros.ControleCadastroPrivilegio;
 import br.com.folha.control.cadastro.parametros.ControleCadastroVinculos;
 import br.com.folha.model.principal.bean.BeanPrincipal;
@@ -88,6 +89,13 @@ public class ControlePrincipal {
     
     
     
+    
+    
+     public void abrirCadastroEstadoCivil(){
+        ControleCadastroEstadoCivil ec = new ControleCadastroEstadoCivil();
+        ec.abrirFrame(this, beanPrincipal);
+    }
+     
     public void abrirCadastroEscolaridades(){
         ControleCadastroEscolaridades e = new ControleCadastroEscolaridades();
         e.abrirFrame(this, beanPrincipal);
