@@ -184,6 +184,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jMenu13.add(jMenuItem1);
 
         jMenuItem21.setText("Cadastro de Tipos de Filiação");
+        jMenuItem21.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem21ActionPerformed(evt);
+            }
+        });
         jMenu13.add(jMenuItem21);
 
         jMenu2.add(jMenu13);
@@ -353,6 +358,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:  
         controlePrincipal.abrirCadastroSituacoes();
     }//GEN-LAST:event_jMenuItem19ActionPerformed
+
+    private void jMenuItem21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem21ActionPerformed
+        // TODO add your handling code here:
+        controlePrincipal.abrirCadastroTiposFiliacao();
+        
+    }//GEN-LAST:event_jMenuItem21ActionPerformed
 
     /**
      * @param args the command line arguments

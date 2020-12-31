@@ -29,7 +29,7 @@ public class DaoCadastroTiposFiliacao {
 			con = ConnectionFactory.getConnection();
                                                                             // nome da tebela
 			PreparedStatement stmt = con.prepareStatement("insert into public.tipos_de_filiacao "
-                                + "(nome_tipo_de_filiacao, descricao_tipo_de_filiacao) values ( ?,? )");
+                                + "(nome_tipo_filiacao, descricao_tipo_filiacao) values ( ?,? )");
                         
             stmt.setString(1, filiacao.getNomeTipoFiliacao());
             stmt.setString(2, filiacao.getDescricaoTipoFiliacao());
@@ -60,7 +60,7 @@ public class DaoCadastroTiposFiliacao {
 			con = ConnectionFactory.getConnection();
                                                                             // nome da tebela
 			PreparedStatement stmt = con.prepareStatement("DELETE FROM public.tipos_de_filiacao "
-                                + "where public.tipos_de_filiacao.seq_tipo_de_filiacao = ? ");
+                                + "where public.tipos_de_filiacao.seq_tipo_filiacao = ? ");
 
                         stmt.setLong(1, filiacao.getSeqTipoFiliacao());
 			stmt.execute();
@@ -90,7 +90,7 @@ public class DaoCadastroTiposFiliacao {
 		con = ConnectionFactory.getConnection();
                                                                       // nome da tebela
 		PreparedStatement stmt = con.prepareStatement("UPDATE public.tipos_de_filiacao"
-                        + " set nome_tipo_de_filiacao = ?, descricao_tipo_de_filiacao = ?  where public.tipos_de_filiacao.seq_tipo_de_filiacao = ? ");
+                        + " set nome_tipo_filiacao = ?, descricao_tipo_filiacao = ?  where public.tipos_de_filiacao.seq_tipo_filiacao = ? ");
 
                         
                         stmt.setString(1, filiacao.getNomeTipoFiliacao());
@@ -126,16 +126,16 @@ public class DaoCadastroTiposFiliacao {
 
             try {
 
-                PreparedStatement stmt = con.prepareStatement("select seq_tipo_de_filiacao, nome_tipo_de_filiacao, descricao_tipo_de_filiacao"
-                        + " from public.tipos_de_filiacao order by nome_tipo_de_filiacao");
+                PreparedStatement stmt = con.prepareStatement("select seq_tipo_filiacao, nome_tipo_filiacao, descricao_tipo_filiacao"
+                        + " from public.tipos_de_filiacao order by nome_tipo_filiacao");
               
                 ResultSet rs = stmt.executeQuery();
 
                 while(rs.next()) {
 
-                   long seqFiliacao = rs.getLong("seq_tipo_de_filiacao");
-                   String nomesfiliacao = rs.getString("nome_tipo_de_filiacao");
-                   String descricaoFiliacao = rs.getString("descricao_tipo_de_filiacao");
+                   long seqFiliacao = rs.getLong("seq_tipo_filiacao");
+                   String nomesfiliacao = rs.getString("nome_tipo_filiacao");
+                   String descricaoFiliacao = rs.getString("descricao_tipo_filiacao");
 
                  listafiliacao.add(new BeanCadastroTiposFiliacao(seqFiliacao, nomesfiliacao, descricaoFiliacao));
                 }

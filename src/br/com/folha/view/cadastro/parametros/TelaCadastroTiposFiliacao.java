@@ -86,19 +86,19 @@ public class TelaCadastroTiposFiliacao extends javax.swing.JFrame {
         jButtonLimpar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Cadastro de Sexos");
+        setTitle("Cadastro de Tipos de Filiação");
         getContentPane().setLayout(null);
 
         jLabel1.setFont(new java.awt.Font("Bookman Old Style", 0, 18)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Cadastro de Sexos");
+        jLabel1.setText("Cadastro de Tipos de Filiação");
         getContentPane().add(jLabel1);
         jLabel1.setBounds(170, 20, 390, 20);
 
         jLabel2.setFont(new java.awt.Font("Bookman Old Style", 1, 11)); // NOI18N
-        jLabel2.setText("Descrição do Sexo");
+        jLabel2.setText("Descrição da filiação");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(340, 60, 120, 20);
+        jLabel2.setBounds(320, 60, 140, 20);
 
         jTextField1.addKeyListener(new KeyAdapter() {   
             public void keyTyped(KeyEvent e) { // <- alteração   
@@ -163,7 +163,7 @@ public class TelaCadastroTiposFiliacao extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jTextField1);
-        jTextField1.setBounds(70, 60, 150, 25);
+        jTextField1.setBounds(80, 60, 150, 25);
 
         jButtonCadastrar.setFont(new java.awt.Font("Bookman Old Style", 0, 11)); // NOI18N
         jButtonCadastrar.setText("Cadastrar");
@@ -193,7 +193,7 @@ public class TelaCadastroTiposFiliacao extends javax.swing.JFrame {
 
             },
             new String [] {
-                "SEQ","SEXO","DESCRIÇÃO DO SEXO"
+                "SEQ","FILIAÇÃO","DESCRIÇÃO DA FILIAÇÃO"
             }
         ));
         jTable1.setRowHeight(14);
@@ -282,9 +282,9 @@ public class TelaCadastroTiposFiliacao extends javax.swing.JFrame {
         jTextField2.setBounds(470, 60, 240, 25);
 
         jLabel3.setFont(new java.awt.Font("Bookman Old Style", 1, 11)); // NOI18N
-        jLabel3.setText("Sexo");
+        jLabel3.setText("Filiação");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(30, 60, 40, 14);
+        jLabel3.setBounds(20, 60, 60, 14);
 
         jButtonAlterar.setFont(new java.awt.Font("Bookman Old Style", 0, 10)); // NOI18N
         jButtonAlterar.setText("Alterar");

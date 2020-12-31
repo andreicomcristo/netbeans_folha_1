@@ -14,6 +14,7 @@ import br.com.folha.control.cadastro.parametros.ControleCadastroHabilitacaoCateg
 import br.com.folha.control.cadastro.parametros.ControleCadastroPrivilegio;
 import br.com.folha.control.cadastro.parametros.ControleCadastroSexos;
 import br.com.folha.control.cadastro.parametros.ControleCadastroSituacoes;
+import br.com.folha.control.cadastro.parametros.ControleCadastroTiposFiliacao;
 import br.com.folha.control.cadastro.parametros.ControleCadastroVinculos;
 import br.com.folha.model.principal.bean.BeanPrincipal;
 import br.com.folha.view.principal.TelaPrincipal;
@@ -94,6 +95,11 @@ public class ControlePrincipal {
     
     
     
+    
+    public void abrirCadastroTiposFiliacao(){
+        ControleCadastroTiposFiliacao tf = new ControleCadastroTiposFiliacao();
+        tf.abrirFrame(this, beanPrincipal);
+    }
     
     public void abrirCadastroSituacoes(){
         ControleCadastroSituacoes si = new ControleCadastroSituacoes();
