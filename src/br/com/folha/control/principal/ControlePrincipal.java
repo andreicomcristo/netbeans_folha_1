@@ -92,7 +92,7 @@ public class ControlePrincipal {
     
     
     
-    
+    //Métodos que chamam as telas.
     
     
     public void abrirCadastroTiposLogradouro(){
