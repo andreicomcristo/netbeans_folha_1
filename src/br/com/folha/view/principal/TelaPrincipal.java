@@ -181,6 +181,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jMenu13.add(jMenuItemCadastroCidades);
 
         jMenuItem1.setText("Cadastro de Tipos de Logradouro");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
         jMenu13.add(jMenuItem1);
 
         jMenuItem21.setText("Cadastro de Tipos de Filiação");
@@ -361,9 +366,13 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     private void jMenuItem21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem21ActionPerformed
         // TODO add your handling code here:
-        controlePrincipal.abrirCadastroTiposFiliacao();
-        
+        controlePrincipal.abrirCadastroTiposFiliacao();   
     }//GEN-LAST:event_jMenuItem21ActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        // TODO add your handling code here:
+        controlePrincipal.abrirCadastroTiposLogradouro();
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     /**
      * @param args the command line arguments

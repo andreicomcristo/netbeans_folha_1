@@ -48,7 +48,7 @@ public class ControleCadastroTiposFiliacao {
         descricaoFiliacao = utilidadesDeTexto.retiraEspacosDuplosAcentosEConverteEmMaiusculo(descricaoFiliacao);
         
         if(nomeFiliacao.length()==0){acaoValida = false; JOptionPane.showMessageDialog(null, "Você deve escrever uma "
-                + "filiaçaõ válida.");}
+                + "filiação válida.");}
         
         if(acaoValida==true){
             beanTiposFiliacao.setSeqTipoFiliacao(0);

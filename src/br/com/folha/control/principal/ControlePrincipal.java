@@ -15,6 +15,7 @@ import br.com.folha.control.cadastro.parametros.ControleCadastroPrivilegio;
 import br.com.folha.control.cadastro.parametros.ControleCadastroSexos;
 import br.com.folha.control.cadastro.parametros.ControleCadastroSituacoes;
 import br.com.folha.control.cadastro.parametros.ControleCadastroTiposFiliacao;
+import br.com.folha.control.cadastro.parametros.ControleCadastroTiposLogradouro;
 import br.com.folha.control.cadastro.parametros.ControleCadastroVinculos;
 import br.com.folha.model.principal.bean.BeanPrincipal;
 import br.com.folha.view.principal.TelaPrincipal;
@@ -94,6 +95,10 @@ public class ControlePrincipal {
     
     
     
+    public void abrirCadastroTiposLogradouro(){
+        ControleCadastroTiposLogradouro tl = new ControleCadastroTiposLogradouro();
+        tl.abrirFrame(this, beanPrincipal);
+    }
     
     
     public void abrirCadastroTiposFiliacao(){
