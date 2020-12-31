@@ -60,7 +60,7 @@ public class DaoCadastroSituacoes {
 		try {
 			con = ConnectionFactory.getConnection();
                                                                             // nome da tebela
-			PreparedStatement stmt = con.prepareStatement("DELETE FROM public.cituacoes "
+			PreparedStatement stmt = con.prepareStatement("DELETE FROM public.situacoes "
                                 + "where public.situacoes.seq_situacao = ? ");
 
                         stmt.setLong(1, situacao.getSeqSituacao());

@@ -13,6 +13,7 @@ import br.com.folha.control.cadastro.parametros.ControleCadastroEstadoCivil;
 import br.com.folha.control.cadastro.parametros.ControleCadastroHabilitacaoCategorias;
 import br.com.folha.control.cadastro.parametros.ControleCadastroPrivilegio;
 import br.com.folha.control.cadastro.parametros.ControleCadastroSexos;
+import br.com.folha.control.cadastro.parametros.ControleCadastroSituacoes;
 import br.com.folha.control.cadastro.parametros.ControleCadastroVinculos;
 import br.com.folha.model.principal.bean.BeanPrincipal;
 import br.com.folha.view.principal.TelaPrincipal;
@@ -93,16 +94,23 @@ public class ControlePrincipal {
     
     
     
-     public void abrirCadastroHabilitacaoCategorias(){
+    
+    public void abrirCadastroSituacoes(){
+        ControleCadastroSituacoes si = new ControleCadastroSituacoes();
+        si.abrirFrame(this, beanPrincipal);
+    }
+     
+    public void abrirCadastroHabilitacaoCategorias(){
         ControleCadastroHabilitacaoCategorias h = new ControleCadastroHabilitacaoCategorias();
         h.abrirFrame(this, beanPrincipal);
     }
-     public void abrirCadastroSexos(){
+    
+    public void abrirCadastroSexos(){
         ControleCadastroSexos sx = new ControleCadastroSexos();
         sx.abrirFrame(this, beanPrincipal);
     }
      
-     public void abrirCadastroEstadoCivil(){
+    public void abrirCadastroEstadoCivil(){
         ControleCadastroEstadoCivil ec = new ControleCadastroEstadoCivil();
         ec.abrirFrame(this, beanPrincipal);
     }
@@ -117,7 +125,7 @@ public class ControlePrincipal {
         c.abrirFrame(this, beanPrincipal);
     }
     
-     public void abrirCadastroPrivilegios(){
+    public void abrirCadastroPrivilegios(){
         ControleCadastroPrivilegio p = new ControleCadastroPrivilegio();
         p.abrirFrame(this, beanPrincipal);
     }
