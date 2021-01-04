@@ -14,6 +14,7 @@ import br.com.folha.control.cadastro.parametros.ControleCadastroClasses;
 import br.com.folha.control.cadastro.parametros.ControleCadastroEscolaridades;
 import br.com.folha.control.cadastro.parametros.ControleCadastroEstadoCivil;
 import br.com.folha.control.cadastro.parametros.ControleCadastroHabilitacaoCategorias;
+import br.com.folha.control.cadastro.parametros.ControleCadastroNiveisCargos;
 import br.com.folha.control.cadastro.parametros.ControleCadastroPrivilegio;
 import br.com.folha.control.cadastro.parametros.ControleCadastroSexos;
 import br.com.folha.control.cadastro.parametros.ControleCadastroSituacoes;
@@ -99,6 +100,12 @@ public class ControlePrincipal {
     //Métodos que chamam as telas.
     
     
+    
+   public void abrirCadastroNiveisCargo(){
+        ControleCadastroNiveisCargos nc = new ControleCadastroNiveisCargos();
+        nc.abrirFrame(this, beanPrincipal);
+    }
+   
    public void abrirCadastroClasses(){
         ControleCadastroClasses cl = new ControleCadastroClasses();
         cl.abrirFrame(this, beanPrincipal);
