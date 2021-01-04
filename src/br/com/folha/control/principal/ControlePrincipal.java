@@ -97,7 +97,7 @@ public class ControlePrincipal {
     
     //Métodos que chamam as telas.
     
-    public void abrirCadastroCaareiras(){
+    public void abrirCadastroCarreiras(){
         ControleCadastroCarreiras ca = new ControleCadastroCarreiras();
         ca.abrirFrame(this, beanPrincipal);
     }

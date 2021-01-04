@@ -49,8 +49,11 @@ public class ControleCadastroCarreiras {
         nomeCarreira = utilidadesDeTexto.retiraEspacosDuplosAcentosEConverteEmMaiusculo(nomeCarreira);
         descricaoCarreira = utilidadesDeTexto.retiraEspacosDuplosAcentosEConverteEmMaiusculo(descricaoCarreira);
         
-        if(siglaCarreira.length()==0){acaoValida = false; JOptionPane.showMessageDialog(null, "Você deve escrever uma carreir válida.");}
-        if(nomeCarreira.length()==0){acaoValida = false; JOptionPane.showMessageDialog(null, "Você deve escrever uma carreira válida.");}
+        if(siglaCarreira.length()==0 || nomeCarreira.length()==0){
+            acaoValida = false; 
+            JOptionPane.showMessageDialog(null, "Você deve escrever uma carreira válida.");
+        }
+        //if(){acaoValida = false; JOptionPane.showMessageDialog(null, "Você deve escrever uma carreira válida.");}
         
         if(acaoValida==true){
             beanCadastroCarreiras.setSeqCarreira(0);
@@ -107,8 +110,11 @@ public class ControleCadastroCarreiras {
             if(seqCarreira.length()==0){JOptionPane.showMessageDialog(null, "Você deve escolher uma linha para ser excluiída.");}
         }
         //conferindo se os campos obrigatórios foram preenchidos
-        if(siglaCarreira.length()==0){acaoValida = false; JOptionPane.showMessageDialog(null, "Você deve escrever uma careira válida.");}
-        if(nomeCarreira.length()==0){acaoValida = false; JOptionPane.showMessageDialog(null, "Você deve escrever uma carreira válida.");}
+        if(siglaCarreira.length()==0 || nomeCarreira.length()==0){
+            acaoValida = false;
+            JOptionPane.showMessageDialog(null, "Você deve escrever uma careira válida.");
+        }
+        //if(){acaoValida = false; JOptionPane.showMessageDialog(null, "Você deve escrever uma carreira válida.");}
         
         if (acaoValida){
             beanCadastroCarreiras.setSeqCarreira(Integer.parseInt(seqCarreira));

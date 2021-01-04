@@ -5,7 +5,6 @@
 
 package br.com.folha.model.cadastro.parametros.dao;
 
-import br.com.folha.model.cadastro.parametros.bean.BeanCadastroBancos;
 import br.com.folha.model.cadastro.parametros.bean.BeanCadastroCarreiras;
 import br.com.folha.util.ConnectionFactory;
 import java.sql.Connection;
@@ -28,9 +27,7 @@ public class DaoCadastroCarreiras {
 		try {
 			con = ConnectionFactory.getConnection();
                                                                             // nome da tebela
-			PreparedStatement stmt = con.prepareStatement("insert into public.carreiras "
-                                + "(sigla_carreira, nome_carreira, descricao_carreira) values ( ?,?,? )");
-
+			PreparedStatement stmt = con.prepareStatement("insert into public.carreiras (sigla_carreira, nome_carreira, descricao_carreira) values ( ?,?,? )");
                         
             stmt.setString(1, carreira.getSiglaCarreira());
             stmt.setString(2, carreira.getNomeCarreira());
@@ -61,8 +58,7 @@ public class DaoCadastroCarreiras {
 		try {
 			con = ConnectionFactory.getConnection();
                                                                             // nome da tebela
-			PreparedStatement stmt = con.prepareStatement("DELETE FROM public.carreiras where "
-                                + "public.carreiras.seq_carreira = ? ");
+			PreparedStatement stmt = con.prepareStatement("DELETE FROM public.carreiras where public.carreiras.seq_carreira = ? ");
 
                         stmt.setLong(1, carreira.getSeqCarreira());
 			stmt.execute();
@@ -91,11 +87,8 @@ public class DaoCadastroCarreiras {
 		try {
 			con = ConnectionFactory.getConnection();
                                                                             // nome da tebela
-			PreparedStatement stmt = con.prepareStatement("UPDATE public.carreiras "
-                                + "set sigla_carreira = ?, nome_carreira = ?, descricao_carreira = ? "
-                                + "where public.carreiras.seq_carreira = ? ");
+			PreparedStatement stmt = con.prepareStatement("UPDATE public.carreiras set sigla_carreira = ?, nome_carreira = ?, descricao_carreira = ? where public.carreiras.seq_carreira = ? ");
 
-                        
                         stmt.setString(1, carreira.getSiglaCarreira());
                         stmt.setString(2, carreira.getNomeCarreira());
                         stmt.setString(3, carreira.getDescricaoCarreira());
@@ -134,10 +127,7 @@ public class DaoCadastroCarreiras {
 
          try {
 
-             PreparedStatement stmt = con.prepareStatement("select seq_carreira, sigla_carreira, nome_carreira, descricao_carreira"
-                     + "from public.carreiras order by nome_carreira");
-
-              
+             PreparedStatement stmt = con.prepareStatement("select seq_carreira, sigla_carreira, nome_carreira, descricao_carreira from public.carreiras order by nome_carreira");
 
              ResultSet rs = stmt.executeQuery();
 

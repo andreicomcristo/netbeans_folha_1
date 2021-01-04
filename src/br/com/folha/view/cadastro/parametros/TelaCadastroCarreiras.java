@@ -89,19 +89,21 @@ public class TelaCadastroCarreiras extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Cadastro de Bancos");
+        setTitle("Cadastro de Carreiras");
         getContentPane().setLayout(null);
 
         jLabel1.setFont(new java.awt.Font("Bookman Old Style", 0, 18)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Cadastro de Bancos");
+        jLabel1.setText("Cadastro de Carreiras");
         getContentPane().add(jLabel1);
         jLabel1.setBounds(170, 20, 390, 20);
 
         jLabel2.setFont(new java.awt.Font("Bookman Old Style", 1, 11)); // NOI18N
-        jLabel2.setText("Nome");
+        jLabel2.setText("Descrição");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(30, 90, 190, 14);
+        jLabel2.setBounds(30, 90, 90, 14);
+
+        jTextField1.setFont(new java.awt.Font("Bookman Old Style", 0, 10)); // NOI18N
 
         jTextField1.addKeyListener(new KeyAdapter() {   
             public void keyTyped(KeyEvent e) { // <- alteração   
@@ -151,15 +153,14 @@ public class TelaCadastroCarreiras extends javax.swing.JFrame {
                 if(e.getKeyChar()=='y'){e.setKeyChar('Y');}
                 if(e.getKeyChar()=='z'){e.setKeyChar('Z');}
 
-                if(jTextField1.getText().length()>=50){e.setKeyChar('\0');}
+                if(jTextField1.getText().length()>=10){e.setKeyChar('\0');}
 
                 char c = e.getKeyChar();
-                if ( '0' <= c && c <= '9' || (c == KeyEvent.VK_BACK_SPACE) ){}else   
+                if ( '0' <= c && c <= '9' ||  'a' <= c && c <= 'z' || 'A' <= c && c <= 'Z' || (c == KeyEvent.VK_BACK_SPACE) || (c == KeyEvent.VK_SPACE) ){}else   
                 {e.setKeyChar('\0');}   
             }   
 
         });
-        jTextField1.setFont(new java.awt.Font("Bookman Old Style", 0, 10)); // NOI18N
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField1ActionPerformed(evt);
@@ -196,7 +197,7 @@ public class TelaCadastroCarreiras extends javax.swing.JFrame {
 
             },
             new String [] {
-                "SEQ","CÓDIGO","BANCO", "SIGLA"
+                "SEQ","SIGLA","NOME", "DESCRIÇÃO"
             }
         ));
         jTable1.setRowHeight(14);
@@ -285,7 +286,7 @@ public class TelaCadastroCarreiras extends javax.swing.JFrame {
         jTextField2.setBounds(120, 90, 590, 25);
 
         jLabel3.setFont(new java.awt.Font("Bookman Old Style", 1, 11)); // NOI18N
-        jLabel3.setText("Código");
+        jLabel3.setText("Sigla");
         getContentPane().add(jLabel3);
         jLabel3.setBounds(30, 60, 90, 14);
 
@@ -367,11 +368,16 @@ public class TelaCadastroCarreiras extends javax.swing.JFrame {
             }   
 
         });
+        jTextField3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField3ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jTextField3);
         jTextField3.setBounds(470, 60, 240, 25);
 
         jLabel4.setFont(new java.awt.Font("Bookman Old Style", 1, 11)); // NOI18N
-        jLabel4.setText("Sigla");
+        jLabel4.setText("Nome");
         getContentPane().add(jLabel4);
         jLabel4.setBounds(400, 60, 50, 14);
 
@@ -432,6 +438,10 @@ public class TelaCadastroCarreiras extends javax.swing.JFrame {
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
+
+    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField3ActionPerformed
 
     /**
     * @param args the command line arguments
