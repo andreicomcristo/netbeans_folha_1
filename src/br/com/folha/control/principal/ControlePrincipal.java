@@ -10,6 +10,7 @@ import br.com.folha.control.cadastro.parametros.ControleCadastroBancos;
 import br.com.folha.control.cadastro.parametros.ControleCadastroCargaHorariaSemanal;
 import br.com.folha.control.cadastro.parametros.ControleCadastroCarreiras;
 import br.com.folha.control.cadastro.parametros.ControleCadastroCidades;
+import br.com.folha.control.cadastro.parametros.ControleCadastroClasses;
 import br.com.folha.control.cadastro.parametros.ControleCadastroEscolaridades;
 import br.com.folha.control.cadastro.parametros.ControleCadastroEstadoCivil;
 import br.com.folha.control.cadastro.parametros.ControleCadastroHabilitacaoCategorias;
@@ -96,6 +97,12 @@ public class ControlePrincipal {
     
     
     //Métodos que chamam as telas.
+    
+    
+   public void abrirCadastroClasses(){
+        ControleCadastroClasses cl = new ControleCadastroClasses();
+        cl.abrirFrame(this, beanPrincipal);
+    }
     
     public void abrirCadastroCarreiras(){
         ControleCadastroCarreiras ca = new ControleCadastroCarreiras();
