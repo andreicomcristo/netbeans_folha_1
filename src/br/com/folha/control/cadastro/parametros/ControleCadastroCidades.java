@@ -8,6 +8,7 @@ package br.com.folha.control.cadastro.parametros;
 
 import br.com.folha.control.principal.ControlePrincipal;
 import br.com.folha.model.cadastro.parametros.bean.BeanCadastroCidades;
+import br.com.folha.model.cadastro.parametros.bean.BeanSequenciaTexto;
 import br.com.folha.model.cadastro.parametros.dao.DaoCadastroCidades;
 import br.com.folha.model.principal.bean.BeanPrincipal;
 import br.com.folha.util.UtilidadesDeTexto;
@@ -25,36 +26,43 @@ public class ControleCadastroCidades {
     BeanPrincipal beanPrincipal; 
         
     
-    TelaCadastroCidades cadastroCidades;
+    TelaCadastroCidades telaCadastroCidades;
     BeanCadastroCidades beanCidades = new BeanCadastroCidades();
     
     DaoCadastroCidades daoCidades = new DaoCadastroCidades();
     UtilidadesDeTexto utilidadesDeTexto = new UtilidadesDeTexto();
     
+    // para colocar os paises no combo
+    List<BeanSequenciaTexto> listaPaises;
     
     public void abrirFrame(ControlePrincipal controlePrincipal, BeanPrincipal beanPrincipal){
         
         this.controlePrincipal = controlePrincipal;
         this.beanPrincipal = beanPrincipal;
-        cadastroCidades  = new TelaCadastroCidades(this,beanCidades);
-        cadastroCidades.setVisible(true);
+        telaCadastroCidades  = new TelaCadastroCidades(this,beanCidades);
+        preencherComboBox();
+        telaCadastroCidades.preencherComboBox1(listaPaises);
+        telaCadastroCidades.setVisible(true);
     }
     
-    public boolean cadastrar(String nomeCidade, String siglaCidade){
+    public boolean cadastrar(String nomeCidade, String siglaCidade, int indice){
         boolean executou = false;
         boolean acaoValida = true;
         // ARRUMANDO OS TEXTOS
         nomeCidade = utilidadesDeTexto.retiraEspacosDuplosAcentosEConverteEmMaiusculo(nomeCidade);
         siglaCidade = utilidadesDeTexto.retiraEspacosDuplosAcentosEConverteEmMaiusculo(siglaCidade);
         
+        //conferindo se os campos obrigatórios foram preenchidos
+        if(indice == 0){acaoValida = false; JOptionPane.showMessageDialog(null, "Você deve escolher um´país válido.");}
         if(nomeCidade.length()==0){acaoValida = false; JOptionPane.showMessageDialog(null, "Você deve escrever uma cidade válida.");}
         
         if(acaoValida==true){
             beanCidades.setSeqCidade(0);
             beanCidades.setNomeCidade(nomeCidade);
             beanCidades.setSiglaEstado(siglaCidade);
+            beanCidades.setSeqPais(listaPaises.get(indice-1).getSequencia());
             executou = daoCidades.inserirCidade(beanCidades);
-            cadastroCidades.preencherJtable1d(this.selecionar());
+            telaCadastroCidades.preencherJtable1d(this.selecionar());
         }
         return executou;
     }
@@ -74,35 +82,37 @@ public class ControleCadastroCidades {
             beanCidades.setSiglaEstado("");
             executou =daoCidades.excluirCidade(beanCidades);
             
-            cadastroCidades.preencherJtable1d(this.selecionar());
+            telaCadastroCidades.preencherJtable1d(this.selecionar());
         }
         return executou;
     }
     
-    public boolean alterar(String seqCidade, String nomeCidade, String siglaCidade){
+    public boolean alterar(String seqCidade, String nomeCidade, String siglaEstado, int indice){
         boolean executou = false;
         boolean acaoValida = true;
         // ARRUMANDO OS TEXTOS
         seqCidade = utilidadesDeTexto.retiraEspacosDuplosAcentosEConverteEmMaiusculo(seqCidade);
         nomeCidade = utilidadesDeTexto.retiraEspacosDuplosAcentosEConverteEmMaiusculo(nomeCidade);
-        siglaCidade = utilidadesDeTexto.retiraEspacosDuplosAcentosEConverteEmMaiusculo(siglaCidade);
+        siglaEstado = utilidadesDeTexto.retiraEspacosDuplosAcentosEConverteEmMaiusculo(siglaEstado);
                 
         // conferindo se a linha foi escolhida
         if(seqCidade==null){acaoValida = false; JOptionPane.showMessageDialog(null, "Você deve escolher uma linha para ser excluiída.");}else{
             if(seqCidade.length()==0){JOptionPane.showMessageDialog(null, "Você deve escolher uma linha para ser excluiída.");}
         }
         //conferindo se os campos obrigatórios foram preenchidos
+        if(indice == 0){acaoValida = false; JOptionPane.showMessageDialog(null, "Você deve escolher um´país válido.");}
         if(nomeCidade.length()==0){acaoValida = false; JOptionPane.showMessageDialog(null, "Você deve escrever uma cidade válida.");}
         
         if (acaoValida){
             beanCidades.setSeqCidade(Integer.parseInt(seqCidade));
             beanCidades.setNomeCidade(nomeCidade);
-            beanCidades.setSiglaEstado(siglaCidade);
+            beanCidades.setSiglaEstado(siglaEstado);
+            beanCidades.setSeqPais(listaPaises.get(indice-1).getSequencia());
                         
             executou =daoCidades.alterarCidade(beanCidades);
             
             //cadastroCargaHorariaSemanal.preencherJtable1d(this.selecionar());
-            cadastroCidades.preencherJtable1d(this.selecionar());
+            telaCadastroCidades.preencherJtable1d(this.selecionar());
         }
             return executou;
     }
@@ -110,6 +120,11 @@ public class ControleCadastroCidades {
     public List<BeanCadastroCidades> selecionar(){
         List dados =daoCidades.selecionarCidade();
         return dados;
+    }
+    
+    
+    public void preencherComboBox(){
+        this.listaPaises =daoCidades.selecionarPaises();
     }
     
 }
