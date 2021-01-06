@@ -21,6 +21,7 @@ import br.com.folha.control.cadastro.parametros.ControleCadastroSituacoes;
 import br.com.folha.control.cadastro.parametros.ControleCadastroTiposFiliacao;
 import br.com.folha.control.cadastro.parametros.ControleCadastroTiposLogradouro;
 import br.com.folha.control.cadastro.parametros.ControleCadastroUnidadesNaturezaJuridica;
+import br.com.folha.control.cadastro.parametros.ControleCadastroUnidadesRegime;
 import br.com.folha.control.cadastro.parametros.ControleCadastroVinculos;
 import br.com.folha.model.principal.bean.BeanPrincipal;
 import br.com.folha.view.principal.TelaPrincipal;
@@ -100,7 +101,11 @@ public class ControlePrincipal {
     //Métodos que chamam as telas.
     
     
-    
+   public void abrirCadastroUnidadesRegime(){
+        ControleCadastroUnidadesRegime und = new ControleCadastroUnidadesRegime();
+        und.abrirFrame(this, beanPrincipal);
+    }
+   
    public void abrirCadastroNiveisCargo(){
         ControleCadastroNiveisCargos nc = new ControleCadastroNiveisCargos();
         nc.abrirFrame(this, beanPrincipal);

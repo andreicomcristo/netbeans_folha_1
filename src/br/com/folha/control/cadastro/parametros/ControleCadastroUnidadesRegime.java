@@ -8,11 +8,12 @@ package br.com.folha.control.cadastro.parametros;
 
 import br.com.folha.control.principal.ControlePrincipal;
 import br.com.folha.model.cadastro.parametros.bean.BeanCadastroNiveisCargos;
+import br.com.folha.model.cadastro.parametros.bean.BeanCadastroUnidadesRegime;
 import br.com.folha.model.cadastro.parametros.dao.DaoCadastroNiveisCargos;
+import br.com.folha.model.cadastro.parametros.dao.DaoCadastroUnidadesRegime;
 import br.com.folha.model.principal.bean.BeanPrincipal;
 import br.com.folha.util.UtilidadesDeTexto;
-import br.com.folha.view.cadastro.parametros.TelaCadastroClasses;
-import br.com.folha.view.cadastro.parametros.TelaCadastroNiveisCargos;
+import br.com.folha.view.cadastro.parametros.TelaCadastroUnidadesRegime;
 import java.util.List;
 import javax.swing.JOptionPane;
 
@@ -27,10 +28,10 @@ public class ControleCadastroUnidadesRegime {
     BeanPrincipal beanPrincipal; 
         
     
-    TelaCadastroNiveisCargos telaCadastroNivelCargos;
-    BeanCadastroNiveisCargos beanCadastroNivelCargos = new BeanCadastroNiveisCargos();
+    TelaCadastroUnidadesRegime telaCadastroUnidadesRegime;
+    BeanCadastroUnidadesRegime beanCadastroUnidadesRegime = new BeanCadastroUnidadesRegime();
     
-    DaoCadastroNiveisCargos daoCadastroNivelCargo = new DaoCadastroNiveisCargos();
+    DaoCadastroUnidadesRegime daoCadastroUnidadesRegime = new DaoCadastroUnidadesRegime();
     UtilidadesDeTexto utilidadesDeTexto = new UtilidadesDeTexto();
     
     
@@ -38,100 +39,100 @@ public class ControleCadastroUnidadesRegime {
         
         this.controlePrincipal = controlePrincipal;
         this.beanPrincipal = beanPrincipal;
-        telaCadastroNivelCargos  = new TelaCadastroNiveisCargos(this,beanCadastroNivelCargos);
-        telaCadastroNivelCargos.setVisible(true);
+        telaCadastroUnidadesRegime  = new TelaCadastroUnidadesRegime(this,beanCadastroUnidadesRegime);
+        telaCadastroUnidadesRegime.setVisible(true);
     }
     
-    public boolean cadastrar(String siglaNIvelCargo, String nomeNivelCargo, String descricaoNivelCargo){
+    public boolean cadastrar(String siglaUnidadeRegime, String nomeUnidadeRegime, String descricaoUnidadeRegime){
         boolean executou = false;
         boolean acaoValida = true;
         // ARRUMANDO OS TEXTOS
-        siglaNIvelCargo = utilidadesDeTexto.retiraEspacosDuplosAcentosEConverteEmMaiusculo(siglaNIvelCargo);
-        nomeNivelCargo = utilidadesDeTexto.retiraEspacosDuplosAcentosEConverteEmMaiusculo(nomeNivelCargo);
-        descricaoNivelCargo = utilidadesDeTexto.retiraEspacosDuplosAcentosEConverteEmMaiusculo(descricaoNivelCargo);
+        siglaUnidadeRegime = utilidadesDeTexto.retiraEspacosDuplosAcentosEConverteEmMaiusculo(siglaUnidadeRegime);
+        nomeUnidadeRegime = utilidadesDeTexto.retiraEspacosDuplosAcentosEConverteEmMaiusculo(nomeUnidadeRegime);
+        descricaoUnidadeRegime = utilidadesDeTexto.retiraEspacosDuplosAcentosEConverteEmMaiusculo(descricaoUnidadeRegime);
         
-        if(siglaNIvelCargo.length()==0 || nomeNivelCargo.length()==0){
+        if(siglaUnidadeRegime.length()==0 || nomeUnidadeRegime.length()==0){
             acaoValida = false; 
-            JOptionPane.showMessageDialog(null, "Você deve escrever um nível de cargo válido.");
+            JOptionPane.showMessageDialog(null, "Você deve escrever uma unidade válida.");
         }
         
         if(acaoValida==true){
-            beanCadastroNivelCargos.setSeqNivelCargo(0);
-            beanCadastroNivelCargos.setSiglaNivelCargo(siglaNIvelCargo);
-            beanCadastroNivelCargos.setNomeNivelCargo(nomeNivelCargo);
-            beanCadastroNivelCargos.setDescricaoNivelCargo(descricaoNivelCargo);
-            executou = daoCadastroNivelCargo.inserirNivelCargo(beanCadastroNivelCargos);
-            telaCadastroNivelCargos.preencherJtable1d(this.selecionar());
+            beanCadastroUnidadesRegime.setSeqRegimeUnidLotacao(0);
+            beanCadastroUnidadesRegime.setSiglaRegimeUnidLotacao(siglaUnidadeRegime);
+            beanCadastroUnidadesRegime.setNomeRegimeUnidLotacao(nomeUnidadeRegime);
+            beanCadastroUnidadesRegime.setDescricaoRegimeUnidLotacao(descricaoUnidadeRegime);
+            executou = daoCadastroUnidadesRegime.inserirUnidadeRegime(beanCadastroUnidadesRegime);
+            telaCadastroUnidadesRegime.preencherJtable1d(this.selecionar());
         }
         return executou;
     }
     
-    public boolean excluir(String seqNivelCargo){
+    public boolean excluir(String seqUnidadeRegime){
         boolean executou = false;
         boolean acaoValida = true;
         // ARRUMANDO OS TEXTOS
-        seqNivelCargo = utilidadesDeTexto.retiraEspacosDuplosAcentosEConverteEmMaiusculo(seqNivelCargo);
+        seqUnidadeRegime = utilidadesDeTexto.retiraEspacosDuplosAcentosEConverteEmMaiusculo(seqUnidadeRegime);
         
-        if(seqNivelCargo==null){
+        if(seqUnidadeRegime==null){
             
             acaoValida = false; JOptionPane.showMessageDialog(null, "Você deve escolher uma linha para ser excluiída.");
         }else{
             
-            if(seqNivelCargo.length()==0){JOptionPane.showMessageDialog(null, "Você deve escolher uma linha para ser excluiída.");}
+            if(seqUnidadeRegime.length()==0){JOptionPane.showMessageDialog(null, "Você deve escolher uma linha para ser excluiída.");}
         }
         
         if(acaoValida==true){
-            beanCadastroNivelCargos.setSeqNivelCargo(Integer.parseInt(seqNivelCargo));
-            beanCadastroNivelCargos.setSiglaNivelCargo("");
-            beanCadastroNivelCargos.setNomeNivelCargo("");
-            beanCadastroNivelCargos.setDescricaoNivelCargo("");
-            executou =daoCadastroNivelCargo.excluirNivelCargo(beanCadastroNivelCargos);
+            beanCadastroUnidadesRegime.setSeqRegimeUnidLotacao(Integer.parseInt(seqUnidadeRegime));
+            beanCadastroUnidadesRegime.setSiglaRegimeUnidLotacao("");
+            beanCadastroUnidadesRegime.setNomeRegimeUnidLotacao("");
+            beanCadastroUnidadesRegime.setDescricaoRegimeUnidLotacao("");
+            executou =daoCadastroUnidadesRegime.excluirUnidadeRegime(beanCadastroUnidadesRegime);
             
-            telaCadastroNivelCargos.preencherJtable1d(this.selecionar());
+            telaCadastroUnidadesRegime.preencherJtable1d(this.selecionar());
         }
         return executou;
     }
     
-    public boolean alterar(String seqNivelCargo, String siglaNivelCargo, String nomeNivelCargo, String descricaoNivelCargo){
+    public boolean alterar(String seqUnidadeRegime, String siglaUnidadeRegime, String nomeUnidadeRegime, String descricaoUnidadeRegime){
         boolean executou = false;
         boolean acaoValida = true;
         // ARRUMANDO OS TEXTOS
-        seqNivelCargo = utilidadesDeTexto.retiraEspacosDuplosAcentosEConverteEmMaiusculo(seqNivelCargo);
-        siglaNivelCargo = utilidadesDeTexto.retiraEspacosDuplosAcentosEConverteEmMaiusculo(siglaNivelCargo);
-        nomeNivelCargo = utilidadesDeTexto.retiraEspacosDuplosAcentosEConverteEmMaiusculo(nomeNivelCargo);
-        descricaoNivelCargo = utilidadesDeTexto.retiraEspacosDuplosAcentosEConverteEmMaiusculo(descricaoNivelCargo);
+        seqUnidadeRegime = utilidadesDeTexto.retiraEspacosDuplosAcentosEConverteEmMaiusculo(seqUnidadeRegime);
+        siglaUnidadeRegime = utilidadesDeTexto.retiraEspacosDuplosAcentosEConverteEmMaiusculo(siglaUnidadeRegime);
+        nomeUnidadeRegime = utilidadesDeTexto.retiraEspacosDuplosAcentosEConverteEmMaiusculo(nomeUnidadeRegime);
+        descricaoUnidadeRegime = utilidadesDeTexto.retiraEspacosDuplosAcentosEConverteEmMaiusculo(descricaoUnidadeRegime);
                 
         // conferindo se a linha foi escolhida
-        if(seqNivelCargo==null) {
+        if(seqUnidadeRegime==null) {
             
             acaoValida = false; JOptionPane.showMessageDialog(null, "Você deve escolher uma linha para ser excluiída.");
         }else{
             
-            if(seqNivelCargo.length()==0){JOptionPane.showMessageDialog(null, "Você deve escolher uma linha para ser excluiída.");}
+            if(seqUnidadeRegime.length()==0){JOptionPane.showMessageDialog(null, "Você deve escolher uma linha para ser excluiída.");}
         }
         //conferindo se os campos obrigatórios foram preenchidos
-        if(siglaNivelCargo.length()==0 || nomeNivelCargo.length()==0){
+        if(siglaUnidadeRegime.length()==0 || nomeUnidadeRegime.length()==0){
             acaoValida = false;
-            JOptionPane.showMessageDialog(null, "Você deve escrever um nível de cargo válido.");
+            JOptionPane.showMessageDialog(null, "Você deve escrever uma unidade válida.");
         }
         
         
         if (acaoValida){
-            beanCadastroNivelCargos.setSeqNivelCargo(Integer.parseInt(seqNivelCargo));
-            beanCadastroNivelCargos.setSiglaNivelCargo(siglaNivelCargo);
-            beanCadastroNivelCargos.setNomeNivelCargo(nomeNivelCargo);
-            beanCadastroNivelCargos.setDescricaoNivelCargo(descricaoNivelCargo);
+            beanCadastroUnidadesRegime.setSeqRegimeUnidLotacao(Integer.parseInt(seqUnidadeRegime));
+            beanCadastroUnidadesRegime.setSiglaRegimeUnidLotacao(siglaUnidadeRegime);
+            beanCadastroUnidadesRegime.setNomeRegimeUnidLotacao(nomeUnidadeRegime);
+            beanCadastroUnidadesRegime.setDescricaoRegimeUnidLotacao(descricaoUnidadeRegime);
                         
-            executou =daoCadastroNivelCargo.alterarNivelCargo(beanCadastroNivelCargos);
+            executou =daoCadastroUnidadesRegime.alterarUnidadeRegime(beanCadastroUnidadesRegime);
             
             //cadastroCargaHorariaSemanal.preencherJtable1d(this.selecionar());
-            telaCadastroNivelCargos.preencherJtable1d(this.selecionar());
+            telaCadastroUnidadesRegime.preencherJtable1d(this.selecionar());
         }
             return executou;
     }
     
-    public List<BeanCadastroNiveisCargos> selecionar(){
-        List dados =daoCadastroNivelCargo.selecionarNiveisCargo();
+    public List<BeanCadastroUnidadesRegime> selecionar(){
+        List dados =daoCadastroUnidadesRegime.selecionarUnidadesRegime();
         return dados;
     }
     

@@ -11,10 +11,8 @@
 
 package br.com.folha.view.cadastro.parametros;
 
-import br.com.folha.control.cadastro.parametros.ControleCadastroClasses;
-import br.com.folha.control.cadastro.parametros.ControleCadastroNiveisCargos;
-import br.com.folha.model.cadastro.parametros.bean.BeanCadastroClasses;
-import br.com.folha.model.cadastro.parametros.bean.BeanCadastroNiveisCargos;
+import br.com.folha.control.cadastro.parametros.ControleCadastroUnidadesRegime;
+import br.com.folha.model.cadastro.parametros.bean.BeanCadastroUnidadesRegime;
 import java.awt.AWTKeyStroke;
 import java.awt.KeyboardFocusManager;
 import java.awt.event.KeyAdapter;
@@ -31,14 +29,14 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author André
  */
-public class TelaCadastroNiveisUnidadesRegime extends javax.swing.JFrame {
+public class TelaCadastroUnidadesRegime extends javax.swing.JFrame {
 
     
-    ControleCadastroNiveisCargos controleCadastroNiveisCargos;
-    BeanCadastroNiveisCargos beanCadastroNiveisCargos;
+    ControleCadastroUnidadesRegime controleCadastroUnidadesRegime;
+    BeanCadastroUnidadesRegime beanCadastroUnidadesRegime;
     
     /** Creates new form CadastroDeUsuarios */
-    public TelaCadastroNiveisUnidadesRegime() {
+    public TelaCadastroUnidadesRegime() {
        
         Set<AWTKeyStroke> forwardKeys = new HashSet<AWTKeyStroke>(this.getFocusTraversalKeys(KeyboardFocusManager.FORWARD_TRAVERSAL_KEYS));
         forwardKeys.add(KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, 0));
@@ -47,9 +45,9 @@ public class TelaCadastroNiveisUnidadesRegime extends javax.swing.JFrame {
         initComponents();
     }
     
-    public TelaCadastroNiveisUnidadesRegime(ControleCadastroNiveisCargos controleCadastroNivelCargo, BeanCadastroNiveisCargos beanCadastroNiveisCargo) {
-        this.controleCadastroNiveisCargos = controleCadastroNivelCargo;  
-        this.beanCadastroNiveisCargos = beanCadastroNiveisCargo;
+    public TelaCadastroUnidadesRegime(ControleCadastroUnidadesRegime controleCadastroUnidadesRegime, BeanCadastroUnidadesRegime beanCadastroUnidadesRegime) {
+        this.controleCadastroUnidadesRegime = controleCadastroUnidadesRegime;  
+        this.beanCadastroUnidadesRegime = beanCadastroUnidadesRegime;
         
         Set<AWTKeyStroke> forwardKeys = new HashSet<AWTKeyStroke>(this.getFocusTraversalKeys(KeyboardFocusManager.FORWARD_TRAVERSAL_KEYS));
         forwardKeys.add(KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, 0));
@@ -58,7 +56,7 @@ public class TelaCadastroNiveisUnidadesRegime extends javax.swing.JFrame {
         initComponents();
         
         //preencherJtable1d(ControleCadastroCidades.selecionar());
-        preencherJtable1d(controleCadastroNivelCargo.selecionar());
+        preencherJtable1d(controleCadastroUnidadesRegime.selecionar());
     }
     
 
@@ -89,12 +87,12 @@ public class TelaCadastroNiveisUnidadesRegime extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Cadastro de Níveis de Cargos");
+        setTitle("Cadastro de Unidades");
         getContentPane().setLayout(null);
 
         jLabel1.setFont(new java.awt.Font("Bookman Old Style", 0, 18)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Cadastro de Níveis de Cargos");
+        jLabel1.setText("Cadastro de Unidades");
         getContentPane().add(jLabel1);
         jLabel1.setBounds(170, 20, 390, 20);
 
@@ -393,7 +391,7 @@ public class TelaCadastroNiveisUnidadesRegime extends javax.swing.JFrame {
     private void jButtonCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCadastrarActionPerformed
         // TODO add your handling code here:
 
-        boolean cadastrou = controleCadastroNiveisCargos.cadastrar(jTextField1.getText().toUpperCase(), jTextField3.getText().toUpperCase(), jTextField2.getText().toUpperCase());
+        boolean cadastrou = controleCadastroUnidadesRegime.cadastrar(jTextField1.getText().toUpperCase(), jTextField3.getText().toUpperCase(), jTextField2.getText().toUpperCase());
         if(cadastrou){
             limparCampos();
             jTextField1.requestFocus();
@@ -405,8 +403,8 @@ public class TelaCadastroNiveisUnidadesRegime extends javax.swing.JFrame {
         // TODO add your handling code here:
         
         if(jTable1.getSelectedRowCount()==1){
-            String seqNivelCargo  = jTable1.getValueAt(jTable1.getSelectedRow(), 0).toString();
-            controleCadastroNiveisCargos.excluir(seqNivelCargo);
+            String seqRegime  = jTable1.getValueAt(jTable1.getSelectedRow(), 0).toString();
+            controleCadastroUnidadesRegime.excluir(seqRegime);
         }else{JOptionPane.showMessageDialog(null, "Você deve selecionar uma linha na tabela.");}
 
     }//GEN-LAST:event_jButtonExcluirActionPerformed
@@ -414,18 +412,18 @@ public class TelaCadastroNiveisUnidadesRegime extends javax.swing.JFrame {
     private void jButtonBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBuscarActionPerformed
         // TODO add your handling code here:
 
-        preencherJtable1d(controleCadastroNiveisCargos.selecionar());
+        preencherJtable1d(controleCadastroUnidadesRegime.selecionar());
         
 }//GEN-LAST:event_jButtonBuscarActionPerformed
 
     private void jButtonAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAlterarActionPerformed
         // TODO add your handling code here:
         if(jTable1.getSelectedRowCount() == 1){
-            String seqNivelCargo  = jTable1.getValueAt(jTable1.getSelectedRow(), 0).toString();              
-            String siglaNivelCargo = jTextField1.getText();
-            String nomeNivelCargo = jTextField2.getText();
+            String seqRegime  = jTable1.getValueAt(jTable1.getSelectedRow(), 0).toString();              
+            String siglaRegime = jTextField1.getText();
+            String nomeRegime = jTextField2.getText();
             String descricaoNivelCargo = jTextField3.getText();
-            controleCadastroNiveisCargos.alterar(seqNivelCargo, siglaNivelCargo, nomeNivelCargo, descricaoNivelCargo);
+            controleCadastroUnidadesRegime.alterar(seqRegime, siglaRegime, nomeRegime, descricaoNivelCargo);
         }else{JOptionPane.showMessageDialog(null, "Você deve selecionar uma linha na tabela.");}
         
     }//GEN-LAST:event_jButtonAlterarActionPerformed
@@ -462,7 +460,7 @@ public class TelaCadastroNiveisUnidadesRegime extends javax.swing.JFrame {
         jTextField3.setText("");
     }
     
-    public void preencherJtable1d(List<BeanCadastroNiveisCargos> dados  ){
+    public void preencherJtable1d(List<BeanCadastroUnidadesRegime> dados  ){
 
         jTable1.getColumnModel().getColumn(0).setPreferredWidth(150);
         jTable1.getColumnModel().getColumn(1).setPreferredWidth(150);
@@ -474,9 +472,10 @@ public class TelaCadastroNiveisUnidadesRegime extends javax.swing.JFrame {
         DefaultTableModel modelo = (DefaultTableModel)jTable1.getModel();
         modelo.setNumRows(0);
  
-        for ( BeanCadastroNiveisCargos beanCadastroNivelCargos : dados) {
+        for ( BeanCadastroUnidadesRegime beanCadastroUnidadesRegime : dados) {
 
-            Object[] linha = new Object[] { beanCadastroNivelCargos.getSeqNivelCargo(), beanCadastroNivelCargos.getSiglaNivelCargo(), beanCadastroNivelCargos.getNomeNivelCargo(), beanCadastroNivelCargos.getDescricaoNivelCargo()};
+            Object[] linha = new Object[] { beanCadastroUnidadesRegime.getSeqRegimeUnidLotacao(), beanCadastroUnidadesRegime.getSiglaRegimeUnidLotacao(), beanCadastroUnidadesRegime.getNomeRegimeUnidLotacao(), beanCadastroUnidadesRegime.getDescricaoRegimeUnidLotacao()};
+            
             modelo.addRow(linha);
         }
  }

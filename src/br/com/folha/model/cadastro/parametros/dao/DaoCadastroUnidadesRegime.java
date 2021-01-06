@@ -5,7 +5,6 @@
 
 package br.com.folha.model.cadastro.parametros.dao;
 
-import br.com.folha.model.cadastro.parametros.bean.BeanCadastroNiveisCargos;
 import br.com.folha.model.cadastro.parametros.bean.BeanCadastroUnidadesRegime;
 import br.com.folha.util.ConnectionFactory;
 import java.sql.Connection;
@@ -120,7 +119,7 @@ public class DaoCadastroUnidadesRegime {
          
 
      public List<BeanCadastroUnidadesRegime> selecionarUnidadesRegime() {
-        List<BeanCadastroUnidadesRegime> listaUnidadesRegime = new ArrayList<BeanCadastroNiveisCargos>();
+        List<BeanCadastroUnidadesRegime> listaUnidadesRegime = new ArrayList<BeanCadastroUnidadesRegime>();
 
      try {
 
@@ -129,18 +128,18 @@ public class DaoCadastroUnidadesRegime {
 
          try {
 
-             PreparedStatement stmt = con.prepareStatement("select seq_nivel_cargo, sigla_nivel_cargo, nome_nivel_cargo, descricao_nivel_cargo from public.niveis_cargo order by nome_nivel_cargo");
+             PreparedStatement stmt = con.prepareStatement("select seq_regime_unid_lotacao, sigla_regime_unid_lotacao, nome_regime_unid_lotacao, descricao_regime_unid_lotacao from public.unidades_regime order by nome_regime_unid_lotacao");
 
              ResultSet rs = stmt.executeQuery();
 
              while(rs.next()) {
 
-                   long seqNivelCargo = rs.getLong("seq_nivel_cargo");
-                   String siglaNivelCargo = rs.getString("sigla_nivel_cargo");
-                   String nomeNivelCargo = rs.getString("nome_nivel_cargo");
-                   String descicaoNIvelCargo = rs.getString("descricao_nivel_cargo");
+                   long seqRegime = rs.getLong("seq_regime_unid_lotacao");
+                   String siglaRegime = rs.getString("sigla_regime_unid_lotacao");
+                   String nomeRegime = rs.getString("nome_regime_unid_lotacao");
+                   String descicaoRegime = rs.getString("descricao_regime_unid_lotacao");
 
-                 listaUnidadesRegime.add(new BeanCadastroNiveisCargos(seqNivelCargo, siglaNivelCargo, nomeNivelCargo, descicaoNIvelCargo));
+                 listaUnidadesRegime.add(new BeanCadastroUnidadesRegime(seqRegime, siglaRegime, nomeRegime, descicaoRegime));
              }
 
          } finally {
