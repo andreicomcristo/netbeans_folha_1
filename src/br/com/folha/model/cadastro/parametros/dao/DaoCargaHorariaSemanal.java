@@ -23,6 +23,16 @@ public class DaoCargaHorariaSemanal {
 
      Connection con = null;
 
+     
+     /**
+      * MÉTODO QUE CONECTA AO BANCO PARA CADASTRAR CARGA HORARIA SEMANAL
+      * 
+      * 
+      * @param cargaHorariaSemanal TIPO BeanCargaHorariaSemanal
+      * @return boolean se cadastrou ou nao
+      */
+     
+     
     public boolean inserirCargaHorariaSemanal(BeanCargaHorariaSemanal cargaHorariaSemanal){
                 boolean executou = false;
 		try {
