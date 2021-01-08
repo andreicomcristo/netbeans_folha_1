@@ -98,7 +98,7 @@ public class TelaCadastroCargosEspecialidade extends javax.swing.JFrame {
         jLabel1.setBounds(170, 20, 390, 20);
 
         jLabel2.setFont(new java.awt.Font("Bookman Old Style", 1, 11)); // NOI18N
-        jLabel2.setText("Descrição");
+        jLabel2.setText("Descrição:");
         getContentPane().add(jLabel2);
         jLabel2.setBounds(480, 60, 70, 14);
 
@@ -286,7 +286,7 @@ public class TelaCadastroCargosEspecialidade extends javax.swing.JFrame {
         jTextField2.setBounds(550, 60, 160, 25);
 
         jLabel3.setFont(new java.awt.Font("Bookman Old Style", 1, 11)); // NOI18N
-        jLabel3.setText("País");
+        jLabel3.setText("Cargo:");
         getContentPane().add(jLabel3);
         jLabel3.setBounds(20, 90, 50, 14);
 
@@ -312,10 +312,10 @@ public class TelaCadastroCargosEspecialidade extends javax.swing.JFrame {
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         getContentPane().add(jComboBox1);
-        jComboBox1.setBounds(80, 90, 630, 25);
+        jComboBox1.setBounds(70, 90, 640, 25);
 
         jLabel4.setFont(new java.awt.Font("Bookman Old Style", 1, 11)); // NOI18N
-        jLabel4.setText("Especialidade");
+        jLabel4.setText("Especialidade:");
         getContentPane().add(jLabel4);
         jLabel4.setBounds(20, 60, 100, 14);
 
