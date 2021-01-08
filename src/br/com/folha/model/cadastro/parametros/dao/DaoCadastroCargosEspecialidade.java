@@ -5,6 +5,7 @@
 
 package br.com.folha.model.cadastro.parametros.dao;
 
+import br.com.folha.model.cadastro.parametros.bean.BeanCadastroCargosEspecialidade;
 import br.com.folha.model.cadastro.parametros.bean.BeanCadastroCidades;
 import br.com.folha.model.cadastro.parametros.bean.BeanSequenciaTexto;
 import br.com.folha.util.ConnectionFactory;
@@ -20,20 +21,20 @@ import javax.swing.JOptionPane;
  *
  * @author André
  */
-public class DaoCadastroCidades {
+public class DaoCadastroCargosEspecialidade {
 
     Connection con = null;
-    public boolean inserirCidade(BeanCadastroCidades cidade){
+    public boolean inserirCargoEspecialidade(BeanCadastroCargosEspecialidade cargoEspecialidade){
                 boolean executou = false;
 		try {
 			con = ConnectionFactory.getConnection();
                                                                             // nome da tebela
-			PreparedStatement stmt = con.prepareStatement("insert into public.cidades (nome_cidade, sigla_estado, seq_pais) values ( ?,?,?  )");
-
+			PreparedStatement stmt = con.prepareStatement("insert into public.cargos_especialidade (nome_especialidade_cargo, descricao_especialidade_cargo, seq_cargo) values ( ?,?,?)");
                         
-            stmt.setString(1, cidade.getNomeCidade());
-            stmt.setString(2, cidade.getSiglaEstado());
-            stmt.setLong(3, cidade.getSeqPais());
+                        
+            stmt.setString(1, cargoEspecialidade.getNomeCargo());
+            stmt.setString(2, cargoEspecialidade.getDescriçãoEspecialidadeCargo());
+            stmt.setLong(3, cargoEspecialidade.getSeqCargo());
 
 			stmt.execute();
 			stmt.close();
@@ -56,14 +57,14 @@ public class DaoCadastroCidades {
     return executou;    
     }
 
-    public boolean excluirCidade(BeanCadastroCidades cidade){
+    public boolean excluirCargoEspecialidade(BeanCadastroCargosEspecialidade cargoEspecialidade){
                 boolean executou = false;
 		try {
 			con = ConnectionFactory.getConnection();
                                                                             // nome da tebela
-			PreparedStatement stmt = con.prepareStatement("DELETE FROM public.cidades where public.cidades.seq_cidade = ? ");
+			PreparedStatement stmt = con.prepareStatement("DELETE FROM public.cargos_especialidade where public.cargos_especialidade.seq_especialidade_cargo = ? ");
 
-                        stmt.setLong(1, cidade.getSeqCidade());
+                        stmt.setLong(1, cargoEspecialidade.getSeqEspecialidadeCargo());
 			stmt.execute();
 			stmt.close();
 
@@ -85,18 +86,18 @@ public class DaoCadastroCidades {
     return executou;    
     }
 
-    public boolean alterarCidade(BeanCadastroCidades cidade) {
+    public boolean alterarCargoEspecialidade(BeanCadastroCargosEspecialidade cargoEspecialidade) {
                 boolean executou = false;
 		try {
 			con = ConnectionFactory.getConnection();
                                                                             // nome da tebela
-			PreparedStatement stmt = con.prepareStatement("UPDATE public.cidades set nome_cidade = ?, sigla_estado = ?, seq_pais = ?  where public.cidades.seq_cidade = ? ");
+			PreparedStatement stmt = con.prepareStatement("UPDATE public.cargos_especialidade set nome_especialidade_cargo = ?, descricao_especialidade_cargo = ?, seq_cargo = ?  where public.cargos_especialidade.seq_especialidade_cargo = ? ");
 
                         
-                        stmt.setString(1, cidade.getNomeCidade());
-                        stmt.setString(2, cidade.getSiglaEstado());
-                        stmt.setLong(3, cidade.getSeqPais());
-                        stmt.setLong(4, cidade.getSeqCidade());
+                        stmt.setString(1, cargoEspecialidade.getNomeCargo());
+                        stmt.setString(2, cargoEspecialidade.getDescriçãoEspecialidadeCargo());
+                        stmt.setLong(3, cargoEspecialidade.getSeqCargo());
+                        stmt.setLong(4, cargoEspecialidade.getSeqEspecialidadeCargo());
                         
                         
 			stmt.execute();
@@ -121,8 +122,8 @@ public class DaoCadastroCidades {
     }
          
 
-     public List<BeanCadastroCidades> selecionarCidade() {
-        List<BeanCadastroCidades> listaConsulta = new ArrayList<BeanCadastroCidades>();
+     public List<BeanCadastroCargosEspecialidade> selecionarCargosEspecialidade() {
+        List<BeanCadastroCargosEspecialidade> listaConsulta = new ArrayList<BeanCadastroCargosEspecialidade>();
 
      try {
 
@@ -131,21 +132,19 @@ public class DaoCadastroCidades {
 
          try {
 
-             PreparedStatement stmt = con.prepareStatement("select seq_cidade, nome_cidade, sigla_estado, cidades.seq_pais, nome_pais from public.cidades inner join public.paises on public.cidades.seq_pais = public.paises.seq_pais order by nome_cidade");
-
+             PreparedStatement stmt = con.prepareStatement("select seq_especialidade_cargo, nome_especialidade_cargo, descricao_especialidade_cargo, cargos.seq_cargo, nome_cargo from public.cargos_especialidade inner join public.cargos on public.cargos_especialidade.seq_cargo = public.cargos.seq_cargo order by nome_cargo");
               
-
              ResultSet rs = stmt.executeQuery();
 
              while(rs.next()) {
 
-                   long seqCidade = rs.getLong("seq_cidade");
-                   String nomeCidada = rs.getString("nome_cidade");
-                   String siglaCidade = rs.getString("Sigla_estado");
-                   long seqPais = rs.getLong("seq_Pais");
-                   String nomePais = rs.getString("nome_Pais");
+                   long seqEsoecialidadeCargo = rs.getLong("seq_especialidade_cargo");
+                   String nomeEspecialidadeCargo = rs.getString("nome_especialidade_cargo");
+                   String descricaoEspecialidadeCargo = rs.getString("descricao_especialidade_cargo");
+                   long seqCargo = rs.getLong("seq_cargo");
+                   String nomeCargo = rs.getString("nome_cargo");
 
-                 listaConsulta.add(new BeanCadastroCidades(seqCidade, nomeCidada, siglaCidade, seqPais, nomePais));
+                 listaConsulta.add(new BeanCadastroCargosEspecialidade(seqEsoecialidadeCargo, nomeEspecialidadeCargo, descricaoEspecialidadeCargo, seqCargo, nomeCargo));
 
              }
 
@@ -164,7 +163,7 @@ public class DaoCadastroCidades {
 
  }
      
-     public List<BeanSequenciaTexto> selecionarPaises() {
+     public List<BeanSequenciaTexto> selecionarCargos() {
         List<BeanSequenciaTexto> listaConsulta = new ArrayList<BeanSequenciaTexto>();
 
      try {
@@ -174,7 +173,7 @@ public class DaoCadastroCidades {
 
          try {
 
-             PreparedStatement stmt = con.prepareStatement("select seq_pais, nome_pais from public.paises order by nome_pais");
+             PreparedStatement stmt = con.prepareStatement("select seq_cargo, nome_cargo from public.cargos order by nome_cargo");
 
               
 
@@ -182,8 +181,8 @@ public class DaoCadastroCidades {
 
              while(rs.next()) {
 
-                   long sequencia = rs.getLong("seq_pais");
-                   String texto = rs.getString("nome_pais");
+                   long sequencia = rs.getLong("seq_cargo");
+                   String texto = rs.getString("nome_cargo");
                    
 
                  listaConsulta.add(new BeanSequenciaTexto(sequencia, texto));
@@ -205,6 +204,4 @@ public class DaoCadastroCidades {
 
  }
      
-
-
 }

@@ -7,9 +7,7 @@ package br.com.folha.control.cadastro.parametros;
 
 
 import br.com.folha.control.principal.ControlePrincipal;
-import br.com.folha.model.cadastro.parametros.bean.BeanCadastroNiveisCargos;
 import br.com.folha.model.cadastro.parametros.bean.BeanCadastroUnidadesRegime;
-import br.com.folha.model.cadastro.parametros.dao.DaoCadastroNiveisCargos;
 import br.com.folha.model.cadastro.parametros.dao.DaoCadastroUnidadesRegime;
 import br.com.folha.model.principal.bean.BeanPrincipal;
 import br.com.folha.util.UtilidadesDeTexto;
