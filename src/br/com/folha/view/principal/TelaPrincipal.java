@@ -302,6 +302,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jMenu4.add(jMenuItem22);
 
         jMenuItem23.setText("Cadastro de Autorizações");
+        jMenuItem23.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem23ActionPerformed(evt);
+            }
+        });
         jMenu4.add(jMenuItem23);
 
         jMenu1.add(jMenu4);
@@ -433,6 +438,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
         controlePrincipal.abrirCadastroCargos();
     }//GEN-LAST:event_jMenuItem5ActionPerformed
+
+    private void jMenuItem23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem23ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem23ActionPerformed
 
     /**
      * @param args the command line arguments

@@ -25,6 +25,7 @@ import br.com.folha.control.cadastro.parametros.ControleCadastroTiposLogradouro;
 import br.com.folha.control.cadastro.parametros.ControleCadastroUnidadesNaturezaJuridica;
 import br.com.folha.control.cadastro.parametros.ControleCadastroUnidadesRegime;
 import br.com.folha.control.cadastro.parametros.ControleCadastroVinculos;
+import br.com.folha.control.cadastro.pessoas.ControleCadastroPessoas;
 import br.com.folha.model.principal.bean.BeanPrincipal;
 import br.com.folha.view.principal.TelaPrincipal;
 import java.awt.Dimension;
@@ -201,5 +202,12 @@ public class ControlePrincipal {
         ControleCadastroCargaHorariaSemanal ch = new ControleCadastroCargaHorariaSemanal();
         ch.abrirFrame(this, beanPrincipal);
     }  
+    
+    
+    public void abrirCadastroPessoas(){
+        ControleCadastroPessoas cp = new ControleCadastroPessoas();
+        cp.abrirFrame(this, beanPrincipal);
+    }
+    
     
 }
