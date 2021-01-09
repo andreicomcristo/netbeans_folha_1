@@ -8,6 +8,7 @@ package br.com.folha.control.principal;
 
 import br.com.folha.control.cadastro.parametros.ControleCadastroBancos;
 import br.com.folha.control.cadastro.parametros.ControleCadastroCargaHorariaSemanal;
+import br.com.folha.control.cadastro.parametros.ControleCadastroCargos;
 import br.com.folha.control.cadastro.parametros.ControleCadastroCargosEspecialidade;
 import br.com.folha.control.cadastro.parametros.ControleCadastroCarreiras;
 import br.com.folha.control.cadastro.parametros.ControleCadastroCidades;
@@ -99,8 +100,14 @@ public class ControlePrincipal {
     
     
     
+    
+    
     //Métodos que chamam as telas.
     
+    public void abrirCadastroCargos(){
+        ControleCadastroCargos cargo = new ControleCadastroCargos();
+        cargo.abrirFrame(this, beanPrincipal);
+    }
     
    public void abrirCadastroCargosEspecialidade(){
         ControleCadastroCargosEspecialidade cargoEspecialidade = new ControleCadastroCargosEspecialidade();

@@ -16,7 +16,8 @@ public class BeanCadastroCidades {
     private String siglaEstado;
     private long seqPais;
     private String nomePais;
-
+    
+    
     public BeanCadastroCidades() {
     }
 

@@ -93,8 +93,14 @@ public class ControleCadastroCidades {
         siglaEstado = utilidadesDeTexto.retiraEspacosDuplosAcentosEConverteEmMaiusculo(siglaEstado);
                 
         //conferindo se os campos obrigatórios foram preenchidos
-        if(indiceCombo1 == 0){acaoValida = false; JOptionPane.showMessageDialog(null, "Você deve escolher um´país válido.");}
-        if(nomeCidade.length()==0){acaoValida = false; JOptionPane.showMessageDialog(null, "Você deve escrever uma cidade válida.");}
+        if(indiceCombo1 == 0){
+            acaoValida = false; 
+            JOptionPane.showMessageDialog(null, "Você deve escolher um´país válido.");
+        }
+        if(nomeCidade.length()==0){
+            acaoValida = false;
+            JOptionPane.showMessageDialog(null, "Você deve escrever uma cidade válida.");
+        }
         
         if (acaoValida){
             beanCadastroCidades.setSeqCidade(this.listaDadosjTable1.get(linhajTable1).getSeqCidade());

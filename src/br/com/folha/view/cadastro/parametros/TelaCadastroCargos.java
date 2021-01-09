@@ -11,14 +11,13 @@
 
 package br.com.folha.view.cadastro.parametros;
 
-import br.com.folha.control.cadastro.parametros.ControleCadastroCidades;
-import br.com.folha.model.cadastro.parametros.bean.BeanCadastroCidades;
+import br.com.folha.control.cadastro.parametros.ControleCadastroCargos;
+import br.com.folha.model.cadastro.parametros.bean.BeanCadastroCargos;
 import br.com.folha.model.cadastro.parametros.bean.BeanSequenciaTexto;
 import java.awt.AWTKeyStroke;
 import java.awt.KeyboardFocusManager;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
-import java.time.Clock;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -31,14 +30,14 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author André
  */
-public class TelaCadastroCidades extends javax.swing.JFrame {
+public class TelaCadastroCargos extends javax.swing.JFrame {
 
     
-    ControleCadastroCidades controleCadastroCidades;
-    BeanCadastroCidades beanCadastroCidades;
+    ControleCadastroCargos controleCadastroCargos;
+    BeanCadastroCargos beanCadastroCargos;
     
     /** Creates new form CadastroDeUsuarios */
-    public TelaCadastroCidades() {
+    public TelaCadastroCargos() {
        
         Set<AWTKeyStroke> forwardKeys = new HashSet<AWTKeyStroke>(this.getFocusTraversalKeys(KeyboardFocusManager.FORWARD_TRAVERSAL_KEYS));
         forwardKeys.add(KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, 0));
@@ -47,9 +46,9 @@ public class TelaCadastroCidades extends javax.swing.JFrame {
         initComponents();
     }
     
-    public TelaCadastroCidades(ControleCadastroCidades controleCadastroCidade, BeanCadastroCidades beanCadastroCidades) {
-        this.controleCadastroCidades = controleCadastroCidade;  
-        this.beanCadastroCidades = beanCadastroCidades;
+    public TelaCadastroCargos(ControleCadastroCargos controleCadastroCargos, BeanCadastroCargos beanCadastroCargos) {
+        this.controleCadastroCargos = controleCadastroCargos;  
+        this.beanCadastroCargos = beanCadastroCargos;
         
         Set<AWTKeyStroke> forwardKeys = new HashSet<AWTKeyStroke>(this.getFocusTraversalKeys(KeyboardFocusManager.FORWARD_TRAVERSAL_KEYS));
         forwardKeys.add(KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, 0));
@@ -58,7 +57,7 @@ public class TelaCadastroCidades extends javax.swing.JFrame {
         initComponents();
         
         //preencherJtable1d(ControleCadastroCidades.selecionar());
-        preencherJtable1d(controleCadastroCidades.selecionar(""));
+        preencherJtable1d(controleCadastroCargos.selecionar(""));
     }
     
 
@@ -89,19 +88,19 @@ public class TelaCadastroCidades extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Cadastro de Cidades");
+        setTitle("Cadastro de Cargos");
         getContentPane().setLayout(null);
 
         jLabel1.setFont(new java.awt.Font("Bookman Old Style", 0, 18)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Cadastro de Cidades");
+        jLabel1.setText("Cadastro de Cargos");
         getContentPane().add(jLabel1);
         jLabel1.setBounds(170, 20, 390, 20);
 
         jLabel2.setFont(new java.awt.Font("Bookman Old Style", 1, 11)); // NOI18N
-        jLabel2.setText("Sigla Estado");
+        jLabel2.setText("Descrição");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(450, 60, 90, 14);
+        jLabel2.setBounds(360, 60, 70, 14);
 
         jTextField1.addKeyListener(new KeyAdapter() {   
             public void keyTyped(KeyEvent e) { // <- alteração   
@@ -166,7 +165,7 @@ public class TelaCadastroCidades extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jTextField1);
-        jTextField1.setBounds(80, 60, 310, 25);
+        jTextField1.setBounds(80, 60, 180, 25);
 
         jButtonCadastrar.setFont(new java.awt.Font("Bookman Old Style", 0, 11)); // NOI18N
         jButtonCadastrar.setText("Cadastrar");
@@ -176,7 +175,7 @@ public class TelaCadastroCidades extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButtonCadastrar);
-        jButtonCadastrar.setBounds(20, 120, 690, 23);
+        jButtonCadastrar.setBounds(20, 120, 690, 26);
 
         jButtonSair.setFont(new java.awt.Font("Bookman Old Style", 0, 11)); // NOI18N
         jButtonSair.setText("Sair");
@@ -186,7 +185,7 @@ public class TelaCadastroCidades extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButtonSair);
-        jButtonSair.setBounds(390, 320, 320, 23);
+        jButtonSair.setBounds(390, 320, 320, 26);
         getContentPane().add(jSeparator1);
         jSeparator1.setBounds(20, 40, 690, 10);
 
@@ -196,7 +195,7 @@ public class TelaCadastroCidades extends javax.swing.JFrame {
 
             },
             new String [] {
-                "SEQ","CIDADE","SIGLA ESTADO", "SEQ PAÍS", "PAÍS"
+                "SEQ","CARGO","DESCRIÇÃO DO CARGO", "SEQ NÍVEL", "NÍVEL"
             }
         ));
         jTable1.setRowHeight(14);
@@ -213,7 +212,7 @@ public class TelaCadastroCidades extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButtonExcluir);
-        jButtonExcluir.setBounds(260, 150, 215, 21);
+        jButtonExcluir.setBounds(260, 150, 215, 25);
 
         jButtonBuscar.setFont(new java.awt.Font("Bookman Old Style", 0, 10)); // NOI18N
         jButtonBuscar.setText("Busca");
@@ -223,10 +222,10 @@ public class TelaCadastroCidades extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButtonBuscar);
-        jButtonBuscar.setBounds(490, 150, 215, 21);
+        jButtonBuscar.setBounds(490, 150, 215, 25);
 
-        jTextField2.addKeyListener(new KeyAdapter() {   
-            public void keyTyped(KeyEvent e) { // <- alteração   
+        jTextField2.addKeyListener(new KeyAdapter() {
+            public void keyTyped(KeyEvent e) { // <- alteração
 
                 if(e.getKeyChar()=='a'){e.setKeyChar('A');}
                 if(e.getKeyChar()=='á'){e.setKeyChar('A');}
@@ -273,19 +272,19 @@ public class TelaCadastroCidades extends javax.swing.JFrame {
                 if(e.getKeyChar()=='y'){e.setKeyChar('Y');}
                 if(e.getKeyChar()=='z'){e.setKeyChar('Z');}
 
-                if(jTextField2.getText().length()>=2){e.setKeyChar('\0');}
+                if(jTextField2.getText().length()>=100){e.setKeyChar('\0');}
 
                 char c = e.getKeyChar();
-                if (   'a' <= c && c <= 'z' || 'A' <= c && c <= 'Z' || (c == KeyEvent.VK_BACK_SPACE) ){}else   
-                {e.setKeyChar('\0');}   
-            }   
+                if (   'a' <= c && c <= 'z' || 'A' <= c && c <= 'Z' || (c == KeyEvent.VK_BACK_SPACE) ){}else
+                {e.setKeyChar('\0');}
+            }
 
         });
         getContentPane().add(jTextField2);
-        jTextField2.setBounds(550, 60, 160, 25);
+        jTextField2.setBounds(440, 60, 270, 25);
 
         jLabel3.setFont(new java.awt.Font("Bookman Old Style", 1, 11)); // NOI18N
-        jLabel3.setText("País");
+        jLabel3.setText("Nível");
         getContentPane().add(jLabel3);
         jLabel3.setBounds(20, 90, 50, 14);
 
@@ -297,7 +296,7 @@ public class TelaCadastroCidades extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButtonAlterar);
-        jButtonAlterar.setBounds(20, 150, 215, 21);
+        jButtonAlterar.setBounds(20, 150, 215, 25);
 
         jButtonLimpar.setFont(new java.awt.Font("Bookman Old Style", 0, 10)); // NOI18N
         jButtonLimpar.setText("Limpar");
@@ -307,14 +306,14 @@ public class TelaCadastroCidades extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButtonLimpar);
-        jButtonLimpar.setBounds(20, 320, 350, 21);
+        jButtonLimpar.setBounds(20, 320, 350, 25);
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         getContentPane().add(jComboBox1);
-        jComboBox1.setBounds(80, 90, 630, 20);
+        jComboBox1.setBounds(80, 90, 630, 25);
 
         jLabel4.setFont(new java.awt.Font("Bookman Old Style", 1, 11)); // NOI18N
-        jLabel4.setText("Cidade");
+        jLabel4.setText("Cargo");
         getContentPane().add(jLabel4);
         jLabel4.setBounds(20, 60, 50, 14);
 
@@ -330,11 +329,11 @@ public class TelaCadastroCidades extends javax.swing.JFrame {
     private void jButtonCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCadastrarActionPerformed
         // TODO add your handling code here:
 
-        String cidade = jTextField1.getText().toUpperCase();
-        String siglaEstado = jTextField2.getText().toUpperCase();
+        String cargo = jTextField1.getText().toUpperCase();
+        String descricaoCargo = jTextField2.getText().toUpperCase();
         int indice = jComboBox1.getSelectedIndex();
         
-        boolean cadastrou = controleCadastroCidades.cadastrar(cidade, siglaEstado, indice );
+        boolean cadastrou = controleCadastroCargos.cadastrar(cargo, descricaoCargo, indice );
         if(cadastrou){
             limparCampos();
             jTextField1.requestFocus();
@@ -347,15 +346,17 @@ public class TelaCadastroCidades extends javax.swing.JFrame {
         
         if(jTable1.getSelectedRowCount()==1){
             int linhajTable1  = jTable1.getSelectedRow();
-            controleCadastroCidades.excluir(linhajTable1);
-        }else{JOptionPane.showMessageDialog(null, "Você deve selecionar uma linha na tabela.");}
+            controleCadastroCargos.excluir(linhajTable1);
+        }else{
+            JOptionPane.showMessageDialog(null, "Você deve selecionar uma linha na tabela.");
+        }
 
     }//GEN-LAST:event_jButtonExcluirActionPerformed
 
     private void jButtonBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBuscarActionPerformed
         // TODO add your handling code here:
 
-        preencherJtable1d(controleCadastroCidades.selecionar(jTextField1.getText()));
+        preencherJtable1d(controleCadastroCargos.selecionar(jTextField1.getText()));
         
 }//GEN-LAST:event_jButtonBuscarActionPerformed
 
@@ -363,10 +364,10 @@ public class TelaCadastroCidades extends javax.swing.JFrame {
         // TODO add your handling code here:
         if(jTable1.getSelectedRowCount() == 1){
             int linhajTable1  = jTable1.getSelectedRow();              
-            String nomeCidade = jTextField1.getText();
-            String siglaEstado = jTextField2.getText();
+            String nomeCargo = jTextField1.getText();
+            String descricaoCargo = jTextField2.getText();
             int indiceCombo1 = jComboBox1.getSelectedIndex();
-            controleCadastroCidades.alterar(linhajTable1, nomeCidade, siglaEstado, indiceCombo1);
+            controleCadastroCargos.alterar(linhajTable1, nomeCargo, descricaoCargo, indiceCombo1);
         }else{
             
             JOptionPane.showMessageDialog(null, "Você deve selecionar uma linha na tabela.");
@@ -389,7 +390,7 @@ public class TelaCadastroCidades extends javax.swing.JFrame {
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaCadastroCidades().setVisible(true);
+                new TelaCadastroCargos().setVisible(true);
             }
         });
     }
@@ -399,22 +400,22 @@ public class TelaCadastroCidades extends javax.swing.JFrame {
     public void limparCampos(){
         jTextField1.setText("");
         jTextField2.setText("");
-        jComboBox1.setSelectedItem("BRASIL");
+        jComboBox1.setSelectedItem("CARGOS");
     }
     
-    public void preencherComboBox1(List<BeanSequenciaTexto> listaPaises){
+    public void preencherComboBox1(List<BeanSequenciaTexto> listaCargos){
         jComboBox1.removeAllItems();
         jComboBox1.addItem("");
-        if(!listaPaises.isEmpty()){
-            for(int i=0;i<listaPaises.size();i++){
-                jComboBox1.addItem(listaPaises.get(i).getTexto());
+        if(!listaCargos.isEmpty()){
+            for(int i=0;i<listaCargos.size();i++){
+                jComboBox1.addItem(listaCargos.get(i).getTexto());
             }
             // fazendo uma pré-seleção
-            jComboBox1.setSelectedItem("BRASIL");
+            jComboBox1.setSelectedItem("CARGOS");
         }
     };
     
-    public void preencherJtable1d(List<BeanCadastroCidades> dados  ){
+    public void preencherJtable1d(List<BeanCadastroCargos> dados  ){
 
         jTable1.getColumnModel().getColumn(0).setPreferredWidth(80);
         jTable1.getColumnModel().getColumn(1).setPreferredWidth(200);
@@ -427,9 +428,9 @@ public class TelaCadastroCidades extends javax.swing.JFrame {
         DefaultTableModel modelo = (DefaultTableModel)jTable1.getModel();
         modelo.setNumRows(0);
  
-        for ( BeanCadastroCidades cidade : dados) {
+        for ( BeanCadastroCargos cargos : dados) {
 
-            Object[] linha = new Object[] { cidade.getSeqCidade(), cidade.getNomeCidade(), cidade.getSiglaEstado(), cidade.getSeqPais(), cidade.getNomePais()};
+            Object[] linha = new Object[] { cargos.getSeqCargo(), cargos.getNomeCargo(), cargos.getDescricaoCargo(), cargos.getSeqNivelCargo(), cargos.getNomeNivelCargo()};
             modelo.addRow(linha);
 
         }
