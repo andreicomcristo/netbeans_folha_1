@@ -121,7 +121,7 @@ public class DaoCadastroCidades {
     }
          
 
-     public List<BeanCadastroCidades> selecionarCidade() {
+     public List<BeanCadastroCidades> selecionarCidade(String consulta) {
         List<BeanCadastroCidades> listaConsulta = new ArrayList<BeanCadastroCidades>();
 
      try {
@@ -131,9 +131,9 @@ public class DaoCadastroCidades {
 
          try {
 
-             PreparedStatement stmt = con.prepareStatement("select seq_cidade, nome_cidade, sigla_estado, cidades.seq_pais, nome_pais from public.cidades inner join public.paises on public.cidades.seq_pais = public.paises.seq_pais order by nome_cidade");
+             PreparedStatement stmt = con.prepareStatement("select seq_cidade, nome_cidade, sigla_estado, cidades.seq_pais, nome_pais from public.cidades inner join public.paises on public.cidades.seq_pais = public.paises.seq_pais where nome_cidade like ? order by nome_cidade");
 
-              
+              stmt.setString(1, "%"+consulta+"%");
 
              ResultSet rs = stmt.executeQuery();
 

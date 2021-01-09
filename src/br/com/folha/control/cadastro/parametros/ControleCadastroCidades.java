@@ -27,7 +27,7 @@ public class ControleCadastroCidades {
         
     
     TelaCadastroCidades telaCadastroCidades;
-    BeanCadastroCidades beanCidades = new BeanCadastroCidades();
+    BeanCadastroCidades beanCadastroCidades = new BeanCadastroCidades();
     
     DaoCadastroCidades daoCidades = new DaoCadastroCidades();
     UtilidadesDeTexto utilidadesDeTexto = new UtilidadesDeTexto();
@@ -35,90 +35,84 @@ public class ControleCadastroCidades {
     // para colocar os paises no combo
     List<BeanSequenciaTexto> listaPaises;
     
+    // para colocar os dados cadastrados na tabela1
+    List<BeanCadastroCidades> listaDadosjTable1;
+    
     public void abrirFrame(ControlePrincipal controlePrincipal, BeanPrincipal beanPrincipal){
         
         this.controlePrincipal = controlePrincipal;
         this.beanPrincipal = beanPrincipal;
-        telaCadastroCidades  = new TelaCadastroCidades(this,beanCidades);
+        telaCadastroCidades  = new TelaCadastroCidades(this,beanCadastroCidades);
         preencherComboBox();
         telaCadastroCidades.preencherComboBox1(listaPaises);
         telaCadastroCidades.setVisible(true);
     }
     
-    public boolean cadastrar(String nomeCidade, String siglaCidade, int indice){
+    public boolean cadastrar(String nomeCidade, String siglaEstado, int indice){
         boolean executou = false;
         boolean acaoValida = true;
         // ARRUMANDO OS TEXTOS
         nomeCidade = utilidadesDeTexto.retiraEspacosDuplosAcentosEConverteEmMaiusculo(nomeCidade);
-        siglaCidade = utilidadesDeTexto.retiraEspacosDuplosAcentosEConverteEmMaiusculo(siglaCidade);
+        siglaEstado = utilidadesDeTexto.retiraEspacosDuplosAcentosEConverteEmMaiusculo(siglaEstado);
         
         //conferindo se os campos obrigatórios foram preenchidos
         if(indice == 0){acaoValida = false; JOptionPane.showMessageDialog(null, "Você deve escolher um´país válido.");}
         if(nomeCidade.length()==0){acaoValida = false; JOptionPane.showMessageDialog(null, "Você deve escrever uma cidade válida.");}
         
         if(acaoValida==true){
-            beanCidades.setSeqCidade(0);
-            beanCidades.setNomeCidade(nomeCidade);
-            beanCidades.setSiglaEstado(siglaCidade);
-            beanCidades.setSeqPais(listaPaises.get(indice-1).getSequencia());
-            executou = daoCidades.inserirCidade(beanCidades);
-            telaCadastroCidades.preencherJtable1d(this.selecionar());
+            beanCadastroCidades.setSeqCidade(0);
+            beanCadastroCidades.setNomeCidade(nomeCidade);
+            beanCadastroCidades.setSiglaEstado(siglaEstado);
+            beanCadastroCidades.setSeqPais(listaPaises.get(indice-1).getSequencia());
+            executou = daoCidades.inserirCidade(beanCadastroCidades);
+            telaCadastroCidades.preencherJtable1d(this.selecionar(beanCadastroCidades.getNomeCidade()));
         }
         return executou;
     }
     
-    public boolean excluir(String seqVinculo){
+    public boolean excluir(int linhajTable1){
         boolean executou = false;
         boolean acaoValida = true;
-        // ARRUMANDO OS TEXTOS
-        seqVinculo = utilidadesDeTexto.retiraEspacosDuplosAcentosEConverteEmMaiusculo(seqVinculo);
         
-        if(seqVinculo==null){acaoValida = false; JOptionPane.showMessageDialog(null, "Você deve escolher uma linha para ser excluiída.");}else{
-            if(seqVinculo.length()==0){JOptionPane.showMessageDialog(null, "Você deve escolher uma linha para ser excluiída.");}
-        }
         if(acaoValida==true){
-            beanCidades.setSeqCidade(Integer.parseInt(seqVinculo));
-            beanCidades.setNomeCidade("");
-            beanCidades.setSiglaEstado("");
-            executou =daoCidades.excluirCidade(beanCidades);
+            beanCadastroCidades.setSeqCidade(listaDadosjTable1.get(linhajTable1).getSeqCidade());
+            beanCadastroCidades.setNomeCidade("");
+            beanCadastroCidades.setSiglaEstado("");
+            executou =daoCidades.excluirCidade(beanCadastroCidades);
             
-            telaCadastroCidades.preencherJtable1d(this.selecionar());
+            telaCadastroCidades.preencherJtable1d(this.selecionar(""));
         }
         return executou;
     }
     
-    public boolean alterar(String seqCidade, String nomeCidade, String siglaEstado, int indice){
+    public boolean alterar(int linhajTable1, String nomeCidade, String siglaEstado, int indiceCombo1){
         boolean executou = false;
         boolean acaoValida = true;
         // ARRUMANDO OS TEXTOS
-        seqCidade = utilidadesDeTexto.retiraEspacosDuplosAcentosEConverteEmMaiusculo(seqCidade);
         nomeCidade = utilidadesDeTexto.retiraEspacosDuplosAcentosEConverteEmMaiusculo(nomeCidade);
         siglaEstado = utilidadesDeTexto.retiraEspacosDuplosAcentosEConverteEmMaiusculo(siglaEstado);
                 
-        // conferindo se a linha foi escolhida
-        if(seqCidade==null){acaoValida = false; JOptionPane.showMessageDialog(null, "Você deve escolher uma linha para ser excluiída.");}else{
-            if(seqCidade.length()==0){JOptionPane.showMessageDialog(null, "Você deve escolher uma linha para ser excluiída.");}
-        }
         //conferindo se os campos obrigatórios foram preenchidos
-        if(indice == 0){acaoValida = false; JOptionPane.showMessageDialog(null, "Você deve escolher um´país válido.");}
+        if(indiceCombo1 == 0){acaoValida = false; JOptionPane.showMessageDialog(null, "Você deve escolher um´país válido.");}
         if(nomeCidade.length()==0){acaoValida = false; JOptionPane.showMessageDialog(null, "Você deve escrever uma cidade válida.");}
         
         if (acaoValida){
-            beanCidades.setSeqCidade(Integer.parseInt(seqCidade));
-            beanCidades.setNomeCidade(nomeCidade);
-            beanCidades.setSiglaEstado(siglaEstado);
-            beanCidades.setSeqPais(listaPaises.get(indice-1).getSequencia());
+            beanCadastroCidades.setSeqCidade(this.listaDadosjTable1.get(linhajTable1).getSeqCidade());
+            beanCadastroCidades.setNomeCidade(nomeCidade);
+            beanCadastroCidades.setSiglaEstado(siglaEstado);
+            beanCadastroCidades.setSeqPais(listaPaises.get(indiceCombo1-1).getSequencia());
                         
-            executou =daoCidades.alterarCidade(beanCidades);
+            executou =daoCidades.alterarCidade(beanCadastroCidades);
             
             //cadastroCargaHorariaSemanal.preencherJtable1d(this.selecionar());
-            telaCadastroCidades.preencherJtable1d(this.selecionar());
+            telaCadastroCidades.preencherJtable1d(this.selecionar(beanCadastroCidades.getNomeCidade()));
         }
             return executou;
     }
     
-    public List<BeanCadastroCidades> selecionar(){
-        List dados =daoCidades.selecionarCidade();
+    public List<BeanCadastroCidades> selecionar(String consulta){
+        List dados =daoCidades.selecionarCidade(consulta);
+        listaDadosjTable1 = dados;
         return dados;
     }
     

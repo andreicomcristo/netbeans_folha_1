@@ -35,7 +35,7 @@ public class TelaCadastroCidades extends javax.swing.JFrame {
 
     
     ControleCadastroCidades controleCadastroCidades;
-    BeanCadastroCidades beanCidades;
+    BeanCadastroCidades beanCadastroCidades;
     
     /** Creates new form CadastroDeUsuarios */
     public TelaCadastroCidades() {
@@ -47,9 +47,9 @@ public class TelaCadastroCidades extends javax.swing.JFrame {
         initComponents();
     }
     
-    public TelaCadastroCidades(ControleCadastroCidades controleCadastroCidade, BeanCadastroCidades beanCidade) {
+    public TelaCadastroCidades(ControleCadastroCidades controleCadastroCidade, BeanCadastroCidades beanCadastroCidades) {
         this.controleCadastroCidades = controleCadastroCidade;  
-        this.beanCidades = beanCidade;
+        this.beanCadastroCidades = beanCadastroCidades;
         
         Set<AWTKeyStroke> forwardKeys = new HashSet<AWTKeyStroke>(this.getFocusTraversalKeys(KeyboardFocusManager.FORWARD_TRAVERSAL_KEYS));
         forwardKeys.add(KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, 0));
@@ -58,7 +58,7 @@ public class TelaCadastroCidades extends javax.swing.JFrame {
         initComponents();
         
         //preencherJtable1d(ControleCadastroCidades.selecionar());
-        preencherJtable1d(controleCadastroCidades.selecionar());
+        preencherJtable1d(controleCadastroCidades.selecionar(""));
     }
     
 
@@ -346,8 +346,8 @@ public class TelaCadastroCidades extends javax.swing.JFrame {
         // TODO add your handling code here:
         
         if(jTable1.getSelectedRowCount()==1){
-            String seqCidade  = jTable1.getValueAt(jTable1.getSelectedRow(), 0).toString();
-            controleCadastroCidades.excluir(seqCidade);
+            int linhajTable1  = jTable1.getSelectedRow();
+            controleCadastroCidades.excluir(linhajTable1);
         }else{JOptionPane.showMessageDialog(null, "Você deve selecionar uma linha na tabela.");}
 
     }//GEN-LAST:event_jButtonExcluirActionPerformed
@@ -355,18 +355,18 @@ public class TelaCadastroCidades extends javax.swing.JFrame {
     private void jButtonBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBuscarActionPerformed
         // TODO add your handling code here:
 
-        preencherJtable1d(controleCadastroCidades.selecionar());
+        preencherJtable1d(controleCadastroCidades.selecionar(jTextField1.getText()));
         
 }//GEN-LAST:event_jButtonBuscarActionPerformed
 
     private void jButtonAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAlterarActionPerformed
         // TODO add your handling code here:
         if(jTable1.getSelectedRowCount() == 1){
-            String seqCidade  = jTable1.getValueAt(jTable1.getSelectedRow(), 0).toString();              
+            int linhajTable1  = jTable1.getSelectedRow();              
             String nomeCidade = jTextField1.getText();
             String siglaEstado = jTextField2.getText();
-            int indice = jComboBox1.getSelectedIndex();
-            controleCadastroCidades.alterar(seqCidade, nomeCidade, siglaEstado, indice);
+            int indiceCombo1 = jComboBox1.getSelectedIndex();
+            controleCadastroCidades.alterar(linhajTable1, nomeCidade, siglaEstado, indiceCombo1);
         }else{JOptionPane.showMessageDialog(null, "Você deve selecionar uma linha na tabela.");}
         
     }//GEN-LAST:event_jButtonAlterarActionPerformed
