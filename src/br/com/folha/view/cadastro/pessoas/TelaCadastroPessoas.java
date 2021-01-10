@@ -751,6 +751,14 @@ public class TelaCadastroPessoas extends javax.swing.JFrame {
     
     
     
+    public void mostrarFotografiaInicialmente(){
+        jLabel2.setText("");
+        
+        if(controleCadastroPessoas.buscarFotografia()!=null){
+            jLabel2.setIcon(controleCadastroPessoas.buscarFotografia());
+        }
+    }
+    
     public void mostrarFotografia(){
         jLabel2.setText("");
         jLabel2.setIcon(null);

@@ -54,8 +54,8 @@ public class ControleCadastroPessoas {
         this.beanCadastroPessoas = beanCadastroPessoas;
         telaCadastroPessoas  = new TelaCadastroPessoas(this,beanCadastroPessoas);
         telaCadastroPessoas.exibirDadosDoCadastrado();
-        telaCadastroPessoas.mostrarFotografia();
         telaCadastroPessoas.setVisible(true);
+        telaCadastroPessoas.mostrarFotografiaInicialmente();
     }
     
     public boolean inserirFotografia(){  
