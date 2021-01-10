@@ -617,7 +617,8 @@ public class TelaCadastroPessoas extends javax.swing.JFrame {
 
     private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
         // TODO add your handling code here:
-        jTabbedPane1.setSelectedIndex(0);
+        controleCadastroPessoas.abrirNovaConsultaCadastroPessoas();
+        dispose();
     }//GEN-LAST:event_jButton14ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed

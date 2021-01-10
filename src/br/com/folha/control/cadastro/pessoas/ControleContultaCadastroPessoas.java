@@ -63,9 +63,16 @@ public class ControleContultaCadastroPessoas {
         cpfPessoa = utilidadesDeTexto.retiraEspacosDuplosAcentosEConverteEmMaiusculo(cpfPessoa);
         nomePessoa = utilidadesDeTexto.retiraEspacosDuplosAcentosEConverteEmMaiusculo(nomePessoa);
         
+        
         //conferindo se os campos obrigatórios foram preenchidos
         if(cpfPessoa.length()<11){acaoValida = false; JOptionPane.showMessageDialog(null, "Você deve escrever um cpf válido.");}
         if(nomePessoa.length()<3){acaoValida = false; JOptionPane.showMessageDialog(null, "Você deve escrever um nome válido.");}
+        
+        //Validando CPF
+        if(acaoValida==true){
+            boolean cpfValido = utilidadesDeTexto.validaCpf(cpfPessoa.substring(0,1), cpfPessoa.substring(1,2), cpfPessoa.substring(2,3), cpfPessoa.substring(3,4), cpfPessoa.substring(4,5), cpfPessoa.substring(5,6), cpfPessoa.substring(6,7), cpfPessoa.substring(7,8), cpfPessoa.substring(8,9), cpfPessoa.substring(9,10), cpfPessoa.substring(10,11)); 
+            if(cpfValido == false){acaoValida = false; JOptionPane.showMessageDialog(null, "CPF inválido.");}
+        }
         
         boolean cpfJaCadastrado = daoConsultaCadastroPessoas.cpfPessoaCadastrado(cpfPessoa);
         if(cpfJaCadastrado==true){acaoValida = false; JOptionPane.showMessageDialog(null, "CPF já cadastrado. Se você estiver tentando alterar um cadastro já existente, escolha a linha correspondente à pessoa na tabela.");}
@@ -99,9 +106,18 @@ public class ControleContultaCadastroPessoas {
     
     
     public List<BeanCadastroPessoas> selecionarPorNome(String consulta){
+        boolean acaoValida = true;
+        List dados = null;
         consulta = utilidadesDeTexto.retiraEspacosDuplosAcentosEConverteEmMaiusculo(consulta);
-        List dados =daoConsultaCadastroPessoas.selecionarPessoaPorNome(consulta);
-        listaDadosjTable1 = dados;
+        
+        if( (consulta.contains("0")) || (consulta.contains("1")) || (consulta.contains("2")) || (consulta.contains("3")) || (consulta.contains("4")) || (consulta.contains("5")) || (consulta.contains("6")) || (consulta.contains("7")) || (consulta.contains("8")) || (consulta.contains("9")) ){
+            acaoValida = false; JOptionPane.showMessageDialog(null, "Você escreveu número(s) para uma pesquisa por NOME. Não será pesquisado.");
+        }
+        // Avaliando se tem números na consulta por nome
+        if(acaoValida==true){
+            dados =daoConsultaCadastroPessoas.selecionarPessoaPorNome(consulta);
+            listaDadosjTable1 = dados;
+        }
         return dados;
     }
     

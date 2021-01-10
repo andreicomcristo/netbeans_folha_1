@@ -71,8 +71,7 @@ public class ControleCadastroPessoas {
         try{
             File imagemFile = new File(caminho);
             byte[] imagemArray = new byte[(int) imagemFile.length()];
-            DataInputStream imagemStream = new DataInputStream(
-            new FileInputStream(imagemFile));
+            DataInputStream imagemStream = new DataInputStream(new FileInputStream(imagemFile));
             imagemStream.readFully(imagemArray);
             imagemStream.close();
             executou = daoCadastroPessoas.inserirFotografia(imagemArray, beanCadastroPessoas);
@@ -83,7 +82,17 @@ public class ControleCadastroPessoas {
     
     
     public boolean excluirFotografia(){
-        boolean executou = daoCadastroPessoas.excluirFotografia(beanCadastroPessoas);
+        boolean executou = false;
+        boolean acaoValida = true;
+        
+        String confirmacao1 = JOptionPane.showInputDialog("Caso queira excluir a fotografia, digite 1");
+        String confirmacao3 = JOptionPane.showInputDialog("Se realmente deseja excluir a fotografia, digite 3");
+        
+        if((!confirmacao1.equalsIgnoreCase("1"))  || (!confirmacao3.equalsIgnoreCase("3"))  ){ acaoValida = false; JOptionPane.showMessageDialog(null, "Você não confirmou a exclusão.");}
+        
+        if(acaoValida==true){
+            executou = daoCadastroPessoas.excluirFotografia(beanCadastroPessoas);
+        }
     return executou;    
     }
     

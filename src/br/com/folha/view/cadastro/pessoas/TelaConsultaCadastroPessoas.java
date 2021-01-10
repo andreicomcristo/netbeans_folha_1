@@ -148,7 +148,7 @@ public class TelaConsultaCadastroPessoas extends javax.swing.JFrame {
                 if(e.getKeyChar()=='y'){e.setKeyChar('Y');}
                 if(e.getKeyChar()=='z'){e.setKeyChar('Z');}
 
-                if(jTextField1.getText().length()>=20){e.setKeyChar('\0');}
+                if(jTextField1.getText().length()>=11){e.setKeyChar('\0');}
 
                 char c = e.getKeyChar();
                 if ( '0' <= c && c <= '9' || (c == KeyEvent.VK_BACK_SPACE) ){}else   
@@ -330,8 +330,9 @@ public class TelaConsultaCadastroPessoas extends javax.swing.JFrame {
             // para o caso de alteracao
             int linhaJTable1 = jTable1.getSelectedRow();
             controleContultaCadastroPessoas.indicaPessoaAAlterar(linhaJTable1);
-            controleContultaCadastroPessoas.abrirFrameCadastroPessoas();
             dispose();
+            controleContultaCadastroPessoas.abrirFrameCadastroPessoas();
+            
         }else{
             // para o caso de novo cadastro
             if(jTable1.getSelectedRowCount()==0){
@@ -361,7 +362,7 @@ public class TelaConsultaCadastroPessoas extends javax.swing.JFrame {
 
     private void jButtonBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBuscarActionPerformed
         // TODO add your handling code here:
-
+        
         preencherJtable1d(controleContultaCadastroPessoas.selecionarPorNome(jTextField3.getText()));
         
 }//GEN-LAST:event_jButtonBuscarActionPerformed
