@@ -13,63 +13,44 @@ import br.com.folha.model.cadastro.parametros.bean.*;
  */
 public class BeanCadastroPessoas {
     
-    private long seqCidade;
-    private String nomeCidade;
-    private String siglaEstado;
-    private long seqPais;
-    private String nomePais;
-
+    private long seqPessoa;
+    private String cpfPessoa;
+    private String nomePessoa;
+    
     public BeanCadastroPessoas() {
     }
 
-    public BeanCadastroPessoas(long seqCidade, String nomeCidade, String siglaEstado, long seqPais, String nomePais) {
-        this.seqCidade = seqCidade;
-        this.nomeCidade = nomeCidade;
-        this.siglaEstado = siglaEstado;
-        this.seqPais = seqPais;
-        this.nomePais = nomePais;
+    public BeanCadastroPessoas(long seqPessoa, String cpfPessoa, String nomePessoa) {
+        this.seqPessoa = seqPessoa;
+        this.cpfPessoa = cpfPessoa;
+        this.nomePessoa = nomePessoa;
     }
 
-    public long getSeqCidade() {
-        return seqCidade;
+    public long getSeqPessoa() {
+        return seqPessoa;
     }
 
-    public void setSeqCidade(long seqCidade) {
-        this.seqCidade = seqCidade;
+    public void setSeqPessoa(long seqPessoa) {
+        this.seqPessoa = seqPessoa;
     }
 
-    public String getNomeCidade() {
-        return nomeCidade;
+    public String getCpfPessoa() {
+        return cpfPessoa;
     }
 
-    public void setNomeCidade(String nomeCidade) {
-        this.nomeCidade = nomeCidade;
+    public void setCpfPessoa(String cpfPessoa) {
+        this.cpfPessoa = cpfPessoa;
     }
 
-    public String getSiglaEstado() {
-        return siglaEstado;
+    public String getNomePessoa() {
+        return nomePessoa;
     }
 
-    public void setSiglaEstado(String siglaEstado) {
-        this.siglaEstado = siglaEstado;
+    public void setNomePessoa(String nomePessoa) {
+        this.nomePessoa = nomePessoa;
     }
 
-    public long getSeqPais() {
-        return seqPais;
-    }
-
-    public void setSeqPais(long seqPais) {
-        this.seqPais = seqPais;
-    }
-
-    public String getNomePais() {
-        return nomePais;
-    }
-
-    public void setNomePais(String nomePais) {
-        this.nomePais = nomePais;
-    }
-
+    
     
     
 

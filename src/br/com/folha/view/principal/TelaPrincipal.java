@@ -299,6 +299,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jMenu4.setText("Recursos Humanos");
 
         jMenuItem22.setText("Cadastro de Pessoas");
+        jMenuItem22.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem22ActionPerformed(evt);
+            }
+        });
         jMenu4.add(jMenuItem22);
 
         jMenuItem23.setText("Cadastro de Autorizações");
@@ -442,6 +447,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private void jMenuItem23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem23ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem23ActionPerformed
+
+    private void jMenuItem22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem22ActionPerformed
+        // TODO add your handling code here:
+        controlePrincipal.abrirConsultaCadastroPessoas();
+    }//GEN-LAST:event_jMenuItem22ActionPerformed
 
     /**
      * @param args the command line arguments

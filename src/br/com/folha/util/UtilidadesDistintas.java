@@ -33,7 +33,10 @@ public class UtilidadesDistintas {
     // Return the buffered image
     return bimage;
 }
+  
     
+    
+  
     
 }
 

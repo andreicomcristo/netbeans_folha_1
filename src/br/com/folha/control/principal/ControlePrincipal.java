@@ -26,6 +26,7 @@ import br.com.folha.control.cadastro.parametros.ControleCadastroUnidadesNatureza
 import br.com.folha.control.cadastro.parametros.ControleCadastroUnidadesRegime;
 import br.com.folha.control.cadastro.parametros.ControleCadastroVinculos;
 import br.com.folha.control.cadastro.pessoas.ControleCadastroPessoas;
+import br.com.folha.control.cadastro.pessoas.ControleContultaCadastroPessoas;
 import br.com.folha.model.principal.bean.BeanPrincipal;
 import br.com.folha.view.principal.TelaPrincipal;
 import java.awt.Dimension;
@@ -204,8 +205,8 @@ public class ControlePrincipal {
     }  
     
     
-    public void abrirCadastroPessoas(){
-        ControleCadastroPessoas cp = new ControleCadastroPessoas();
+    public void abrirConsultaCadastroPessoas(){
+        ControleContultaCadastroPessoas cp = new ControleContultaCadastroPessoas();
         cp.abrirFrame(this, beanPrincipal);
     }
     

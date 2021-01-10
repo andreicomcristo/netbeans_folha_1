@@ -15,7 +15,6 @@ import br.com.folha.control.cadastro.pessoas.ControleCadastroPessoas;
 import br.com.folha.model.cadastro.pessoas.bean.BeanCadastroPessoas;
 import java.awt.AWTKeyStroke;
 import java.awt.KeyboardFocusManager;
-import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.util.HashSet;
 import java.util.Set;
@@ -70,45 +69,66 @@ public class TelaCadastroPessoas extends javax.swing.JFrame {
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jSeparator2 = new javax.swing.JSeparator();
+        jSeparator3 = new javax.swing.JSeparator();
+        jSeparator4 = new javax.swing.JSeparator();
+        jSeparator5 = new javax.swing.JSeparator();
+        jButton20 = new javax.swing.JButton();
+        jButton21 = new javax.swing.JButton();
+        jButton22 = new javax.swing.JButton();
+        jButton32 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
+        jButton23 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
+        jButton24 = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jButton6 = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
+        jButton25 = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         jButton8 = new javax.swing.JButton();
         jButton9 = new javax.swing.JButton();
+        jButton26 = new javax.swing.JButton();
         jPanel9 = new javax.swing.JPanel();
         jButton17 = new javax.swing.JButton();
         jButton18 = new javax.swing.JButton();
+        jButton27 = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
         jButton10 = new javax.swing.JButton();
         jButton11 = new javax.swing.JButton();
+        jButton28 = new javax.swing.JButton();
         jPanel7 = new javax.swing.JPanel();
         jButton12 = new javax.swing.JButton();
         jButton13 = new javax.swing.JButton();
+        jButton29 = new javax.swing.JButton();
         jPanel10 = new javax.swing.JPanel();
         jButton16 = new javax.swing.JButton();
         jButton19 = new javax.swing.JButton();
+        jButton30 = new javax.swing.JButton();
         jPanel8 = new javax.swing.JPanel();
         jButton14 = new javax.swing.JButton();
         jButton15 = new javax.swing.JButton();
+        jButton31 = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Cadastro de Pessoas");
         getContentPane().setLayout(null);
 
         jLabel1.setFont(new java.awt.Font("Bookman Old Style", 0, 18)); // NOI18N
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel1.setText("Cadastro de Pessoas");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(240, 20, 390, 20);
+        jLabel1.setBounds(20, 10, 210, 20);
         getContentPane().add(jSeparator1);
-        jSeparator1.setBounds(20, 40, 810, 10);
+        jSeparator1.setBounds(20, 30, 810, 10);
 
         jTabbedPane1.setFont(new java.awt.Font("Bookman Old Style", 0, 10)); // NOI18N
 
@@ -124,6 +144,66 @@ public class TelaCadastroPessoas extends javax.swing.JFrame {
         });
         jPanel1.add(jButton1);
         jButton1.setBounds(730, 330, 110, 20);
+
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText(".");
+        jLabel2.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        jPanel1.add(jLabel2);
+        jLabel2.setBounds(530, 10, 300, 300);
+        jPanel1.add(jSeparator2);
+        jSeparator2.setBounds(530, 10, 300, 20);
+        jPanel1.add(jSeparator3);
+        jSeparator3.setBounds(530, 310, 300, 10);
+
+        jSeparator4.setOrientation(javax.swing.SwingConstants.VERTICAL);
+        jPanel1.add(jSeparator4);
+        jSeparator4.setBounds(830, 10, 10, 300);
+
+        jSeparator5.setOrientation(javax.swing.SwingConstants.VERTICAL);
+        jPanel1.add(jSeparator5);
+        jSeparator5.setBounds(530, 10, 10, 300);
+
+        jButton20.setFont(new java.awt.Font("Bookman Old Style", 1, 10)); // NOI18N
+        jButton20.setText("Mostrar Fotografia");
+        jButton20.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton20ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton20);
+        jButton20.setBounds(10, 170, 500, 140);
+
+        jButton21.setFont(new java.awt.Font("Bookman Old Style", 1, 10)); // NOI18N
+        jButton21.setForeground(new java.awt.Color(0, 0, 153));
+        jButton21.setText("Anexar Fotografia (Só pode no formato e extensão .JPG)");
+        jButton21.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton21ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton21);
+        jButton21.setBounds(10, 30, 330, 110);
+
+        jButton22.setFont(new java.awt.Font("Bookman Old Style", 1, 10)); // NOI18N
+        jButton22.setText("Sair");
+        jButton22.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton22ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton22);
+        jButton22.setBounds(10, 330, 500, 20);
+
+        jButton32.setFont(new java.awt.Font("Bookman Old Style", 1, 10)); // NOI18N
+        jButton32.setForeground(new java.awt.Color(102, 0, 0));
+        jButton32.setText("Excluir Fotografia");
+        jButton32.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton32ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton32);
+        jButton32.setBounds(380, 30, 130, 110);
 
         jTabbedPane1.addTab("Fotografia", jPanel1);
 
@@ -156,6 +236,16 @@ public class TelaCadastroPessoas extends javax.swing.JFrame {
         jPanel2.add(jButton3);
         jButton3.setBounds(610, 330, 110, 20);
 
+        jButton23.setFont(new java.awt.Font("Bookman Old Style", 1, 10)); // NOI18N
+        jButton23.setText("Sair");
+        jButton23.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton23ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jButton23);
+        jButton23.setBounds(10, 330, 470, 20);
+
         jTabbedPane1.addTab("Dados Pessoais", jPanel2);
 
         jPanel3.setLayout(null);
@@ -181,6 +271,16 @@ public class TelaCadastroPessoas extends javax.swing.JFrame {
         });
         jPanel3.add(jButton5);
         jButton5.setBounds(610, 330, 110, 20);
+
+        jButton24.setFont(new java.awt.Font("Bookman Old Style", 1, 10)); // NOI18N
+        jButton24.setText("Sair");
+        jButton24.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton24ActionPerformed(evt);
+            }
+        });
+        jPanel3.add(jButton24);
+        jButton24.setBounds(10, 330, 470, 20);
 
         jTabbedPane1.addTab("Contatos", jPanel3);
 
@@ -208,6 +308,16 @@ public class TelaCadastroPessoas extends javax.swing.JFrame {
         jPanel4.add(jButton7);
         jButton7.setBounds(610, 330, 110, 20);
 
+        jButton25.setFont(new java.awt.Font("Bookman Old Style", 1, 10)); // NOI18N
+        jButton25.setText("Sair");
+        jButton25.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton25ActionPerformed(evt);
+            }
+        });
+        jPanel4.add(jButton25);
+        jButton25.setBounds(10, 330, 470, 20);
+
         jTabbedPane1.addTab("Endereço", jPanel4);
 
         jPanel5.setLayout(null);
@@ -233,6 +343,16 @@ public class TelaCadastroPessoas extends javax.swing.JFrame {
         });
         jPanel5.add(jButton9);
         jButton9.setBounds(610, 330, 110, 20);
+
+        jButton26.setFont(new java.awt.Font("Bookman Old Style", 1, 10)); // NOI18N
+        jButton26.setText("Sair");
+        jButton26.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton26ActionPerformed(evt);
+            }
+        });
+        jPanel5.add(jButton26);
+        jButton26.setBounds(10, 330, 470, 20);
 
         jTabbedPane1.addTab("Documentos", jPanel5);
 
@@ -260,6 +380,16 @@ public class TelaCadastroPessoas extends javax.swing.JFrame {
         jPanel9.add(jButton18);
         jButton18.setBounds(730, 330, 110, 20);
 
+        jButton27.setFont(new java.awt.Font("Bookman Old Style", 1, 10)); // NOI18N
+        jButton27.setText("Sair");
+        jButton27.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton27ActionPerformed(evt);
+            }
+        });
+        jPanel9.add(jButton27);
+        jButton27.setBounds(10, 330, 470, 20);
+
         jTabbedPane1.addTab("Dados Bancários", jPanel9);
 
         jPanel6.setLayout(null);
@@ -285,6 +415,16 @@ public class TelaCadastroPessoas extends javax.swing.JFrame {
         });
         jPanel6.add(jButton11);
         jButton11.setBounds(610, 330, 110, 20);
+
+        jButton28.setFont(new java.awt.Font("Bookman Old Style", 1, 10)); // NOI18N
+        jButton28.setText("Sair");
+        jButton28.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton28ActionPerformed(evt);
+            }
+        });
+        jPanel6.add(jButton28);
+        jButton28.setBounds(10, 330, 470, 20);
 
         jTabbedPane1.addTab("Dependentes", jPanel6);
 
@@ -312,6 +452,16 @@ public class TelaCadastroPessoas extends javax.swing.JFrame {
         jPanel7.add(jButton13);
         jButton13.setBounds(610, 330, 110, 20);
 
+        jButton29.setFont(new java.awt.Font("Bookman Old Style", 1, 10)); // NOI18N
+        jButton29.setText("Sair");
+        jButton29.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton29ActionPerformed(evt);
+            }
+        });
+        jPanel7.add(jButton29);
+        jButton29.setBounds(10, 330, 470, 20);
+
         jTabbedPane1.addTab("Dados Funcionais", jPanel7);
 
         jPanel10.setLayout(null);
@@ -337,6 +487,16 @@ public class TelaCadastroPessoas extends javax.swing.JFrame {
         });
         jPanel10.add(jButton19);
         jButton19.setBounds(610, 330, 110, 20);
+
+        jButton30.setFont(new java.awt.Font("Bookman Old Style", 1, 10)); // NOI18N
+        jButton30.setText("Sair");
+        jButton30.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton30ActionPerformed(evt);
+            }
+        });
+        jPanel10.add(jButton30);
+        jButton30.setBounds(10, 330, 470, 20);
 
         jTabbedPane1.addTab("Atos", jPanel10);
 
@@ -364,10 +524,41 @@ public class TelaCadastroPessoas extends javax.swing.JFrame {
         jPanel8.add(jButton15);
         jButton15.setBounds(610, 330, 110, 20);
 
+        jButton31.setFont(new java.awt.Font("Bookman Old Style", 1, 10)); // NOI18N
+        jButton31.setText("Sair");
+        jButton31.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton31ActionPerformed(evt);
+            }
+        });
+        jPanel8.add(jButton31);
+        jButton31.setBounds(10, 330, 470, 20);
+
         jTabbedPane1.addTab("Operador", jPanel8);
 
         getContentPane().add(jTabbedPane1);
         jTabbedPane1.setBounds(0, 50, 850, 380);
+
+        jLabel3.setFont(new java.awt.Font("Bookman Old Style", 2, 8)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(0, 102, 0));
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setText(".");
+        getContentPane().add(jLabel3);
+        jLabel3.setBounds(210, 35, 60, 10);
+
+        jLabel4.setFont(new java.awt.Font("Bookman Old Style", 2, 8)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(0, 102, 0));
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel4.setText(".");
+        getContentPane().add(jLabel4);
+        jLabel4.setBounds(430, 35, 80, 10);
+
+        jLabel5.setFont(new java.awt.Font("Bookman Old Style", 2, 8)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(0, 102, 0));
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel5.setText(".");
+        getContentPane().add(jLabel5);
+        jLabel5.setBounds(610, 35, 210, 10);
 
         setSize(new java.awt.Dimension(866, 469));
         setLocationRelativeTo(null);
@@ -472,6 +663,73 @@ public class TelaCadastroPessoas extends javax.swing.JFrame {
         jTabbedPane1.setSelectedIndex(7);
     }//GEN-LAST:event_jButton19ActionPerformed
 
+    private void jButton20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton20ActionPerformed
+        // TODO add your handling code here:
+        mostrarFotografia();
+    }//GEN-LAST:event_jButton20ActionPerformed
+
+    private void jButton21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton21ActionPerformed
+        // TODO add your handling code here:
+        boolean executou = controleCadastroPessoas.inserirFotografia();
+        if(executou==true){mostrarFotografia();}
+    }//GEN-LAST:event_jButton21ActionPerformed
+
+    private void jButton22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton22ActionPerformed
+        // TODO add your handling code here:
+        dispose();
+    }//GEN-LAST:event_jButton22ActionPerformed
+
+    private void jButton23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton23ActionPerformed
+        // TODO add your handling code here:
+        dispose();
+    }//GEN-LAST:event_jButton23ActionPerformed
+
+    private void jButton24ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton24ActionPerformed
+        // TODO add your handling code here:
+        dispose();
+    }//GEN-LAST:event_jButton24ActionPerformed
+
+    private void jButton25ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton25ActionPerformed
+        // TODO add your handling code here:
+        dispose();
+    }//GEN-LAST:event_jButton25ActionPerformed
+
+    private void jButton26ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton26ActionPerformed
+        // TODO add your handling code here:
+        dispose();
+    }//GEN-LAST:event_jButton26ActionPerformed
+
+    private void jButton27ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton27ActionPerformed
+        // TODO add your handling code here:
+        dispose();
+    }//GEN-LAST:event_jButton27ActionPerformed
+
+    private void jButton28ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton28ActionPerformed
+        // TODO add your handling code here:
+        dispose();
+    }//GEN-LAST:event_jButton28ActionPerformed
+
+    private void jButton29ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton29ActionPerformed
+        // TODO add your handling code here:
+        dispose();
+    }//GEN-LAST:event_jButton29ActionPerformed
+
+    private void jButton30ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton30ActionPerformed
+        // TODO add your handling code here:
+        dispose();
+    }//GEN-LAST:event_jButton30ActionPerformed
+
+    private void jButton31ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton31ActionPerformed
+        // TODO add your handling code here:
+        dispose();
+    }//GEN-LAST:event_jButton31ActionPerformed
+
+    private void jButton32ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton32ActionPerformed
+        // TODO add your handling code here:
+        controleCadastroPessoas.excluirFotografia();
+        mostrarFotografia();
+    }//GEN-LAST:event_jButton32ActionPerformed
+
     /**
     * @param args the command line arguments
     */
@@ -483,50 +741,25 @@ public class TelaCadastroPessoas extends javax.swing.JFrame {
         });
     }
 
-    /*
     
-    public void limparCampos(){
-        jTextField1.setText("");
-        jTextField2.setText("");
-        jComboBox1.setSelectedItem("BRASIL");
+    
+    public void exibirDadosDoCadastrado(){
+        jLabel3.setText(beanCadastroPessoas.getSeqPessoa()+"");
+        jLabel4.setText(beanCadastroPessoas.getCpfPessoa()+"");
+        jLabel5.setText(beanCadastroPessoas.getNomePessoa()+"");
     }
     
-    public void preencherComboBox1(List<BeanSequenciaTexto> listaPaises){
-        jComboBox1.removeAllItems();
-        jComboBox1.addItem("");
-        if(!listaPaises.isEmpty()){
-            for(int i=0;i<listaPaises.size();i++){
-                jComboBox1.addItem(listaPaises.get(i).getTexto());
-            }
-            // fazendo uma pré-seleção
-            jComboBox1.setSelectedItem("BRASIL");
-        }
-    };
     
-    public void preencherJtable1d(List<BeanCadastroCidades> dados  ){
-
-        jTable1.getColumnModel().getColumn(0).setPreferredWidth(80);
-        jTable1.getColumnModel().getColumn(1).setPreferredWidth(200);
-        jTable1.getColumnModel().getColumn(2).setPreferredWidth(130);
-        jTable1.getColumnModel().getColumn(3).setPreferredWidth(80);
-        jTable1.getColumnModel().getColumn(4).setPreferredWidth(170);
-       
-        jTable1.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
-
-        DefaultTableModel modelo = (DefaultTableModel)jTable1.getModel();
-        modelo.setNumRows(0);
- 
-        for ( BeanCadastroCidades cidade : dados) {
-
-            Object[] linha = new Object[] { cidade.getSeqCidade(), cidade.getNomeCidade(), cidade.getSiglaEstado(), cidade.getSeqPais(), cidade.getNomePais()};
-            modelo.addRow(linha);
-
+    
+    public void mostrarFotografia(){
+        jLabel2.setText("");
+        jLabel2.setIcon(null);
+        
+        if(controleCadastroPessoas.buscarFotografia()!=null){
+            jLabel2.setIcon(controleCadastroPessoas.buscarFotografia());
         }
- }
-
-   
-*/
-
+    }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
@@ -541,7 +774,20 @@ public class TelaCadastroPessoas extends javax.swing.JFrame {
     private javax.swing.JButton jButton18;
     private javax.swing.JButton jButton19;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton20;
+    private javax.swing.JButton jButton21;
+    private javax.swing.JButton jButton22;
+    private javax.swing.JButton jButton23;
+    private javax.swing.JButton jButton24;
+    private javax.swing.JButton jButton25;
+    private javax.swing.JButton jButton26;
+    private javax.swing.JButton jButton27;
+    private javax.swing.JButton jButton28;
+    private javax.swing.JButton jButton29;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton30;
+    private javax.swing.JButton jButton31;
+    private javax.swing.JButton jButton32;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
@@ -549,6 +795,10 @@ public class TelaCadastroPessoas extends javax.swing.JFrame {
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel2;
@@ -560,6 +810,10 @@ public class TelaCadastroPessoas extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JSeparator jSeparator3;
+    private javax.swing.JSeparator jSeparator4;
+    private javax.swing.JSeparator jSeparator5;
     private javax.swing.JTabbedPane jTabbedPane1;
     // End of variables declaration//GEN-END:variables
 

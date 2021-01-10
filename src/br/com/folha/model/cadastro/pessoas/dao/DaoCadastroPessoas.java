@@ -5,16 +5,19 @@
 
 package br.com.folha.model.cadastro.pessoas.dao;
 
-import br.com.folha.model.cadastro.parametros.dao.*;
 import br.com.folha.model.cadastro.parametros.bean.BeanCadastroCidades;
 import br.com.folha.model.cadastro.parametros.bean.BeanSequenciaTexto;
+import br.com.folha.model.cadastro.pessoas.bean.BeanCadastroPessoas;
 import br.com.folha.util.ConnectionFactory;
+import java.awt.Image;
+import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 /**
@@ -24,47 +27,16 @@ import javax.swing.JOptionPane;
 public class DaoCadastroPessoas {
 
     Connection con = null;
-    public boolean inserirCidade(BeanCadastroCidades cidade){
+    
+
+    public boolean excluirFotografia(BeanCadastroPessoas beanCadastroPessoas){
                 boolean executou = false;
 		try {
 			con = ConnectionFactory.getConnection();
                                                                             // nome da tebela
-			PreparedStatement stmt = con.prepareStatement("insert into public.cidades (nome_cidade, sigla_estado, seq_pais) values ( ?,?,?  )");
+			PreparedStatement stmt = con.prepareStatement("DELETE FROM public.pessoa_fotos where public.pessoa_fotos.seq_pessoa = ? ");
 
-                        
-            stmt.setString(1, cidade.getNomeCidade());
-            stmt.setString(2, cidade.getSiglaEstado());
-            stmt.setLong(3, cidade.getSeqPais());
-
-			stmt.execute();
-			stmt.close();
-
-			con.close();
-                        executou = true;
-                        
-		} catch (Exception e) {
-                    executou = false;
-                    JOptionPane.showMessageDialog(null, e.getMessage());
-			e.printStackTrace();
-		} finally{
-
-			try{
-				con.close();
-
-			}catch (SQLException e){JOptionPane.showMessageDialog(null, e.getMessage());
-			}
-                }
-    return executou;    
-    }
-
-    public boolean excluirCidade(BeanCadastroCidades cidade){
-                boolean executou = false;
-		try {
-			con = ConnectionFactory.getConnection();
-                                                                            // nome da tebela
-			PreparedStatement stmt = con.prepareStatement("DELETE FROM public.cidades where public.cidades.seq_cidade = ? ");
-
-                        stmt.setLong(1, cidade.getSeqCidade());
+                        stmt.setLong(1, beanCadastroPessoas.getSeqPessoa());
 			stmt.execute();
 			stmt.close();
 
@@ -85,30 +57,37 @@ public class DaoCadastroPessoas {
                 }
     return executou;    
     }
-
-    public boolean alterarCidade(BeanCadastroCidades cidade) {
-                boolean executou = false;
+ 
+    // Inserinfo Foto no Banco 
+    public boolean inserirFotografia(byte[] imagemArray, BeanCadastroPessoas beanCadastroPessoas){
+        
+                boolean executou = true;
 		try {
+
 			con = ConnectionFactory.getConnection();
-                                                                            // nome da tebela
-			PreparedStatement stmt = con.prepareStatement("UPDATE public.cidades set nome_cidade = ?, sigla_estado = ?, seq_pais = ?  where public.cidades.seq_cidade = ? ");
 
                         
-                        stmt.setString(1, cidade.getNomeCidade());
-                        stmt.setString(2, cidade.getSiglaEstado());
-                        stmt.setLong(3, cidade.getSeqPais());
-                        stmt.setLong(4, cidade.getSeqCidade());
-                        
-                        
+                            if(true){
+                                                                                   // nome da tebela
+			PreparedStatement stmt = con.prepareStatement("insert into public.pessoa_fotos (seq_pessoa, fotografia) values (?,?)");
+
+            stmt.setLong(1,beanCadastroPessoas.getSeqPessoa());  
+            stmt.setBytes(2, imagemArray);
+            
+            //stmt.setBinaryStream(2,imagemReferencia, 1000000);
+            
+            
+            
 			stmt.execute();
 			stmt.close();
-
+                            }
+                
+                        
 			con.close();
-                        executou = true;
 
-		} catch (Exception e) {
-                    executou = false;
-                    JOptionPane.showMessageDialog(null, e.getMessage());
+                        executou = true;
+                        
+		} catch (Exception e) {executou = false; JOptionPane.showMessageDialog(null, e.getMessage());
 			e.printStackTrace();
 		} finally{
 
@@ -119,93 +98,48 @@ public class DaoCadastroPessoas {
 			}
                 }
     return executou;    
-    }
-         
+    } 
+     
+     // Pegando foto do Banco
+    public Image  getFotoSeqPessoa(Long seq_pessoa) {
 
-     public List<BeanCadastroCidades> selecionarCidade(String consulta) {
-        List<BeanCadastroCidades> listaConsulta = new ArrayList<BeanCadastroCidades>();
+       byte[] imgData = null;
+       ImageIcon icon = new ImageIcon();
 
      try {
-
 
        con = ConnectionFactory.getConnection();
 
          try {
 
-             PreparedStatement stmt = con.prepareStatement("select seq_cidade, nome_cidade, sigla_estado, cidades.seq_pais, nome_pais from public.cidades inner join public.paises on public.cidades.seq_pais = public.paises.seq_pais where nome_cidade like ? order by nome_cidade");
+             PreparedStatement stmt = con.prepareStatement("select fotografia from public.pessoa_fotos where seq_pessoa = ? and seq_pessoa_foto = (select max (seq_pessoa_foto) from public.pessoa_fotos where seq_pessoa = ? and fotografia is not null)");
+             
+             stmt.setLong(1, seq_pessoa);
+             stmt.setLong(2, seq_pessoa);
 
-              stmt.setString(1, "%"+consulta+"%");
-
+             
              ResultSet rs = stmt.executeQuery();
 
              while(rs.next()) {
 
-                   long seqCidade = rs.getLong("seq_cidade");
-                   String nomeCidada = rs.getString("nome_cidade");
-                   String siglaCidade = rs.getString("Sigla_estado");
-                   long seqPais = rs.getLong("seq_Pais");
-                   String nomePais = rs.getString("nome_Pais");
-
-                 listaConsulta.add(new BeanCadastroCidades(seqCidade, nomeCidada, siglaCidade, seqPais, nomePais));
-
+                   imgData = rs.getBytes("fotografia");
+                   icon = new ImageIcon(imgData);
+		   
              }
 
          } finally {
              try {
                  con.close();
-             } catch (SQLException e) {JOptionPane.showMessageDialog(null, e.getMessage());
+             } catch (Exception e) {JOptionPane.showMessageDialog(null, e.getMessage());
                  e.printStackTrace();
              }
          }
-     } catch (SQLException e) {JOptionPane.showMessageDialog(null, e.getMessage());
+     } catch (Exception e) {JOptionPane.showMessageDialog(null, e.getMessage());
          e.printStackTrace();
      }
 
-     return listaConsulta;
+     return icon.getImage();
 
  }
-     
-     public List<BeanSequenciaTexto> selecionarPaises() {
-        List<BeanSequenciaTexto> listaConsulta = new ArrayList<BeanSequenciaTexto>();
-
-     try {
-
-
-       con = ConnectionFactory.getConnection();
-
-         try {
-
-             PreparedStatement stmt = con.prepareStatement("select seq_pais, nome_pais from public.paises order by nome_pais");
-
-              
-
-             ResultSet rs = stmt.executeQuery();
-
-             while(rs.next()) {
-
-                   long sequencia = rs.getLong("seq_pais");
-                   String texto = rs.getString("nome_pais");
-                   
-
-                 listaConsulta.add(new BeanSequenciaTexto(sequencia, texto));
-
-             }
-
-         } finally {
-             try {
-                 con.close();
-             } catch (SQLException e) {JOptionPane.showMessageDialog(null, e.getMessage());
-                 e.printStackTrace();
-             }
-         }
-     } catch (SQLException e) {JOptionPane.showMessageDialog(null, e.getMessage());
-         e.printStackTrace();
-     }
-
-     return listaConsulta;
-
- }
-     
-
 
 }

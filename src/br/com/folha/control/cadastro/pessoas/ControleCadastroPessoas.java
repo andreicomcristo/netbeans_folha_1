@@ -13,9 +13,16 @@ import br.com.folha.model.cadastro.pessoas.bean.BeanCadastroPessoas;
 import br.com.folha.model.cadastro.pessoas.dao.DaoCadastroPessoas;
 import br.com.folha.model.principal.bean.BeanPrincipal;
 import br.com.folha.util.UtilidadesDeTexto;
-import br.com.folha.view.cadastro.parametros.TelaCadastroCidades;
+import br.com.folha.util.UtilidadesDistintas;
 import br.com.folha.view.cadastro.pessoas.TelaCadastroPessoas;
+import java.awt.Image;
+import java.awt.image.BufferedImage;
+import java.io.DataInputStream;
+import java.io.File;
+import java.io.FileInputStream;
 import java.util.List;
+import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 
 /**
@@ -26,13 +33,13 @@ public class ControleCadastroPessoas {
     
     ControlePrincipal controlePrincipal; 
     BeanPrincipal beanPrincipal; 
-        
     
     TelaCadastroPessoas telaCadastroPessoas;
     BeanCadastroPessoas beanCadastroPessoas = new BeanCadastroPessoas();
     
-    DaoCadastroPessoas daoCidades = new DaoCadastroPessoas();
+    DaoCadastroPessoas daoCadastroPessoas = new DaoCadastroPessoas();
     UtilidadesDeTexto utilidadesDeTexto = new UtilidadesDeTexto();
+    UtilidadesDistintas utilidadesDistintas = new UtilidadesDistintas();
     
     // para colocar os paises no combo
     List<BeanSequenciaTexto> listaPaises;
@@ -40,16 +47,102 @@ public class ControleCadastroPessoas {
     // para colocar os dados cadastrados na tabela1
     List<BeanCadastroCidades> listaDadosjTable1;
     
-    public void abrirFrame(ControlePrincipal controlePrincipal, BeanPrincipal beanPrincipal){
+    public void abrirFrame(ControlePrincipal controlePrincipal, BeanPrincipal beanPrincipal, BeanCadastroPessoas beanCadastroPessoas){
         
         this.controlePrincipal = controlePrincipal;
         this.beanPrincipal = beanPrincipal;
+        this.beanCadastroPessoas = beanCadastroPessoas;
         telaCadastroPessoas  = new TelaCadastroPessoas(this,beanCadastroPessoas);
-        //preencherComboBox();
-        //telaCadastroPessoas.preencherComboBox1(listaPaises);
+        telaCadastroPessoas.exibirDadosDoCadastrado();
+        telaCadastroPessoas.mostrarFotografia();
         telaCadastroPessoas.setVisible(true);
     }
     
+    public boolean inserirFotografia(){  
+        
+        String caminho = navegarPorImagem().toString();
+        
+        boolean executou = false;
+        try{
+            File imagemFile = new File(caminho);
+            byte[] imagemArray = new byte[(int) imagemFile.length()];
+            DataInputStream imagemStream = new DataInputStream(
+            new FileInputStream(imagemFile));
+            imagemStream.readFully(imagemArray);
+            imagemStream.close();
+            executou = daoCadastroPessoas.inserirFotografia(imagemArray, beanCadastroPessoas);
+        }catch(Exception e){executou = false; JOptionPane.showMessageDialog(null, e.getMessage());}
+    
+    return executou;
+    }
+    
+    public boolean excluirFotografia(){
+        boolean executou = daoCadastroPessoas.excluirFotografia(beanCadastroPessoas);
+    return executou;    
+    }
+    
+    
+    
+    /*
+    public boolean inserirFotografia(){
+        boolean executou = false;
+        boolean acaoValida = true;
+        
+        try {
+            
+            
+            String arquivo = navegarPorImagem().getAbsolutePath();
+            // conferindo se o arquivo é válido
+            if(arquivo.length()<4){acaoValida = false; JOptionPane.showMessageDialog(null, "Escolha uma imágem válida.");}else{if(!arquivo.substring(arquivo.length()-4, arquivo.length()).equalsIgnoreCase(".JPG")){acaoValida = false; JOptionPane.showMessageDialog(null, "Escolha uma imágem válida.");}}
+            BufferedImage originalImage = ImageIO.read(new File(arquivo));
+        
+            ByteArrayOutputStream os2 = new ByteArrayOutputStream();
+            ImageIO.write(originalImage, "jpg", os2);
+            InputStream imagemReferencia = new ByteArrayInputStream(os2.toByteArray());  
+            if(acaoValida==true){
+                executou = daoCadastroPessoas.inserirFotografia(imagemReferencia, beanCadastroPessoas);
+            }
+            
+            
+        
+        } catch (IOException e) {JOptionPane.showMessageDialog(null, e.getMessage());}
+        
+        return executou;
+        
+        
+    }
+    */
+    
+    public File navegarPorImagem(){
+        JFileChooser fileChooser = new JFileChooser();
+        int answer = fileChooser.showOpenDialog(null);
+    
+        return fileChooser.getSelectedFile();
+    }
+    
+    
+    public ImageIcon buscarFotografia(){
+    
+        Image newimg = null;
+        
+        Image imagem = daoCadastroPessoas.getFotoSeqPessoa(beanCadastroPessoas.getSeqPessoa());
+            BufferedImage bufferedImage = null;
+                
+        try {
+            if(imagem!=null){
+            bufferedImage = utilidadesDistintas.toBufferedImage(imagem) ;
+            }
+            
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, ex.getMessage());
+        }
+                if(bufferedImage!=null){
+                    // recalculando tamanho da imagem
+                    newimg = bufferedImage.getScaledInstance(300, 300, java.awt.Image.SCALE_SMOOTH); 
+                }
+    
+    return new ImageIcon(newimg);
+    }
     
     
     /*
