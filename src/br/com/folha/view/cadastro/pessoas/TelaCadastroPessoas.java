@@ -13,8 +13,11 @@ package br.com.folha.view.cadastro.pessoas;
 
 import br.com.folha.control.cadastro.pessoas.ControleCadastroPessoas;
 import br.com.folha.model.cadastro.pessoas.bean.BeanCadastroPessoas;
+import br.com.folha.model.cadastro.pessoas.bean.BeanWebServiceCep;
 import java.awt.AWTKeyStroke;
+import java.awt.Color;
 import java.awt.KeyboardFocusManager;
+import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.util.HashSet;
 import java.util.Set;
@@ -91,6 +94,24 @@ public class TelaCadastroPessoas extends javax.swing.JFrame {
         jButton6 = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
         jButton25 = new javax.swing.JButton();
+        jTextField1 = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        jButton34 = new javax.swing.JButton();
+        jTextField2 = new javax.swing.JTextField();
+        jTextField3 = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jTextField4 = new javax.swing.JTextField();
+        jTextField5 = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jTextField6 = new javax.swing.JTextField();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jTextField7 = new javax.swing.JTextField();
+        jTextField8 = new javax.swing.JTextField();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         jButton8 = new javax.swing.JButton();
         jButton9 = new javax.swing.JButton();
@@ -329,6 +350,156 @@ public class TelaCadastroPessoas extends javax.swing.JFrame {
         });
         jPanel4.add(jButton25);
         jButton25.setBounds(10, 330, 470, 20);
+
+        jTextField1.addKeyListener(new KeyAdapter() {   
+            public void keyTyped(KeyEvent e) { // <- alteração   
+
+                if(e.getKeyChar()=='a'){e.setKeyChar('A');}
+                if(e.getKeyChar()=='á'){e.setKeyChar('A');}
+                if(e.getKeyChar()=='à'){e.setKeyChar('A');}
+                if(e.getKeyChar()=='ã'){e.setKeyChar('A');}
+                if(e.getKeyChar()=='â'){e.setKeyChar('A');}
+                if(e.getKeyChar()=='b'){e.setKeyChar('B');}
+                if(e.getKeyChar()=='c'){e.setKeyChar('C');}
+                if(e.getKeyChar()=='ç'){e.setKeyChar('C');}
+                if(e.getKeyChar()=='d'){e.setKeyChar('D');}
+                if(e.getKeyChar()=='e'){e.setKeyChar('E');}
+                if(e.getKeyChar()=='é'){e.setKeyChar('E');}
+                if(e.getKeyChar()=='è'){e.setKeyChar('E');}
+                if(e.getKeyChar()=='ê'){e.setKeyChar('E');}
+                if(e.getKeyChar()=='f'){e.setKeyChar('F');}
+                if(e.getKeyChar()=='g'){e.setKeyChar('G');}
+                if(e.getKeyChar()=='h'){e.setKeyChar('H');}
+                if(e.getKeyChar()=='i'){e.setKeyChar('I');}
+                if(e.getKeyChar()=='í'){e.setKeyChar('I');}
+                if(e.getKeyChar()=='ì'){e.setKeyChar('I');}
+                if(e.getKeyChar()=='î'){e.setKeyChar('I');}
+                if(e.getKeyChar()=='j'){e.setKeyChar('J');}
+                if(e.getKeyChar()=='k'){e.setKeyChar('K');}
+                if(e.getKeyChar()=='l'){e.setKeyChar('L');}
+                if(e.getKeyChar()=='m'){e.setKeyChar('M');}
+                if(e.getKeyChar()=='n'){e.setKeyChar('N');}
+                if(e.getKeyChar()=='o'){e.setKeyChar('O');}
+                if(e.getKeyChar()=='ó'){e.setKeyChar('O');}
+                if(e.getKeyChar()=='ò'){e.setKeyChar('O');}
+                if(e.getKeyChar()=='õ'){e.setKeyChar('O');}
+                if(e.getKeyChar()=='ô'){e.setKeyChar('O');}
+                if(e.getKeyChar()=='p'){e.setKeyChar('P');}
+                if(e.getKeyChar()=='q'){e.setKeyChar('Q');}
+                if(e.getKeyChar()=='r'){e.setKeyChar('R');}
+                if(e.getKeyChar()=='s'){e.setKeyChar('S');}
+                if(e.getKeyChar()=='t'){e.setKeyChar('T');}
+                if(e.getKeyChar()=='u'){e.setKeyChar('U');}
+                if(e.getKeyChar()=='ú'){e.setKeyChar('U');}
+                if(e.getKeyChar()=='ù'){e.setKeyChar('U');}
+                if(e.getKeyChar()=='û'){e.setKeyChar('U');}
+                if(e.getKeyChar()=='v'){e.setKeyChar('V');}
+                if(e.getKeyChar()=='w'){e.setKeyChar('W');}
+                if(e.getKeyChar()=='x'){e.setKeyChar('X');}
+                if(e.getKeyChar()=='y'){e.setKeyChar('Y');}
+                if(e.getKeyChar()=='z'){e.setKeyChar('Z');}
+
+                if(jTextField1.getText().length()>=8){e.setKeyChar('\0');}
+
+                char c = e.getKeyChar();
+                if ( '0' <= c && c <= '9' || (c == KeyEvent.VK_BACK_SPACE) ){}else   
+                {e.setKeyChar('\0');}   
+            }   
+
+        });
+        jTextField1.setFont(new java.awt.Font("Bookman Old Style", 0, 10)); // NOI18N
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
+        jPanel4.add(jTextField1);
+        jTextField1.setBounds(130, 30, 150, 25);
+
+        jLabel6.setFont(new java.awt.Font("Bookman Old Style", 1, 10)); // NOI18N
+        jLabel6.setText("Estado");
+        jPanel4.add(jLabel6);
+        jLabel6.setBounds(40, 230, 50, 13);
+
+        jButton34.setBackground(new java.awt.Color(255, 255, 0));
+        jButton34.setFont(new java.awt.Font("Bookman Old Style", 1, 10)); // NOI18N
+        jButton34.setForeground(new java.awt.Color(51, 51, 255));
+        jButton34.setText("Busca CEP");
+        jButton34.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton34ActionPerformed(evt);
+            }
+        });
+        jPanel4.add(jButton34);
+        jButton34.setBounds(300, 30, 130, 25);
+
+        jTextField2.setText("jTextField2");
+        jPanel4.add(jTextField2);
+        jTextField2.setBounds(130, 110, 250, 25);
+
+        jTextField3.setText("jTextField3");
+        jPanel4.add(jTextField3);
+        jTextField3.setBounds(130, 150, 250, 25);
+
+        jLabel7.setFont(new java.awt.Font("Bookman Old Style", 1, 10)); // NOI18N
+        jLabel7.setText("CEP");
+        jPanel4.add(jLabel7);
+        jLabel7.setBounds(40, 30, 34, 13);
+
+        jLabel8.setFont(new java.awt.Font("Bookman Old Style", 1, 10)); // NOI18N
+        jLabel8.setText("Tipo Logradouro");
+        jPanel4.add(jLabel8);
+        jLabel8.setBounds(40, 70, 90, 13);
+
+        jTextField4.setText("jTextField4");
+        jPanel4.add(jTextField4);
+        jTextField4.setBounds(130, 190, 250, 25);
+
+        jTextField5.setText("jTextField5");
+        jPanel4.add(jTextField5);
+        jTextField5.setBounds(130, 230, 250, 25);
+
+        jLabel9.setFont(new java.awt.Font("Bookman Old Style", 1, 10)); // NOI18N
+        jLabel9.setText("Bairro");
+        jPanel4.add(jLabel9);
+        jLabel9.setBounds(40, 150, 50, 13);
+
+        jLabel10.setFont(new java.awt.Font("Bookman Old Style", 1, 10)); // NOI18N
+        jLabel10.setText("Cidade");
+        jPanel4.add(jLabel10);
+        jLabel10.setBounds(40, 190, 50, 13);
+
+        jTextField6.setText("jTextField6");
+        jPanel4.add(jTextField6);
+        jTextField6.setBounds(130, 70, 250, 25);
+
+        jLabel11.setFont(new java.awt.Font("Bookman Old Style", 1, 10)); // NOI18N
+        jLabel11.setText("Complemento");
+        jPanel4.add(jLabel11);
+        jLabel11.setBounds(430, 150, 90, 13);
+
+        jLabel12.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel12.setText("Depois eu melhoro esse painel.");
+        jPanel4.add(jLabel12);
+        jLabel12.setBounds(480, 52, 280, 40);
+
+        jTextField7.setText("jTextField7");
+        jPanel4.add(jTextField7);
+        jTextField7.setBounds(530, 110, 250, 25);
+
+        jTextField8.setText("jTextField8");
+        jPanel4.add(jTextField8);
+        jTextField8.setBounds(530, 150, 250, 25);
+
+        jLabel13.setFont(new java.awt.Font("Bookman Old Style", 1, 10)); // NOI18N
+        jLabel13.setText("Logradouro");
+        jPanel4.add(jLabel13);
+        jLabel13.setBounds(40, 110, 70, 13);
+
+        jLabel14.setFont(new java.awt.Font("Bookman Old Style", 1, 10)); // NOI18N
+        jLabel14.setText("Número");
+        jPanel4.add(jLabel14);
+        jLabel14.setBounds(430, 110, 70, 13);
 
         jTabbedPane1.addTab("Endereço", jPanel4);
 
@@ -749,6 +920,17 @@ public class TelaCadastroPessoas extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_jButton33ActionPerformed
 
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
+
+    private void jButton34ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton34ActionPerformed
+        // TODO add your handling code here:
+        String cep = jTextField1.getText();
+        exibirDadosEnderecoPorCepWebServiceCep(cep);
+        
+    }//GEN-LAST:event_jButton34ActionPerformed
+
     /**
     * @param args the command line arguments
     */
@@ -762,13 +944,12 @@ public class TelaCadastroPessoas extends javax.swing.JFrame {
 
     
     
+    
     public void exibirDadosDoCadastrado(){
         jLabel3.setText(beanCadastroPessoas.getSeqPessoa()+"");
         jLabel4.setText(beanCadastroPessoas.getCpfPessoa()+"");
         jLabel5.setText(beanCadastroPessoas.getNomePessoa()+"");
     }
-    
-    
     
     public void mostrarFotografiaInicialmente(){
         jLabel2.setText("");
@@ -787,6 +968,15 @@ public class TelaCadastroPessoas extends javax.swing.JFrame {
         }
     }
     
+    public void exibirDadosEnderecoPorCepWebServiceCep(String cep){
+        BeanWebServiceCep beanWebServiceCep = controleCadastroPessoas.buscarDadosEnderecoPorCepWebServiceCep(cep);
+        jTextField2.setText(beanWebServiceCep.getLogradouro());
+        jTextField3.setText(beanWebServiceCep.getBairro());
+        jTextField4.setText(beanWebServiceCep.getCidade());
+        jTextField5.setText(beanWebServiceCep.getSiglaEstado());
+        jTextField6.setText(beanWebServiceCep.getTipoLogradouro());
+    
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
@@ -816,6 +1006,7 @@ public class TelaCadastroPessoas extends javax.swing.JFrame {
     private javax.swing.JButton jButton31;
     private javax.swing.JButton jButton32;
     private javax.swing.JButton jButton33;
+    private javax.swing.JButton jButton34;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
@@ -823,10 +1014,19 @@ public class TelaCadastroPessoas extends javax.swing.JFrame {
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel2;
@@ -843,6 +1043,14 @@ public class TelaCadastroPessoas extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JSeparator jSeparator5;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField jTextField4;
+    private javax.swing.JTextField jTextField5;
+    private javax.swing.JTextField jTextField6;
+    private javax.swing.JTextField jTextField7;
+    private javax.swing.JTextField jTextField8;
     // End of variables declaration//GEN-END:variables
 
 }

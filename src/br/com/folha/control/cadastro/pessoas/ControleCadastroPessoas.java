@@ -10,17 +10,18 @@ import br.com.folha.control.principal.ControlePrincipal;
 import br.com.folha.model.cadastro.parametros.bean.BeanCadastroCidades;
 import br.com.folha.model.cadastro.parametros.bean.BeanSequenciaTexto;
 import br.com.folha.model.cadastro.pessoas.bean.BeanCadastroPessoas;
+import br.com.folha.model.cadastro.pessoas.bean.BeanWebServiceCep;
 import br.com.folha.model.cadastro.pessoas.dao.DaoCadastroPessoas;
 import br.com.folha.model.principal.bean.BeanPrincipal;
 import br.com.folha.util.UtilidadesDeTexto;
 import br.com.folha.util.UtilidadesDistintas;
+import br.com.folha.util.WebServiceCep;
 import br.com.folha.view.cadastro.pessoas.TelaCadastroPessoas;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.DataInputStream;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.InputStream;
 import java.util.List;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
@@ -37,6 +38,9 @@ public class ControleCadastroPessoas {
     
     TelaCadastroPessoas telaCadastroPessoas;
     BeanCadastroPessoas beanCadastroPessoas = new BeanCadastroPessoas();
+    
+    BeanWebServiceCep beanWebServiceCep = new BeanWebServiceCep();
+    
     
     DaoCadastroPessoas daoCadastroPessoas = new DaoCadastroPessoas();
     UtilidadesDeTexto utilidadesDeTexto = new UtilidadesDeTexto();
@@ -80,7 +84,6 @@ public class ControleCadastroPessoas {
     return executou;
     }
     
-    
     public boolean excluirFotografia(){
         boolean executou = false;
         boolean acaoValida = true;
@@ -96,14 +99,9 @@ public class ControleCadastroPessoas {
     return executou;    
     }
     
-   
     public void mostrarFotografiaTelaCadastroPessoas(){
         telaCadastroPessoas.mostrarFotografia();
     }
-    
-    
-    
-    
     
     public File navegarPorImagem(){
         JFileChooser fileChooser = new JFileChooser();
@@ -111,7 +109,6 @@ public class ControleCadastroPessoas {
     
         return fileChooser.getSelectedFile();
     }
-    
     
     public ImageIcon buscarFotografia(){
     
@@ -136,84 +133,38 @@ public class ControleCadastroPessoas {
     return new ImageIcon(newimg);
     }
     
-    
-    /*
-    public boolean cadastrar(String nomeCidade, String siglaEstado, int indice){
-        boolean executou = false;
-        boolean acaoValida = true;
-        // ARRUMANDO OS TEXTOS
-        nomeCidade = utilidadesDeTexto.retiraEspacosDuplosAcentosEConverteEmMaiusculo(nomeCidade);
-        siglaEstado = utilidadesDeTexto.retiraEspacosDuplosAcentosEConverteEmMaiusculo(siglaEstado);
+    public  BeanWebServiceCep buscarDadosEnderecoPorCepWebServiceCep(String cep) {
+                boolean acaoValida = true;
+                if(cep.length()!=8){acaoValida = false; JOptionPane.showMessageDialog(null, "Você deve digitar um CEP com oito caracteres.");}
         
-        //conferindo se os campos obrigatórios foram preenchidos
-        if(indice == 0){acaoValida = false; JOptionPane.showMessageDialog(null, "Você deve escolher um´país válido.");}
-        if(nomeCidade.length()==0){acaoValida = false; JOptionPane.showMessageDialog(null, "Você deve escrever uma cidade válida.");}
-        
-        if(acaoValida==true){
-            beanCadastroCidades.setSeqCidade(0);
-            beanCadastroCidades.setNomeCidade(nomeCidade);
-            beanCadastroCidades.setSiglaEstado(siglaEstado);
-            beanCadastroCidades.setSeqPais(listaPaises.get(indice-1).getSequencia());
-            executou = daoCidades.inserirCidade(beanCadastroCidades);
-            telaCadastroCidades.preencherJtable1d(this.selecionar(beanCadastroCidades.getNomeCidade()));
-        }
-        return executou;
-    }
-    
-    public boolean excluir(int linhajTable1){
-        boolean executou = false;
-        boolean acaoValida = true;
-        
-        if(acaoValida==true){
-            beanCadastroCidades.setSeqCidade(listaDadosjTable1.get(linhajTable1).getSeqCidade());
-            beanCadastroCidades.setNomeCidade("");
-            beanCadastroCidades.setSiglaEstado("");
-            executou =daoCidades.excluirCidade(beanCadastroCidades);
-            
-            telaCadastroCidades.preencherJtable1d(this.selecionar(""));
-        }
-        return executou;
-    }
-    
-    public boolean alterar(int linhajTable1, String nomeCidade, String siglaEstado, int indiceCombo1){
-        boolean executou = false;
-        boolean acaoValida = true;
-        // ARRUMANDO OS TEXTOS
-        nomeCidade = utilidadesDeTexto.retiraEspacosDuplosAcentosEConverteEmMaiusculo(nomeCidade);
-        siglaEstado = utilidadesDeTexto.retiraEspacosDuplosAcentosEConverteEmMaiusculo(siglaEstado);
+                BeanWebServiceCep beanWebServiceCep = new BeanWebServiceCep();
+                WebServiceCep webServiceCep = WebServiceCep.searchCep(cep);
                 
-        //conferindo se os campos obrigatórios foram preenchidos
-        if(indiceCombo1 == 0){acaoValida = false; JOptionPane.showMessageDialog(null, "Você deve escolher um´país válido.");}
-        if(nomeCidade.length()==0){acaoValida = false; JOptionPane.showMessageDialog(null, "Você deve escrever uma cidade válida.");}
-        
-        if (acaoValida){
-            beanCadastroCidades.setSeqCidade(this.listaDadosjTable1.get(linhajTable1).getSeqCidade());
-            beanCadastroCidades.setNomeCidade(nomeCidade);
-            beanCadastroCidades.setSiglaEstado(siglaEstado);
-            beanCadastroCidades.setSeqPais(listaPaises.get(indiceCombo1-1).getSequencia());
-                        
-            executou =daoCidades.alterarCidade(beanCadastroCidades);
-            
-            //cadastroCargaHorariaSemanal.preencherJtable1d(this.selecionar());
-            telaCadastroCidades.preencherJtable1d(this.selecionar(beanCadastroCidades.getNomeCidade()));
-        }
-            return executou;
-    }
+                if(acaoValida==true){
+                    if (webServiceCep.wasSuccessful()) {
+                            beanWebServiceCep.setTipoLogradouro(webServiceCep.getLogradouroType()); 
+                            beanWebServiceCep.setLogradouro(webServiceCep.getLogradouro()); 
+                            beanWebServiceCep.setBairro(webServiceCep.getBairro());                        
+                            beanWebServiceCep.setCidade(webServiceCep.getCidade());
+                            beanWebServiceCep.setSiglaEstado(webServiceCep.getUf());
+                            
+                            //Ajustando Textos
+                            if(beanWebServiceCep.getTipoLogradouro()!=null){beanWebServiceCep.setTipoLogradouro( utilidadesDeTexto.retiraEspacosDuplosAcentosEConverteEmMaiusculo( beanWebServiceCep.getTipoLogradouro() ) );}
+                            if(beanWebServiceCep.getLogradouro()!=null){beanWebServiceCep.setLogradouro( utilidadesDeTexto.retiraEspacosDuplosAcentosEConverteEmMaiusculo( beanWebServiceCep.getLogradouro() ) );}
+                            if(beanWebServiceCep.getBairro()!=null){beanWebServiceCep.setBairro( utilidadesDeTexto.retiraEspacosDuplosAcentosEConverteEmMaiusculo( beanWebServiceCep.getBairro() ) );}
+                            if(beanWebServiceCep.getCidade()!=null){beanWebServiceCep.setCidade( utilidadesDeTexto.retiraEspacosDuplosAcentosEConverteEmMaiusculo( beanWebServiceCep.getCidade() ) );}
+                            if(beanWebServiceCep.getSiglaEstado()!=null){beanWebServiceCep.setSiglaEstado( utilidadesDeTexto.retiraEspacosDuplosAcentosEConverteEmMaiusculo( beanWebServiceCep.getSiglaEstado() ) );}
+                            
+                            
+                            this.beanWebServiceCep = beanWebServiceCep;
+                    } else {
+                             JOptionPane.showMessageDialog(null, webServiceCep.getResultText());
+                    }
+                }       
+	return beanWebServiceCep;		
+	}
+
     
-    public List<BeanCadastroCidades> selecionar(String consulta){
-        List dados =daoCidades.selecionarCidade(consulta);
-        listaDadosjTable1 = dados;
-        return dados;
-    }
-    
-    
-    public void preencherComboBox(){
-        this.listaPaises =daoCidades.selecionarPaises();
-    }
-    
-    
-    
-    */
     
     
 }

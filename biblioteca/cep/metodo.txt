@@ -1,0 +1,72 @@
+public  void correio() {
+    
+                String cep =  tcep.getText();
+		
+                WebServiceCep webServiceCep = WebServiceCep.searchCep(cep);
+
+		if (webServiceCep.wasSuccessful()) {
+                       
+                        trua.setText(webServiceCep.getLogradouroFull()); 
+                        tbairro.setText(webServiceCep.getBairro());                        
+                        tcidade.setText(webServiceCep.getCidade());
+                        jestado.setSelectedItem( webServiceCep.getUf());
+
+		} else {
+                         JOptionPane.showMessageDialog(null, webServiceCep.getResultText());
+                        
+		}
+			
+	}
+
+
+
+--------------------------------------
+
+    String cp = tcep.getText();
+    cp = cp.replaceAll("\\D*", ""); //ignora qualquer coisa que não seja numero.  
+    int cont = cp.length();
+    
+    if(cont == 8){
+     try{
+     correio();
+     }
+     catch(Error e){
+     JOptionPane.showMessageDialog(null, e); 
+     }
+    }
+
+
+
+-------------------------------------------
+
+AC
+AL
+AM
+AP
+BA
+CE
+DF
+ES
+GO
+MA
+MG
+MS
+MT
+PA
+PB
+PE
+PI
+PR
+RJ
+RN
+RO
+RR
+RS
+SC
+SE
+SP
+TO
+
+
+RUA , NUMERO , BAIRRO, CEP
+CIDADE, ESTADO
