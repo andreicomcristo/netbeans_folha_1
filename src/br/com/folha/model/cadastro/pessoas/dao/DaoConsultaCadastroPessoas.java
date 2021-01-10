@@ -237,7 +237,7 @@ public class DaoConsultaCadastroPessoas {
 
          try {
 
-             PreparedStatement stmt = con.prepareStatement("select cpf,  from public.pessoa where cpf = ? and dt_cancelamento is null order by 1");
+             PreparedStatement stmt = con.prepareStatement("select cpf  from public.pessoa where cpf = ? and dt_cancelamento is null order by 1");
 
               stmt.setString(1, cpfConsulta);
 

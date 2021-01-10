@@ -78,6 +78,7 @@ public class TelaCadastroPessoas extends javax.swing.JFrame {
         jButton21 = new javax.swing.JButton();
         jButton22 = new javax.swing.JButton();
         jButton32 = new javax.swing.JButton();
+        jButton33 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
@@ -171,7 +172,7 @@ public class TelaCadastroPessoas extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton20);
-        jButton20.setBounds(10, 170, 500, 140);
+        jButton20.setBounds(10, 190, 500, 120);
 
         jButton21.setFont(new java.awt.Font("Bookman Old Style", 1, 10)); // NOI18N
         jButton21.setForeground(new java.awt.Color(0, 0, 153));
@@ -204,6 +205,17 @@ public class TelaCadastroPessoas extends javax.swing.JFrame {
         });
         jPanel1.add(jButton32);
         jButton32.setBounds(380, 30, 130, 110);
+
+        jButton33.setFont(new java.awt.Font("Bookman Old Style", 1, 10)); // NOI18N
+        jButton33.setForeground(new java.awt.Color(102, 0, 0));
+        jButton33.setText("< Voltar");
+        jButton33.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton33ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton33);
+        jButton33.setBounds(610, 330, 110, 20);
 
         jTabbedPane1.addTab("Fotografia", jPanel1);
 
@@ -730,6 +742,12 @@ public class TelaCadastroPessoas extends javax.swing.JFrame {
         mostrarFotografia();
     }//GEN-LAST:event_jButton32ActionPerformed
 
+    private void jButton33ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton33ActionPerformed
+        // TODO add your handling code here:
+        controleCadastroPessoas.abrirNovaConsultaCadastroPessoas();
+        dispose();
+    }//GEN-LAST:event_jButton33ActionPerformed
+
     /**
     * @param args the command line arguments
     */
@@ -796,6 +814,7 @@ public class TelaCadastroPessoas extends javax.swing.JFrame {
     private javax.swing.JButton jButton30;
     private javax.swing.JButton jButton31;
     private javax.swing.JButton jButton32;
+    private javax.swing.JButton jButton33;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;

@@ -20,6 +20,7 @@ import java.awt.image.BufferedImage;
 import java.io.DataInputStream;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.InputStream;
 import java.util.List;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
@@ -58,6 +59,10 @@ public class ControleCadastroPessoas {
         telaCadastroPessoas.mostrarFotografiaInicialmente();
     }
     
+    public void abrirNovaConsultaCadastroPessoas(){
+        controlePrincipal.abrirConsultaCadastroPessoas();
+    }
+    
     public boolean inserirFotografia(){  
         
         String caminho = navegarPorImagem().toString();
@@ -76,42 +81,20 @@ public class ControleCadastroPessoas {
     return executou;
     }
     
+    
     public boolean excluirFotografia(){
         boolean executou = daoCadastroPessoas.excluirFotografia(beanCadastroPessoas);
     return executou;    
     }
     
-    
-    
-    /*
-    public boolean inserirFotografia(){
-        boolean executou = false;
-        boolean acaoValida = true;
-        
-        try {
-            
-            
-            String arquivo = navegarPorImagem().getAbsolutePath();
-            // conferindo se o arquivo é válido
-            if(arquivo.length()<4){acaoValida = false; JOptionPane.showMessageDialog(null, "Escolha uma imágem válida.");}else{if(!arquivo.substring(arquivo.length()-4, arquivo.length()).equalsIgnoreCase(".JPG")){acaoValida = false; JOptionPane.showMessageDialog(null, "Escolha uma imágem válida.");}}
-            BufferedImage originalImage = ImageIO.read(new File(arquivo));
-        
-            ByteArrayOutputStream os2 = new ByteArrayOutputStream();
-            ImageIO.write(originalImage, "jpg", os2);
-            InputStream imagemReferencia = new ByteArrayInputStream(os2.toByteArray());  
-            if(acaoValida==true){
-                executou = daoCadastroPessoas.inserirFotografia(imagemReferencia, beanCadastroPessoas);
-            }
-            
-            
-        
-        } catch (IOException e) {JOptionPane.showMessageDialog(null, e.getMessage());}
-        
-        return executou;
-        
-        
+   
+    public void mostrarFotografiaTelaCadastroPessoas(){
+        telaCadastroPessoas.mostrarFotografia();
     }
-    */
+    
+    
+    
+    
     
     public File navegarPorImagem(){
         JFileChooser fileChooser = new JFileChooser();

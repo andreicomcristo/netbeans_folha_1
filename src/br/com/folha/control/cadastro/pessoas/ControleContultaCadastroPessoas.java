@@ -64,8 +64,8 @@ public class ControleContultaCadastroPessoas {
         nomePessoa = utilidadesDeTexto.retiraEspacosDuplosAcentosEConverteEmMaiusculo(nomePessoa);
         
         //conferindo se os campos obrigatórios foram preenchidos
-        if(cpfPessoa.length()<11){acaoValida = false; JOptionPane.showMessageDialog(null, "Você deve escrever uma cidade válida.");}
-        if(nomePessoa.length()<3){acaoValida = false; JOptionPane.showMessageDialog(null, "Você deve escrever uma cidade válida.");}
+        if(cpfPessoa.length()<11){acaoValida = false; JOptionPane.showMessageDialog(null, "Você deve escrever um cpf válido.");}
+        if(nomePessoa.length()<3){acaoValida = false; JOptionPane.showMessageDialog(null, "Você deve escrever um nome válido.");}
         
         boolean cpfJaCadastrado = daoConsultaCadastroPessoas.cpfPessoaCadastrado(cpfPessoa);
         if(cpfJaCadastrado==true){acaoValida = false; JOptionPane.showMessageDialog(null, "CPF já cadastrado. Se você estiver tentando alterar um cadastro já existente, escolha a linha correspondente à pessoa na tabela.");}

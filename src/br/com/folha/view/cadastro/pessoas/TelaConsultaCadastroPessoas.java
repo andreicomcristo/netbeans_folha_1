@@ -273,7 +273,7 @@ public class TelaConsultaCadastroPessoas extends javax.swing.JFrame {
                 if(jTextField2.getText().length()>=150){e.setKeyChar('\0');}
 
                 char c = e.getKeyChar();
-                if (   'a' <= c && c <= 'z' || 'A' <= c && c <= 'Z' || (c == KeyEvent.VK_BACK_SPACE) ){}else   
+                if (   'a' <= c && c <= 'z' || 'A' <= c && c <= 'Z' || (c == KeyEvent.VK_SPACE) || (c == KeyEvent.VK_BACK_SPACE) ){}else   
                 {e.setKeyChar('\0');}   
             }   
 
@@ -341,8 +341,8 @@ public class TelaConsultaCadastroPessoas extends javax.swing.JFrame {
 
                 boolean cadastrou = controleContultaCadastroPessoas.cadastrar(cpfPessoa, nomePessoa);
                     if(cadastrou==true){
-                        controleContultaCadastroPessoas.abrirFrameCadastroPessoas();
                         dispose();
+                        controleContultaCadastroPessoas.abrirFrameCadastroPessoas();
                     }
             }
         }

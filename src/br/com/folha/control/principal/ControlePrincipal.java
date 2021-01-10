@@ -25,7 +25,6 @@ import br.com.folha.control.cadastro.parametros.ControleCadastroTiposLogradouro;
 import br.com.folha.control.cadastro.parametros.ControleCadastroUnidadesNaturezaJuridica;
 import br.com.folha.control.cadastro.parametros.ControleCadastroUnidadesRegime;
 import br.com.folha.control.cadastro.parametros.ControleCadastroVinculos;
-import br.com.folha.control.cadastro.pessoas.ControleCadastroPessoas;
 import br.com.folha.control.cadastro.pessoas.ControleContultaCadastroPessoas;
 import br.com.folha.model.principal.bean.BeanPrincipal;
 import br.com.folha.view.principal.TelaPrincipal;
