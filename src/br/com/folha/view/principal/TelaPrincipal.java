@@ -88,6 +88,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jMenuItem22 = new javax.swing.JMenuItem();
         jMenuItem23 = new javax.swing.JMenuItem();
         jMenu6 = new javax.swing.JMenu();
+        jMenuItem25 = new javax.swing.JMenuItem();
         jMenu7 = new javax.swing.JMenu();
         jMenu8 = new javax.swing.JMenu();
         jMenu9 = new javax.swing.JMenu();
@@ -316,7 +317,16 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jMenu1.add(jMenu4);
 
-        jMenu6.setText("jMenu6");
+        jMenu6.setText("Telas teste");
+
+        jMenuItem25.setText("Cadastro de Países");
+        jMenuItem25.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem25ActionPerformed(evt);
+            }
+        });
+        jMenu6.add(jMenuItem25);
+
         jMenu1.add(jMenu6);
 
         jMenu7.setText("jMenu7");
@@ -453,6 +463,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
         controlePrincipal.abrirConsultaCadastroPessoas();
     }//GEN-LAST:event_jMenuItem22ActionPerformed
 
+    private void jMenuItem25ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem25ActionPerformed
+        // TODO add your handling code here:
+        
+        controlePrincipal.abrirCadastroPaises();
+    }//GEN-LAST:event_jMenuItem25ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -526,6 +542,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem21;
     private javax.swing.JMenuItem jMenuItem22;
     private javax.swing.JMenuItem jMenuItem23;
+    private javax.swing.JMenuItem jMenuItem25;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
