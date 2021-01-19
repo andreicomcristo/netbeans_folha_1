@@ -121,7 +121,7 @@ public class DaoCadastroCidades {
     }
          
 
-     public List<BeanCadastroCidades> selecionarCidade(String consulta) {
+    public List<BeanCadastroCidades> selecionarCidade(String consulta) {
         List<BeanCadastroCidades> listaConsulta = new ArrayList<BeanCadastroCidades>();
 
      try {
@@ -164,7 +164,7 @@ public class DaoCadastroCidades {
 
  }
      
-     public List<BeanSequenciaTexto> selecionarPaises() {
+    public List<BeanSequenciaTexto> selecionarPaises() {
         List<BeanSequenciaTexto> listaConsulta = new ArrayList<BeanSequenciaTexto>();
 
      try {

@@ -12,7 +12,10 @@
 package br.com.folha.view.cadastro.pessoas;
 
 import br.com.folha.control.cadastro.pessoas.ControleCadastroPessoas;
+import br.com.folha.model.cadastro.parametros.bean.BeanCadastroCidades;
+import br.com.folha.model.cadastro.parametros.bean.BeanSequenciaTexto;
 import br.com.folha.model.cadastro.pessoas.bean.BeanCadastroPessoas;
+import br.com.folha.model.cadastro.pessoas.bean.BeanEnderecoPessoa;
 import br.com.folha.model.cadastro.pessoas.bean.BeanWebServiceCep;
 import java.awt.AWTKeyStroke;
 import java.awt.Color;
@@ -20,8 +23,12 @@ import java.awt.KeyboardFocusManager;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
+import javax.swing.JOptionPane;
+import javax.swing.JTable;
 import javax.swing.KeyStroke;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -32,6 +39,7 @@ public class TelaCadastroPessoas extends javax.swing.JFrame {
     
     ControleCadastroPessoas controleCadastroPessoas;
     BeanCadastroPessoas beanCadastroPessoas;
+    BeanEnderecoPessoa beanEnderecoPessoa;
     
     /** Creates new form CadastroDeUsuarios */
     public TelaCadastroPessoas() {
@@ -43,9 +51,10 @@ public class TelaCadastroPessoas extends javax.swing.JFrame {
         initComponents();
     }
     
-    public TelaCadastroPessoas(ControleCadastroPessoas controleCadastroPessoas, BeanCadastroPessoas beanCadastroPessoas) {
+    public TelaCadastroPessoas(ControleCadastroPessoas controleCadastroPessoas, BeanCadastroPessoas beanCadastroPessoas, BeanEnderecoPessoa beanEnderecoPessoa) {
         this.controleCadastroPessoas = controleCadastroPessoas;  
         this.beanCadastroPessoas = beanCadastroPessoas;
+        this.beanEnderecoPessoa = beanEnderecoPessoa;
         
         Set<AWTKeyStroke> forwardKeys = new HashSet<AWTKeyStroke>(this.getFocusTraversalKeys(KeyboardFocusManager.FORWARD_TRAVERSAL_KEYS));
         forwardKeys.add(KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, 0));
@@ -95,23 +104,27 @@ public class TelaCadastroPessoas extends javax.swing.JFrame {
         jButton7 = new javax.swing.JButton();
         jButton25 = new javax.swing.JButton();
         jTextField1 = new javax.swing.JTextField();
-        jLabel6 = new javax.swing.JLabel();
         jButton34 = new javax.swing.JButton();
         jTextField2 = new javax.swing.JTextField();
         jTextField3 = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        jTextField6 = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
         jTextField7 = new javax.swing.JTextField();
         jTextField8 = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        jComboBox2 = new javax.swing.JComboBox<>();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        jButton35 = new javax.swing.JButton();
+        jButton36 = new javax.swing.JButton();
+        jButton37 = new javax.swing.JButton();
+        jSeparator6 = new javax.swing.JSeparator();
+        jButton38 = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         jButton8 = new javax.swing.JButton();
         jButton9 = new javax.swing.JButton();
@@ -132,6 +145,10 @@ public class TelaCadastroPessoas extends javax.swing.JFrame {
         jButton16 = new javax.swing.JButton();
         jButton19 = new javax.swing.JButton();
         jButton30 = new javax.swing.JButton();
+        jPanel11 = new javax.swing.JPanel();
+        jButton39 = new javax.swing.JButton();
+        jButton40 = new javax.swing.JButton();
+        jButton41 = new javax.swing.JButton();
         jPanel8 = new javax.swing.JPanel();
         jButton14 = new javax.swing.JButton();
         jButton15 = new javax.swing.JButton();
@@ -328,7 +345,7 @@ public class TelaCadastroPessoas extends javax.swing.JFrame {
             }
         });
         jPanel4.add(jButton6);
-        jButton6.setBounds(730, 330, 110, 20);
+        jButton6.setBounds(720, 330, 110, 20);
 
         jButton7.setFont(new java.awt.Font("Bookman Old Style", 1, 10)); // NOI18N
         jButton7.setForeground(new java.awt.Color(102, 0, 0));
@@ -339,7 +356,7 @@ public class TelaCadastroPessoas extends javax.swing.JFrame {
             }
         });
         jPanel4.add(jButton7);
-        jButton7.setBounds(610, 330, 110, 20);
+        jButton7.setBounds(600, 330, 110, 20);
 
         jButton25.setFont(new java.awt.Font("Bookman Old Style", 1, 10)); // NOI18N
         jButton25.setText("Sair");
@@ -414,12 +431,7 @@ public class TelaCadastroPessoas extends javax.swing.JFrame {
             }
         });
         jPanel4.add(jTextField1);
-        jTextField1.setBounds(130, 30, 150, 25);
-
-        jLabel6.setFont(new java.awt.Font("Bookman Old Style", 1, 10)); // NOI18N
-        jLabel6.setText("Estado");
-        jPanel4.add(jLabel6);
-        jLabel6.setBounds(40, 230, 50, 13);
+        jTextField1.setBounds(100, 30, 260, 25);
 
         jButton34.setBackground(new java.awt.Color(255, 255, 0));
         jButton34.setFont(new java.awt.Font("Bookman Old Style", 1, 10)); // NOI18N
@@ -431,75 +443,346 @@ public class TelaCadastroPessoas extends javax.swing.JFrame {
             }
         });
         jPanel4.add(jButton34);
-        jButton34.setBounds(300, 30, 130, 25);
+        jButton34.setBounds(500, 30, 130, 25);
 
-        jTextField2.setText("jTextField2");
+        jTextField2.addKeyListener(new KeyAdapter() {   
+            public void keyTyped(KeyEvent e) { // <- alteração   
+
+                if(e.getKeyChar()=='a'){e.setKeyChar('A');}
+                if(e.getKeyChar()=='á'){e.setKeyChar('A');}
+                if(e.getKeyChar()=='à'){e.setKeyChar('A');}
+                if(e.getKeyChar()=='ã'){e.setKeyChar('A');}
+                if(e.getKeyChar()=='â'){e.setKeyChar('A');}
+                if(e.getKeyChar()=='b'){e.setKeyChar('B');}
+                if(e.getKeyChar()=='c'){e.setKeyChar('C');}
+                if(e.getKeyChar()=='ç'){e.setKeyChar('C');}
+                if(e.getKeyChar()=='d'){e.setKeyChar('D');}
+                if(e.getKeyChar()=='e'){e.setKeyChar('E');}
+                if(e.getKeyChar()=='é'){e.setKeyChar('E');}
+                if(e.getKeyChar()=='è'){e.setKeyChar('E');}
+                if(e.getKeyChar()=='ê'){e.setKeyChar('E');}
+                if(e.getKeyChar()=='f'){e.setKeyChar('F');}
+                if(e.getKeyChar()=='g'){e.setKeyChar('G');}
+                if(e.getKeyChar()=='h'){e.setKeyChar('H');}
+                if(e.getKeyChar()=='i'){e.setKeyChar('I');}
+                if(e.getKeyChar()=='í'){e.setKeyChar('I');}
+                if(e.getKeyChar()=='ì'){e.setKeyChar('I');}
+                if(e.getKeyChar()=='î'){e.setKeyChar('I');}
+                if(e.getKeyChar()=='j'){e.setKeyChar('J');}
+                if(e.getKeyChar()=='k'){e.setKeyChar('K');}
+                if(e.getKeyChar()=='l'){e.setKeyChar('L');}
+                if(e.getKeyChar()=='m'){e.setKeyChar('M');}
+                if(e.getKeyChar()=='n'){e.setKeyChar('N');}
+                if(e.getKeyChar()=='o'){e.setKeyChar('O');}
+                if(e.getKeyChar()=='ó'){e.setKeyChar('O');}
+                if(e.getKeyChar()=='ò'){e.setKeyChar('O');}
+                if(e.getKeyChar()=='õ'){e.setKeyChar('O');}
+                if(e.getKeyChar()=='ô'){e.setKeyChar('O');}
+                if(e.getKeyChar()=='p'){e.setKeyChar('P');}
+                if(e.getKeyChar()=='q'){e.setKeyChar('Q');}
+                if(e.getKeyChar()=='r'){e.setKeyChar('R');}
+                if(e.getKeyChar()=='s'){e.setKeyChar('S');}
+                if(e.getKeyChar()=='t'){e.setKeyChar('T');}
+                if(e.getKeyChar()=='u'){e.setKeyChar('U');}
+                if(e.getKeyChar()=='ú'){e.setKeyChar('U');}
+                if(e.getKeyChar()=='ù'){e.setKeyChar('U');}
+                if(e.getKeyChar()=='û'){e.setKeyChar('U');}
+                if(e.getKeyChar()=='v'){e.setKeyChar('V');}
+                if(e.getKeyChar()=='w'){e.setKeyChar('W');}
+                if(e.getKeyChar()=='x'){e.setKeyChar('X');}
+                if(e.getKeyChar()=='y'){e.setKeyChar('Y');}
+                if(e.getKeyChar()=='z'){e.setKeyChar('Z');}
+
+                if(jTextField2.getText().length()>=100){e.setKeyChar('\0');}
+
+                char c = e.getKeyChar();
+                //if ( 'a' <= c && c <= 'z' || 'A' <= c && c <= 'Z' || (c == KeyEvent.VK_SPACE)|| (c == KeyEvent.VK_BACK_SPACE) ){}else   
+                // {e.setKeyChar('\0');}   
+            }   
+
+        });
+        jTextField2.setFont(new java.awt.Font("Bookman Old Style", 0, 10)); // NOI18N
         jPanel4.add(jTextField2);
-        jTextField2.setBounds(130, 110, 250, 25);
+        jTextField2.setBounds(500, 70, 330, 25);
 
-        jTextField3.setText("jTextField3");
+        jTextField3.addKeyListener(new KeyAdapter() {   
+            public void keyTyped(KeyEvent e) { // <- alteração   
+
+                if(e.getKeyChar()=='a'){e.setKeyChar('A');}
+                if(e.getKeyChar()=='á'){e.setKeyChar('A');}
+                if(e.getKeyChar()=='à'){e.setKeyChar('A');}
+                if(e.getKeyChar()=='ã'){e.setKeyChar('A');}
+                if(e.getKeyChar()=='â'){e.setKeyChar('A');}
+                if(e.getKeyChar()=='b'){e.setKeyChar('B');}
+                if(e.getKeyChar()=='c'){e.setKeyChar('C');}
+                if(e.getKeyChar()=='ç'){e.setKeyChar('C');}
+                if(e.getKeyChar()=='d'){e.setKeyChar('D');}
+                if(e.getKeyChar()=='e'){e.setKeyChar('E');}
+                if(e.getKeyChar()=='é'){e.setKeyChar('E');}
+                if(e.getKeyChar()=='è'){e.setKeyChar('E');}
+                if(e.getKeyChar()=='ê'){e.setKeyChar('E');}
+                if(e.getKeyChar()=='f'){e.setKeyChar('F');}
+                if(e.getKeyChar()=='g'){e.setKeyChar('G');}
+                if(e.getKeyChar()=='h'){e.setKeyChar('H');}
+                if(e.getKeyChar()=='i'){e.setKeyChar('I');}
+                if(e.getKeyChar()=='í'){e.setKeyChar('I');}
+                if(e.getKeyChar()=='ì'){e.setKeyChar('I');}
+                if(e.getKeyChar()=='î'){e.setKeyChar('I');}
+                if(e.getKeyChar()=='j'){e.setKeyChar('J');}
+                if(e.getKeyChar()=='k'){e.setKeyChar('K');}
+                if(e.getKeyChar()=='l'){e.setKeyChar('L');}
+                if(e.getKeyChar()=='m'){e.setKeyChar('M');}
+                if(e.getKeyChar()=='n'){e.setKeyChar('N');}
+                if(e.getKeyChar()=='o'){e.setKeyChar('O');}
+                if(e.getKeyChar()=='ó'){e.setKeyChar('O');}
+                if(e.getKeyChar()=='ò'){e.setKeyChar('O');}
+                if(e.getKeyChar()=='õ'){e.setKeyChar('O');}
+                if(e.getKeyChar()=='ô'){e.setKeyChar('O');}
+                if(e.getKeyChar()=='p'){e.setKeyChar('P');}
+                if(e.getKeyChar()=='q'){e.setKeyChar('Q');}
+                if(e.getKeyChar()=='r'){e.setKeyChar('R');}
+                if(e.getKeyChar()=='s'){e.setKeyChar('S');}
+                if(e.getKeyChar()=='t'){e.setKeyChar('T');}
+                if(e.getKeyChar()=='u'){e.setKeyChar('U');}
+                if(e.getKeyChar()=='ú'){e.setKeyChar('U');}
+                if(e.getKeyChar()=='ù'){e.setKeyChar('U');}
+                if(e.getKeyChar()=='û'){e.setKeyChar('U');}
+                if(e.getKeyChar()=='v'){e.setKeyChar('V');}
+                if(e.getKeyChar()=='w'){e.setKeyChar('W');}
+                if(e.getKeyChar()=='x'){e.setKeyChar('X');}
+                if(e.getKeyChar()=='y'){e.setKeyChar('Y');}
+                if(e.getKeyChar()=='z'){e.setKeyChar('Z');}
+
+                if(jTextField3.getText().length()>=100){e.setKeyChar('\0');}
+
+                char c = e.getKeyChar();
+                //if ( 'a' <= c && c <= 'z' || 'A' <= c && c <= 'Z' || (c == KeyEvent.VK_SPACE)|| (c == KeyEvent.VK_BACK_SPACE) ){}else   
+                // {e.setKeyChar('\0');}   
+            }   
+
+        });
+        jTextField3.setFont(new java.awt.Font("Bookman Old Style", 0, 10)); // NOI18N
         jPanel4.add(jTextField3);
-        jTextField3.setBounds(130, 150, 250, 25);
+        jTextField3.setBounds(500, 110, 330, 25);
 
         jLabel7.setFont(new java.awt.Font("Bookman Old Style", 1, 10)); // NOI18N
         jLabel7.setText("CEP");
         jPanel4.add(jLabel7);
-        jLabel7.setBounds(40, 30, 34, 13);
+        jLabel7.setBounds(10, 30, 34, 13);
 
         jLabel8.setFont(new java.awt.Font("Bookman Old Style", 1, 10)); // NOI18N
         jLabel8.setText("Tipo Logradouro");
         jPanel4.add(jLabel8);
-        jLabel8.setBounds(40, 70, 90, 13);
-
-        jTextField4.setText("jTextField4");
-        jPanel4.add(jTextField4);
-        jTextField4.setBounds(130, 190, 250, 25);
-
-        jTextField5.setText("jTextField5");
-        jPanel4.add(jTextField5);
-        jTextField5.setBounds(130, 230, 250, 25);
+        jLabel8.setBounds(10, 70, 90, 13);
 
         jLabel9.setFont(new java.awt.Font("Bookman Old Style", 1, 10)); // NOI18N
         jLabel9.setText("Bairro");
         jPanel4.add(jLabel9);
-        jLabel9.setBounds(40, 150, 50, 13);
+        jLabel9.setBounds(420, 110, 50, 13);
 
         jLabel10.setFont(new java.awt.Font("Bookman Old Style", 1, 10)); // NOI18N
         jLabel10.setText("Cidade");
         jPanel4.add(jLabel10);
-        jLabel10.setBounds(40, 190, 50, 13);
-
-        jTextField6.setText("jTextField6");
-        jPanel4.add(jTextField6);
-        jTextField6.setBounds(130, 70, 250, 25);
+        jLabel10.setBounds(420, 150, 50, 13);
 
         jLabel11.setFont(new java.awt.Font("Bookman Old Style", 1, 10)); // NOI18N
         jLabel11.setText("Complemento");
         jPanel4.add(jLabel11);
-        jLabel11.setBounds(430, 150, 90, 13);
+        jLabel11.setBounds(10, 150, 90, 13);
 
-        jLabel12.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel12.setText("Depois eu melhoro esse painel.");
-        jPanel4.add(jLabel12);
-        jLabel12.setBounds(480, 52, 280, 40);
+        jTextField7.addKeyListener(new KeyAdapter() {   
+            public void keyTyped(KeyEvent e) { // <- alteração   
 
-        jTextField7.setText("jTextField7");
+                if(e.getKeyChar()=='a'){e.setKeyChar('A');}
+                if(e.getKeyChar()=='á'){e.setKeyChar('A');}
+                if(e.getKeyChar()=='à'){e.setKeyChar('A');}
+                if(e.getKeyChar()=='ã'){e.setKeyChar('A');}
+                if(e.getKeyChar()=='â'){e.setKeyChar('A');}
+                if(e.getKeyChar()=='b'){e.setKeyChar('B');}
+                if(e.getKeyChar()=='c'){e.setKeyChar('C');}
+                if(e.getKeyChar()=='ç'){e.setKeyChar('C');}
+                if(e.getKeyChar()=='d'){e.setKeyChar('D');}
+                if(e.getKeyChar()=='e'){e.setKeyChar('E');}
+                if(e.getKeyChar()=='é'){e.setKeyChar('E');}
+                if(e.getKeyChar()=='è'){e.setKeyChar('E');}
+                if(e.getKeyChar()=='ê'){e.setKeyChar('E');}
+                if(e.getKeyChar()=='f'){e.setKeyChar('F');}
+                if(e.getKeyChar()=='g'){e.setKeyChar('G');}
+                if(e.getKeyChar()=='h'){e.setKeyChar('H');}
+                if(e.getKeyChar()=='i'){e.setKeyChar('I');}
+                if(e.getKeyChar()=='í'){e.setKeyChar('I');}
+                if(e.getKeyChar()=='ì'){e.setKeyChar('I');}
+                if(e.getKeyChar()=='î'){e.setKeyChar('I');}
+                if(e.getKeyChar()=='j'){e.setKeyChar('J');}
+                if(e.getKeyChar()=='k'){e.setKeyChar('K');}
+                if(e.getKeyChar()=='l'){e.setKeyChar('L');}
+                if(e.getKeyChar()=='m'){e.setKeyChar('M');}
+                if(e.getKeyChar()=='n'){e.setKeyChar('N');}
+                if(e.getKeyChar()=='o'){e.setKeyChar('O');}
+                if(e.getKeyChar()=='ó'){e.setKeyChar('O');}
+                if(e.getKeyChar()=='ò'){e.setKeyChar('O');}
+                if(e.getKeyChar()=='õ'){e.setKeyChar('O');}
+                if(e.getKeyChar()=='ô'){e.setKeyChar('O');}
+                if(e.getKeyChar()=='p'){e.setKeyChar('P');}
+                if(e.getKeyChar()=='q'){e.setKeyChar('Q');}
+                if(e.getKeyChar()=='r'){e.setKeyChar('R');}
+                if(e.getKeyChar()=='s'){e.setKeyChar('S');}
+                if(e.getKeyChar()=='t'){e.setKeyChar('T');}
+                if(e.getKeyChar()=='u'){e.setKeyChar('U');}
+                if(e.getKeyChar()=='ú'){e.setKeyChar('U');}
+                if(e.getKeyChar()=='ù'){e.setKeyChar('U');}
+                if(e.getKeyChar()=='û'){e.setKeyChar('U');}
+                if(e.getKeyChar()=='v'){e.setKeyChar('V');}
+                if(e.getKeyChar()=='w'){e.setKeyChar('W');}
+                if(e.getKeyChar()=='x'){e.setKeyChar('X');}
+                if(e.getKeyChar()=='y'){e.setKeyChar('Y');}
+                if(e.getKeyChar()=='z'){e.setKeyChar('Z');}
+
+                if(jTextField7.getText().length()>=100){e.setKeyChar('\0');}
+
+                char c = e.getKeyChar();
+                //if ( 'a' <= c && c <= 'z' || 'A' <= c && c <= 'Z' || (c == KeyEvent.VK_SPACE)|| (c == KeyEvent.VK_BACK_SPACE) ){}else   
+                // {e.setKeyChar('\0');}   
+            }   
+
+        });
+        jTextField7.setFont(new java.awt.Font("Bookman Old Style", 0, 10)); // NOI18N
         jPanel4.add(jTextField7);
-        jTextField7.setBounds(530, 110, 250, 25);
+        jTextField7.setBounds(100, 110, 260, 25);
 
-        jTextField8.setText("jTextField8");
+        jTextField8.addKeyListener(new KeyAdapter() {   
+            public void keyTyped(KeyEvent e) { // <- alteração   
+
+                if(e.getKeyChar()=='a'){e.setKeyChar('A');}
+                if(e.getKeyChar()=='á'){e.setKeyChar('A');}
+                if(e.getKeyChar()=='à'){e.setKeyChar('A');}
+                if(e.getKeyChar()=='ã'){e.setKeyChar('A');}
+                if(e.getKeyChar()=='â'){e.setKeyChar('A');}
+                if(e.getKeyChar()=='b'){e.setKeyChar('B');}
+                if(e.getKeyChar()=='c'){e.setKeyChar('C');}
+                if(e.getKeyChar()=='ç'){e.setKeyChar('C');}
+                if(e.getKeyChar()=='d'){e.setKeyChar('D');}
+                if(e.getKeyChar()=='e'){e.setKeyChar('E');}
+                if(e.getKeyChar()=='é'){e.setKeyChar('E');}
+                if(e.getKeyChar()=='è'){e.setKeyChar('E');}
+                if(e.getKeyChar()=='ê'){e.setKeyChar('E');}
+                if(e.getKeyChar()=='f'){e.setKeyChar('F');}
+                if(e.getKeyChar()=='g'){e.setKeyChar('G');}
+                if(e.getKeyChar()=='h'){e.setKeyChar('H');}
+                if(e.getKeyChar()=='i'){e.setKeyChar('I');}
+                if(e.getKeyChar()=='í'){e.setKeyChar('I');}
+                if(e.getKeyChar()=='ì'){e.setKeyChar('I');}
+                if(e.getKeyChar()=='î'){e.setKeyChar('I');}
+                if(e.getKeyChar()=='j'){e.setKeyChar('J');}
+                if(e.getKeyChar()=='k'){e.setKeyChar('K');}
+                if(e.getKeyChar()=='l'){e.setKeyChar('L');}
+                if(e.getKeyChar()=='m'){e.setKeyChar('M');}
+                if(e.getKeyChar()=='n'){e.setKeyChar('N');}
+                if(e.getKeyChar()=='o'){e.setKeyChar('O');}
+                if(e.getKeyChar()=='ó'){e.setKeyChar('O');}
+                if(e.getKeyChar()=='ò'){e.setKeyChar('O');}
+                if(e.getKeyChar()=='õ'){e.setKeyChar('O');}
+                if(e.getKeyChar()=='ô'){e.setKeyChar('O');}
+                if(e.getKeyChar()=='p'){e.setKeyChar('P');}
+                if(e.getKeyChar()=='q'){e.setKeyChar('Q');}
+                if(e.getKeyChar()=='r'){e.setKeyChar('R');}
+                if(e.getKeyChar()=='s'){e.setKeyChar('S');}
+                if(e.getKeyChar()=='t'){e.setKeyChar('T');}
+                if(e.getKeyChar()=='u'){e.setKeyChar('U');}
+                if(e.getKeyChar()=='ú'){e.setKeyChar('U');}
+                if(e.getKeyChar()=='ù'){e.setKeyChar('U');}
+                if(e.getKeyChar()=='û'){e.setKeyChar('U');}
+                if(e.getKeyChar()=='v'){e.setKeyChar('V');}
+                if(e.getKeyChar()=='w'){e.setKeyChar('W');}
+                if(e.getKeyChar()=='x'){e.setKeyChar('X');}
+                if(e.getKeyChar()=='y'){e.setKeyChar('Y');}
+                if(e.getKeyChar()=='z'){e.setKeyChar('Z');}
+
+                if(jTextField8.getText().length()>=100){e.setKeyChar('\0');}
+
+                char c = e.getKeyChar();
+                //if ( 'a' <= c && c <= 'z' || 'A' <= c && c <= 'Z' || (c == KeyEvent.VK_SPACE)|| (c == KeyEvent.VK_BACK_SPACE) ){}else   
+                // {e.setKeyChar('\0');}   
+            }   
+
+        });
+        jTextField8.setFont(new java.awt.Font("Bookman Old Style", 0, 10)); // NOI18N
         jPanel4.add(jTextField8);
-        jTextField8.setBounds(530, 150, 250, 25);
+        jTextField8.setBounds(100, 150, 260, 25);
 
         jLabel13.setFont(new java.awt.Font("Bookman Old Style", 1, 10)); // NOI18N
         jLabel13.setText("Logradouro");
         jPanel4.add(jLabel13);
-        jLabel13.setBounds(40, 110, 70, 13);
+        jLabel13.setBounds(420, 70, 70, 13);
 
         jLabel14.setFont(new java.awt.Font("Bookman Old Style", 1, 10)); // NOI18N
         jLabel14.setText("Número");
         jPanel4.add(jLabel14);
-        jLabel14.setBounds(430, 110, 70, 13);
+        jLabel14.setBounds(10, 110, 70, 13);
+
+        jComboBox1.setFont(new java.awt.Font("Bookman Old Style", 0, 10)); // NOI18N
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel4.add(jComboBox1);
+        jComboBox1.setBounds(100, 70, 260, 19);
+
+        jComboBox2.setFont(new java.awt.Font("Bookman Old Style", 0, 10)); // NOI18N
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel4.add(jComboBox2);
+        jComboBox2.setBounds(500, 150, 330, 19);
+
+        jTable1.setFont(new java.awt.Font("Times New Roman", 0, 9)); // NOI18N
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "","","","","","","","","","","","","",""
+            }
+        ));
+        jTable1.setRowHeight(14);
+        jScrollPane1.setViewportView(jTable1);
+
+        jPanel4.add(jScrollPane1);
+        jScrollPane1.setBounds(10, 230, 820, 80);
+
+        jButton35.setFont(new java.awt.Font("Bookman Old Style", 1, 10)); // NOI18N
+        jButton35.setText("Preencher Campos");
+        jButton35.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton35ActionPerformed(evt);
+            }
+        });
+        jPanel4.add(jButton35);
+        jButton35.setBounds(230, 200, 150, 21);
+
+        jButton36.setFont(new java.awt.Font("Bookman Old Style", 1, 10)); // NOI18N
+        jButton36.setForeground(new java.awt.Color(0, 0, 153));
+        jButton36.setText("Cadastrar/Alterar");
+        jPanel4.add(jButton36);
+        jButton36.setBounds(10, 200, 150, 21);
+
+        jButton37.setFont(new java.awt.Font("Bookman Old Style", 1, 10)); // NOI18N
+        jButton37.setForeground(new java.awt.Color(102, 0, 0));
+        jButton37.setText("Excluir Endereço");
+        jButton37.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton37ActionPerformed(evt);
+            }
+        });
+        jPanel4.add(jButton37);
+        jButton37.setBounds(680, 200, 150, 21);
+        jPanel4.add(jSeparator6);
+        jSeparator6.setBounds(10, 190, 820, 10);
+
+        jButton38.setFont(new java.awt.Font("Bookman Old Style", 1, 10)); // NOI18N
+        jButton38.setText("Buscar Endereço");
+        jButton38.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton38ActionPerformed(evt);
+            }
+        });
+        jPanel4.add(jButton38);
+        jButton38.setBounds(460, 200, 150, 21);
 
         jTabbedPane1.addTab("Endereço", jPanel4);
 
@@ -683,6 +966,42 @@ public class TelaCadastroPessoas extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Atos", jPanel10);
 
+        jPanel11.setLayout(null);
+
+        jButton39.setFont(new java.awt.Font("Bookman Old Style", 1, 10)); // NOI18N
+        jButton39.setText("Sair");
+        jButton39.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton39ActionPerformed(evt);
+            }
+        });
+        jPanel11.add(jButton39);
+        jButton39.setBounds(10, 330, 470, 20);
+
+        jButton40.setFont(new java.awt.Font("Bookman Old Style", 1, 10)); // NOI18N
+        jButton40.setForeground(new java.awt.Color(102, 0, 0));
+        jButton40.setText("< Voltar");
+        jButton40.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton40ActionPerformed(evt);
+            }
+        });
+        jPanel11.add(jButton40);
+        jButton40.setBounds(610, 330, 110, 20);
+
+        jButton41.setFont(new java.awt.Font("Bookman Old Style", 1, 10)); // NOI18N
+        jButton41.setForeground(new java.awt.Color(0, 102, 102));
+        jButton41.setText("Avançar >");
+        jButton41.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton41ActionPerformed(evt);
+            }
+        });
+        jPanel11.add(jButton41);
+        jButton41.setBounds(730, 330, 110, 20);
+
+        jTabbedPane1.addTab("Lotação", jPanel11);
+
         jPanel8.setLayout(null);
 
         jButton14.setFont(new java.awt.Font("Bookman Old Style", 1, 10)); // NOI18N
@@ -720,7 +1039,7 @@ public class TelaCadastroPessoas extends javax.swing.JFrame {
         jTabbedPane1.addTab("Operador", jPanel8);
 
         getContentPane().add(jTabbedPane1);
-        jTabbedPane1.setBounds(0, 50, 850, 380);
+        jTabbedPane1.setBounds(0, 50, 850, 410);
 
         jLabel3.setFont(new java.awt.Font("Bookman Old Style", 2, 8)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 102, 0));
@@ -743,7 +1062,7 @@ public class TelaCadastroPessoas extends javax.swing.JFrame {
         getContentPane().add(jLabel5);
         jLabel5.setBounds(610, 35, 210, 10);
 
-        setSize(new java.awt.Dimension(866, 469));
+        setSize(new java.awt.Dimension(866, 501));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -824,7 +1143,7 @@ public class TelaCadastroPessoas extends javax.swing.JFrame {
 
     private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
         // TODO add your handling code here:
-                jTabbedPane1.setSelectedIndex(8);
+                jTabbedPane1.setSelectedIndex(9);
     }//GEN-LAST:event_jButton15ActionPerformed
 
     private void jButton17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton17ActionPerformed
@@ -931,6 +1250,40 @@ public class TelaCadastroPessoas extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jButton34ActionPerformed
 
+    private void jButton37ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton37ActionPerformed
+        // TODO add your handling code here:
+        
+        controleCadastroPessoas.excluirEnderecoPessoa();
+        
+        preencherJtable1d(controleCadastroPessoas.selecionarEnderecos());
+        
+    }//GEN-LAST:event_jButton37ActionPerformed
+
+    private void jButton38ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton38ActionPerformed
+        // TODO add your handling code here:
+        preencherJtable1d(controleCadastroPessoas.selecionarEnderecos());
+    }//GEN-LAST:event_jButton38ActionPerformed
+
+    private void jButton35ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton35ActionPerformed
+        // TODO add your handling code here:
+        preencherCamposEndereco();
+    }//GEN-LAST:event_jButton35ActionPerformed
+
+    private void jButton39ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton39ActionPerformed
+        // TODO add your handling code here:
+        dispose();
+    }//GEN-LAST:event_jButton39ActionPerformed
+
+    private void jButton40ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton40ActionPerformed
+        // TODO add your handling code here:
+        jTabbedPane1.setSelectedIndex(8);
+    }//GEN-LAST:event_jButton40ActionPerformed
+
+    private void jButton41ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton41ActionPerformed
+        // TODO add your handling code here:
+        jTabbedPane1.setSelectedIndex(10);
+    }//GEN-LAST:event_jButton41ActionPerformed
+
     /**
     * @param args the command line arguments
     */
@@ -943,6 +1296,44 @@ public class TelaCadastroPessoas extends javax.swing.JFrame {
     }
 
     
+    public void limparCamposEndereco(){
+        
+        jTextField1.setText("");
+        jTextField2.setText("");
+        jTextField3.setText("");
+        jTextField7.setText("");
+        jTextField8.setText("");
+        jComboBox1.setSelectedIndex(0);
+        jComboBox2.setSelectedIndex(0);
+        
+    };
+    
+    public void preencherComboBox1(List<BeanSequenciaTexto> listaTiposDeLogradouro){
+        jComboBox1.removeAllItems();
+        jComboBox1.addItem("");
+        if(!listaTiposDeLogradouro.isEmpty()){
+            for(int i=0;i<listaTiposDeLogradouro.size();i++){
+                jComboBox1.addItem(listaTiposDeLogradouro.get(i).getTexto());
+            }
+            // fazendo uma pré-seleção
+            jComboBox1.setSelectedItem("RUA");
+        }
+    };
+    
+
+    public void preencherComboBox2(List<BeanCadastroCidades> listaCidades){
+        jComboBox2.removeAllItems();
+        jComboBox2.addItem("");
+        if(!listaCidades.isEmpty()){
+            for(int i=0;i<listaCidades.size();i++){
+                jComboBox2.addItem(listaCidades.get(i).getNomeCidade()+" - "+listaCidades.get(i).getSiglaEstado()+" - "+listaCidades.get(i).getNomePais());
+            }
+            // fazendo uma pré-seleção
+            jComboBox2.setSelectedItem("MACEIO - AL - BRASIL");
+        }
+    };
+
+
     
     
     public void exibirDadosDoCadastrado(){
@@ -969,15 +1360,66 @@ public class TelaCadastroPessoas extends javax.swing.JFrame {
     }
     
     public void exibirDadosEnderecoPorCepWebServiceCep(String cep){
+        limparCamposEndereco();
+        jTextField1.setText(cep);
         BeanWebServiceCep beanWebServiceCep = controleCadastroPessoas.buscarDadosEnderecoPorCepWebServiceCep(cep);
         jTextField2.setText(beanWebServiceCep.getLogradouro());
         jTextField3.setText(beanWebServiceCep.getBairro());
-        jTextField4.setText(beanWebServiceCep.getCidade());
-        jTextField5.setText(beanWebServiceCep.getSiglaEstado());
-        jTextField6.setText(beanWebServiceCep.getTipoLogradouro());
+        jComboBox1.setSelectedItem(beanWebServiceCep.getTipoLogradouro());
+        jComboBox2.setSelectedItem(beanWebServiceCep.getCidade()+" - "+beanWebServiceCep.getSiglaEstado()+" - "+"BRASIL");
     
     }
+    
+    public void preencherCamposEndereco(){
+        limparCamposEndereco();
+        controleCadastroPessoas.selecionarEnderecos();
+        controleCadastroPessoas.selecionarEnderecoParaPessoa();
+        
+        jTextField1.setText(beanEnderecoPessoa.getEnderecoCep());
+        jTextField2.setText(beanEnderecoPessoa.getEnderecoLogradouro());
+        jTextField3.setText(beanEnderecoPessoa.getEnderecoBairro());
+        jTextField7.setText(beanEnderecoPessoa.getEnderecoNumero());
+        jTextField8.setText(beanEnderecoPessoa.getEnderecoComplemento());
+        jComboBox1.setSelectedItem(beanEnderecoPessoa.getNomeTipoLogradouro());
+        jComboBox2.setSelectedItem(beanEnderecoPessoa.getNomeCidade()+" - "+beanEnderecoPessoa.getSiglaEstado()+" - "+beanEnderecoPessoa.getNomePais());
+        
+    }
 
+    
+    public void preencherJtable1d(List<BeanEnderecoPessoa> dados  ){
+
+        jTable1.getColumnModel().getColumn(0).setPreferredWidth(80);
+        jTable1.getColumnModel().getColumn(1).setPreferredWidth(80);
+        jTable1.getColumnModel().getColumn(2).setPreferredWidth(80);
+        jTable1.getColumnModel().getColumn(3).setPreferredWidth(80);
+        jTable1.getColumnModel().getColumn(4).setPreferredWidth(80);
+        jTable1.getColumnModel().getColumn(5).setPreferredWidth(80);
+        jTable1.getColumnModel().getColumn(6).setPreferredWidth(80);
+        jTable1.getColumnModel().getColumn(7).setPreferredWidth(80);
+        jTable1.getColumnModel().getColumn(8).setPreferredWidth(80);
+        jTable1.getColumnModel().getColumn(9).setPreferredWidth(80);
+        jTable1.getColumnModel().getColumn(10).setPreferredWidth(80);
+        jTable1.getColumnModel().getColumn(11).setPreferredWidth(80);
+        jTable1.getColumnModel().getColumn(12).setPreferredWidth(80);
+        jTable1.getColumnModel().getColumn(13).setPreferredWidth(80);
+        
+       
+        jTable1.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
+
+        DefaultTableModel modelo = (DefaultTableModel)jTable1.getModel();
+        modelo.setNumRows(0);
+ 
+        Object[] linha1 = new Object[] { "SeqPessoa", "SeqEndereco", "SeqTipoLogradouro", "TipoLogradouro", "Logradouro", "Numero", "Complemento", "Bairro", "Cep", "SeqCidade", "NomeCidade", "SiglaEstado", "SeqPais", "Pais" };
+            modelo.addRow(linha1);
+        
+        for ( BeanEnderecoPessoa endereco : dados) {
+
+            Object[] linha = new Object[] { endereco.getSeqPessoa(), endereco.getSeqEndereco(), endereco.getSeqTipoLogradouro(), endereco.getNomeTipoLogradouro(), endereco.getEnderecoLogradouro(), endereco.getEnderecoNumero(), endereco.getEnderecoComplemento(), endereco.getEnderecoBairro(), endereco.getEnderecoCep(), endereco.getSeqEnderecoCidade(), endereco.getNomeCidade(), endereco.getSiglaEstado(), endereco.getSeqPais(), endereco.getNomePais() };
+            modelo.addRow(linha);
+
+        }
+ }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
@@ -1007,28 +1449,36 @@ public class TelaCadastroPessoas extends javax.swing.JFrame {
     private javax.swing.JButton jButton32;
     private javax.swing.JButton jButton33;
     private javax.swing.JButton jButton34;
+    private javax.swing.JButton jButton35;
+    private javax.swing.JButton jButton36;
+    private javax.swing.JButton jButton37;
+    private javax.swing.JButton jButton38;
+    private javax.swing.JButton jButton39;
     private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton40;
+    private javax.swing.JButton jButton41;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
+    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
+    private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
@@ -1037,18 +1487,18 @@ public class TelaCadastroPessoas extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JSeparator jSeparator5;
+    private javax.swing.JSeparator jSeparator6;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField jTextField8;
     // End of variables declaration//GEN-END:variables

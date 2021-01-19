@@ -5,8 +5,6 @@
  */
 package br.com.folha.model.cadastro.pessoas.bean;
 
-import br.com.folha.model.cadastro.parametros.bean.*;
-
 /**
  *
  * @author andre

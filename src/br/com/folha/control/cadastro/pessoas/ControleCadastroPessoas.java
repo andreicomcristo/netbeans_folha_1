@@ -10,6 +10,7 @@ import br.com.folha.control.principal.ControlePrincipal;
 import br.com.folha.model.cadastro.parametros.bean.BeanCadastroCidades;
 import br.com.folha.model.cadastro.parametros.bean.BeanSequenciaTexto;
 import br.com.folha.model.cadastro.pessoas.bean.BeanCadastroPessoas;
+import br.com.folha.model.cadastro.pessoas.bean.BeanEnderecoPessoa;
 import br.com.folha.model.cadastro.pessoas.bean.BeanWebServiceCep;
 import br.com.folha.model.cadastro.pessoas.dao.DaoCadastroPessoas;
 import br.com.folha.model.principal.bean.BeanPrincipal;
@@ -38,6 +39,7 @@ public class ControleCadastroPessoas {
     
     TelaCadastroPessoas telaCadastroPessoas;
     BeanCadastroPessoas beanCadastroPessoas = new BeanCadastroPessoas();
+    BeanEnderecoPessoa beanEnderecoPessoa = new BeanEnderecoPessoa();
     
     BeanWebServiceCep beanWebServiceCep = new BeanWebServiceCep();
     
@@ -46,27 +48,42 @@ public class ControleCadastroPessoas {
     UtilidadesDeTexto utilidadesDeTexto = new UtilidadesDeTexto();
     UtilidadesDistintas utilidadesDistintas = new UtilidadesDistintas();
     
-    // para colocar os paises no combo
-    List<BeanSequenciaTexto> listaPaises;
+    // para colocar os Tipos de Logradouro no combo
+    List<BeanSequenciaTexto> listaTiposDeLogradouro;
+    
+    // para colocar os Tipos de Logradouro no combo
+    List<BeanCadastroCidades> listaCidades;
     
     // para colocar os dados cadastrados na tabela1
-    List<BeanCadastroCidades> listaDadosjTable1;
+    List<BeanEnderecoPessoa> listaDadosjTable1;
     
-    public void abrirFrame(ControlePrincipal controlePrincipal, BeanPrincipal beanPrincipal, BeanCadastroPessoas beanCadastroPessoas){
+    public void abrirFrame(ControlePrincipal controlePrincipal, BeanPrincipal beanPrincipal, BeanCadastroPessoas beanCadastroPessoas, BeanEnderecoPessoa beanEnderecoPessoa ){
         
         this.controlePrincipal = controlePrincipal;
         this.beanPrincipal = beanPrincipal;
         this.beanCadastroPessoas = beanCadastroPessoas;
-        telaCadastroPessoas  = new TelaCadastroPessoas(this,beanCadastroPessoas);
+        this.beanEnderecoPessoa = beanEnderecoPessoa;
+        telaCadastroPessoas  = new TelaCadastroPessoas(this,beanCadastroPessoas, beanEnderecoPessoa);
         telaCadastroPessoas.exibirDadosDoCadastrado();
         telaCadastroPessoas.setVisible(true);
+        //preencher lista tipos de logradouro
+        preencherComboBox1();
+        telaCadastroPessoas.preencherComboBox1(listaTiposDeLogradouro);
+        //preencher lista Cidades
+        preencherComboBox2();
+        telaCadastroPessoas.preencherComboBox2(listaCidades);
+        telaCadastroPessoas.preencherJtable1d(selecionarEnderecos());
+        
+        
         telaCadastroPessoas.mostrarFotografiaInicialmente();
+        
     }
     
     public void abrirNovaConsultaCadastroPessoas(){
         controlePrincipal.abrirConsultaCadastroPessoas();
     }
     
+    // Aba Fotografia
     public boolean inserirFotografia(){  
         
         String caminho = navegarPorImagem().toString();
@@ -133,6 +150,8 @@ public class ControleCadastroPessoas {
     return new ImageIcon(newimg);
     }
     
+    
+    // Aba Enderecos
     public  BeanWebServiceCep buscarDadosEnderecoPorCepWebServiceCep(String cep) {
                 boolean acaoValida = true;
                 if(cep.length()!=8){acaoValida = false; JOptionPane.showMessageDialog(null, "Você deve digitar um CEP com oito caracteres.");}
@@ -164,7 +183,58 @@ public class ControleCadastroPessoas {
 	return beanWebServiceCep;		
 	}
 
+    public void preencherComboBox1(){
+        this.listaTiposDeLogradouro =daoCadastroPessoas.selecionarTiposDeLogradouro();
+    }
     
+    public void preencherComboBox2(){
+        this.listaCidades =daoCadastroPessoas.selecionarCidades();
+    }
+    
+    public List<BeanEnderecoPessoa> selecionarEnderecos(){
+        List dados =daoCadastroPessoas.selecionarEndereco(this.beanCadastroPessoas.getSeqPessoa());
+        listaDadosjTable1 = dados;
+        selecionarEnderecoParaPessoa();
+        return dados;
+    }
+    
+    public void selecionarEnderecoParaPessoa(){
+        BeanEnderecoPessoa beanEnderecoPessoa = new BeanEnderecoPessoa();
+        if(!this.listaDadosjTable1.isEmpty()){
+           beanEnderecoPessoa.setEnderecoBairro(this.listaDadosjTable1.get(0).getEnderecoBairro());
+           beanEnderecoPessoa.setEnderecoCep(this.listaDadosjTable1.get(0).getEnderecoCep());
+           beanEnderecoPessoa.setEnderecoComplemento(this.listaDadosjTable1.get(0).getEnderecoComplemento());
+           beanEnderecoPessoa.setEnderecoLogradouro(this.listaDadosjTable1.get(0).getEnderecoLogradouro());
+           beanEnderecoPessoa.setEnderecoNumero(this.listaDadosjTable1.get(0).getEnderecoNumero());
+           beanEnderecoPessoa.setNomeCidade(this.listaDadosjTable1.get(0).getNomeCidade());
+           beanEnderecoPessoa.setNomePais(this.listaDadosjTable1.get(0).getNomePais());
+           beanEnderecoPessoa.setNomeTipoLogradouro(this.listaDadosjTable1.get(0).getNomeTipoLogradouro());
+           beanEnderecoPessoa.setSeqEndereco(this.listaDadosjTable1.get(0).getSeqEndereco());
+           beanEnderecoPessoa.setSeqEnderecoCidade(this.listaDadosjTable1.get(0).getSeqEnderecoCidade());
+           beanEnderecoPessoa.setSeqPais(this.listaDadosjTable1.get(0).getSeqPais());
+           beanEnderecoPessoa.setSeqPessoa(this.listaDadosjTable1.get(0).getSeqPessoa());
+           beanEnderecoPessoa.setSeqTipoLogradouro(this.listaDadosjTable1.get(0).getSeqTipoLogradouro());
+           beanEnderecoPessoa.setSiglaEstado(this.listaDadosjTable1.get(0).getSiglaEstado());
+           
+        }
+        
+        this.beanEnderecoPessoa = beanEnderecoPessoa;
+        
+        
+    }
+    
+    public boolean excluirEnderecoPessoa(){
+        boolean executou = false;
+        boolean acaoValida = true;
+        
+        String confirmacao = JOptionPane.showInputDialog(null, "Se estiver certo(a) de que deseja excluir este endereço, tecle 3");
+        if(!confirmacao.equalsIgnoreCase("3")){acaoValida = false;}
+        
+        if(acaoValida==true){
+            executou = daoCadastroPessoas.excluirEnderecoPessoa(beanEnderecoPessoa);
+        }
+        return executou;
+    }
     
     
 }

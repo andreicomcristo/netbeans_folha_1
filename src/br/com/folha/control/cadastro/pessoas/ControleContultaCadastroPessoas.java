@@ -9,6 +9,7 @@ package br.com.folha.control.cadastro.pessoas;
 import br.com.folha.control.principal.ControlePrincipal;
 import br.com.folha.model.cadastro.parametros.bean.BeanSequenciaTexto;
 import br.com.folha.model.cadastro.pessoas.bean.BeanCadastroPessoas;
+import br.com.folha.model.cadastro.pessoas.bean.BeanEnderecoPessoa;
 import br.com.folha.model.cadastro.pessoas.dao.DaoConsultaCadastroPessoas;
 import br.com.folha.model.principal.bean.BeanPrincipal;
 import br.com.folha.util.UtilidadesDeTexto;
@@ -27,6 +28,7 @@ public class ControleContultaCadastroPessoas {
         
     TelaConsultaCadastroPessoas telaConsultaCadastroPessoas;
     BeanCadastroPessoas beanCadastroPessoas = new BeanCadastroPessoas();
+    BeanEnderecoPessoa beanEnderecoPessoa = new BeanEnderecoPessoa();
     
     DaoConsultaCadastroPessoas daoConsultaCadastroPessoas = new DaoConsultaCadastroPessoas();
     UtilidadesDeTexto utilidadesDeTexto = new UtilidadesDeTexto();
@@ -47,7 +49,7 @@ public class ControleContultaCadastroPessoas {
     
     public void abrirFrameCadastroPessoas(){
         ControleCadastroPessoas cp = new ControleCadastroPessoas();
-        cp.abrirFrame(controlePrincipal, beanPrincipal, beanCadastroPessoas);
+        cp.abrirFrame(controlePrincipal, beanPrincipal, beanCadastroPessoas, beanEnderecoPessoa);
     }
     
     public void indicaPessoaAAlterar(int linhaJTable1){

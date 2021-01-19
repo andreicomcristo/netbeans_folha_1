@@ -122,7 +122,6 @@ public class ControleCadastroCidades {
         return dados;
     }
     
-    
     public void preencherComboBox(){
         this.listaPaises =daoCidades.selecionarPaises();
     }
