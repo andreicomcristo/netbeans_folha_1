@@ -30,15 +30,16 @@ import javax.persistence.Table;
     @NamedQuery(name = "PessoaFotos.findById", query = "SELECT p FROM PessoaFotos p WHERE p.id = :id")})
 public class PessoaFotos implements Serializable {
 
+    @Lob
+    @Column(name = "fotografia")
+    private byte[] fotografia;
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "id", nullable = false)
     private Long id;
-    @Lob
-    @Column(name = "fotografia")
-    private byte[] fotografia;
     @JoinColumn(name = "id_pessoa_fk", referencedColumnName = "id", nullable = false)
     @ManyToOne(optional = false)
     private Pessoa idPessoaFk;
@@ -58,13 +59,6 @@ public class PessoaFotos implements Serializable {
         this.id = id;
     }
 
-    public byte[] getFotografia() {
-        return fotografia;
-    }
-
-    public void setFotografia(byte[] fotografia) {
-        this.fotografia = fotografia;
-    }
 
     public Pessoa getIdPessoaFk() {
         return idPessoaFk;
@@ -97,6 +91,14 @@ public class PessoaFotos implements Serializable {
     @Override
     public String toString() {
         return "br.com.folha.model.tabelas.PessoaFotos[ id=" + id + " ]";
+    }
+
+    public byte[] getFotografia() {
+        return fotografia;
+    }
+
+    public void setFotografia(byte[] fotografia) {
+        this.fotografia = fotografia;
     }
     
 }
