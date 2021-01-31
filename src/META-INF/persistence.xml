@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+  <persistence-unit name="FOLHAPU" transaction-type="RESOURCE_LOCAL">
+    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    <class>br.com.folha.model.tabelas.HistFuncionariosAutorizacao</class>
+    <class>br.com.folha.model.tabelas.PessoaDocumentosConselho</class>
+    <class>br.com.folha.model.tabelas.HistFuncionariosVinculos</class>
+    <class>br.com.folha.model.tabelas.HistUnidadesDiretor</class>
+    <class>br.com.folha.model.tabelas.HistFuncionariosCarreira</class>
+    <class>br.com.folha.model.tabelas.EstadosCivis</class>
+    <class>br.com.folha.model.tabelas.Situacoes</class>
+    <class>br.com.folha.model.tabelas.HistFuncionariosCargos</class>
+    <class>br.com.folha.model.tabelas.HistFuncionariosSituacoes</class>
+    <class>br.com.folha.model.tabelas.HabilitacaoCategorias</class>
+    <class>br.com.folha.model.tabelas.Autorizacoes</class>
+    <class>br.com.folha.model.tabelas.Vinculos</class>
+    <class>br.com.folha.model.tabelas.HistUnidadesRegime</class>
+    <class>br.com.folha.model.tabelas.HistFuncionariosUnidadeLotacao</class>
+    <class>br.com.folha.model.tabelas.Carreiras</class>
+    <class>br.com.folha.model.tabelas.CargosEspecialidade</class>
+    <class>br.com.folha.model.tabelas.PessoaFotos</class>
+    <class>br.com.folha.model.tabelas.Conselhos</class>
+    <class>br.com.folha.model.tabelas.Classes</class>
+    <class>br.com.folha.model.tabelas.HistUnidadesNaturezaJuridica</class>
+    <class>br.com.folha.model.tabelas.PessoaDocumentosReservista</class>
+    <class>br.com.folha.model.tabelas.Privilegios</class>
+    <class>br.com.folha.model.tabelas.Sexos</class>
+    <class>br.com.folha.model.tabelas.PessoaFuncionarios</class>
+    <class>br.com.folha.model.tabelas.PessoaBancos</class>
+    <class>br.com.folha.model.tabelas.CargaHorariaSemanal</class>
+    <class>br.com.folha.model.tabelas.TiposDeFiliacao</class>
+    <class>br.com.folha.model.tabelas.Uf</class>
+    <class>br.com.folha.model.tabelas.Pessoa</class>
+    <class>br.com.folha.model.tabelas.PessoaDocumentosTitulo</class>
+    <class>br.com.folha.model.tabelas.NiveisCargo</class>
+    <class>br.com.folha.model.tabelas.PessoaDocumentosCtps</class>
+    <class>br.com.folha.model.tabelas.PessoaDocumentosHabilitacao</class>
+    <class>br.com.folha.model.tabelas.TiposDeDocumento</class>
+    <class>br.com.folha.model.tabelas.Cidades</class>
+    <class>br.com.folha.model.tabelas.HistFuncionariosCargaHoraria</class>
+    <class>br.com.folha.model.tabelas.HistFuncionariosUnidadeAtuacao</class>
+    <class>br.com.folha.model.tabelas.HistFuncionariosClasse</class>
+    <class>br.com.folha.model.tabelas.Escolaridades</class>
+    <class>br.com.folha.model.tabelas.PessoaOperadores</class>
+    <class>br.com.folha.model.tabelas.PessoaDocumentos</class>
+    <class>br.com.folha.model.tabelas.Bancos</class>
+    <class>br.com.folha.model.tabelas.PessoaFilhos</class>
+    <class>br.com.folha.model.tabelas.TiposLogradouro</class>
+    <class>br.com.folha.model.tabelas.Paises</class>
+    <class>br.com.folha.model.tabelas.UnidadesRegime</class>
+    <class>br.com.folha.model.tabelas.UnidadesNaturezaJuridica</class>
+    <class>br.com.folha.model.tabelas.PessoaDocumentosRg</class>
+    <class>br.com.folha.model.tabelas.Enderecos</class>
+    <class>br.com.folha.model.tabelas.Cargos</class>
+    <class>br.com.folha.model.tabelas.Unidades</class>
+    <properties>
+      <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/folha"/>
+      <property name="javax.persistence.jdbc.user" value="postgres"/>
+      <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>
+      <property name="javax.persistence.jdbc.password" value="191"/>
+    </properties>
+  </persistence-unit>
+</persistence>
