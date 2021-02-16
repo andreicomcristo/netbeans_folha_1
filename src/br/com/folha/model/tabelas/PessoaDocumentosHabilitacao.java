@@ -40,10 +40,10 @@ public class PessoaDocumentosHabilitacao implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @Column(name = "id", nullable = false)
+    @Column(name = "id")
     private Long id;
     @Basic(optional = false)
-    @Column(name = "numero_registro", nullable = false, length = 100)
+    @Column(name = "numero_registro")
     private String numeroRegistro;
     @Column(name = "dt_emissao")
     @Temporal(TemporalType.DATE)

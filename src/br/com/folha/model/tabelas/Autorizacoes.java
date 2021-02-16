@@ -43,7 +43,7 @@ public class Autorizacoes implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @Column(name = "id", nullable = false)
+    @Column(name = "id")
     private Long id;
     @Column(name = "dt_inicio")
     @Temporal(TemporalType.DATE)
@@ -52,18 +52,18 @@ public class Autorizacoes implements Serializable {
     @Temporal(TemporalType.DATE)
     private Date dtFim;
     @Basic(optional = false)
-    @Column(name = "id_carga_horaria_semanal_fk", nullable = false)
+    @Column(name = "id_carga_horaria_semanal_fk")
     private long idCargaHorariaSemanalFk;
     @Basic(optional = false)
-    @Column(name = "dt_criacao", nullable = false)
+    @Column(name = "dt_criacao")
     @Temporal(TemporalType.DATE)
     private Date dtCriacao;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idAutorizacaoFk")
     private Collection<HistFuncionariosAutorizacao> histFuncionariosAutorizacaoCollection;
-    @JoinColumn(name = "id_funcionario_fk", referencedColumnName = "id", nullable = false)
+    @JoinColumn(name = "id_funcionario_fk", referencedColumnName = "id")
     @ManyToOne(optional = false)
     private PessoaFuncionarios idFuncionarioFk;
-    @JoinColumn(name = "id_operador_criacao_fk", referencedColumnName = "id", nullable = false)
+    @JoinColumn(name = "id_operador_criacao_fk", referencedColumnName = "id")
     @ManyToOne(optional = false)
     private PessoaOperadores idOperadorCriacaoFk;
     @JoinColumn(name = "id_unidade_de_saude_fk", referencedColumnName = "id")

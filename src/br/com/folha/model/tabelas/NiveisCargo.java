@@ -18,15 +18,13 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.persistence.UniqueConstraint;
 
 /**
  *
  * @author ANDREI
  */
 @Entity
-@Table(name = "niveis_cargo", uniqueConstraints = {
-    @UniqueConstraint(columnNames = {"sigla_nivel_cargo"})})
+@Table(name = "niveis_cargo")
 @NamedQueries({
     @NamedQuery(name = "NiveisCargo.findAll", query = "SELECT n FROM NiveisCargo n"),
     @NamedQuery(name = "NiveisCargo.findById", query = "SELECT n FROM NiveisCargo n WHERE n.id = :id"),
@@ -39,15 +37,15 @@ public class NiveisCargo implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @Column(name = "id", nullable = false)
+    @Column(name = "id")
     private Long id;
     @Basic(optional = false)
-    @Column(name = "sigla_nivel_cargo", nullable = false, length = 10)
+    @Column(name = "sigla_nivel_cargo")
     private String siglaNivelCargo;
     @Basic(optional = false)
-    @Column(name = "nome_nivel_cargo", nullable = false, length = 150)
+    @Column(name = "nome_nivel_cargo")
     private String nomeNivelCargo;
-    @Column(name = "descricao_nivel_cargo", length = 300)
+    @Column(name = "descricao_nivel_cargo")
     private String descricaoNivelCargo;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idNivelCargoFk")
     private Collection<Cargos> cargosCollection;

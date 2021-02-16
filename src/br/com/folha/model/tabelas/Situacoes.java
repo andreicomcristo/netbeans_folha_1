@@ -36,12 +36,12 @@ public class Situacoes implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @Column(name = "id", nullable = false)
+    @Column(name = "id")
     private Long id;
     @Basic(optional = false)
-    @Column(name = "nome_situacao", nullable = false, length = 300)
+    @Column(name = "nome_situacao")
     private String nomeSituacao;
-    @Column(name = "descricao_situacao", length = 300)
+    @Column(name = "descricao_situacao")
     private String descricaoSituacao;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idSituacaoFk")
     private Collection<HistFuncionariosSituacoes> histFuncionariosSituacoesCollection;

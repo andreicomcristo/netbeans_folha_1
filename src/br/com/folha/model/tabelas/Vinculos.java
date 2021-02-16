@@ -18,15 +18,13 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.persistence.UniqueConstraint;
 
 /**
  *
  * @author ANDREI
  */
 @Entity
-@Table(name = "vinculos", uniqueConstraints = {
-    @UniqueConstraint(columnNames = {"nome_vinculo"})})
+@Table(name = "vinculos")
 @NamedQueries({
     @NamedQuery(name = "Vinculos.findAll", query = "SELECT v FROM Vinculos v"),
     @NamedQuery(name = "Vinculos.findById", query = "SELECT v FROM Vinculos v WHERE v.id = :id"),
@@ -38,12 +36,12 @@ public class Vinculos implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @Column(name = "id", nullable = false)
+    @Column(name = "id")
     private Long id;
     @Basic(optional = false)
-    @Column(name = "nome_vinculo", nullable = false, length = 100)
+    @Column(name = "nome_vinculo")
     private String nomeVinculo;
-    @Column(name = "descricao_vinculo", length = 300)
+    @Column(name = "descricao_vinculo")
     private String descricaoVinculo;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idVinculoFk")
     private Collection<HistFuncionariosVinculos> histFuncionariosVinculosCollection;

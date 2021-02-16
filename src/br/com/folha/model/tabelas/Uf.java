@@ -36,13 +36,13 @@ public class Uf implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @Column(name = "id", nullable = false)
+    @Column(name = "id")
     private Long id;
     @Basic(optional = false)
-    @Column(name = "sigla_uf", nullable = false, length = 300)
+    @Column(name = "sigla_uf")
     private String siglaUf;
     @Basic(optional = false)
-    @Column(name = "nome_uf", nullable = false, length = 300)
+    @Column(name = "nome_uf")
     private String nomeUf;
     @OneToMany(mappedBy = "idUfFk")
     private Collection<PessoaDocumentosConselho> pessoaDocumentosConselhoCollection;

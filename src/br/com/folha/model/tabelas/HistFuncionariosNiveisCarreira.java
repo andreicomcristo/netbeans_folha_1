@@ -26,15 +26,15 @@ import javax.persistence.TemporalType;
  * @author ANDREI
  */
 @Entity
-@Table(name = "hist_funcionarios_situacoes")
+@Table(name = "hist_funcionarios_niveis_carreira")
 @NamedQueries({
-    @NamedQuery(name = "HistFuncionariosSituacoes.findAll", query = "SELECT h FROM HistFuncionariosSituacoes h"),
-    @NamedQuery(name = "HistFuncionariosSituacoes.findById", query = "SELECT h FROM HistFuncionariosSituacoes h WHERE h.id = :id"),
-    @NamedQuery(name = "HistFuncionariosSituacoes.findByDtCadastro", query = "SELECT h FROM HistFuncionariosSituacoes h WHERE h.dtCadastro = :dtCadastro"),
-    @NamedQuery(name = "HistFuncionariosSituacoes.findByMotivoCadastro", query = "SELECT h FROM HistFuncionariosSituacoes h WHERE h.motivoCadastro = :motivoCadastro"),
-    @NamedQuery(name = "HistFuncionariosSituacoes.findByDtCancelamento", query = "SELECT h FROM HistFuncionariosSituacoes h WHERE h.dtCancelamento = :dtCancelamento"),
-    @NamedQuery(name = "HistFuncionariosSituacoes.findByMotivoCancelamento", query = "SELECT h FROM HistFuncionariosSituacoes h WHERE h.motivoCancelamento = :motivoCancelamento")})
-public class HistFuncionariosSituacoes implements Serializable {
+    @NamedQuery(name = "HistFuncionariosNiveisCarreira.findAll", query = "SELECT h FROM HistFuncionariosNiveisCarreira h"),
+    @NamedQuery(name = "HistFuncionariosNiveisCarreira.findById", query = "SELECT h FROM HistFuncionariosNiveisCarreira h WHERE h.id = :id"),
+    @NamedQuery(name = "HistFuncionariosNiveisCarreira.findByDtCadastro", query = "SELECT h FROM HistFuncionariosNiveisCarreira h WHERE h.dtCadastro = :dtCadastro"),
+    @NamedQuery(name = "HistFuncionariosNiveisCarreira.findByMotivoCadastro", query = "SELECT h FROM HistFuncionariosNiveisCarreira h WHERE h.motivoCadastro = :motivoCadastro"),
+    @NamedQuery(name = "HistFuncionariosNiveisCarreira.findByDtCancelamento", query = "SELECT h FROM HistFuncionariosNiveisCarreira h WHERE h.dtCancelamento = :dtCancelamento"),
+    @NamedQuery(name = "HistFuncionariosNiveisCarreira.findByMotivoCancelamento", query = "SELECT h FROM HistFuncionariosNiveisCarreira h WHERE h.motivoCancelamento = :motivoCancelamento")})
+public class HistFuncionariosNiveisCarreira implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -42,7 +42,6 @@ public class HistFuncionariosSituacoes implements Serializable {
     @Basic(optional = false)
     @Column(name = "id")
     private Long id;
-    @Basic(optional = false)
     @Column(name = "dt_cadastro")
     @Temporal(TemporalType.DATE)
     private Date dtCadastro;
@@ -53,29 +52,24 @@ public class HistFuncionariosSituacoes implements Serializable {
     private Date dtCancelamento;
     @Column(name = "motivo_cancelamento")
     private String motivoCancelamento;
+    @JoinColumn(name = "id_nivel_carreira_fk", referencedColumnName = "id")
+    @ManyToOne
+    private NiveisCarreira idNivelCarreiraFk;
     @JoinColumn(name = "id_funcionario_fk", referencedColumnName = "id")
-    @ManyToOne(optional = false)
+    @ManyToOne
     private PessoaFuncionarios idFuncionarioFk;
+    @JoinColumn(name = "id_operador_cadastro_fk", referencedColumnName = "id")
+    @ManyToOne
+    private PessoaOperadores idOperadorCadastroFk;
     @JoinColumn(name = "id_operador_cancelamento_fk", referencedColumnName = "id")
     @ManyToOne
     private PessoaOperadores idOperadorCancelamentoFk;
-    @JoinColumn(name = "id_operador_cadastro_fk", referencedColumnName = "id")
-    @ManyToOne(optional = false)
-    private PessoaOperadores idOperadorCadastroFk;
-    @JoinColumn(name = "id_situacao_fk", referencedColumnName = "id")
-    @ManyToOne(optional = false)
-    private Situacoes idSituacaoFk;
 
-    public HistFuncionariosSituacoes() {
+    public HistFuncionariosNiveisCarreira() {
     }
 
-    public HistFuncionariosSituacoes(Long id) {
+    public HistFuncionariosNiveisCarreira(Long id) {
         this.id = id;
-    }
-
-    public HistFuncionariosSituacoes(Long id, Date dtCadastro) {
-        this.id = id;
-        this.dtCadastro = dtCadastro;
     }
 
     public Long getId() {
@@ -118,20 +112,20 @@ public class HistFuncionariosSituacoes implements Serializable {
         this.motivoCancelamento = motivoCancelamento;
     }
 
+    public NiveisCarreira getIdNivelCarreiraFk() {
+        return idNivelCarreiraFk;
+    }
+
+    public void setIdNivelCarreiraFk(NiveisCarreira idNivelCarreiraFk) {
+        this.idNivelCarreiraFk = idNivelCarreiraFk;
+    }
+
     public PessoaFuncionarios getIdFuncionarioFk() {
         return idFuncionarioFk;
     }
 
     public void setIdFuncionarioFk(PessoaFuncionarios idFuncionarioFk) {
         this.idFuncionarioFk = idFuncionarioFk;
-    }
-
-    public PessoaOperadores getIdOperadorCancelamentoFk() {
-        return idOperadorCancelamentoFk;
-    }
-
-    public void setIdOperadorCancelamentoFk(PessoaOperadores idOperadorCancelamentoFk) {
-        this.idOperadorCancelamentoFk = idOperadorCancelamentoFk;
     }
 
     public PessoaOperadores getIdOperadorCadastroFk() {
@@ -142,12 +136,12 @@ public class HistFuncionariosSituacoes implements Serializable {
         this.idOperadorCadastroFk = idOperadorCadastroFk;
     }
 
-    public Situacoes getIdSituacaoFk() {
-        return idSituacaoFk;
+    public PessoaOperadores getIdOperadorCancelamentoFk() {
+        return idOperadorCancelamentoFk;
     }
 
-    public void setIdSituacaoFk(Situacoes idSituacaoFk) {
-        this.idSituacaoFk = idSituacaoFk;
+    public void setIdOperadorCancelamentoFk(PessoaOperadores idOperadorCancelamentoFk) {
+        this.idOperadorCancelamentoFk = idOperadorCancelamentoFk;
     }
 
     @Override
@@ -160,10 +154,10 @@ public class HistFuncionariosSituacoes implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof HistFuncionariosSituacoes)) {
+        if (!(object instanceof HistFuncionariosNiveisCarreira)) {
             return false;
         }
-        HistFuncionariosSituacoes other = (HistFuncionariosSituacoes) object;
+        HistFuncionariosNiveisCarreira other = (HistFuncionariosNiveisCarreira) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -172,7 +166,7 @@ public class HistFuncionariosSituacoes implements Serializable {
 
     @Override
     public String toString() {
-        return "br.com.folha.model.tabelas.HistFuncionariosSituacoes[ id=" + id + " ]";
+        return "br.com.folha.model.tabelas.HistFuncionariosNiveisCarreira[ id=" + id + " ]";
     }
     
 }

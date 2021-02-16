@@ -35,11 +35,11 @@ public class TiposDeDocumento implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @Column(name = "id", nullable = false)
+    @Column(name = "id")
     private Long id;
-    @Column(name = "sigla_documento", length = 300)
+    @Column(name = "sigla_documento")
     private String siglaDocumento;
-    @Column(name = "nome_documento", length = 300)
+    @Column(name = "nome_documento")
     private String nomeDocumento;
     @OneToMany(mappedBy = "idTiposDeDocumentoFk")
     private Collection<PessoaDocumentos> pessoaDocumentosCollection;

@@ -17,15 +17,13 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.persistence.UniqueConstraint;
 
 /**
  *
  * @author ANDREI
  */
 @Entity
-@Table(name = "estados_civis", uniqueConstraints = {
-    @UniqueConstraint(columnNames = {"nome_estado_civil"})})
+@Table(name = "estados_civis")
 @NamedQueries({
     @NamedQuery(name = "EstadosCivis.findAll", query = "SELECT e FROM EstadosCivis e"),
     @NamedQuery(name = "EstadosCivis.findById", query = "SELECT e FROM EstadosCivis e WHERE e.id = :id"),
@@ -37,12 +35,12 @@ public class EstadosCivis implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @Column(name = "id", nullable = false)
+    @Column(name = "id")
     private Long id;
     @Basic(optional = false)
-    @Column(name = "nome_estado_civil", nullable = false, length = 100)
+    @Column(name = "nome_estado_civil")
     private String nomeEstadoCivil;
-    @Column(name = "descricao_estado_civil", length = 300)
+    @Column(name = "descricao_estado_civil")
     private String descricaoEstadoCivil;
     @OneToMany(mappedBy = "seqEstadoCivil")
     private Collection<Pessoa> pessoaCollection;

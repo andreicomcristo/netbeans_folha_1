@@ -18,15 +18,13 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.persistence.UniqueConstraint;
 
 /**
  *
  * @author ANDREI
  */
 @Entity
-@Table(name = "carga_horaria_semanal", uniqueConstraints = {
-    @UniqueConstraint(columnNames = {"carga_horaria"})})
+@Table(name = "carga_horaria_semanal")
 @NamedQueries({
     @NamedQuery(name = "CargaHorariaSemanal.findAll", query = "SELECT c FROM CargaHorariaSemanal c"),
     @NamedQuery(name = "CargaHorariaSemanal.findById", query = "SELECT c FROM CargaHorariaSemanal c WHERE c.id = :id"),
@@ -38,12 +36,12 @@ public class CargaHorariaSemanal implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @Column(name = "id", nullable = false)
+    @Column(name = "id")
     private Long id;
     @Basic(optional = false)
-    @Column(name = "carga_horaria", nullable = false)
+    @Column(name = "carga_horaria")
     private int cargaHoraria;
-    @Column(name = "descricao_carga_horaria", length = 300)
+    @Column(name = "descricao_carga_horaria")
     private String descricaoCargaHoraria;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idCargaHorariaSemanalFk")
     private Collection<HistFuncionariosCargaHoraria> histFuncionariosCargaHorariaCollection;

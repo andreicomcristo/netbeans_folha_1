@@ -39,10 +39,10 @@ public class PessoaDocumentosConselho implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @Column(name = "id", nullable = false)
+    @Column(name = "id")
     private Long id;
     @Basic(optional = false)
-    @Column(name = "numero_conselho", nullable = false, length = 100)
+    @Column(name = "numero_conselho")
     private String numeroConselho;
     @Column(name = "dt_emissao")
     @Temporal(TemporalType.DATE)
@@ -53,7 +53,7 @@ public class PessoaDocumentosConselho implements Serializable {
     @JoinColumn(name = "id_conselhos_fk", referencedColumnName = "id")
     @ManyToOne
     private Conselhos idConselhosFk;
-    @JoinColumn(name = "id_pessoa_fk", referencedColumnName = "id", nullable = false)
+    @JoinColumn(name = "id_pessoa_fk", referencedColumnName = "id")
     @ManyToOne(optional = false)
     private Pessoa idPessoaFk;
     @JoinColumn(name = "id_uf_fk", referencedColumnName = "id")

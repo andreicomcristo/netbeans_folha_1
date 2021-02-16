@@ -17,15 +17,13 @@ import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
-import javax.persistence.UniqueConstraint;
 
 /**
  *
  * @author ANDREI
  */
 @Entity
-@Table(name = "cargos_especialidade", uniqueConstraints = {
-    @UniqueConstraint(columnNames = {"nome_especialidade_cargo"})})
+@Table(name = "cargos_especialidade")
 @NamedQueries({
     @NamedQuery(name = "CargosEspecialidade.findAll", query = "SELECT c FROM CargosEspecialidade c"),
     @NamedQuery(name = "CargosEspecialidade.findById", query = "SELECT c FROM CargosEspecialidade c WHERE c.id = :id"),
@@ -37,12 +35,12 @@ public class CargosEspecialidade implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @Column(name = "id", nullable = false)
+    @Column(name = "id")
     private Long id;
     @Basic(optional = false)
-    @Column(name = "nome_especialidade_cargo", nullable = false, length = 100)
+    @Column(name = "nome_especialidade_cargo")
     private String nomeEspecialidadeCargo;
-    @Column(name = "descricao_especialidade_cargo", length = 300)
+    @Column(name = "descricao_especialidade_cargo")
     private String descricaoEspecialidadeCargo;
     @JoinColumn(name = "id_cargo_fk", referencedColumnName = "id")
     @ManyToOne

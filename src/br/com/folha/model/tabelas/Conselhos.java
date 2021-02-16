@@ -35,12 +35,12 @@ public class Conselhos implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @Column(name = "id", nullable = false)
+    @Column(name = "id")
     private Long id;
     @Basic(optional = false)
-    @Column(name = "nome_conselho", nullable = false, length = 100)
+    @Column(name = "nome_conselho")
     private String nomeConselho;
-    @Column(name = "descricao_conselho", length = 300)
+    @Column(name = "descricao_conselho")
     private String descricaoConselho;
     @OneToMany(mappedBy = "idConselhosFk")
     private Collection<PessoaDocumentosConselho> pessoaDocumentosConselhoCollection;

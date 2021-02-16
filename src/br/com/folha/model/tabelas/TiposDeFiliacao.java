@@ -18,15 +18,13 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.persistence.UniqueConstraint;
 
 /**
  *
  * @author ANDREI
  */
 @Entity
-@Table(name = "tipos_de_filiacao", uniqueConstraints = {
-    @UniqueConstraint(columnNames = {"nome_tipo_filiacao"})})
+@Table(name = "tipos_de_filiacao")
 @NamedQueries({
     @NamedQuery(name = "TiposDeFiliacao.findAll", query = "SELECT t FROM TiposDeFiliacao t"),
     @NamedQuery(name = "TiposDeFiliacao.findById", query = "SELECT t FROM TiposDeFiliacao t WHERE t.id = :id"),
@@ -38,12 +36,12 @@ public class TiposDeFiliacao implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @Column(name = "id", nullable = false)
+    @Column(name = "id")
     private Long id;
     @Basic(optional = false)
-    @Column(name = "nome_tipo_filiacao", nullable = false, length = 150)
+    @Column(name = "nome_tipo_filiacao")
     private String nomeTipoFiliacao;
-    @Column(name = "descricao_tipo_filiacao", length = 300)
+    @Column(name = "descricao_tipo_filiacao")
     private String descricaoTipoFiliacao;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idTipoFiliacaoFk")
     private Collection<PessoaFilhos> pessoaFilhosCollection;

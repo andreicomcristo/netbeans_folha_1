@@ -36,12 +36,12 @@ public class UnidadesNaturezaJuridica implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @Column(name = "id", nullable = false)
+    @Column(name = "id")
     private Long id;
     @Basic(optional = false)
-    @Column(name = "nome_natureza_juridica", nullable = false, length = 150)
+    @Column(name = "nome_natureza_juridica")
     private String nomeNaturezaJuridica;
-    @Column(name = "descricao_natureza_juridica", length = 300)
+    @Column(name = "descricao_natureza_juridica")
     private String descricaoNaturezaJuridica;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idUnidadeDeSaudeFk")
     private Collection<HistUnidadesNaturezaJuridica> histUnidadesNaturezaJuridicaCollection;

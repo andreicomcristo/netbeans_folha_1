@@ -34,9 +34,9 @@ public class PessoaDocumentos implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @Column(name = "id", nullable = false)
+    @Column(name = "id")
     private Long id;
-    @Column(name = "numero_documento", length = 100)
+    @Column(name = "numero_documento")
     private String numeroDocumento;
     @JoinColumn(name = "id_pessoa_fk", referencedColumnName = "id")
     @ManyToOne

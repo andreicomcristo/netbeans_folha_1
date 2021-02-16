@@ -51,45 +51,45 @@ public class PessoaFilhos implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @Column(name = "id", nullable = false)
+    @Column(name = "id")
     private Long id;
     @Basic(optional = false)
-    @Column(name = "nome_filho", nullable = false, length = 300)
+    @Column(name = "nome_filho")
     private String nomeFilho;
     @Column(name = "dt_nascimento")
     @Temporal(TemporalType.DATE)
     private Date dtNascimento;
-    @Column(name = "cpf_filho", length = 20)
+    @Column(name = "cpf_filho")
     private String cpfFilho;
-    @Column(name = "rg_filho", length = 30)
+    @Column(name = "rg_filho")
     private String rgFilho;
     @Column(name = "rg_dt_emissao_filho")
     @Temporal(TemporalType.DATE)
     private Date rgDtEmissaoFilho;
-    @Column(name = "rg_orgao_expedidor", length = 150)
+    @Column(name = "rg_orgao_expedidor")
     private String rgOrgaoExpedidor;
-    @Column(name = "numero_certidao_nascimento", length = 150)
+    @Column(name = "numero_certidao_nascimento")
     private String numeroCertidaoNascimento;
     @Column(name = "dt_certidado_nascimento")
     @Temporal(TemporalType.DATE)
     private Date dtCertidadoNascimento;
-    @Column(name = "cartorio_certidado_nascimento", length = 150)
+    @Column(name = "cartorio_certidado_nascimento")
     private String cartorioCertidadoNascimento;
-    @Column(name = "livro_certidao_nascimento", length = 150)
+    @Column(name = "livro_certidao_nascimento")
     private String livroCertidaoNascimento;
-    @Column(name = "folha_certidao_nascimento", length = 150)
+    @Column(name = "folha_certidao_nascimento")
     private String folhaCertidaoNascimento;
     @Column(name = "dt_cadastro")
     @Temporal(TemporalType.DATE)
     private Date dtCadastro;
-    @Column(name = "motivo_cadastro", length = 300)
+    @Column(name = "motivo_cadastro")
     private String motivoCadastro;
     @Column(name = "dt_cancelamento")
     @Temporal(TemporalType.DATE)
     private Date dtCancelamento;
-    @Column(name = "motivo_cancelamento", length = 300)
+    @Column(name = "motivo_cancelamento")
     private String motivoCancelamento;
-    @JoinColumn(name = "id_pessoa_fk", referencedColumnName = "id", nullable = false)
+    @JoinColumn(name = "id_pessoa_fk", referencedColumnName = "id")
     @ManyToOne(optional = false)
     private Pessoa idPessoaFk;
     @JoinColumn(name = "id_operador_cadastro_fk", referencedColumnName = "id")
@@ -98,7 +98,7 @@ public class PessoaFilhos implements Serializable {
     @JoinColumn(name = "id_operador_cancelamento_fk", referencedColumnName = "id")
     @ManyToOne
     private PessoaOperadores idOperadorCancelamentoFk;
-    @JoinColumn(name = "id_tipo_filiacao_fk", referencedColumnName = "id", nullable = false)
+    @JoinColumn(name = "id_tipo_filiacao_fk", referencedColumnName = "id")
     @ManyToOne(optional = false)
     private TiposDeFiliacao idTipoFiliacaoFk;
 

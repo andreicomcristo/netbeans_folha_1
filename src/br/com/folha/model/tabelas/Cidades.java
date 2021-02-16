@@ -36,15 +36,15 @@ public class Cidades implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @Column(name = "id", nullable = false)
+    @Column(name = "id")
     private Long id;
     @Basic(optional = false)
-    @Column(name = "nome_cidade", nullable = false, length = 150)
+    @Column(name = "nome_cidade")
     private String nomeCidade;
-    @JoinColumn(name = "id_pais_fk", referencedColumnName = "id", nullable = false)
+    @JoinColumn(name = "id_pais_fk", referencedColumnName = "id")
     @ManyToOne(optional = false)
     private Paises idPaisFk;
-    @JoinColumn(name = "id_uf_fk", referencedColumnName = "id", nullable = false)
+    @JoinColumn(name = "id_uf_fk", referencedColumnName = "id")
     @ManyToOne(optional = false)
     private Uf idUfFk;
     @OneToMany(mappedBy = "idEnderecoCidadeFk")

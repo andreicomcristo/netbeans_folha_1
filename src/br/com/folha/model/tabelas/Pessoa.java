@@ -23,15 +23,13 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.persistence.UniqueConstraint;
 
 /**
  *
  * @author ANDREI
  */
 @Entity
-@Table(name = "pessoa", uniqueConstraints = {
-    @UniqueConstraint(columnNames = {"cpf"})})
+@Table(name = "pessoa")
 @NamedQueries({
     @NamedQuery(name = "Pessoa.findAll", query = "SELECT p FROM Pessoa p"),
     @NamedQuery(name = "Pessoa.findById", query = "SELECT p FROM Pessoa p WHERE p.id = :id"),
@@ -54,30 +52,30 @@ public class Pessoa implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @Column(name = "id", nullable = false)
+    @Column(name = "id")
     private Long id;
     @Basic(optional = false)
-    @Column(name = "cpf", nullable = false, length = 20)
+    @Column(name = "cpf")
     private String cpf;
     @Basic(optional = false)
-    @Column(name = "nome", nullable = false, length = 300)
+    @Column(name = "nome")
     private String nome;
-    @Column(name = "fone1", length = 30)
+    @Column(name = "fone1")
     private String fone1;
-    @Column(name = "fone2", length = 30)
+    @Column(name = "fone2")
     private String fone2;
-    @Column(name = "fone3", length = 30)
+    @Column(name = "fone3")
     private String fone3;
-    @Column(name = "email", length = 150)
+    @Column(name = "email")
     private String email;
-    @Column(name = "email_saude", length = 150)
+    @Column(name = "email_saude")
     private String emailSaude;
     @Column(name = "dt_nascimento")
     @Temporal(TemporalType.DATE)
     private Date dtNascimento;
-    @Column(name = "nome_pai", length = 300)
+    @Column(name = "nome_pai")
     private String nomePai;
-    @Column(name = "nome_mae", length = 300)
+    @Column(name = "nome_mae")
     private String nomeMae;
     @Column(name = "dt_cadastro")
     @Temporal(TemporalType.DATE)
@@ -85,7 +83,7 @@ public class Pessoa implements Serializable {
     @Column(name = "dt_cancelamento")
     @Temporal(TemporalType.DATE)
     private Date dtCancelamento;
-    @Column(name = "moivo_cancelamento", length = 300)
+    @Column(name = "moivo_cancelamento")
     private String moivoCancelamento;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idPessoaFk")
     private Collection<PessoaFilhos> pessoaFilhosCollection;

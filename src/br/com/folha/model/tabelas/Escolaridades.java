@@ -17,15 +17,13 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.persistence.UniqueConstraint;
 
 /**
  *
  * @author ANDREI
  */
 @Entity
-@Table(name = "escolaridades", uniqueConstraints = {
-    @UniqueConstraint(columnNames = {"nome_escolaridade"})})
+@Table(name = "escolaridades")
 @NamedQueries({
     @NamedQuery(name = "Escolaridades.findAll", query = "SELECT e FROM Escolaridades e"),
     @NamedQuery(name = "Escolaridades.findById", query = "SELECT e FROM Escolaridades e WHERE e.id = :id"),
@@ -37,12 +35,12 @@ public class Escolaridades implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @Column(name = "id", nullable = false)
+    @Column(name = "id")
     private Long id;
     @Basic(optional = false)
-    @Column(name = "nome_escolaridade", nullable = false, length = 100)
+    @Column(name = "nome_escolaridade")
     private String nomeEscolaridade;
-    @Column(name = "descricao_escolaridade", length = 300)
+    @Column(name = "descricao_escolaridade")
     private String descricaoEscolaridade;
     @OneToMany(mappedBy = "seqEscolaridade")
     private Collection<Pessoa> pessoaCollection;

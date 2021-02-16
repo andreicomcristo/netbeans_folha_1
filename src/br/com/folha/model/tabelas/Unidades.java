@@ -55,40 +55,40 @@ public class Unidades implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @Column(name = "id", nullable = false)
+    @Column(name = "id")
     private Long id;
     @Basic(optional = false)
-    @Column(name = "nome_fantasia", nullable = false, length = 300)
+    @Column(name = "nome_fantasia")
     private String nomeFantasia;
-    @Column(name = "nome_empresarial", length = 300)
+    @Column(name = "nome_empresarial")
     private String nomeEmpresarial;
-    @Column(name = "cnes", length = 50)
+    @Column(name = "cnes")
     private String cnes;
     @Column(name = "id_natureza_juridica_fk")
     private BigInteger idNaturezaJuridicaFk;
     @Column(name = "id_endereco_unidade_fk")
     private BigInteger idEnderecoUnidadeFk;
-    @Column(name = "fone1", length = 40)
+    @Column(name = "fone1")
     private String fone1;
-    @Column(name = "endereco_logradouro", length = 300)
+    @Column(name = "endereco_logradouro")
     private String enderecoLogradouro;
-    @Column(name = "endereco_numero", length = 150)
+    @Column(name = "endereco_numero")
     private String enderecoNumero;
-    @Column(name = "endereco_complemento", length = 300)
+    @Column(name = "endereco_complemento")
     private String enderecoComplemento;
-    @Column(name = "endereco_bairro", length = 300)
+    @Column(name = "endereco_bairro")
     private String enderecoBairro;
-    @Column(name = "endereco_cep", length = 50)
+    @Column(name = "endereco_cep")
     private String enderecoCep;
     @Column(name = "dt_cadastro")
     @Temporal(TemporalType.DATE)
     private Date dtCadastro;
-    @Column(name = "motivo_cadastro", length = 300)
+    @Column(name = "motivo_cadastro")
     private String motivoCadastro;
     @Column(name = "dt_cancelamento")
     @Temporal(TemporalType.DATE)
     private Date dtCancelamento;
-    @Column(name = "motivo_cancelamento", length = 300)
+    @Column(name = "motivo_cancelamento")
     private String motivoCancelamento;
     @JoinColumn(name = "id_endereco_cidade_fk", referencedColumnName = "id")
     @ManyToOne

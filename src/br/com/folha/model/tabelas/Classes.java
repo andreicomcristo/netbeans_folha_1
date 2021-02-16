@@ -18,15 +18,13 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.persistence.UniqueConstraint;
 
 /**
  *
  * @author ANDREI
  */
 @Entity
-@Table(name = "classes", uniqueConstraints = {
-    @UniqueConstraint(columnNames = {"sigla_classe"})})
+@Table(name = "classes")
 @NamedQueries({
     @NamedQuery(name = "Classes.findAll", query = "SELECT c FROM Classes c"),
     @NamedQuery(name = "Classes.findById", query = "SELECT c FROM Classes c WHERE c.id = :id"),
@@ -39,15 +37,15 @@ public class Classes implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @Column(name = "id", nullable = false)
+    @Column(name = "id")
     private Long id;
     @Basic(optional = false)
-    @Column(name = "sigla_classe", nullable = false, length = 10)
+    @Column(name = "sigla_classe")
     private String siglaClasse;
     @Basic(optional = false)
-    @Column(name = "nome_classe", nullable = false, length = 150)
+    @Column(name = "nome_classe")
     private String nomeClasse;
-    @Column(name = "descricao_classe", length = 300)
+    @Column(name = "descricao_classe")
     private String descricaoClasse;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idClasseFk")
     private Collection<HistFuncionariosClasse> histFuncionariosClasseCollection;

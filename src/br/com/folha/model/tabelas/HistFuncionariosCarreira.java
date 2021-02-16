@@ -40,26 +40,26 @@ public class HistFuncionariosCarreira implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @Column(name = "id", nullable = false)
+    @Column(name = "id")
     private Long id;
     @Basic(optional = false)
-    @Column(name = "dt_cadastro", nullable = false)
+    @Column(name = "dt_cadastro")
     @Temporal(TemporalType.DATE)
     private Date dtCadastro;
-    @Column(name = "motivo_cadastro", length = 300)
+    @Column(name = "motivo_cadastro")
     private String motivoCadastro;
     @Column(name = "dt_cancelamento")
     @Temporal(TemporalType.DATE)
     private Date dtCancelamento;
-    @Column(name = "motivo_cancelamento", length = 300)
+    @Column(name = "motivo_cancelamento")
     private String motivoCancelamento;
-    @JoinColumn(name = "id_carreira_fk", referencedColumnName = "id", nullable = false)
+    @JoinColumn(name = "id_carreira_fk", referencedColumnName = "id")
     @ManyToOne(optional = false)
     private Carreiras idCarreiraFk;
-    @JoinColumn(name = "id_funcionario_fk", referencedColumnName = "id", nullable = false)
+    @JoinColumn(name = "id_funcionario_fk", referencedColumnName = "id")
     @ManyToOne(optional = false)
     private PessoaFuncionarios idFuncionarioFk;
-    @JoinColumn(name = "id_operador_cadastro_fk", referencedColumnName = "id", nullable = false)
+    @JoinColumn(name = "id_operador_cadastro_fk", referencedColumnName = "id")
     @ManyToOne(optional = false)
     private PessoaOperadores idOperadorCadastroFk;
     @JoinColumn(name = "id_operador_cancelamento_fk", referencedColumnName = "id")

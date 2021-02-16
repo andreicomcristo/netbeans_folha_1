@@ -35,14 +35,14 @@ public class PessoaDocumentosCtps implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @Column(name = "id", nullable = false)
+    @Column(name = "id")
     private Long id;
     @Basic(optional = false)
-    @Column(name = "numero", nullable = false, length = 100)
+    @Column(name = "numero")
     private String numero;
-    @Column(name = "serie", length = 100)
+    @Column(name = "serie")
     private String serie;
-    @JoinColumn(name = "id_pessoa_fk", referencedColumnName = "id", nullable = false)
+    @JoinColumn(name = "id_pessoa_fk", referencedColumnName = "id")
     @ManyToOne(optional = false)
     private Pessoa idPessoaFk;
 

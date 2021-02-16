@@ -21,19 +21,19 @@ import javax.persistence.TemporalType;
 public class HistUnidadesDiretorPK implements Serializable {
 
     @Basic(optional = false)
-    @Column(name = "id", nullable = false)
+    @Column(name = "id")
     private long id;
     @Basic(optional = false)
-    @Column(name = "id_unidade_de_saude_fk", nullable = false)
+    @Column(name = "id_unidade_de_saude_fk")
     private long idUnidadeDeSaudeFk;
     @Basic(optional = false)
-    @Column(name = "id_pessoa_fk", nullable = false)
+    @Column(name = "id_pessoa_fk")
     private long idPessoaFk;
     @Basic(optional = false)
-    @Column(name = "id_operador_cadastro_fk", nullable = false)
+    @Column(name = "id_operador_cadastro_fk")
     private long idOperadorCadastroFk;
     @Basic(optional = false)
-    @Column(name = "dt_cadastro", nullable = false)
+    @Column(name = "dt_cadastro")
     @Temporal(TemporalType.DATE)
     private Date dtCadastro;
 

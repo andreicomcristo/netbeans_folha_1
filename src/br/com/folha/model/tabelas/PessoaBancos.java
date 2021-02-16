@@ -47,39 +47,39 @@ public class PessoaBancos implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @Column(name = "id", nullable = false)
+    @Column(name = "id")
     private Long id;
-    @Column(name = "operacao_variacao", length = 20)
+    @Column(name = "operacao_variacao")
     private String operacaoVariacao;
     @Basic(optional = false)
-    @Column(name = "agencia_numero", nullable = false, length = 20)
+    @Column(name = "agencia_numero")
     private String agenciaNumero;
-    @Column(name = "agencia_dv", length = 5)
+    @Column(name = "agencia_dv")
     private String agenciaDv;
     @Basic(optional = false)
-    @Column(name = "conta_numero", nullable = false, length = 20)
+    @Column(name = "conta_numero")
     private String contaNumero;
     @Basic(optional = false)
-    @Column(name = "conta_dv", nullable = false, length = 5)
+    @Column(name = "conta_dv")
     private String contaDv;
-    @Column(name = "agencia_nome", length = 300)
+    @Column(name = "agencia_nome")
     private String agenciaNome;
-    @Column(name = "prioritario", length = 2147483647)
+    @Column(name = "prioritario")
     private String prioritario;
     @Column(name = "dt_cadastro")
     @Temporal(TemporalType.DATE)
     private Date dtCadastro;
-    @Column(name = "motivo_cadastro", length = 300)
+    @Column(name = "motivo_cadastro")
     private String motivoCadastro;
     @Column(name = "dt_cancelamento")
     @Temporal(TemporalType.DATE)
     private Date dtCancelamento;
-    @Column(name = "motivo_cancelamento", length = 300)
+    @Column(name = "motivo_cancelamento")
     private String motivoCancelamento;
-    @JoinColumn(name = "id_banco_fk", referencedColumnName = "id", nullable = false)
+    @JoinColumn(name = "id_banco_fk", referencedColumnName = "id")
     @ManyToOne(optional = false)
     private Bancos idBancoFk;
-    @JoinColumn(name = "id_pessoa_fk", referencedColumnName = "id", nullable = false)
+    @JoinColumn(name = "id_pessoa_fk", referencedColumnName = "id")
     @ManyToOne(optional = false)
     private Pessoa idPessoaFk;
     @JoinColumn(name = "id_operador_cadastro_fk", referencedColumnName = "id")

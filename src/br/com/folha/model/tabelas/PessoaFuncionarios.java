@@ -48,9 +48,9 @@ public class PessoaFuncionarios implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @Column(name = "id", nullable = false)
+    @Column(name = "id")
     private Long id;
-    @Column(name = "matricula", length = 30)
+    @Column(name = "matricula")
     private String matricula;
     @Column(name = "dt_nomeacao")
     @Temporal(TemporalType.DATE)
@@ -58,20 +58,22 @@ public class PessoaFuncionarios implements Serializable {
     @Column(name = "dt_posse")
     @Temporal(TemporalType.DATE)
     private Date dtPosse;
-    @Column(name = "numero_de_ordem", length = 150)
+    @Column(name = "numero_de_ordem")
     private String numeroDeOrdem;
-    @Column(name = "numero_de_ponto", length = 150)
+    @Column(name = "numero_de_ponto")
     private String numeroDePonto;
     @Column(name = "dt_cadastro")
     @Temporal(TemporalType.DATE)
     private Date dtCadastro;
-    @Column(name = "motivo_cadastro", length = 300)
+    @Column(name = "motivo_cadastro")
     private String motivoCadastro;
     @Column(name = "dt_cancelamento")
     @Temporal(TemporalType.DATE)
     private Date dtCancelamento;
-    @Column(name = "motivo_cancelamento", length = 300)
+    @Column(name = "motivo_cancelamento")
     private String motivoCancelamento;
+    @OneToMany(mappedBy = "idFuncionarioFk")
+    private Collection<HistFuncionariosNiveisCarreira> histFuncionariosNiveisCarreiraCollection;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idFuncionarioFk")
     private Collection<HistFuncionariosAutorizacao> histFuncionariosAutorizacaoCollection;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idFuncionarioFk")
@@ -88,7 +90,7 @@ public class PessoaFuncionarios implements Serializable {
     private Collection<Autorizacoes> autorizacoesCollection;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idFuncionarioFk")
     private Collection<HistFuncionariosVinculos> histFuncionariosVinculosCollection;
-    @JoinColumn(name = "id_pessoa_fk", referencedColumnName = "id", nullable = false)
+    @JoinColumn(name = "id_pessoa_fk", referencedColumnName = "id")
     @ManyToOne(optional = false)
     private Pessoa idPessoaFk;
     @JoinColumn(name = "id_operador_cadastro_fk", referencedColumnName = "id")
@@ -185,6 +187,14 @@ public class PessoaFuncionarios implements Serializable {
 
     public void setMotivoCancelamento(String motivoCancelamento) {
         this.motivoCancelamento = motivoCancelamento;
+    }
+
+    public Collection<HistFuncionariosNiveisCarreira> getHistFuncionariosNiveisCarreiraCollection() {
+        return histFuncionariosNiveisCarreiraCollection;
+    }
+
+    public void setHistFuncionariosNiveisCarreiraCollection(Collection<HistFuncionariosNiveisCarreira> histFuncionariosNiveisCarreiraCollection) {
+        this.histFuncionariosNiveisCarreiraCollection = histFuncionariosNiveisCarreiraCollection;
     }
 
     public Collection<HistFuncionariosAutorizacao> getHistFuncionariosAutorizacaoCollection() {

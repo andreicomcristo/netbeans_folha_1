@@ -18,15 +18,13 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.persistence.UniqueConstraint;
 
 /**
  *
  * @author ANDREI
  */
 @Entity
-@Table(name = "carreiras", uniqueConstraints = {
-    @UniqueConstraint(columnNames = {"sigla_carreira"})})
+@Table(name = "carreiras")
 @NamedQueries({
     @NamedQuery(name = "Carreiras.findAll", query = "SELECT c FROM Carreiras c"),
     @NamedQuery(name = "Carreiras.findById", query = "SELECT c FROM Carreiras c WHERE c.id = :id"),
@@ -39,15 +37,15 @@ public class Carreiras implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @Column(name = "id", nullable = false)
+    @Column(name = "id")
     private Long id;
     @Basic(optional = false)
-    @Column(name = "sigla_carreira", nullable = false, length = 10)
+    @Column(name = "sigla_carreira")
     private String siglaCarreira;
     @Basic(optional = false)
-    @Column(name = "nome_carreira", nullable = false, length = 150)
+    @Column(name = "nome_carreira")
     private String nomeCarreira;
-    @Column(name = "descricao_carreira", length = 300)
+    @Column(name = "descricao_carreira")
     private String descricaoCarreira;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idCarreiraFk")
     private Collection<HistFuncionariosCarreira> histFuncionariosCarreiraCollection;

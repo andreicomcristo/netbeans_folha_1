@@ -35,13 +35,13 @@ public class Privilegios implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @Column(name = "id", nullable = false)
+    @Column(name = "id")
     private Long id;
     @Basic(optional = false)
-    @Column(name = "nome_privilegio", nullable = false, length = 300)
+    @Column(name = "nome_privilegio")
     private String nomePrivilegio;
     @Basic(optional = false)
-    @Column(name = "descricao_privilegio", nullable = false, length = 3000)
+    @Column(name = "descricao_privilegio")
     private String descricaoPrivilegio;
     @OneToMany(mappedBy = "seqPrivilegio")
     private Collection<PessoaOperadores> pessoaOperadoresCollection;

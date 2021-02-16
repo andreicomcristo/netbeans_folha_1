@@ -18,15 +18,13 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.persistence.UniqueConstraint;
 
 /**
  *
  * @author ANDREI
  */
 @Entity
-@Table(name = "unidades_regime", uniqueConstraints = {
-    @UniqueConstraint(columnNames = {"sigla_regime_unid_lotacao"})})
+@Table(name = "unidades_regime")
 @NamedQueries({
     @NamedQuery(name = "UnidadesRegime.findAll", query = "SELECT u FROM UnidadesRegime u"),
     @NamedQuery(name = "UnidadesRegime.findById", query = "SELECT u FROM UnidadesRegime u WHERE u.id = :id"),
@@ -39,15 +37,15 @@ public class UnidadesRegime implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @Column(name = "id", nullable = false)
+    @Column(name = "id")
     private Long id;
     @Basic(optional = false)
-    @Column(name = "sigla_regime_unid_lotacao", nullable = false, length = 10)
+    @Column(name = "sigla_regime_unid_lotacao")
     private String siglaRegimeUnidLotacao;
     @Basic(optional = false)
-    @Column(name = "nome_regime_unid_lotacao", nullable = false, length = 150)
+    @Column(name = "nome_regime_unid_lotacao")
     private String nomeRegimeUnidLotacao;
-    @Column(name = "descricao_regime_unid_lotacao", length = 300)
+    @Column(name = "descricao_regime_unid_lotacao")
     private String descricaoRegimeUnidLotacao;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idUnidadeRegimeFk")
     private Collection<HistUnidadesRegime> histUnidadesRegimeCollection;

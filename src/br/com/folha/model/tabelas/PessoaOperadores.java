@@ -46,10 +46,10 @@ public class PessoaOperadores implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @Column(name = "id", nullable = false)
+    @Column(name = "id")
     private Long id;
     @Basic(optional = false)
-    @Column(name = "senha", nullable = false, length = 300)
+    @Column(name = "senha")
     private String senha;
     @Column(name = "dt_cadastro")
     @Temporal(TemporalType.DATE)
@@ -61,8 +61,12 @@ public class PessoaOperadores implements Serializable {
     private Date dtCancelamento;
     @Column(name = "id_operador_cancelamento_fk")
     private BigInteger idOperadorCancelamentoFk;
-    @Column(name = "motivo_cancelamento", length = 500)
+    @Column(name = "motivo_cancelamento")
     private String motivoCancelamento;
+    @OneToMany(mappedBy = "idOperadorCadastroFk")
+    private Collection<HistFuncionariosNiveisCarreira> histFuncionariosNiveisCarreiraCollection;
+    @OneToMany(mappedBy = "idOperadorCancelamentoFk")
+    private Collection<HistFuncionariosNiveisCarreira> histFuncionariosNiveisCarreiraCollection1;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idOperadorCadastroFk")
     private Collection<HistFuncionariosAutorizacao> histFuncionariosAutorizacaoCollection;
     @OneToMany(mappedBy = "idOperadorCancelamentoFk")
@@ -83,7 +87,7 @@ public class PessoaOperadores implements Serializable {
     private Collection<PessoaFilhos> pessoaFilhosCollection;
     @OneToMany(mappedBy = "idOperadorCancelamentoFk")
     private Collection<PessoaFilhos> pessoaFilhosCollection1;
-    @JoinColumn(name = "id_pessoa_fk", referencedColumnName = "id", nullable = false)
+    @JoinColumn(name = "id_pessoa_fk", referencedColumnName = "id")
     @ManyToOne(optional = false)
     private Pessoa idPessoaFk;
     @JoinColumn(name = "seq_privilegio", referencedColumnName = "id")
@@ -206,6 +210,22 @@ public class PessoaOperadores implements Serializable {
 
     public void setMotivoCancelamento(String motivoCancelamento) {
         this.motivoCancelamento = motivoCancelamento;
+    }
+
+    public Collection<HistFuncionariosNiveisCarreira> getHistFuncionariosNiveisCarreiraCollection() {
+        return histFuncionariosNiveisCarreiraCollection;
+    }
+
+    public void setHistFuncionariosNiveisCarreiraCollection(Collection<HistFuncionariosNiveisCarreira> histFuncionariosNiveisCarreiraCollection) {
+        this.histFuncionariosNiveisCarreiraCollection = histFuncionariosNiveisCarreiraCollection;
+    }
+
+    public Collection<HistFuncionariosNiveisCarreira> getHistFuncionariosNiveisCarreiraCollection1() {
+        return histFuncionariosNiveisCarreiraCollection1;
+    }
+
+    public void setHistFuncionariosNiveisCarreiraCollection1(Collection<HistFuncionariosNiveisCarreira> histFuncionariosNiveisCarreiraCollection1) {
+        this.histFuncionariosNiveisCarreiraCollection1 = histFuncionariosNiveisCarreiraCollection1;
     }
 
     public Collection<HistFuncionariosAutorizacao> getHistFuncionariosAutorizacaoCollection() {

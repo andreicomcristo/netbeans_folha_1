@@ -39,23 +39,23 @@ public class HistUnidadesDiretor implements Serializable {
     private static final long serialVersionUID = 1L;
     @EmbeddedId
     protected HistUnidadesDiretorPK histUnidadesDiretorPK;
-    @Column(name = "motivo_cadastro", length = 300)
+    @Column(name = "motivo_cadastro")
     private String motivoCadastro;
     @Column(name = "dt_cancelamento")
     @Temporal(TemporalType.DATE)
     private Date dtCancelamento;
-    @Column(name = "motivo_cancelamento", length = 300)
+    @Column(name = "motivo_cancelamento")
     private String motivoCancelamento;
-    @JoinColumn(name = "id", referencedColumnName = "id", nullable = false, insertable = false, updatable = false)
+    @JoinColumn(name = "id_pessoa_fk", referencedColumnName = "id", insertable = false, updatable = false)
     @ManyToOne(optional = false)
     private Pessoa pessoa;
-    @JoinColumn(name = "id_operador_cadastro_fk", referencedColumnName = "id", nullable = false, insertable = false, updatable = false)
+    @JoinColumn(name = "id_operador_cadastro_fk", referencedColumnName = "id", insertable = false, updatable = false)
     @ManyToOne(optional = false)
     private PessoaOperadores pessoaOperadores;
     @JoinColumn(name = "id_operador_cancelamento_fk", referencedColumnName = "id")
     @ManyToOne
     private PessoaOperadores idOperadorCancelamentoFk;
-    @JoinColumn(name = "id_unidade_de_saude_fk", referencedColumnName = "id", nullable = false, insertable = false, updatable = false)
+    @JoinColumn(name = "id_unidade_de_saude_fk", referencedColumnName = "id", insertable = false, updatable = false)
     @ManyToOne(optional = false)
     private Unidades unidades;
 
