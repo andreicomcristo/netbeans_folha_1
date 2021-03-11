@@ -194,6 +194,75 @@
     <class>br.com.folha.model.tabelas4.Users</class>
     <class>br.com.folha.model.tabelas4.PessoaDocumentosTitulo</class>
     <class>br.com.folha.model.tabelas4.Vinculos</class>
+    <class>br.com.folha.model.tabelas5.PessoaOperadores</class>
+    <class>br.com.folha.model.tabelas5.Carreiras</class>
+    <class>br.com.folha.model.tabelas5.Cidades</class>
+    <class>br.com.folha.model.tabelas5.UnidadesRegime</class>
+    <class>br.com.folha.model.tabelas5.HistFuncionariosNiveisCarreira</class>
+    <class>br.com.folha.model.tabelas5.CargosEspecialidade</class>
+    <class>br.com.folha.model.tabelas5.HistFuncionariosUnidadeLotacao</class>
+    <class>br.com.folha.model.tabelas5.Cids</class>
+    <class>br.com.folha.model.tabelas5.FuncionariosLicencasCid</class>
+    <class>br.com.folha.model.tabelas5.PessoaDocumentosReservista</class>
+    <class>br.com.folha.model.tabelas5.Escolaridades</class>
+    <class>br.com.folha.model.tabelas5.HabilitacaoCategorias</class>
+    <class>br.com.folha.model.tabelas5.Paises</class>
+    <class>br.com.folha.model.tabelas5.AreasDeCapacitacao</class>
+    <class>br.com.folha.model.tabelas5.HistFuncionariosUnidadeAtuacao</class>
+    <class>br.com.folha.model.tabelas5.PessoaFilhos</class>
+    <class>br.com.folha.model.tabelas5.UsersOperador</class>
+    <class>br.com.folha.model.tabelas5.PessoaDocumentosHabilitacao</class>
+    <class>br.com.folha.model.tabelas5.AcessoOperadoresUnidades</class>
+    <class>br.com.folha.model.tabelas5.Pessoa</class>
+    <class>br.com.folha.model.tabelas5.HistFuncionariosSituacoes</class>
+    <class>br.com.folha.model.tabelas5.PessoaBancos</class>
+    <class>br.com.folha.model.tabelas5.Uf</class>
+    <class>br.com.folha.model.tabelas5.Privilegios</class>
+    <class>br.com.folha.model.tabelas5.PessoaDocumentos</class>
+    <class>br.com.folha.model.tabelas5.FuncionariosFeriasPeriodos</class>
+    <class>br.com.folha.model.tabelas5.PessoaDocumentosTitulo</class>
+    <class>br.com.folha.model.tabelas5.UnidadesNaturezaJuridica</class>
+    <class>br.com.folha.model.tabelas5.TiposDeCapacitacao</class>
+    <class>br.com.folha.model.tabelas5.HistUnidadesRegime</class>
+    <class>br.com.folha.model.tabelas5.Enderecos</class>
+    <class>br.com.folha.model.tabelas5.TiposDeFolha</class>
+    <class>br.com.folha.model.tabelas5.FuncionariosLicencas</class>
+    <class>br.com.folha.model.tabelas5.HistFuncionariosCargos</class>
+    <class>br.com.folha.model.tabelas5.Conselhos</class>
+    <class>br.com.folha.model.tabelas5.TiposDeLicenca</class>
+    <class>br.com.folha.model.tabelas5.NiveisCargo</class>
+    <class>br.com.folha.model.tabelas5.EstadosCivis</class>
+    <class>br.com.folha.model.tabelas5.TiposDeDocumento</class>
+    <class>br.com.folha.model.tabelas5.ClassesCarreira</class>
+    <class>br.com.folha.model.tabelas5.Bancos</class>
+    <class>br.com.folha.model.tabelas5.HistFuncionariosVinculos</class>
+    <class>br.com.folha.model.tabelas5.HistFuncionariosAutorizacao</class>
+    <class>br.com.folha.model.tabelas5.Unidades</class>
+    <class>br.com.folha.model.tabelas5.FuncionariosFerias</class>
+    <class>br.com.folha.model.tabelas5.HistFuncionariosCarreira</class>
+    <class>br.com.folha.model.tabelas5.PessoaDocumentosCtps</class>
+    <class>br.com.folha.model.tabelas5.TiposDeFiliacao</class>
+    <class>br.com.folha.model.tabelas5.PessoaFotos</class>
+    <class>br.com.folha.model.tabelas5.TiposDeAnexo</class>
+    <class>br.com.folha.model.tabelas5.HistFuncionariosClasse</class>
+    <class>br.com.folha.model.tabelas5.Users</class>
+    <class>br.com.folha.model.tabelas5.HistUnidadesNaturezaJuridica</class>
+    <class>br.com.folha.model.tabelas5.FuncionariosAnexos</class>
+    <class>br.com.folha.model.tabelas5.PessoaDocumentosConselho</class>
+    <class>br.com.folha.model.tabelas5.CargaHorariaSemanal</class>
+    <class>br.com.folha.model.tabelas5.NiveisCarreira</class>
+    <class>br.com.folha.model.tabelas5.PessoaFuncionarios</class>
+    <class>br.com.folha.model.tabelas5.Vinculos</class>
+    <class>br.com.folha.model.tabelas5.HistUnidadesDiretor</class>
+    <class>br.com.folha.model.tabelas5.Cargos</class>
+    <class>br.com.folha.model.tabelas5.PessoaDocumentosRg</class>
+    <class>br.com.folha.model.tabelas5.FuncionariosCapacitacoes</class>
+    <class>br.com.folha.model.tabelas5.TiposLogradouro</class>
+    <class>br.com.folha.model.tabelas5.Sexos</class>
+    <class>br.com.folha.model.tabelas5.HistFuncionariosCargaHoraria</class>
+    <class>br.com.folha.model.tabelas5.Autorizacoes</class>
+    <class>br.com.folha.model.tabelas5.Docs</class>
+    <class>br.com.folha.model.tabelas5.Situacoes</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/folha"/>
       <property name="javax.persistence.jdbc.user" value="postgres"/>
